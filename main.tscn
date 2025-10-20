@@ -1,0 +1,2197 @@
+[gd_scene load_steps=87 format=3 uid="uid://dtcriwdea6abg"]
+
+[ext_resource type="Script" uid="uid://blgs57lq3rq2p" path="res://main.gd" id="1_yaehf"]
+[ext_resource type="AudioStream" uid="uid://c3tlfdv01j2js" path="res://music/7.-Fairy-Fountain.ogg" id="3_82xsv"]
+[ext_resource type="Script" uid="uid://dpb4ssu0w20tq" path="res://enemies/enemy_manager.gd" id="4_0cp0l"]
+[ext_resource type="AudioStream" uid="uid://b70jf7vfcpxyu" path="res://ui/sounds/rest.mp3" id="4_gngh3"]
+[ext_resource type="Script" uid="uid://bfdj7okklswqe" path="res://items/item_manager.gd" id="4_ok6jj"]
+[ext_resource type="AudioStream" uid="uid://cckdee216rsvq" path="res://ui/sounds/start-game.mp3" id="4_seu75"]
+[ext_resource type="AudioStream" uid="uid://gl31231xwlxl" path="res://ui/sounds/battle.mp3" id="5_0n3wm"]
+[ext_resource type="Script" uid="uid://25wa8svdhdv3" path="res://ui/backgrounds/background.gd" id="5_kq58d"]
+[ext_resource type="Script" uid="uid://dw4pjqkyoitnx" path="res://ui/scroll_log.gd" id="6_0rl1p"]
+[ext_resource type="AudioStream" uid="uid://cnq10nr6iwxqo" path="res://ui/sounds/treasure.mp3" id="6_qnost"]
+[ext_resource type="Texture2D" uid="uid://pdokddugajcu" path="res://enemies/sprites/Imakuni.png" id="6_vivmo"]
+[ext_resource type="Script" uid="uid://dqrtyuc2vrt14" path="res://scenarios/scenario_manager.gd" id="7_kq58d"]
+[ext_resource type="AudioStream" uid="uid://sqvcp24dnhnq" path="res://ui/sounds/victory.mp3" id="7_ruth0"]
+[ext_resource type="Script" uid="uid://cmvqyxt541g8t" path="res://enemies/enemy.gd" id="8_seu75"]
+[ext_resource type="Texture2D" uid="uid://h3xi705amyxj" path="res://status/sprites/Poison.png" id="10_h8e4i"]
+[ext_resource type="Texture2D" uid="uid://bm24ausob6a7t" path="res://status/sprites/Sleep.png" id="11_4lmeg"]
+[ext_resource type="Texture2D" uid="uid://dwh262lb8to1i" path="res://items/sprites/Rusty Sword.png" id="11_d2t1y"]
+[ext_resource type="Texture2D" uid="uid://c57cvx81tyrh5" path="res://items/sprites/White Gem.png" id="12_gngh3"]
+[ext_resource type="Texture2D" uid="uid://cqobieytmslcn" path="res://ui/backgrounds/dungeon/1.png" id="12_ruth0"]
+[ext_resource type="Texture2D" uid="uid://cvtyjtctr8ptg" path="res://items/sprites/Potion.png" id="13_0n3wm"]
+[ext_resource type="AudioStream" uid="uid://yis1ffo0ed8w" path="res://ui/sounds/door-open.mp3" id="13_d2t1y"]
+[ext_resource type="Shader" uid="uid://d3l0e6ygohur7" path="res://ui/shaders/floor.gdshader" id="13_rqtf5"]
+[ext_resource type="Texture2D" uid="uid://dry43ce4v5px3" path="res://ui/backgrounds/dungeon/floor.png" id="13_uatky"]
+[ext_resource type="Texture2D" uid="uid://dvirc06hqv8s8" path="res://ui/backgrounds/dungeon/wall.png" id="14_b17eg"]
+[ext_resource type="Shader" uid="uid://d4gbd30cgw4g7" path="res://ui/shaders/leftwall.gdshader" id="14_ntx8l"]
+[ext_resource type="AudioStream" uid="uid://b3eyhbrvn111p" path="res://status/sounds/sleep.mp3" id="15_0rl1p"]
+[ext_resource type="Texture2D" uid="uid://bjrejjcbk8cga" path="res://ui/backgrounds/dungeon/door.png" id="15_b17eg"]
+[ext_resource type="Shader" uid="uid://cmj5cfj51ohpy" path="res://ui/shaders/rightwall.gdshader" id="15_ntx8l"]
+[ext_resource type="AudioStream" uid="uid://b3ejwlxuwlj3c" path="res://status/sounds/poison.mp3" id="15_ok6jj"]
+[ext_resource type="Script" uid="uid://tnmn11xxx1qt" path="res://emotes/battle_sprite.gd" id="16_0rl1p"]
+[ext_resource type="Texture2D" uid="uid://dderge4v1joao" path="res://ui/controls/arrow-left.png" id="16_074og"]
+[ext_resource type="Texture2D" uid="uid://cvnsded0dvq8c" path="res://ui/controls/arrow-right.png" id="18_getpj"]
+[ext_resource type="AudioStream" uid="uid://rkcey6aj14i5" path="res://enemies/sounds/attack.mp3" id="22_f6a44"]
+[ext_resource type="AudioStream" uid="uid://utmjdysrgkhd" path="res://enemies/sounds/miss.mp3" id="23_0cbny"]
+[ext_resource type="AudioStream" uid="uid://bpyc3xeioex0h" path="res://player/sounds/equip-weapon.mp3" id="23_htxhm"]
+[ext_resource type="AudioStream" uid="uid://baba81vemv8os" path="res://player/sounds/take-gem.mp3" id="24_4k2k6"]
+[ext_resource type="AudioStream" uid="uid://bv1gw8f7sn2si" path="res://enemies/sounds/loaf.mp3" id="24_wnkbs"]
+[ext_resource type="AudioStream" uid="uid://ctwbgrnuyb8eu" path="res://player/sounds/take-consumable.mp3" id="25_0rl1p"]
+[ext_resource type="AudioStream" uid="uid://ccowflpe4oh76" path="res://enemies/sounds/sing.mp3" id="25_6iyjs"]
+[ext_resource type="Texture2D" uid="uid://dn6yyy83qdna" path="res://status/sprites/Shield.png" id="26_b17eg"]
+[ext_resource type="Texture2D" uid="uid://dylck3iye7nck" path="res://items/empty.png" id="27_facbu"]
+[ext_resource type="Texture2D" uid="uid://ynmjuaromocg" path="res://status/sprites/Boost.png" id="27_ntx8l"]
+[ext_resource type="Texture2D" uid="uid://dx2m5ko4bnf8m" path="res://ui/controls/up-arrow.png" id="27_xuqvo"]
+[ext_resource type="AudioStream" uid="uid://b36w0p3q8r2ph" path="res://status/sounds/shield.mp3" id="28_4w656"]
+[ext_resource type="Script" uid="uid://cubx1txu1e8lh" path="res://items/reward.gd" id="34_4lmeg"]
+[ext_resource type="Script" uid="uid://bex2dt1poytd2" path="res://ui/item_reward_button.gd" id="34_h8e4i"]
+[ext_resource type="AudioStream" uid="uid://o6bnbog2o6qs" path="res://ui/sounds/game-over.mp3" id="35_gngh3"]
+[ext_resource type="AudioStream" uid="uid://b4qlbbj5gs1c3" path="res://enemies/sounds/psycho-boost.mp3" id="37_sm6fg"]
+[ext_resource type="Texture2D" uid="uid://dcplxtmqpdyro" path="res://ui/rest.png" id="38_b17eg"]
+[ext_resource type="AudioStream" uid="uid://rnd1a1nwcuqm" path="res://player/sounds/miss.mp3" id="38_hrvbo"]
+[ext_resource type="AudioStream" uid="uid://8mjpuqkk6e1a" path="res://player/sounds/use-gem.mp3" id="39_uypp3"]
+[ext_resource type="AudioStream" uid="uid://1chsnyp2sfny" path="res://ui/sounds/button.mp3" id="42_gngh3"]
+[ext_resource type="Script" uid="uid://bfis2ks0p6gkg" path="res://ui/emote_button.gd" id="43_blkrb"]
+[ext_resource type="AudioStream" uid="uid://cnk1l26thooe7" path="res://player/sounds/gain-experience.mp3" id="44_0cbny"]
+[ext_resource type="AudioStream" uid="uid://dn45r45r8bjnv" path="res://player/sounds/gain-level.mp3" id="45_hrvbo"]
+[ext_resource type="Texture2D" uid="uid://8eq53iw2hqvc" path="res://icon.png" id="46_ntx8l"]
+[ext_resource type="FontFile" uid="uid://beyler21qoj57" path="res://ui/Gameplay.ttf" id="50_4w656"]
+[ext_resource type="Script" uid="uid://bmoiw26c0d7qg" path="res://player/player.gd" id="52_rnkwl"]
+[ext_resource type="Script" uid="uid://defkbtrgmu13c" path="res://ui/item_action_button.gd" id="54_vke2r"]
+[ext_resource type="Script" uid="uid://c4648vpwbenq8" path="res://ui/item_description.gd" id="56_e71vb"]
+[ext_resource type="Texture2D" uid="uid://pobea1ophdmj" path="res://ui/treasure.png" id="57_ntx8l"]
+[ext_resource type="Texture2D" uid="uid://cl7gtumaf22br" path="res://help/help-overview.png" id="57_rnkwl"]
+[ext_resource type="Texture2D" uid="uid://bk3ltk1ncknni" path="res://ui/controls/arrow-up.png" id="58_vke2r"]
+[ext_resource type="Texture2D" uid="uid://wsorxgn1tjwi" path="res://help/help-weapon.png" id="59_rm4vd"]
+[ext_resource type="Texture2D" uid="uid://dmbd5cbgi6xli" path="res://items/sprites/Gold Gem.png" id="59_uit24"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1vm84"]
+shader = ExtResource("13_rqtf5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uatky"]
+shader = ExtResource("14_ntx8l")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rqtf5"]
+shader = ExtResource("15_ntx8l")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_blkrb"]
+bg_color = Color(1, 1, 1, 0.6862745)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 0.5882353)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abqjc"]
+bg_color = Color(0, 0, 0, 0.78431374)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 0.78431374)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4k2k6"]
+
+[sub_resource type="Theme" id="Theme_4k2k6"]
+default_font = ExtResource("50_4w656")
+default_font_size = 70
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uypp3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e71vb"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 0.5882353)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vke2r"]
+bg_color = Color(0.6, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0rl1p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xuqvo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rnkwl"]
+texture = ExtResource("27_facbu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vke2r"]
+texture = ExtResource("27_facbu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uit24"]
+texture = ExtResource("27_facbu")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b17eg"]
+bg_color = Color(0.16749999, 0.17025, 0.25, 0.39215687)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rnkwl"]
+bg_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e71vb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ok6jj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ruth0"]
+texture = ExtResource("27_facbu")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vke2r"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_yaehf")
+
+[node name="ScenarioManager" type="Node" parent="."]
+script = ExtResource("7_kq58d")
+
+[node name="SoundManager" type="Node" parent="."]
+
+[node name="ButtonPressedSound" type="AudioStreamPlayer2D" parent="SoundManager"]
+stream = ExtResource("42_gngh3")
+
+[node name="Rest" type="AudioStreamPlayer2D" parent="SoundManager"]
+stream = ExtResource("4_gngh3")
+parameters/looping = true
+
+[node name="Battle" type="AudioStreamPlayer2D" parent="SoundManager"]
+stream = ExtResource("5_0n3wm")
+
+[node name="Treasure" type="AudioStreamPlayer2D" parent="SoundManager"]
+stream = ExtResource("6_qnost")
+
+[node name="Victory" type="AudioStreamPlayer2D" parent="SoundManager"]
+stream = ExtResource("7_ruth0")
+
+[node name="EnemyManager" type="Node" parent="."]
+script = ExtResource("4_0cp0l")
+
+[node name="ItemManager" type="Node" parent="."]
+script = ExtResource("4_ok6jj")
+
+[node name="BackgroundManager" type="CenterContainer" parent="."]
+visible = false
+offset_right = 1200.0
+offset_bottom = 900.0
+script = ExtResource("5_kq58d")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="BackgroundManager"]
+stream = ExtResource("3_82xsv")
+volume_db = -7.5
+autoplay = true
+
+[node name="Background" type="TextureRect" parent="BackgroundManager"]
+custom_minimum_size = Vector2(1200, 900)
+layout_mode = 2
+texture = ExtResource("12_ruth0")
+expand_mode = 2
+
+[node name="Background" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Floor" type="NinePatchRect" parent="Background"]
+modulate = Color(0.5, 0.5, 0.425, 1)
+material = SubResource("ShaderMaterial_1vm84")
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 900.0
+texture = ExtResource("13_uatky")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="BackWall" type="NinePatchRect" parent="Background"]
+modulate = Color(0.17049986, 0.26514006, 0.2982014, 1)
+layout_mode = 0
+offset_top = -179.0
+offset_right = 1200.0
+offset_bottom = 523.0
+texture = ExtResource("14_b17eg")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="LeftWall" type="NinePatchRect" parent="Background"]
+modulate = Color(0.17049986, 0.26514006, 0.2982014, 1)
+material = SubResource("ShaderMaterial_uatky")
+layout_mode = 0
+offset_top = -27.0
+offset_right = 350.0
+offset_bottom = 873.0
+texture = ExtResource("14_b17eg")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="RightWall" type="NinePatchRect" parent="Background"]
+modulate = Color(0.17049986, 0.26514006, 0.2982014, 1)
+material = SubResource("ShaderMaterial_rqtf5")
+layout_mode = 0
+offset_left = 850.0
+offset_top = -377.0
+offset_right = 1200.0
+offset_bottom = 523.0
+texture = ExtResource("14_b17eg")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="TextureButton" type="TextureButton" parent="Background"]
+modulate = Color(0.44, 0.35046, 0.29479998, 1)
+layout_mode = 0
+offset_left = 441.0
+offset_top = 148.0
+offset_right = 761.0
+offset_bottom = 532.0
+texture_normal = ExtResource("15_b17eg")
+
+[node name="LogUI" type="CenterContainer" parent="."]
+offset_right = 1200.0
+offset_bottom = 180.0
+
+[node name="LogMenu" type="MarginContainer" parent="LogUI"]
+custom_minimum_size = Vector2(1200, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Border" type="Panel" parent="LogUI/LogMenu"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_blkrb")
+
+[node name="Background" type="MarginContainer" parent="LogUI/LogMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Background" type="Panel" parent="LogUI/LogMenu/Background"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_abqjc")
+
+[node name="Message" type="MarginContainer" parent="LogUI/LogMenu/Background"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel" type="Panel" parent="LogUI/LogMenu/Background/Message"]
+clip_contents = true
+custom_minimum_size = Vector2(1137, 90)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4k2k6")
+
+[node name="ScrollLogger" type="ScrollContainer" parent="LogUI/LogMenu/Background/Message"]
+layout_mode = 2
+theme = SubResource("Theme_4k2k6")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("6_0rl1p")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LogUI/LogMenu/Background/Message/ScrollLogger"]
+custom_minimum_size = Vector2(1136, 0)
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 2
+
+[node name="Start" type="MarginContainer" parent="."]
+visible = false
+offset_left = 468.0
+offset_top = 218.0
+offset_right = 732.0
+offset_bottom = 682.0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="Start" type="Button" parent="Start"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+icon = ExtResource("27_xuqvo")
+flat = true
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="Start/Start"]
+scale = Vector2(0.9, 0.9)
+stream = ExtResource("4_seu75")
+
+[node name="Enemy" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_seu75")
+
+[node name="EnemyUI" type="CenterContainer" parent="Enemy"]
+layout_mode = 0
+offset_left = 417.0
+offset_top = 103.0
+offset_right = 784.0
+offset_bottom = 607.0
+
+[node name="Sprite" type="Sprite2D" parent="Enemy/EnemyUI"]
+position = Vector2(184.00006, 452)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("6_vivmo")
+offset = Vector2(0, -190)
+script = ExtResource("16_0rl1p")
+
+[node name="Description" type="VBoxContainer" parent="Enemy/EnemyUI"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Status" type="VBoxContainer" parent="Enemy/EnemyUI/Description"]
+layout_mode = 2
+
+[node name="Divider" type="HBoxContainer" parent="Enemy/EnemyUI/Description/Status"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Buffs" type="HBoxContainer" parent="Enemy/EnemyUI/Description/Status/Divider"]
+layout_mode = 2
+
+[node name="Shield" type="TextureRect" parent="Enemy/EnemyUI/Description/Status/Divider/Buffs"]
+layout_mode = 2
+texture = ExtResource("26_b17eg")
+
+[node name="Label" type="Label" parent="Enemy/EnemyUI/Description/Status/Divider/Buffs/Shield"]
+layout_mode = 0
+offset_right = 65.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Boost" type="TextureRect" parent="Enemy/EnemyUI/Description/Status/Divider/Buffs"]
+layout_mode = 2
+texture = ExtResource("27_ntx8l")
+
+[node name="Label" type="Label" parent="Enemy/EnemyUI/Description/Status/Divider/Buffs/Boost"]
+layout_mode = 0
+offset_right = 65.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Status" type="HBoxContainer" parent="Enemy/EnemyUI/Description/Status/Divider"]
+layout_mode = 2
+
+[node name="Poison" type="TextureRect" parent="Enemy/EnemyUI/Description/Status/Divider/Status"]
+layout_mode = 2
+texture = ExtResource("10_h8e4i")
+
+[node name="Label" type="Label" parent="Enemy/EnemyUI/Description/Status/Divider/Status/Poison"]
+layout_mode = 0
+offset_right = 65.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Sleep" type="TextureRect" parent="Enemy/EnemyUI/Description/Status/Divider/Status"]
+layout_mode = 2
+texture = ExtResource("11_4lmeg")
+
+[node name="Label" type="Label" parent="Enemy/EnemyUI/Description/Status/Divider/Status/Sleep"]
+layout_mode = 0
+offset_right = 65.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="_placeholder_" type="Panel" parent="Enemy/EnemyUI/Description/Status/Divider"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_uypp3")
+
+[node name="Info" type="MarginContainer" parent="Enemy/EnemyUI/Description"]
+layout_mode = 2
+
+[node name="Border" type="Panel" parent="Enemy/EnemyUI/Description/Info"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_blkrb")
+
+[node name="Background" type="MarginContainer" parent="Enemy/EnemyUI/Description/Info"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Background" type="Panel" parent="Enemy/EnemyUI/Description/Info/Background"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_abqjc")
+
+[node name="Info" type="VBoxContainer" parent="Enemy/EnemyUI/Description/Info/Background"]
+layout_mode = 2
+
+[node name="Info" type="HBoxContainer" parent="Enemy/EnemyUI/Description/Info/Background/Info"]
+layout_mode = 2
+
+[node name="Name" type="MarginContainer" parent="Enemy/EnemyUI/Description/Info/Background/Info/Info"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="Enemy/EnemyUI/Description/Info/Background/Info/Info/Name"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 20
+text = "Enemy Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level" type="MarginContainer" parent="Enemy/EnemyUI/Description/Info/Background/Info/Info"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 0
+
+[node name="Label" type="Label" parent="Enemy/EnemyUI/Description/Info/Background/Info/Info/Level"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 20
+text = "Level XXX"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HealthBar" type="MarginContainer" parent="Enemy/EnemyUI/Description/Info/Background/Info"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VerticalDivider" type="VBoxContainer" parent="Enemy/EnemyUI/Description/Info/Background/Info/HealthBar"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Top" type="MarginContainer" parent="Enemy/EnemyUI/Description/Info/Background/Info/HealthBar/VerticalDivider"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Enemy/EnemyUI/Description/Info/Background/Info/HealthBar/VerticalDivider/Top"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
+
+[node name="Middle" type="HBoxContainer" parent="Enemy/EnemyUI/Description/Info/Background/Info/HealthBar/VerticalDivider"]
+layout_mode = 2
+
+[node name="Left" type="MarginContainer" parent="Enemy/EnemyUI/Description/Info/Background/Info/HealthBar/VerticalDivider/Middle"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Enemy/EnemyUI/Description/Info/Background/Info/HealthBar/VerticalDivider/Middle/Left"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
+
+[node name="Bar" type="ProgressBar" parent="Enemy/EnemyUI/Description/Info/Background/Info/HealthBar/VerticalDivider/Middle"]
+custom_minimum_size = Vector2(271, 15)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_vke2r")
+show_percentage = false
+
+[node name="Right" type="MarginContainer" parent="Enemy/EnemyUI/Description/Info/Background/Info/HealthBar/VerticalDivider/Middle"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Enemy/EnemyUI/Description/Info/Background/Info/HealthBar/VerticalDivider/Middle/Right"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
+
+[node name="Bottom" type="MarginContainer" parent="Enemy/EnemyUI/Description/Info/Background/Info/HealthBar/VerticalDivider"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Enemy/EnemyUI/Description/Info/Background/Info/HealthBar/VerticalDivider/Bottom"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
+
+[node name="Enemy" type="MarginContainer" parent="Enemy/EnemyUI/Description"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+
+[node name="Panel" type="Panel" parent="Enemy/EnemyUI/Description/Enemy"]
+custom_minimum_size = Vector2(300, 325)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0rl1p")
+
+[node name="SoundEffects" type="Node" parent="Enemy"]
+
+[node name="BattleCry" type="AudioStreamPlayer2D" parent="Enemy/SoundEffects"]
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="Enemy/SoundEffects"]
+stream = ExtResource("22_f6a44")
+
+[node name="Miss" type="AudioStreamPlayer2D" parent="Enemy/SoundEffects"]
+stream = ExtResource("23_0cbny")
+volume_db = 10.0
+
+[node name="Loaf" type="AudioStreamPlayer2D" parent="Enemy/SoundEffects"]
+stream = ExtResource("24_wnkbs")
+
+[node name="Sing" type="AudioStreamPlayer2D" parent="Enemy/SoundEffects"]
+stream = ExtResource("25_6iyjs")
+
+[node name="Poison" type="AudioStreamPlayer2D" parent="Enemy/SoundEffects"]
+stream = ExtResource("15_ok6jj")
+volume_db = 10.0
+
+[node name="Sleep" type="AudioStreamPlayer2D" parent="Enemy/SoundEffects"]
+stream = ExtResource("15_0rl1p")
+volume_db = 10.0
+
+[node name="Shield" type="AudioStreamPlayer2D" parent="Enemy/SoundEffects"]
+stream = ExtResource("28_4w656")
+
+[node name="PsychoBoost" type="AudioStreamPlayer2D" parent="Enemy/SoundEffects"]
+stream = ExtResource("37_sm6fg")
+
+[node name="Rest" type="TextureRect" parent="."]
+visible = false
+offset_left = 101.0
+offset_top = 257.0
+offset_right = 613.0
+offset_bottom = 769.0
+texture = ExtResource("38_b17eg")
+
+[node name="Player" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("52_rnkwl")
+
+[node name="PlayerUI" type="CenterContainer" parent="Player"]
+layout_mode = 0
+offset_top = 268.0
+offset_right = 1201.0
+offset_bottom = 880.0
+
+[node name="PlayerMenus" type="HBoxContainer" parent="Player/PlayerUI"]
+layout_mode = 2
+
+[node name="ItemDescription" type="Panel" parent="Player/PlayerUI/PlayerMenus"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_xuqvo")
+
+[node name="ItemDescription" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ItemDescription"]
+visible = false
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 0
+offset_left = 4.0
+offset_top = -20.0
+offset_right = 354.0
+offset_bottom = 443.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 10
+script = ExtResource("56_e71vb")
+
+[node name="Border" type="Panel" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_blkrb")
+
+[node name="Background" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Background" type="Panel" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background"]
+custom_minimum_size = Vector2(259, 443)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_abqjc")
+
+[node name="Description" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="DescriptionDivider" type="VBoxContainer" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description"]
+layout_mode = 2
+
+[node name="Name" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description/DescriptionDivider"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description/DescriptionDivider/Name"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 32
+text = "Item Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Type" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description/DescriptionDivider"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 0
+
+[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description/DescriptionDivider/Type"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 32
+text = "Item Type"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Divider1" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description/DescriptionDivider"]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Panel" type="Panel" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description/DescriptionDivider/Divider1"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
+
+[node name="Description" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description/DescriptionDivider"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description/DescriptionDivider/Description"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 28
+text = "Item Description"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Accuracy" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description/DescriptionDivider"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 0
+
+[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description/DescriptionDivider/Accuracy"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 28
+text = "ACC: XXX%"
+vertical_alignment = 1
+
+[node name="Divider2" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description/DescriptionDivider"]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Panel" type="Panel" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description/DescriptionDivider/Divider2"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
+
+[node name="Flavor" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description/DescriptionDivider"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description/DescriptionDivider/Flavor"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 24
+text = "Item Flavor"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ActionMenu" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus"]
+custom_minimum_size = Vector2(470, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 384
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="Border" type="Panel" parent="Player/PlayerUI/PlayerMenus/ActionMenu"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_blkrb")
+
+[node name="Background" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ActionMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Background" type="Panel" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_abqjc")
+
+[node name="Inventory" type="VBoxContainer" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background"]
+layout_mode = 2
+
+[node name="Usables" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 35
+theme_override_constants/margin_bottom = 10
+
+[node name="UsablesDivider" type="HBoxContainer" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables"]
+layout_mode = 2
+theme_override_constants/separation = 90
+
+[node name="Weapon" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider"]
+layout_mode = 2
+
+[node name="Background" type="Panel" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Weapon"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_rnkwl")
+
+[node name="Button" type="TextureButton" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Weapon"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("11_d2t1y")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("54_vke2r")
+
+[node name="Gems" type="HBoxContainer" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Gem1" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems"]
+layout_mode = 2
+
+[node name="Background" type="Panel" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem1"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vke2r")
+
+[node name="Button" type="TextureButton" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem1"]
+layout_mode = 2
+texture_normal = ExtResource("12_gngh3")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("54_vke2r")
+
+[node name="Gem2" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="Background" type="Panel" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vke2r")
+
+[node name="Button" type="TextureButton" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem2"]
+layout_mode = 2
+texture_normal = ExtResource("12_gngh3")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("54_vke2r")
+
+[node name="Consumables" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory"]
+layout_mode = 2
+theme_override_constants/margin_left = 161
+theme_override_constants/margin_right = 0
+
+[node name="ConsumablesDivider" type="HBoxContainer" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Consumable1" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="Background" type="Panel" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable1"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_uit24")
+
+[node name="Button" type="TextureButton" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable1"]
+layout_mode = 2
+texture_normal = ExtResource("13_0n3wm")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("54_vke2r")
+
+[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable1/Button"]
+layout_mode = 0
+offset_right = 65.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Consumable2" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="Background" type="Panel" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable2"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_uit24")
+
+[node name="Button" type="TextureButton" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable2"]
+layout_mode = 2
+texture_normal = ExtResource("13_0n3wm")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("54_vke2r")
+
+[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable2/Button"]
+layout_mode = 0
+offset_right = 65.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Consumable3" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="Background" type="Panel" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable3"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_uit24")
+
+[node name="Button" type="TextureButton" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable3"]
+layout_mode = 2
+texture_normal = ExtResource("13_0n3wm")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("54_vke2r")
+
+[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable3/Button"]
+layout_mode = 0
+offset_right = 65.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Screen" type="Panel" parent="Player/PlayerUI/PlayerMenus/ActionMenu"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b17eg")
+
+[node name="PlayerDescription" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 19
+
+[node name="Description" type="VBoxContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription"]
+layout_mode = 2
+
+[node name="Info" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+
+[node name="Border" type="Panel" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_blkrb")
+
+[node name="Background" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Background" type="Panel" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_abqjc")
+
+[node name="Info" type="VBoxContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background"]
+layout_mode = 2
+
+[node name="Name" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/Name"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 36
+text = "Player"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Powers" type="HBoxContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info"]
+layout_mode = 2
+
+[node name="AttackPower" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/Powers"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/Powers/AttackPower"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 16
+text = "XX Attack Power"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="GemPower" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/Powers"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/Powers/GemPower"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 16
+text = "XX Gem Power"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Gold" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/Gold"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 16
+text = "XXXX Gold"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Level" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/Level"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 24
+text = "Level XXX"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ExperienceBar" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VerticalDivider" type="VBoxContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/ExperienceBar"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Top" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/ExperienceBar/VerticalDivider"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/ExperienceBar/VerticalDivider/Top"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
+
+[node name="Middle" type="HBoxContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/ExperienceBar/VerticalDivider"]
+layout_mode = 2
+
+[node name="Left" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/ExperienceBar/VerticalDivider/Middle"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/ExperienceBar/VerticalDivider/Middle/Left"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
+
+[node name="Bar" type="ProgressBar" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/ExperienceBar/VerticalDivider/Middle"]
+custom_minimum_size = Vector2(208, 15)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_rnkwl")
+show_percentage = false
+
+[node name="Right" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/ExperienceBar/VerticalDivider/Middle"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/ExperienceBar/VerticalDivider/Middle/Right"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
+
+[node name="Bottom" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/ExperienceBar/VerticalDivider"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/ExperienceBar/VerticalDivider/Bottom"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
+
+[node name="Health" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/Health"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 24
+text = "XXX/XXX HP"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HealthBar" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VerticalDivider" type="VBoxContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/HealthBar"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Top" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/HealthBar/VerticalDivider"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/HealthBar/VerticalDivider/Top"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
+
+[node name="Middle" type="HBoxContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/HealthBar/VerticalDivider"]
+layout_mode = 2
+
+[node name="Left" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/HealthBar/VerticalDivider/Middle"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/HealthBar/VerticalDivider/Middle/Left"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
+
+[node name="Bar" type="ProgressBar" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/HealthBar/VerticalDivider/Middle"]
+custom_minimum_size = Vector2(208, 15)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_vke2r")
+show_percentage = false
+
+[node name="Right" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/HealthBar/VerticalDivider/Middle"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/HealthBar/VerticalDivider/Middle/Right"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
+
+[node name="Bottom" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/HealthBar/VerticalDivider"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/HealthBar/VerticalDivider/Bottom"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
+
+[node name="Player" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="Background" type="Panel" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player"]
+custom_minimum_size = Vector2(318, 265)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_e71vb")
+
+[node name="Divider" type="HBoxContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider"]
+layout_mode = 2
+alignment = 2
+
+[node name="Buffs" type="VBoxContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Shield" type="TextureRect" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Buffs"]
+layout_mode = 2
+texture = ExtResource("26_b17eg")
+
+[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Buffs/Shield"]
+layout_mode = 0
+offset_right = 65.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Boost" type="TextureRect" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Buffs"]
+layout_mode = 2
+texture = ExtResource("27_ntx8l")
+
+[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Buffs/Boost"]
+layout_mode = 0
+offset_right = 65.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Status" type="VBoxContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Poison" type="TextureRect" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Status"]
+layout_mode = 2
+texture = ExtResource("10_h8e4i")
+
+[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Status/Poison"]
+layout_mode = 0
+offset_right = 65.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Sleep" type="TextureRect" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Status"]
+layout_mode = 2
+texture = ExtResource("11_4lmeg")
+
+[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Status/Sleep"]
+layout_mode = 0
+offset_right = 65.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Sprite" type="Sprite2D" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider"]
+position = Vector2(208.5, 130.99994)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("46_ntx8l")
+script = ExtResource("16_0rl1p")
+
+[node name="MarginContainer" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 10
+
+[node name="Panel" type="Panel" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/MarginContainer"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ok6jj")
+
+[node name="SoundEffects" type="Node" parent="Player"]
+
+[node name="WeaponAcquire" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
+stream = ExtResource("23_htxhm")
+volume_db = 10.0
+
+[node name="GemAcquire" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
+stream = ExtResource("24_4k2k6")
+
+[node name="ConsumableAcquire" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
+stream = ExtResource("25_0rl1p")
+
+[node name="Action" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
+
+[node name="Miss" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
+stream = ExtResource("38_hrvbo")
+volume_db = 10.0
+
+[node name="UseGem" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
+stream = ExtResource("39_uypp3")
+
+[node name="GainExperience" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
+stream = ExtResource("44_0cbny")
+
+[node name="GainLevel" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
+stream = ExtResource("45_hrvbo")
+
+[node name="Poison" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
+stream = ExtResource("15_ok6jj")
+volume_db = 10.0
+
+[node name="Sleep" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
+stream = ExtResource("15_0rl1p")
+volume_db = 10.0
+
+[node name="Shield" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
+stream = ExtResource("28_4w656")
+
+[node name="GameOver" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
+stream = ExtResource("35_gngh3")
+volume_db = 10.0
+
+[node name="Gem3" type="MarginContainer" parent="Player"]
+visible = false
+layout_mode = 0
+offset_top = 268.0
+offset_right = 80.0
+offset_bottom = 348.0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="Background" type="Panel" parent="Player/Gem3"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vke2r")
+
+[node name="Button" type="TextureButton" parent="Player/Gem3"]
+layout_mode = 2
+texture_normal = ExtResource("12_gngh3")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("54_vke2r")
+
+[node name="Consumable4" type="MarginContainer" parent="Player"]
+visible = false
+layout_mode = 0
+offset_left = 724.0
+offset_top = 773.0
+offset_right = 794.0
+offset_bottom = 843.0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="Background" type="Panel" parent="Player/Consumable4"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_uit24")
+
+[node name="Button" type="TextureButton" parent="Player/Consumable4"]
+layout_mode = 2
+texture_normal = ExtResource("13_0n3wm")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("54_vke2r")
+
+[node name="Label" type="Label" parent="Player/Consumable4/Button"]
+layout_mode = 0
+offset_right = 65.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Consumable5" type="MarginContainer" parent="Player"]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 714.0
+offset_top = 773.0
+offset_right = 784.0
+offset_bottom = 843.0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="Background" type="Panel" parent="Player/Consumable5"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_uit24")
+
+[node name="Button" type="TextureButton" parent="Player/Consumable5"]
+layout_mode = 2
+texture_normal = ExtResource("13_0n3wm")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("54_vke2r")
+
+[node name="Label" type="Label" parent="Player/Consumable5/Button"]
+layout_mode = 0
+offset_right = 65.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Player"]
+layout_mode = 0
+offset_left = 913.0
+offset_top = 208.0
+offset_right = 977.0
+offset_bottom = 272.0
+
+[node name="Emote" type="MarginContainer" parent="Player/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Player/MarginContainer/Emote"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ruth0")
+
+[node name="Emote" type="TextureRect" parent="Player/MarginContainer/Emote"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+expand_mode = 2
+script = ExtResource("43_blkrb")
+
+[node name="Label" type="Label" parent="Player/MarginContainer/Emote/Emote"]
+visible = false
+layout_mode = 0
+offset_right = 65.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/MarginContainer"]
+layout_mode = 2
+
+[node name="Reward" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("34_4lmeg")
+
+[node name="TextureButton" type="TextureButton" parent="Reward"]
+layout_mode = 0
+offset_left = 396.0
+offset_top = 236.0
+offset_right = 908.0
+offset_bottom = 748.0
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("57_ntx8l")
+
+[node name="Reward" type="MarginContainer" parent="Reward"]
+visible = false
+layout_mode = 0
+offset_left = 600.0
+offset_top = 403.0
+offset_right = 750.0
+offset_bottom = 553.0
+
+[node name="Background" type="Panel" parent="Reward/Reward"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vke2r")
+
+[node name="Button" type="TextureButton" parent="Reward/Reward"]
+layout_mode = 2
+texture_normal = ExtResource("12_gngh3")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("34_h8e4i")
+
+[node name="Rewards" type="CenterContainer" parent="Reward"]
+layout_mode = 0
+offset_top = 425.0
+offset_right = 1200.0
+offset_bottom = 505.0
+
+[node name="Rewards" type="HBoxContainer" parent="Reward/Rewards"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Skip" type="Button" parent="Reward"]
+layout_mode = 0
+offset_left = 506.0
+offset_top = 570.0
+offset_right = 674.0
+offset_bottom = 654.0
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 64
+text = "SKIP"
+
+[node name="NextEvent" type="MarginContainer" parent="."]
+visible = false
+offset_left = 468.0
+offset_top = 218.0
+offset_right = 732.0
+offset_bottom = 682.0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="NextEvent" type="Button" parent="NextEvent"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+icon = ExtResource("27_xuqvo")
+flat = true
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="NextEvent/NextEvent"]
+scale = Vector2(0.9, 0.9)
+stream = ExtResource("13_d2t1y")
+
+[node name="Help" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+
+[node name="HelpMenu" type="Control" parent="Help"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HelpMenu" type="MarginContainer" parent="Help/HelpMenu"]
+custom_minimum_size = Vector2(1200, 900)
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 900.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HelpMenu" type="Control" parent="Help/HelpMenu/HelpMenu"]
+layout_mode = 2
+
+[node name="Background" type="ColorRect" parent="Help/HelpMenu/HelpMenu/HelpMenu"]
+layout_mode = 0
+color = Color(0.0980392, 0.0980392, 0.294118, 1)
+
+[node name="Scene" type="CenterContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu"]
+layout_mode = 0
+offset_right = 807.0
+offset_bottom = 540.0
+
+[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/HelpMenu/Scene"]
+custom_minimum_size = Vector2(807, 540)
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_vke2r")
+expand_mode = 1
+
+[node name="HelpScreens" type="TabContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 58.0
+offset_right = 896.0
+offset_bottom = 111.0
+theme_override_font_sizes/font_size = 32
+tab_alignment = 1
+current_tab = 0
+tabs_position = 1
+clip_tabs = false
+tabs_visible = false
+
+[node name="Overview" type="Control" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Scene" type="CenterContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Overview"]
+visible = false
+layout_mode = 0
+offset_left = 7.0
+offset_top = 55.0
+offset_right = 814.0
+offset_bottom = 595.0
+
+[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Overview/Scene"]
+custom_minimum_size = Vector2(807, 540)
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_vke2r")
+expand_mode = 1
+
+[node name="Arrow2" type="CenterContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Overview"]
+layout_mode = 0
+offset_left = 741.0
+offset_top = 442.0
+offset_right = 997.0
+offset_bottom = 490.0
+rotation = 2.90946
+
+[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Overview/Arrow2"]
+custom_minimum_size = Vector2(256, 48)
+layout_mode = 2
+texture = ExtResource("16_074og")
+expand_mode = 1
+
+[node name="Arrow3" type="CenterContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Overview"]
+layout_mode = 0
+offset_left = 702.0
+offset_top = 389.0
+offset_right = 898.0
+offset_bottom = 437.0
+rotation = 2.96706
+
+[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Overview/Arrow3"]
+custom_minimum_size = Vector2(196, 48)
+layout_mode = 2
+texture = ExtResource("16_074og")
+expand_mode = 1
+
+[node name="Arrow" type="CenterContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Overview"]
+visible = false
+layout_mode = 0
+offset_left = 150.0
+offset_top = -50.0
+offset_right = 278.0
+offset_bottom = 78.0
+rotation = 1.84656
+
+[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Overview/Arrow"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("16_074og")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Overview"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 201.0
+offset_top = 299.0
+offset_right = -285.0
+offset_bottom = 478.0
+theme_override_constants/outline_size = 8
+text = "Venture into the dungeon and
+defeat enemies to find the Gold Gem
+
+Gain levels to increase your attack power
+and maximum health
+
+When you run out of HP, it's game over!"
+
+[node name="Weapons" type="Control" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Scene" type="CenterContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Weapons"]
+visible = false
+layout_mode = 0
+offset_left = 8.0
+offset_top = 53.0
+offset_right = 815.0
+offset_bottom = 593.0
+
+[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Weapons/Scene"]
+custom_minimum_size = Vector2(807, 540)
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_vke2r")
+expand_mode = 1
+
+[node name="Arrow2" type="CenterContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Weapons"]
+layout_mode = 0
+offset_left = 675.0
+offset_top = 386.0
+offset_right = 931.0
+offset_bottom = 434.0
+rotation = 3.14159
+
+[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Weapons/Arrow2"]
+custom_minimum_size = Vector2(256, 48)
+layout_mode = 2
+texture = ExtResource("16_074og")
+expand_mode = 1
+
+[node name="Arrow" type="CenterContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Weapons"]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 496.0
+offset_right = 337.0
+offset_bottom = 624.0
+rotation = -1.39626
+
+[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Weapons/Arrow"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("16_074og")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Weapons"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 202.0
+offset_top = 334.0
+offset_right = -374.0
+offset_bottom = 383.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "Weapons deal damage based
+on their power and your level"
+
+[node name="Gems" type="Control" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Arrow" type="CenterContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Gems"]
+layout_mode = 0
+offset_left = 292.0
+offset_top = 475.0
+offset_right = 420.0
+offset_bottom = 603.0
+rotation = -1.39626
+
+[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Gems/Arrow"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("16_074og")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Gems"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 243.0
+offset_top = 243.0
+offset_right = -249.0
+offset_bottom = 370.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "Gems have a variety of effects and
+increase in power each time you get one
+  Red: Deals damage
+  Green: Poisons the enemy
+  Blue: Puts the enemy to sleep"
+
+[node name="Consumables" type="Control" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="Scene" type="CenterContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Consumables"]
+visible = false
+layout_mode = 0
+offset_left = 9.0
+offset_top = 30.0
+offset_right = 816.0
+offset_bottom = 570.0
+
+[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Consumables/Scene"]
+custom_minimum_size = Vector2(807, 540)
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_vke2r")
+expand_mode = 1
+
+[node name="Arrow" type="CenterContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Consumables"]
+layout_mode = 0
+offset_left = 293.0
+offset_top = 473.0
+offset_right = 421.0
+offset_bottom = 601.0
+rotation = -1.39626
+
+[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Consumables/Arrow"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("16_074og")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Consumables"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 244.0
+offset_top = 241.0
+offset_right = -225.0
+offset_bottom = 368.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "Consumable items restore health or status:
+ - Potion: Heals 20 HP
+ - Sodie Pop: Heals 50 HP
+ - Antidote: Heals poison
+ - Full Restore: Heals all HP and Status"
+
+[node name="Status" type="Control" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+
+[node name="Scene" type="CenterContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Status"]
+visible = false
+layout_mode = 0
+offset_left = 8.0
+offset_top = 30.0
+offset_right = 815.0
+offset_bottom = 570.0
+
+[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Status/Scene"]
+custom_minimum_size = Vector2(807, 540)
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_vke2r")
+expand_mode = 1
+
+[node name="Arrow2" type="CenterContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Status"]
+layout_mode = 0
+offset_left = 639.0
+offset_top = 536.0
+offset_right = 895.0
+offset_bottom = 584.0
+rotation = 4.02997
+
+[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Status/Arrow2"]
+custom_minimum_size = Vector2(256, 48)
+layout_mode = 2
+texture = ExtResource("16_074og")
+expand_mode = 1
+
+[node name="Arrow" type="CenterContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Status"]
+layout_mode = 0
+offset_left = 442.0
+offset_top = 203.0
+offset_right = 570.0
+offset_bottom = 331.0
+rotation = 1.84656
+
+[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Status/Arrow"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("16_074og")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Status"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 202.0
+offset_top = 274.0
+offset_right = -293.0
+offset_bottom = 375.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "Character can recieve status effects
+to hinder their fighting:
+ - Poison: Take damage each turn
+ - Sleep: Unable to act until you wake up"
+
+[node name="Title" type="Label" parent="Help/HelpMenu/HelpMenu/HelpMenu"]
+layout_mode = 0
+offset_left = 346.0
+offset_top = 14.0
+offset_right = 621.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 36
+text = "How to Play"
+horizontal_alignment = 1
+
+[node name="Previous" type="Button" parent="Help/HelpMenu/HelpMenu/HelpMenu"]
+visible = false
+layout_mode = 0
+offset_left = 101.0
+offset_top = 314.0
+offset_right = 621.0
+offset_bottom = 834.0
+scale = Vector2(0.25, 0.25)
+theme_override_font_sizes/font_size = 32
+icon = ExtResource("16_074og")
+flat = true
+
+[node name="Next" type="Button" parent="Help/HelpMenu/HelpMenu/HelpMenu"]
+visible = false
+layout_mode = 0
+offset_left = 741.0
+offset_top = 301.0
+offset_right = 1261.0
+offset_bottom = 821.0
+scale = Vector2(0.25, 0.25)
+theme_override_font_sizes/font_size = 32
+icon = ExtResource("18_getpj")
+flat = true
+
+[node name="Border" type="Panel" parent="Help/HelpMenu/HelpMenu"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_blkrb")
+
+[node name="Background" type="MarginContainer" parent="Help/HelpMenu/HelpMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Background" type="Panel" parent="Help/HelpMenu/HelpMenu/Background"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_abqjc")
+
+[node name="TabContainer" type="TabContainer" parent="Help/HelpMenu/HelpMenu/Background"]
+layout_mode = 2
+current_tab = 1
+clip_tabs = false
+tabs_visible = false
+
+[node name="Overview" type="Control" parent="Help/HelpMenu/HelpMenu/Background/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Scene" type="MarginContainer" parent="Help/HelpMenu/HelpMenu/Background/TabContainer/Overview"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 31.0
+offset_bottom = 31.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/Background/TabContainer/Overview/Scene"]
+layout_mode = 2
+texture = ExtResource("57_rnkwl")
+expand_mode = 1
+
+[node name="Description" type="Label" parent="Help/HelpMenu/HelpMenu/Background/TabContainer/Overview"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 10.0
+offset_right = 1060.0
+offset_bottom = 286.0
+theme_override_colors/font_color = Color(0.30588236, 0.62352943, 0.49019608, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 75
+text = "Venture into the
+Dungeon and Find
+the Gold Gem!"
+horizontal_alignment = 1
+
+[node name="Weapon" type="Control" parent="Help/HelpMenu/HelpMenu/Background/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Scene" type="MarginContainer" parent="Help/HelpMenu/HelpMenu/Background/TabContainer/Weapon"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 31.0
+offset_bottom = 31.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/Background/TabContainer/Weapon/Scene"]
+layout_mode = 2
+texture = ExtResource("59_rm4vd")
+expand_mode = 1
+
+[node name="Description" type="Label" parent="Help/HelpMenu/HelpMenu/Background/TabContainer/Weapon"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 51.0
+offset_right = 1060.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.30588236, 0.62352943, 0.49019608, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 75
+text = "Weapons deal
+damage based
+on your level"
+horizontal_alignment = 1
+
+[node name="Previous" type="TextureButton" parent="Help/HelpMenu"]
+layout_mode = 0
+offset_top = 561.0
+offset_right = 512.0
+offset_bottom = 1073.0
+rotation = -1.5707964
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("58_vke2r")
+stretch_mode = 0
+
+[node name="Next" type="TextureButton" parent="Help/HelpMenu"]
+layout_mode = 0
+offset_left = 1200.0
+offset_top = 434.0
+offset_right = 1712.0
+offset_bottom = 946.0
+rotation = 1.5707964
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("58_vke2r")
+
+[node name="HelpButton" type="MarginContainer" parent="Help"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 791.0
+offset_right = 173.0
+offset_bottom = 875.0
+
+[node name="Border" type="Panel" parent="Help/HelpButton"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_blkrb")
+
+[node name="Background" type="MarginContainer" parent="Help/HelpButton"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Background" type="Panel" parent="Help/HelpButton/Background"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_abqjc")
+
+[node name="Button" type="Button" parent="Help/HelpButton"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 36
+toggle_mode = true
+text = "Help"
+flat = true
+
+[node name="Victory" type="TextureButton" parent="."]
+visible = false
+offset_left = 478.0
+offset_top = 338.0
+offset_right = 734.0
+offset_bottom = 594.0
+pivot_offset = Vector2(128, 128)
+texture_normal = ExtResource("59_uit24")
+
+[connection signal="log_message" from="." to="LogUI/LogMenu/Background/Message/ScrollLogger" method="add_message"]
+[connection signal="pressed" from="Start/Start" to="." method="new_game" binds= ["demo"]]
+[connection signal="pressed" from="Start/Start" to="Start/Start/Sound" method="set_playing" binds= [true]]
+[connection signal="apply_status" from="Enemy" to="Player" method="statused"]
+[connection signal="deal_damage" from="Enemy" to="Player" method="attacked"]
+[connection signal="give_experience" from="Enemy" to="Player" method="grant_experience"]
+[connection signal="log_message" from="Enemy" to="LogUI/LogMenu/Background/Message/ScrollLogger" method="add_message"]
+[connection signal="pass_turn" from="Enemy" to="Player" method="take_turn"]
+[connection signal="mouse_entered" from="Enemy/EnemyUI/Description/Status/Divider/Buffs/Shield" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
+[connection signal="mouse_entered" from="Enemy/EnemyUI/Description/Status/Divider/Buffs/Shield" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description" binds= [{
+"description": "Block the next attack",
+"name": "Shield",
+"type": "buff"
+}]]
+[connection signal="mouse_exited" from="Enemy/EnemyUI/Description/Status/Divider/Buffs/Shield" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
+[connection signal="mouse_entered" from="Enemy/EnemyUI/Description/Status/Divider/Buffs/Boost" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
+[connection signal="mouse_exited" from="Enemy/EnemyUI/Description/Status/Divider/Buffs/Boost" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
+[connection signal="mouse_entered" from="Enemy/EnemyUI/Description/Status/Divider/Status/Poison" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
+[connection signal="mouse_entered" from="Enemy/EnemyUI/Description/Status/Divider/Status/Poison" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description" binds= [{
+"description": "Each turn damage per stack",
+"flavor": "They say it's the gift that keeps on giving.",
+"name": "Poison",
+"type": "status"
+}]]
+[connection signal="mouse_exited" from="Enemy/EnemyUI/Description/Status/Divider/Status/Poison" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
+[connection signal="mouse_entered" from="Enemy/EnemyUI/Description/Status/Divider/Status/Sleep" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
+[connection signal="mouse_entered" from="Enemy/EnemyUI/Description/Status/Divider/Status/Sleep" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description" binds= [{
+"description": "Skip turn until you wake up",
+"flavor": "YOU GOTTA WAKE UP DUDE!!",
+"name": "Sleep",
+"type": "status"
+}]]
+[connection signal="mouse_exited" from="Enemy/EnemyUI/Description/Status/Divider/Status/Sleep" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
+[connection signal="apply_status" from="Player" to="Enemy" method="statused" flags=3]
+[connection signal="deal_damage" from="Player" to="Enemy" method="attacked"]
+[connection signal="game_over" from="Player" to="." method="start_menu"]
+[connection signal="log_message" from="Player" to="LogUI/LogMenu/Background/Message/ScrollLogger" method="add_message"]
+[connection signal="next_event" from="Player" to="." method="next_event"]
+[connection signal="pass_turn" from="Player" to="Enemy" method="take_turn"]
+[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Weapon/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
+[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Weapon/Button" to="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Weapon/Button" method="_show_item"]
+[connection signal="mouse_exited" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Weapon/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
+[connection signal="pressed" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Weapon/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
+[connection signal="show_item" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Weapon/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description"]
+[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem1/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
+[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem1/Button" to="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem1/Button" method="_show_item"]
+[connection signal="mouse_exited" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem1/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
+[connection signal="pressed" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem1/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
+[connection signal="show_item" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem1/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description"]
+[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem2/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
+[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem2/Button" to="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem2/Button" method="_show_item"]
+[connection signal="mouse_exited" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem2/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
+[connection signal="pressed" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem2/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
+[connection signal="show_item" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem2/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description"]
+[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable1/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
+[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable1/Button" to="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable1/Button" method="_show_item"]
+[connection signal="mouse_exited" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable1/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
+[connection signal="pressed" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable1/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
+[connection signal="show_item" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable1/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description"]
+[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable2/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
+[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable2/Button" to="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable2/Button" method="_show_item"]
+[connection signal="mouse_exited" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable2/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
+[connection signal="pressed" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable2/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
+[connection signal="show_item" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable2/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description"]
+[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable3/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
+[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable3/Button" to="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable3/Button" method="_show_item"]
+[connection signal="mouse_exited" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable3/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
+[connection signal="pressed" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable3/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
+[connection signal="show_item" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable3/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description"]
+[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Buffs/Shield" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
+[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Buffs/Shield" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description" binds= [{
+"description": "Block the next attack",
+"flavor": "",
+"name": "Shield",
+"type": "buff"
+}]]
+[connection signal="mouse_exited" from="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Buffs/Shield" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
+[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Buffs/Boost" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
+[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Buffs/Boost" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description" binds= [{
+"description": "Deal extra damage",
+"flavor": "",
+"name": "Boost",
+"type": "buff"
+}]]
+[connection signal="mouse_exited" from="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Buffs/Boost" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
+[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Status/Poison" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
+[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Status/Poison" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description" binds= [{
+"description": "Each turn damage per stack",
+"flavor": "They say it's the gift that keeps on giving.",
+"name": "Poison",
+"type": "status"
+}]]
+[connection signal="mouse_exited" from="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Status/Poison" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
+[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Status/Sleep" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
+[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Status/Sleep" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description" binds= [{
+"description": "Skip turn until you wake up",
+"flavor": "YOU GOTTA WAKE UP DUDE!!",
+"name": "Sleep",
+"type": "status"
+}]]
+[connection signal="mouse_exited" from="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Status/Sleep" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
+[connection signal="mouse_entered" from="Player/Gem3/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
+[connection signal="mouse_entered" from="Player/Gem3/Button" to="Player/Gem3/Button" method="_show_item"]
+[connection signal="mouse_exited" from="Player/Gem3/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
+[connection signal="pressed" from="Player/Gem3/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
+[connection signal="show_item" from="Player/Gem3/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description"]
+[connection signal="mouse_entered" from="Player/Consumable4/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
+[connection signal="mouse_entered" from="Player/Consumable4/Button" to="Player/Consumable4/Button" method="_show_item"]
+[connection signal="mouse_exited" from="Player/Consumable4/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
+[connection signal="pressed" from="Player/Consumable4/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
+[connection signal="show_item" from="Player/Consumable4/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description"]
+[connection signal="mouse_entered" from="Player/Consumable5/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
+[connection signal="mouse_entered" from="Player/Consumable5/Button" to="Player/Consumable5/Button" method="_show_item"]
+[connection signal="mouse_exited" from="Player/Consumable5/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
+[connection signal="pressed" from="Player/Consumable5/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
+[connection signal="show_item" from="Player/Consumable5/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description"]
+[connection signal="mouse_entered" from="Player/MarginContainer/Emote/Emote" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
+[connection signal="mouse_entered" from="Player/MarginContainer/Emote/Emote" to="Player/MarginContainer/Emote/Emote" method="_show_item"]
+[connection signal="mouse_exited" from="Player/MarginContainer/Emote/Emote" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
+[connection signal="show_item" from="Player/MarginContainer/Emote/Emote" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description"]
+[connection signal="mouse_entered" from="Reward/Reward/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
+[connection signal="mouse_entered" from="Reward/Reward/Button" to="Reward/Reward/Button" method="_show_item"]
+[connection signal="mouse_exited" from="Reward/Reward/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
+[connection signal="pressed" from="Reward/Reward/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
+[connection signal="show_item" from="Reward/Reward/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description"]
+[connection signal="pressed" from="Reward/Skip" to="." method="sell_rewards"]
+[connection signal="pressed" from="NextEvent/NextEvent" to="." method="next_event"]
+[connection signal="pressed" from="NextEvent/NextEvent" to="NextEvent" method="hide"]
+[connection signal="pressed" from="NextEvent/NextEvent" to="SoundManager/Rest" method="set_playing" binds= [false]]
+[connection signal="pressed" from="NextEvent/NextEvent" to="NextEvent/NextEvent/Sound" method="set_playing" binds= [true]]
+[connection signal="pressed" from="Help/HelpMenu/HelpMenu/HelpMenu/Previous" to="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens" method="previous_tab"]
+[connection signal="pressed" from="Help/HelpMenu/HelpMenu/HelpMenu/Next" to="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens" method="next_tab"]
+[connection signal="pressed" from="Help/HelpButton/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
+[connection signal="toggled" from="Help/HelpButton/Button" to="Help/HelpMenu" method="set_visible"]
+[connection signal="pressed" from="Victory" to="." method="start_menu"]
+[connection signal="pressed" from="Victory" to="Victory" method="hide"]
+[connection signal="pressed" from="Victory" to="SoundManager/Treasure" method="set_playing" binds= [true]]
