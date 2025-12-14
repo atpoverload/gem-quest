@@ -4,7 +4,8 @@ var items = {}
 # we need some sort of rarity/loot table
 var weapons = []
 var gems = []
-var consumables = []
+var drinks = []
+var food = []
 var emotes = []
 var damages = []
 var healing = []
@@ -21,7 +22,7 @@ func load_items(items_file):
 			'name': item['name'],
 			'type': item['type'],
 			'texture': load("res://items/sprites/%s.png" % item['name']),
-			'sound': load("res://items/sounds/%s.mp3" % item['name']),
+			'sound': load("res://items/sounds/%s.mp3" % item['sound']),
 		}
 		if 'element' in item:
 			items[item['name']]['element'] = item['element']
@@ -63,15 +64,23 @@ func load_items(items_file):
 					items[item['name']]['description'] = 'Apply %s' % items[item['name']]['buff']
 				items[item['name']]['action'] = 'use_gem'
 				gems.append(item['name'])
-			'consumable':
+			'drink':
 				if 'power' in item:
 					items[item['name']]['description'] = 'Restores %s health' % items[item['name']]['power']
 				if 'status' in item:
 					items[item['name']]['description'] = 'Removes %s status' % items[item['name']]['status']
 				items[item['name']]['action'] = 'use_consumable'
-				consumables.append(item['name'])
+				drinks.append(item['name'])
+			'food':
+				if 'power' in item:
+					items[item['name']]['description'] = 'Restores %s health' % items[item['name']]['power']
+				if 'status' in item:
+					items[item['name']]['description'] = 'Removes %s status' % items[item['name']]['status']
+				items[item['name']]['action'] = 'use_consumable'
+				food.append(item['name'])
 			'emote':
 				items[item['name']]['description'] = item['description']
+				items[item['name']]['effect'] = item['effect']
 				emotes.append(item['name'])
 		log_state('load_items', 'loaded %s' % item['name'])
 
@@ -83,6 +92,7 @@ func get_item(item):
 
 func get_rewards(event):
 	log_state('get_rewards', 'creates rewards for event %s' % event)
+	# TODO: totally change this
 	var rewards = []
 	match event['reward']:
 		'weapon':
@@ -93,10 +103,14 @@ func get_rewards(event):
 			for gem in gems:
 				if items[gem]['rarity'] <= event['rarity']:
 					rewards.append(gem)
-		'potion':
-			for consumable in consumables:
-				if items[consumable]['rarity'] <= event['rarity']:
-					rewards.append(consumable)
+		'drink':
+			for drink in drinks:
+				if items[drink]['rarity'] <= event['rarity']:
+					rewards.append(drink)
+		'food':
+			for food in food:
+				if items[food]['rarity'] <= event['rarity']:
+					rewards.append(food)
 		'emote':
 			for emote in emotes:
 				if items[emote]['rarity'] <= event['rarity']:
@@ -113,8 +127,8 @@ func get_rewards(event):
 			for item in items:
 				if items[item]['rarity'] <= event['rarity']:
 					rewards.append(item)
-	log_state('load_items', 'pool of items found: %s' % ', '.join(rewards))
+	log_state('get_rewards', 'pool of items found: %s' % ', '.join(rewards))
 	rewards.shuffle()
 	rewards = rewards.slice(0, event['count'])
-	log_state('load_items', 'items chosen: %s' % ', '.join(rewards))
+	log_state('getrewards', 'items chosen: %s' % ', '.join(rewards))
 	return rewards

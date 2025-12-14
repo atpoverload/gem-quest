@@ -11,22 +11,25 @@ var logic_
 signal give_experience(experience)
 
 func _ready():
-	sprite = $EnemyUI/Sprite
-	health_bar = $EnemyUI/Description/Info/Background/Info/HealthBar/VerticalDivider/Middle/Bar
-	status_bar = $EnemyUI/Description/Status/Divider/Status
-	buff_bar = $EnemyUI/Description/Status/Divider/Buffs
+	sprite = $Sprite
+	health_bar = $Info/Background/Info/HealthBar/VerticalDivider/Middle/Bar
+	status_bar = $Status/Status
+	buff_bar = $Status/Buffs
+	sounds = {}
+	for sound in $SoundEffects.get_children():
+		sounds[sound.name] = sound
 
 func log_state(method, message):
 	print("(%s)[enemy.gd][%s]<%s> %s" % [Time.get_datetime_string_from_system(), method, character_name, message])
 
 func set_enemy(enemy, level_: int):
 	character_name = enemy['name']
-	$EnemyUI/Description/Info/Background/Info/Info/Name/Label.text = character_name
+	$Info/Background/Info/Info/Name/Label.text = character_name
 	
 	level = level_
 	experience = enemy['experience'] * level
 
-	$EnemyUI/Description/Info/Background/Info/Info/Level/Label.text = 'Level %3d' % level
+	$Info/Background/Info/Info/Level/Label.text = 'Level %3d' % level
 
 	max_health = int(2 * level * enemy['health'] / 10) + level + 2
 	health = max_health
@@ -36,9 +39,10 @@ func set_enemy(enemy, level_: int):
 	
 	power = enemy['power']
 	accuracy = enemy['accuracy']
+	resistances = {}
 	if 'resistances' in enemy:
 		resistances = enemy['resistances']
-	
+
 	sprite.texture = enemy['sprite']
 	sprite.reset()
 
@@ -50,6 +54,7 @@ func set_enemy(enemy, level_: int):
 		buff_icon.hide()
 	
 	logic_ = enemy['logic']
+	$Panel.set_enemy(enemy)
 
 #func attack(power, accuracy):
 func attack():
@@ -68,7 +73,8 @@ func attack():
 		$SoundEffects/Miss.playing = true
 		log_message.emit('%s missed' % character_name)
 		await get_tree().create_timer($SoundEffects/Miss.stream.get_length() + 0.5).timeout
-		pass_turn.emit()
+
+	#pass_turn.emit()
 
 func loaf():
 	log_state("loaf", "zzzz")
@@ -76,7 +82,7 @@ func loaf():
 	$SoundEffects/Loaf.playing = true
 	await sprite.snooze()
 
-	pass_turn.emit()
+	#pass_turn.emit()
 
 func yawn():
 	log_state("yawn", "nap time :)")
@@ -94,7 +100,8 @@ func yawn():
 		$SoundEffects/Miss.playing = true
 		log_message.emit('%s missed' % character_name)
 		await get_tree().create_timer($SoundEffects/Miss.stream.get_length() + 0.5).timeout
-		pass_turn.emit()
+
+	#pass_turn.emit()
 
 func sing():
 	log_state("sing", "nap time :)")
@@ -106,21 +113,21 @@ func sing():
 	if chance < 1.5 * accuracy:
 		var stacks = power * level
 		log_state('sing', 'applying %d stacks of sleep' % stacks)
-		apply_status.emit('sleep', 'sleep', stacks)
+		apply_status.emit('music', 'sleep', stacks)
 	else:
 		await get_tree().create_timer(0.33).timeout
 		$SoundEffects/Miss.playing = true
 		log_message.emit('%s missed' % character_name)
 		await get_tree().create_timer($SoundEffects/Miss.stream.get_length() + 0.5).timeout
-		pass_turn.emit()
+		#pass_turn.emit()
 
 func poison_gas():
 	log_state('poison_gas', 'poison_gasing with %s')
 	log_message.emit('%s uses Poison Gas' % character_name)
 	var chance = randi() % 100
-	$SoundEffects/Poison.playing = true
+	$SoundEffects/poison.playing = true
 	await sprite.attack(1)
-	await get_tree().create_timer($SoundEffects/Poison.stream.get_length() / 2).timeout
+	await get_tree().create_timer($SoundEffects/poison.stream.get_length() / 2).timeout
 	log_state('poison_gas', 'chance to hit %d < %d' % [chance, accuracy])
 	if chance < accuracy:
 		var stacks = int(sqrt(power * level))
@@ -132,7 +139,7 @@ func poison_gas():
 		$SoundEffects/Miss.playing = true
 		log_message.emit('%s missed' % character_name)
 		await get_tree().create_timer($SoundEffects/Miss.stream.get_length() + 0.5).timeout
-		pass_turn.emit()
+		#pass_turn.emit()
 
 func psycho_boost():
 	log_state('psycho_boost', 'psycho_boosting with %s')
@@ -152,7 +159,7 @@ func psycho_boost():
 		$SoundEffects/Miss.playing = true
 		log_message.emit('%s missed' % character_name)
 		await get_tree().create_timer($SoundEffects/Miss.stream.get_length() + 0.5).timeout
-		pass_turn.emit()
+		#pass_turn.emit()
 
 #func spit(value):
 	#log_state("spit", "yucky :(")
@@ -170,6 +177,8 @@ func logic():
 		if chance < total_chance:
 			Callable(self, action).call()
 			break
+	await get_tree().create_timer(1).timeout
+	pass_turn.emit()
 
 func death():
 	$SoundEffects/BattleCry.playing = true

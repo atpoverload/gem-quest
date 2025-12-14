@@ -1,198 +1,255 @@
 {
-	"level": 1,
+	"level": 1.0,
 	"character": {
 		"name": "Light",
-		"health": 5,
+		"health": 5.0
 	},
-	"items": ["Rusty Sword", "Potion", "Potion", "Antidote"],
-	"events": [{
+	"items": [
+		"Rusty Sword",
+		"Potion",
+		"Blueberries",
+	],
+	"events": [
+		{
 			"type": "treasure",
 			"reward": "gem",
-			"count": 2,
-			"rarity": 1
-		}, {
-			"type": "battle",
-			"level": 1,
-			"enemy": "Imakuni"
-		}, {
-			"type": "battle",
-			"level": 1,
-			"enemy": "LigMakuni"
-		}, {
+			"count": 3.0,
+			"rarity": 1.0
+		},
+		{
 			"type": "treasure",
 			"reward": "emote",
-			"count": 2,
-			"rarity": 1
-		}, {
-			"type": "pause",
-		}, {
+			"count": 3.0,
+			"rarity": 1.0
+		},
+		{
 			"type": "battle",
-			"level": 2,
+			"level": 1.0,
 			"enemy": "Imakuni"
-		}, {
+		},
+		{
 			"type": "battle",
-			"level": 2,
+			"level": 1.0,
+			"enemy": "LigMakuni"
+		},
+		{
+			"type": "treasure",
+			"reward": "emote",
+			"count": 2.0,
+			"rarity": 1.0
+		},
+		{
+			"type": "pause"
+		},
+		{
+			"type": "battle",
+			"level": 2.0,
+			"enemy": "Imakuni"
+		},
+		{
+			"type": "battle",
+			"level": 2.0,
 			"enemy": "Joelge"
-		}, {
+		},
+		{
 			"type": "treasure",
 			"reward": "damage",
-			"count": 3,
-			"rarity": 2
-		}, {
+			"count": 3.0,
+			"rarity": 2.0
+		},
+		{
 			"type": "treasure",
 			"reward": "potion",
-			"count": 2,
-			"rarity": 1
-		}, {
+			"count": 2.0,
+			"rarity": 1.0
+		},
+		{
 			"type": "battle",
-			"level": 2,
+			"level": 2.0,
 			"enemy": "LigMakuni"
-		}, {
+		},
+		{
 			"type": "battle",
-			"level": 3,
+			"level": 3.0,
 			"enemy": "Joelge"
-		}, {
+		},
+		{
 			"type": "treasure",
 			"reward": "emote",
-			"count": 3,
-			"rarity": 2
-		}, {
+			"count": 3.0,
+			"rarity": 2.0
+		},
+		{
 			"type": "rest",
-			"safety": 2,
-		}, {
+			"safety": 2.0
+		},
+		{
 			"type": "battle",
-			"level": 3,
+			"level": 3.0,
 			"enemy": "Wigglytuff"
-		}, {
+		},
+		{
 			"type": "treasure",
 			"reward": "gem",
-			"count": 3,
-			"rarity": 3
-		}, {
+			"count": 3.0,
+			"rarity": 3.0
+		},
+		{
 			"type": "treasure",
 			"reward": "weapon",
-			"count": 3,
-			"rarity": 3
-		}, {
+			"count": 3.0,
+			"rarity": 3.0
+		},
+		{
 			"type": "rest",
-			"safety": 5,
-		}, {
+			"safety": 5.0
+		},
+		{
 			"type": "battle",
-			"level": 7,
+			"level": 7.0,
 			"enemy": "Piloswine"
-		}, {
+		},
+		{
 			"type": "battle",
-			"level": 7,
+			"level": 7.0,
 			"enemy": "Swalot"
-		}, {
+		},
+		{
 			"type": "treasure",
 			"reward": "emote",
-			"count": 2,
-			"rarity": 3
-		}, {
+			"count": 2.0,
+			"rarity": 3.0
+		},
+		{
 			"type": "treasure",
 			"reward": "potion",
-			"count": 1,
-			"rarity": 4
-		}, {
+			"count": 1.0,
+			"rarity": 4.0
+		},
+		{
 			"type": "battle",
-			"level": 8,
+			"level": 8.0,
 			"enemy": "Igglybuff"
-		}, {
+		},
+		{
 			"type": "battle",
-			"level": 10,
+			"level": 10.0,
 			"enemy": "Jigglypuff"
-		}, {
+		},
+		{
 			"type": "treasure",
 			"reward": "potion",
-			"count": 3,
-			"rarity": 4
-		}, {
+			"count": 3.0,
+			"rarity": 4.0
+		},
+		{
 			"type": "treasure",
 			"reward": "potion",
-			"count": 3,
-			"rarity": 4
-		}, {
-			"type": "pause",
-		}, {
+			"count": 3.0,
+			"rarity": 4.0
+		},
+		{
+			"type": "pause"
+		},
+		{
 			"type": "battle",
-			"level": 12,
+			"level": 12.0,
 			"enemy": "Piloswine"
-		}, {
+		},
+		{
 			"type": "rest",
-			"safety": 1,
-		}, {
+			"safety": 1.0
+		},
+		{
 			"type": "battle",
-			"level": 5,
+			"level": 5.0,
 			"enemy": "KEKing"
-		}, {
+		},
+		{
 			"type": "rest",
-			"safety": 5,
-		}, {
+			"safety": 5.0
+		},
+		{
 			"type": "battle",
-			"level": 15,
+			"level": 15.0,
 			"enemy": "Joelge"
-		}, {
+		},
+		{
 			"type": "battle",
-			"level": 17,
+			"level": 17.0,
 			"enemy": "LigMakuni"
-		}, {
+		},
+		{
 			"type": "treasure",
 			"reward": "emote",
-			"count": 3,
-			"rarity": 5
-		}, {
+			"count": 3.0,
+			"rarity": 5.0
+		},
+		{
 			"type": "treasure",
 			"reward": "weapon",
-			"count": 2,
-			"rarity": 4
-		}, {
-			"type": "pause",
-		}, {
+			"count": 2.0,
+			"rarity": 4.0
+		},
+		{
+			"type": "pause"
+		},
+		{
 			"type": "battle",
-			"level": 20,
+			"level": 20.0,
 			"enemy": "Imakuni"
-		}, {
+		},
+		{
 			"type": "battle",
-			"level": 20,
+			"level": 20.0,
 			"enemy": "Imakuni"
-		}, {
+		},
+		{
 			"type": "battle",
-			"level": 20,
+			"level": 20.0,
 			"enemy": "Imakuni"
-		}, {
+		},
+		{
 			"type": "battle",
-			"level": 20,
+			"level": 20.0,
 			"enemy": "Imakuni"
-		}, {
+		},
+		{
 			"type": "treasure",
 			"reward": "gem",
-			"count": 3,
-			"rarity": 4
-		}, {
+			"count": 3.0,
+			"rarity": 4.0
+		},
+		{
 			"type": "treasure",
 			"reward": "potion",
-			"count": 3,
-			"rarity": 4
-		}, {
-			"type": "pause",
-		}, {
+			"count": 3.0,
+			"rarity": 4.0
+		},
+		{
+			"type": "pause"
+		},
+		{
 			"type": "battle",
-			"level": 17,
+			"level": 17.0,
 			"enemy": "Swalot"
-		}, {
+		},
+		{
 			"type": "battle",
-			"level": 17,
+			"level": 17.0,
 			"enemy": "Wigglytuff"
-		}, {
+		},
+		{
 			"type": "rest",
-			"safety": 100,
-		}, {
+			"safety": 100.0
+		},
+		{
 			"type": "battle",
-			"level": 20,
+			"level": 20.0,
 			"enemy": "Deoxys"
-		}, {
-			"type": "victory",
+		},
+		{
+			"type": "victory"
 		}
 	]
 }

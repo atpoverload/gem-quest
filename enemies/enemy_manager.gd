@@ -17,7 +17,7 @@ func load_enemies(enemies_file):
 			'accuracy': enemy['accuracy'],
 			'experience': enemy['experience'],
 			'sprite': load("res://enemies/sprites/%s.png" % enemy['name']),
-			'battle_cry': load("res://enemies/battlecry/%s.mp3" % enemy['name']),
+			'battle_cry': load("res://enemies/battlecry/%s.mp3" % enemy['sound']),
 			'logic': enemy['logic'],
 		}
 		if 'resistances' in enemy:

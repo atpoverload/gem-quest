@@ -14,15 +14,18 @@ func hide_menus():
 	$Enemy.hide()
 	$Rest.hide()
 	$Reward.hide()
-	$Player.disable()
+	$Inventory.show()
+	$Inventory.disable()
 
 func start_menu() -> void:
 	log_state('start_menu', 'going to the main menu')
 	hide_menus()
-	$Player.clear_inventory()
+	$Description.hide()	
+	$Inventory.hide()
 	$Player.hide()
 
-	$BackgroundManager.set_background(-1)
+	$Inventory.clear()
+
 	$Start.show()
 	log_message.emit('💎 Gem Quest 💎')
 
@@ -38,7 +41,6 @@ func new_game(scenario) -> void:
 	await $Player.set_player($ScenarioManager.starting_character(), $ScenarioManager.starting_level())
 
 	# show the starting scene
-	$BackgroundManager.set_background(1)
 	$Player.show()
 
 	await get_tree().create_timer(0.50).timeout
@@ -52,7 +54,7 @@ func new_game(scenario) -> void:
 		else:
 			log_message.emit('Found a %s' % item)
 		item = $ItemManager.get_item(item)
-		await $Player.add_item(item)
+		await $Inventory.add_item(item, true)
 		await get_tree().create_timer(0.10).timeout
 	await get_tree().create_timer(0.10).timeout
 
@@ -80,7 +82,7 @@ func next_event():
 
 func battle(event):
 	$SoundManager/Battle.playing = true
-	await get_tree().create_timer($SoundManager/Battle.stream.get_length() / 8).timeout
+	await get_tree().create_timer(0.4).timeout
 
 	$Enemy.set_enemy($EnemyManager.get_enemy(event['enemy']), event['level'])
 	$Enemy.show()
@@ -93,16 +95,21 @@ func battle(event):
 
 func treasure(event):
 	log_message.emit('Found some %s' % event['reward'])
-	$SoundManager/Treasure.playing = true
-	await get_tree().create_timer($SoundManager/Treasure.stream.get_length() / 8).timeout
 
 	$Reward.clear_rewards()
+	$Reward.show()
+	await $Reward/Sprite2D.arrive()
+	await $Reward/Sprite2D.hop2(1, 0.05, 50)
+	$SoundManager/Treasure.playing = true
+	await get_tree().create_timer($SoundManager/Treasure.stream.get_length() / 8).timeout
+	#$Reward.hide()
 	var rewards = $ItemManager.get_rewards(event)
 	for reward in rewards:
 		reward = $ItemManager.get_item(reward)
-		$Reward.add_reward($Player, reward)
-	$Reward.show()
+		$Reward.add_reward(reward)
+	#$Reward.show()
 
+# TODO: this is terrible
 func sell_rewards():
 	var reward = 0
 	for child in $Reward/Rewards/Rewards.get_children():
@@ -110,11 +117,53 @@ func sell_rewards():
 	reward /= len($Reward/Rewards/Rewards.get_children())
 	$Reward.clear_rewards()
 	await $Player.gain_experience(reward)
-
+	
 	next_event()
+
+# TODO: an event that does something bad
+func trap(event):
+	log_message.emit('Found a trap')
+	$Rest.show()
+	$SoundManager/Rest.playing = true
+	for effect in $Player.status:
+		await $Player.set_status(effect, 0)
+	var restored = event['safety'] * $Player.rest_health()
+	if 'Sleep' in $Player.emotes:
+		restored += 5 * $Player.emotes['Sleep']
+	await $Player.set_health($Player.health + restored)
+	await get_tree().create_timer(0.5).timeout
+	$NextEvent.show()
+
+# TODO: an event that may reward you
+func puzzle(event):
+	log_message.emit('Found a puzzle')
+	$Rest.show()
+	$SoundManager/Rest.playing = true
+	for effect in $Player.status:
+		await $Player.set_status(effect, 0)
+	var restored = event['safety'] * $Player.rest_health()
+	if 'Sleep' in $Player.emotes:
+		restored += 5 * $Player.emotes['Sleep']
+	await $Player.set_health($Player.health + restored)
+	await get_tree().create_timer(0.5).timeout
+	$NextEvent.show()
 
 func rest(event):
 	log_message.emit('Found a rest spot')
+	$Rest.show()
+	$SoundManager/Rest.playing = true
+	for effect in $Player.status:
+		await $Player.set_status(effect, 0)
+	for buff in $Player.buffs:
+		await $Player.set_buff(buff, 0)
+	var restored = event['safety'] * $Player.rest_health()
+	await $Player.set_health($Player.health + restored)
+	await get_tree().create_timer(0.5).timeout
+	$NextEvent.show()
+
+# TODO: choose between two events
+func choice(event):
+	log_message.emit('What to do?')
 	$Rest.show()
 	$SoundManager/Rest.playing = true
 	for effect in $Player.status:

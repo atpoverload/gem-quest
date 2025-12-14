@@ -15,6 +15,7 @@ var health_bar
 var health_label
 var status_bar
 var buff_bar
+var sounds
 
 signal log_message(message)
 
@@ -109,12 +110,17 @@ func damaged(element, damage):
 func gain_status(element: String, effect: String, value: int) -> void:
 	log_state('gain_status', 'element: %s, effect: %s, value: %s' % [element, effect, value])
 
+	if element in resistances:
+		value *= resistances[element]
 	if value > 0:
 		if effect not in status:
 			status[effect] = 0
 		set_status(effect, status[effect] + value)
 		log_message.emit('%s gains %s.' % [character_name, effect])
+		sounds[effect].playing = true
 		await sprite.shake2(3, 0.08, 12).finished
+	else:
+		log_message.emit('%s resisted %s.' % [character_name, effect])
 
 func gain_buff(buff, stacks) -> void:
 	log_state('gain_buff', 'buff: %s, stacks: %d' % [buff, stacks])
@@ -124,6 +130,7 @@ func gain_buff(buff, stacks) -> void:
 	buffs[buff] += stacks
 	log_message.emit('%s gains %s.' % [character_name, buff])
 	set_buff(buff, buffs[buff])
+	sounds[buff].playing = true
 	await sprite.attack(1)
 
 func attacked(element, damage):
@@ -131,18 +138,32 @@ func attacked(element, damage):
 		log_state('attacked', 'protected from attacks')
 		log_message.emit('%s was protected.' % character_name)
 		set_buff('shield', buffs['shield'] - 1)
-		$SoundEffects/Shield.playing = true
-		await get_tree().create_timer($SoundEffects/Shield.stream.get_length() / 2).timeout
+		$SoundEffects/shield.playing = true
+		await get_tree().create_timer($SoundEffects/shield.stream.get_length() / 2).timeout
 	else:
 		await damaged(element, damage)
-	if await _die():
-		death()
-	else:
-		await take_turn()
+	#if await _die():
+		#death()
 
 func statused(element: String, effect: String, value: int) -> void:
 	gain_status(element, effect, value)
-	await take_turn()
+	#await take_turn()
+
+func banish() -> bool:
+	if 'banish' not in status:
+		return false
+	var value = status['banish']
+	if value > 0:
+		log_state('banish', 'value: %d' % value)
+		
+		var chance = randi() % 100
+		log_state('banish', 'chance to banish %d < %d = %s' % [chance, value, chance < value])
+		if chance < value:
+			log_message.emit('%s is banished.' % character_name)
+			$SoundEffects/banish.playing = true
+			await get_tree().create_timer($SoundEffects/banish.stream.get_length() / 2).timeout
+			return true
+	return false
 
 func poison() -> bool:
 	if 'poison' not in status:
@@ -151,10 +172,26 @@ func poison() -> bool:
 	if value > 0:
 		log_state('poison', 'value: %d' % value)
 		log_message.emit('%s is poisoned.' % character_name)
-		$SoundEffects/Poison.playing = true
+		$SoundEffects/poison.playing = true
 
 		await damaged('Poison', value)
-		await get_tree().create_timer($SoundEffects/Poison.stream.get_length() / 2).timeout
+		await get_tree().create_timer($SoundEffects/poison.stream.get_length() / 2).timeout
+		return true
+	return false
+
+func flinch() -> bool:
+	if 'flinched' not in status:
+		return false
+	var value = status['flinched']
+	if value == 0:
+		return false
+	if value > 0:
+		log_state('flinch', 'value: %d' % value)
+		log_message.emit('%s flinched.' % character_name)
+		$SoundEffects/sleep.playing = true
+		await sprite.damaged(1)
+		await get_tree().create_timer(0.25).timeout
+		status['flinched'] = 0
 		return true
 	return false
 
@@ -167,7 +204,7 @@ func sleep() -> bool:
 	if value > 0:
 		log_state('sleep', 'value: %d' % value)
 		log_message.emit('%s is snoozing.' % character_name)
-		$SoundEffects/Sleep.playing = true
+		$SoundEffects/sleep.playing = true
 		await sprite.snooze()
 		await get_tree().create_timer(0.25).timeout
 
@@ -194,10 +231,18 @@ func wake_up() -> bool:
 
 func take_turn():
 	log_state('take_turn', 'hp: %d, status: %s' % [health, status])
-	if await poison() and await _die():
+	if await _die():
 		death()
+		return
+
+	if await banish():
+		death()
+	elif await flinch():
+		pass_turn.emit()
 	elif await sleep():
 		pass_turn.emit()
+	elif await poison() and await _die():
+		death()
 	else:
 		await logic()
 

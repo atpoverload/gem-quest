@@ -1,70 +1,72 @@
-[gd_scene load_steps=87 format=3 uid="uid://dtcriwdea6abg"]
+[gd_scene load_steps=90 format=3 uid="uid://dtcriwdea6abg"]
 
-[ext_resource type="Script" uid="uid://blgs57lq3rq2p" path="res://main.gd" id="1_yaehf"]
-[ext_resource type="AudioStream" uid="uid://c3tlfdv01j2js" path="res://music/7.-Fairy-Fountain.ogg" id="3_82xsv"]
-[ext_resource type="Script" uid="uid://dpb4ssu0w20tq" path="res://enemies/enemy_manager.gd" id="4_0cp0l"]
-[ext_resource type="AudioStream" uid="uid://b70jf7vfcpxyu" path="res://ui/sounds/rest.mp3" id="4_gngh3"]
-[ext_resource type="Script" uid="uid://bfdj7okklswqe" path="res://items/item_manager.gd" id="4_ok6jj"]
-[ext_resource type="AudioStream" uid="uid://cckdee216rsvq" path="res://ui/sounds/start-game.mp3" id="4_seu75"]
-[ext_resource type="AudioStream" uid="uid://gl31231xwlxl" path="res://ui/sounds/battle.mp3" id="5_0n3wm"]
-[ext_resource type="Script" uid="uid://25wa8svdhdv3" path="res://ui/backgrounds/background.gd" id="5_kq58d"]
-[ext_resource type="Script" uid="uid://dw4pjqkyoitnx" path="res://ui/scroll_log.gd" id="6_0rl1p"]
-[ext_resource type="AudioStream" uid="uid://cnq10nr6iwxqo" path="res://ui/sounds/treasure.mp3" id="6_qnost"]
-[ext_resource type="Texture2D" uid="uid://pdokddugajcu" path="res://enemies/sprites/Imakuni.png" id="6_vivmo"]
-[ext_resource type="Script" uid="uid://dqrtyuc2vrt14" path="res://scenarios/scenario_manager.gd" id="7_kq58d"]
+[ext_resource type="Script" uid="uid://fn4hnueghmje" path="res://main.gd" id="1_yaehf"]
+[ext_resource type="AudioStream" uid="uid://dq413g1nheh08" path="res://music/7.-Fairy-Fountain.ogg" id="3_82xsv"]
+[ext_resource type="Script" uid="uid://dussordhjhql2" path="res://enemies/enemy_manager.gd" id="4_0cp0l"]
+[ext_resource type="AudioStream" uid="uid://cr8p4tem5lvu1" path="res://ui/sounds/rest.mp3" id="4_gngh3"]
+[ext_resource type="Script" uid="uid://dnio887h8hayq" path="res://items/item_manager.gd" id="4_ok6jj"]
+[ext_resource type="AudioStream" uid="uid://dpijtn3wufyf8" path="res://ui/sounds/start-game.mp3" id="4_seu75"]
+[ext_resource type="AudioStream" uid="uid://hadl2rnmulyw" path="res://ui/sounds/battle.mp3" id="5_0n3wm"]
+[ext_resource type="Script" uid="uid://c127fk14w2a0c" path="res://ui/scroll_log.gd" id="6_0rl1p"]
+[ext_resource type="AudioStream" uid="uid://c8mgkhhwvlhst" path="res://ui/sounds/treasure.mp3" id="6_qnost"]
+[ext_resource type="Texture2D" uid="uid://dowfvjyr3v411" path="res://enemies/sprites/Imakuni.png" id="6_vivmo"]
+[ext_resource type="Script" uid="uid://1wuxsnjbpr2f" path="res://scenarios/scenario_manager.gd" id="7_kq58d"]
 [ext_resource type="AudioStream" uid="uid://sqvcp24dnhnq" path="res://ui/sounds/victory.mp3" id="7_ruth0"]
-[ext_resource type="Script" uid="uid://cmvqyxt541g8t" path="res://enemies/enemy.gd" id="8_seu75"]
-[ext_resource type="Texture2D" uid="uid://h3xi705amyxj" path="res://status/sprites/Poison.png" id="10_h8e4i"]
-[ext_resource type="Texture2D" uid="uid://bm24ausob6a7t" path="res://status/sprites/Sleep.png" id="11_4lmeg"]
-[ext_resource type="Texture2D" uid="uid://dwh262lb8to1i" path="res://items/sprites/Rusty Sword.png" id="11_d2t1y"]
-[ext_resource type="Texture2D" uid="uid://c57cvx81tyrh5" path="res://items/sprites/White Gem.png" id="12_gngh3"]
-[ext_resource type="Texture2D" uid="uid://cqobieytmslcn" path="res://ui/backgrounds/dungeon/1.png" id="12_ruth0"]
-[ext_resource type="Texture2D" uid="uid://cvtyjtctr8ptg" path="res://items/sprites/Potion.png" id="13_0n3wm"]
-[ext_resource type="AudioStream" uid="uid://yis1ffo0ed8w" path="res://ui/sounds/door-open.mp3" id="13_d2t1y"]
+[ext_resource type="Script" uid="uid://rw5i8jj4jgy2" path="res://enemies/enemy.gd" id="8_seu75"]
+[ext_resource type="Texture2D" uid="uid://d0c85m5ir1xid" path="res://status/sprites/Poison.png" id="10_h8e4i"]
+[ext_resource type="Texture2D" uid="uid://c2oogb7t83dwj" path="res://status/sprites/Sleep.png" id="11_4lmeg"]
+[ext_resource type="Texture2D" uid="uid://crd5crekea0up" path="res://items/sprites/Rusty Sword.png" id="11_d2t1y"]
+[ext_resource type="Texture2D" uid="uid://be2ie6v3xn4px" path="res://items/sprites/White Gem.png" id="12_gngh3"]
+[ext_resource type="Texture2D" uid="uid://dytfgsmkejnxt" path="res://items/sprites/Potion.png" id="13_0n3wm"]
+[ext_resource type="AudioStream" uid="uid://qvniyiqgkw82" path="res://ui/sounds/door-open.mp3" id="13_d2t1y"]
 [ext_resource type="Shader" uid="uid://d3l0e6ygohur7" path="res://ui/shaders/floor.gdshader" id="13_rqtf5"]
 [ext_resource type="Texture2D" uid="uid://dry43ce4v5px3" path="res://ui/backgrounds/dungeon/floor.png" id="13_uatky"]
 [ext_resource type="Texture2D" uid="uid://dvirc06hqv8s8" path="res://ui/backgrounds/dungeon/wall.png" id="14_b17eg"]
 [ext_resource type="Shader" uid="uid://d4gbd30cgw4g7" path="res://ui/shaders/leftwall.gdshader" id="14_ntx8l"]
-[ext_resource type="AudioStream" uid="uid://b3eyhbrvn111p" path="res://status/sounds/sleep.mp3" id="15_0rl1p"]
-[ext_resource type="Texture2D" uid="uid://bjrejjcbk8cga" path="res://ui/backgrounds/dungeon/door.png" id="15_b17eg"]
+[ext_resource type="AudioStream" uid="uid://cf15bnmcoj1e0" path="res://status/sounds/sleep.mp3" id="15_0rl1p"]
+[ext_resource type="Texture2D" uid="uid://cjndvbaox7ehr" path="res://ui/backgrounds/dungeon/door.png" id="15_b17eg"]
 [ext_resource type="Shader" uid="uid://cmj5cfj51ohpy" path="res://ui/shaders/rightwall.gdshader" id="15_ntx8l"]
-[ext_resource type="AudioStream" uid="uid://b3ejwlxuwlj3c" path="res://status/sounds/poison.mp3" id="15_ok6jj"]
-[ext_resource type="Script" uid="uid://tnmn11xxx1qt" path="res://emotes/battle_sprite.gd" id="16_0rl1p"]
-[ext_resource type="Texture2D" uid="uid://dderge4v1joao" path="res://ui/controls/arrow-left.png" id="16_074og"]
-[ext_resource type="Texture2D" uid="uid://cvnsded0dvq8c" path="res://ui/controls/arrow-right.png" id="18_getpj"]
+[ext_resource type="AudioStream" uid="uid://8x0p52crrwk4" path="res://status/sounds/poison.mp3" id="15_ok6jj"]
+[ext_resource type="Script" uid="uid://cqrifr7jskqj1" path="res://core/battle_sprite.gd" id="16_0rl1p"]
+[ext_resource type="Texture2D" uid="uid://c2udm048k1amx" path="res://ui/controls/arrow-left.png" id="16_074og"]
+[ext_resource type="Texture2D" uid="uid://cjsba15k7n3cg" path="res://ui/controls/arrow-right.png" id="18_getpj"]
 [ext_resource type="AudioStream" uid="uid://rkcey6aj14i5" path="res://enemies/sounds/attack.mp3" id="22_f6a44"]
 [ext_resource type="AudioStream" uid="uid://utmjdysrgkhd" path="res://enemies/sounds/miss.mp3" id="23_0cbny"]
 [ext_resource type="AudioStream" uid="uid://bpyc3xeioex0h" path="res://player/sounds/equip-weapon.mp3" id="23_htxhm"]
-[ext_resource type="AudioStream" uid="uid://baba81vemv8os" path="res://player/sounds/take-gem.mp3" id="24_4k2k6"]
-[ext_resource type="AudioStream" uid="uid://bv1gw8f7sn2si" path="res://enemies/sounds/loaf.mp3" id="24_wnkbs"]
+[ext_resource type="AudioStream" uid="uid://bkhxyltocdy3w" path="res://player/sounds/take-gem.mp3" id="24_4k2k6"]
+[ext_resource type="AudioStream" uid="uid://dqrqsgj6py7yt" path="res://enemies/sounds/loaf.mp3" id="24_wnkbs"]
 [ext_resource type="AudioStream" uid="uid://ctwbgrnuyb8eu" path="res://player/sounds/take-consumable.mp3" id="25_0rl1p"]
 [ext_resource type="AudioStream" uid="uid://ccowflpe4oh76" path="res://enemies/sounds/sing.mp3" id="25_6iyjs"]
-[ext_resource type="Texture2D" uid="uid://dn6yyy83qdna" path="res://status/sprites/Shield.png" id="26_b17eg"]
-[ext_resource type="Texture2D" uid="uid://dylck3iye7nck" path="res://items/empty.png" id="27_facbu"]
-[ext_resource type="Texture2D" uid="uid://ynmjuaromocg" path="res://status/sprites/Boost.png" id="27_ntx8l"]
-[ext_resource type="Texture2D" uid="uid://dx2m5ko4bnf8m" path="res://ui/controls/up-arrow.png" id="27_xuqvo"]
-[ext_resource type="AudioStream" uid="uid://b36w0p3q8r2ph" path="res://status/sounds/shield.mp3" id="28_4w656"]
-[ext_resource type="Script" uid="uid://cubx1txu1e8lh" path="res://items/reward.gd" id="34_4lmeg"]
-[ext_resource type="Script" uid="uid://bex2dt1poytd2" path="res://ui/item_reward_button.gd" id="34_h8e4i"]
-[ext_resource type="AudioStream" uid="uid://o6bnbog2o6qs" path="res://ui/sounds/game-over.mp3" id="35_gngh3"]
+[ext_resource type="Texture2D" uid="uid://c64n2cy253in3" path="res://status/sprites/Shield.png" id="26_b17eg"]
+[ext_resource type="Texture2D" uid="uid://c82d8qe3ro684" path="res://items/empty.png" id="27_facbu"]
+[ext_resource type="Texture2D" uid="uid://bu4c5urvewsyw" path="res://status/sprites/Boost.png" id="27_ntx8l"]
+[ext_resource type="Texture2D" uid="uid://cr1qwm00ifmr1" path="res://ui/controls/up-arrow.png" id="27_xuqvo"]
+[ext_resource type="AudioStream" uid="uid://dxyvhtsmmugcg" path="res://status/sounds/shield.mp3" id="28_4w656"]
+[ext_resource type="Script" uid="uid://csuandlimrwe8" path="res://enemies/enemy_description.gd" id="28_sm6fg"]
+[ext_resource type="AudioStream" uid="uid://bcs8mhex66nqa" path="res://status/sounds/flinch.mp3" id="33_uatky"]
+[ext_resource type="Script" uid="uid://grxn1mvuh5xk" path="res://items/reward.gd" id="34_4lmeg"]
+[ext_resource type="AudioStream" uid="uid://ea4p0qylkjvi" path="res://ui/sounds/game-over.mp3" id="35_gngh3"]
+[ext_resource type="AudioStream" uid="uid://7hrunr8nwrcn" path="res://status/sounds/banish.mp3" id="37_rqtf5"]
 [ext_resource type="AudioStream" uid="uid://b4qlbbj5gs1c3" path="res://enemies/sounds/psycho-boost.mp3" id="37_sm6fg"]
-[ext_resource type="Texture2D" uid="uid://dcplxtmqpdyro" path="res://ui/rest.png" id="38_b17eg"]
+[ext_resource type="Texture2D" uid="uid://sullmbl4ueq5" path="res://ui/rest.png" id="38_b17eg"]
 [ext_resource type="AudioStream" uid="uid://rnd1a1nwcuqm" path="res://player/sounds/miss.mp3" id="38_hrvbo"]
+[ext_resource type="Script" uid="uid://dw5dhlin3ipv8" path="res://player/inventory.gd" id="38_sm6fg"]
+[ext_resource type="Texture2D" uid="uid://l24xo5cu6au7" path="res://items/sprites/Big Root.png" id="39_pjyto"]
 [ext_resource type="AudioStream" uid="uid://8mjpuqkk6e1a" path="res://player/sounds/use-gem.mp3" id="39_uypp3"]
 [ext_resource type="AudioStream" uid="uid://1chsnyp2sfny" path="res://ui/sounds/button.mp3" id="42_gngh3"]
-[ext_resource type="Script" uid="uid://bfis2ks0p6gkg" path="res://ui/emote_button.gd" id="43_blkrb"]
-[ext_resource type="AudioStream" uid="uid://cnk1l26thooe7" path="res://player/sounds/gain-experience.mp3" id="44_0cbny"]
-[ext_resource type="AudioStream" uid="uid://dn45r45r8bjnv" path="res://player/sounds/gain-level.mp3" id="45_hrvbo"]
-[ext_resource type="Texture2D" uid="uid://8eq53iw2hqvc" path="res://icon.png" id="46_ntx8l"]
-[ext_resource type="FontFile" uid="uid://beyler21qoj57" path="res://ui/Gameplay.ttf" id="50_4w656"]
-[ext_resource type="Script" uid="uid://bmoiw26c0d7qg" path="res://player/player.gd" id="52_rnkwl"]
-[ext_resource type="Script" uid="uid://defkbtrgmu13c" path="res://ui/item_action_button.gd" id="54_vke2r"]
-[ext_resource type="Script" uid="uid://c4648vpwbenq8" path="res://ui/item_description.gd" id="56_e71vb"]
+[ext_resource type="AudioStream" uid="uid://bjaqjbjdn2bvk" path="res://player/sounds/gain-experience.mp3" id="44_0cbny"]
+[ext_resource type="AudioStream" uid="uid://cepjfitbvvlsg" path="res://player/sounds/gain-level.mp3" id="45_hrvbo"]
+[ext_resource type="Texture2D" uid="uid://cgy3co0seoxer" path="res://icon.png" id="46_ntx8l"]
+[ext_resource type="Texture2D" uid="uid://cjgti0nqh6s7p" path="res://items/sprites/Goldy.png" id="48_pjyto"]
+[ext_resource type="FontFile" uid="uid://c8gpgyxxanga1" path="res://ui/Gameplay.ttf" id="50_4w656"]
+[ext_resource type="AudioStream" uid="uid://bjr4jqip11r6y" path="res://status/sounds/boost.mp3" id="51_b17eg"]
+[ext_resource type="AudioStream" uid="uid://b7pctnpp1ay7s" path="res://player/sounds/break-gem.mp3" id="51_rqtf5"]
+[ext_resource type="Script" uid="uid://cgdbjl0ydalug" path="res://player/player.gd" id="52_rnkwl"]
+[ext_resource type="Script" uid="uid://b6it7cb2lij6j" path="res://items/item_button.gd" id="54_vke2r"]
+[ext_resource type="Script" uid="uid://bt4o8ujcjv8up" path="res://ui/description_window.gd" id="56_e71vb"]
 [ext_resource type="Texture2D" uid="uid://pobea1ophdmj" path="res://ui/treasure.png" id="57_ntx8l"]
-[ext_resource type="Texture2D" uid="uid://cl7gtumaf22br" path="res://help/help-overview.png" id="57_rnkwl"]
-[ext_resource type="Texture2D" uid="uid://bk3ltk1ncknni" path="res://ui/controls/arrow-up.png" id="58_vke2r"]
-[ext_resource type="Texture2D" uid="uid://wsorxgn1tjwi" path="res://help/help-weapon.png" id="59_rm4vd"]
-[ext_resource type="Texture2D" uid="uid://dmbd5cbgi6xli" path="res://items/sprites/Gold Gem.png" id="59_uit24"]
+[ext_resource type="Texture2D" uid="uid://br64ax5hvsrvg" path="res://ui/controls/arrow-up.png" id="58_vke2r"]
+[ext_resource type="Texture2D" uid="uid://4d4lpo3rga0x" path="res://items/sprites/Gold Gem.png" id="59_uit24"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1vm84"]
 shader = ExtResource("13_rqtf5")
@@ -105,8 +107,6 @@ corner_radius_bottom_left = 12
 default_font = ExtResource("50_4w656")
 default_font_size = 70
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uypp3"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e71vb"]
 bg_color = Color(1, 1, 1, 1)
 border_width_left = 4
@@ -118,9 +118,7 @@ border_color = Color(0, 0, 0, 0.5882353)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vke2r"]
 bg_color = Color(0.6, 0, 0, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0rl1p"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xuqvo"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sm6fg"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rnkwl"]
 texture = ExtResource("27_facbu")
@@ -128,25 +126,25 @@ texture = ExtResource("27_facbu")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vke2r"]
 texture = ExtResource("27_facbu")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rqtf5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1vm84"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wu3dr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cyx1q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0dhbp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jx0wj"]
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uit24"]
 texture = ExtResource("27_facbu")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b17eg"]
-bg_color = Color(0.16749999, 0.17025, 0.25, 0.39215687)
-corner_radius_top_left = 25
-corner_radius_top_right = 25
-corner_radius_bottom_right = 25
-corner_radius_bottom_left = 25
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rnkwl"]
 bg_color = Color(0, 0, 1, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e71vb"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ok6jj"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ruth0"]
-texture = ExtResource("27_facbu")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vke2r"]
 
@@ -179,23 +177,6 @@ script = ExtResource("4_0cp0l")
 
 [node name="ItemManager" type="Node" parent="."]
 script = ExtResource("4_ok6jj")
-
-[node name="BackgroundManager" type="CenterContainer" parent="."]
-visible = false
-offset_right = 1200.0
-offset_bottom = 900.0
-script = ExtResource("5_kq58d")
-
-[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="BackgroundManager"]
-stream = ExtResource("3_82xsv")
-volume_db = -7.5
-autoplay = true
-
-[node name="Background" type="TextureRect" parent="BackgroundManager"]
-custom_minimum_size = Vector2(1200, 900)
-layout_mode = 2
-texture = ExtResource("12_ruth0")
-expand_mode = 2
 
 [node name="Background" type="Control" parent="."]
 layout_mode = 3
@@ -249,58 +230,59 @@ axis_stretch_vertical = 1
 [node name="TextureButton" type="TextureButton" parent="Background"]
 modulate = Color(0.44, 0.35046, 0.29479998, 1)
 layout_mode = 0
-offset_left = 441.0
-offset_top = 148.0
-offset_right = 761.0
-offset_bottom = 532.0
+offset_left = 450.0
+offset_top = 150.0
+offset_right = 750.0
+offset_bottom = 534.0
 texture_normal = ExtResource("15_b17eg")
 
-[node name="LogUI" type="CenterContainer" parent="."]
-offset_right = 1200.0
-offset_bottom = 180.0
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="Background"]
+stream = ExtResource("3_82xsv")
+volume_db = -7.5
+autoplay = true
 
-[node name="LogMenu" type="MarginContainer" parent="LogUI"]
+[node name="LogMenu" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(1200, 0)
-layout_mode = 2
+offset_right = 1200.0
+offset_bottom = 150.0
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
 
-[node name="Border" type="Panel" parent="LogUI/LogMenu"]
+[node name="Border" type="Panel" parent="LogMenu"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_blkrb")
 
-[node name="Background" type="MarginContainer" parent="LogUI/LogMenu"]
+[node name="Background" type="MarginContainer" parent="LogMenu"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Background" type="Panel" parent="LogUI/LogMenu/Background"]
+[node name="Background" type="Panel" parent="LogMenu/Background"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_abqjc")
 
-[node name="Message" type="MarginContainer" parent="LogUI/LogMenu/Background"]
+[node name="Message" type="MarginContainer" parent="LogMenu/Background"]
 layout_mode = 2
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Panel" type="Panel" parent="LogUI/LogMenu/Background/Message"]
+[node name="Panel" type="Panel" parent="LogMenu/Background/Message"]
 clip_contents = true
 custom_minimum_size = Vector2(1137, 90)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_4k2k6")
 
-[node name="ScrollLogger" type="ScrollContainer" parent="LogUI/LogMenu/Background/Message"]
+[node name="ScrollLogger" type="ScrollContainer" parent="LogMenu/Background/Message"]
 layout_mode = 2
 theme = SubResource("Theme_4k2k6")
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 script = ExtResource("6_0rl1p")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="LogUI/LogMenu/Background/Message/ScrollLogger"]
+[node name="VBoxContainer" type="VBoxContainer" parent="LogMenu/Background/Message/ScrollLogger"]
 custom_minimum_size = Vector2(1136, 0)
 layout_mode = 2
 theme_override_constants/separation = 25
@@ -335,141 +317,48 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("8_seu75")
 
-[node name="EnemyUI" type="CenterContainer" parent="Enemy"]
-layout_mode = 0
-offset_left = 417.0
-offset_top = 103.0
-offset_right = 784.0
-offset_bottom = 607.0
-
-[node name="Sprite" type="Sprite2D" parent="Enemy/EnemyUI"]
-position = Vector2(184.00006, 452)
-scale = Vector2(0.65, 0.65)
+[node name="Sprite" type="Sprite2D" parent="Enemy"]
+position = Vector2(601, 580)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("6_vivmo")
 offset = Vector2(0, -190)
 script = ExtResource("16_0rl1p")
 
-[node name="Description" type="VBoxContainer" parent="Enemy/EnemyUI"]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="Status" type="VBoxContainer" parent="Enemy/EnemyUI/Description"]
-layout_mode = 2
-
-[node name="Divider" type="HBoxContainer" parent="Enemy/EnemyUI/Description/Status"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="Buffs" type="HBoxContainer" parent="Enemy/EnemyUI/Description/Status/Divider"]
-layout_mode = 2
-
-[node name="Shield" type="TextureRect" parent="Enemy/EnemyUI/Description/Status/Divider/Buffs"]
-layout_mode = 2
-texture = ExtResource("26_b17eg")
-
-[node name="Label" type="Label" parent="Enemy/EnemyUI/Description/Status/Divider/Buffs/Shield"]
+[node name="Info" type="MarginContainer" parent="Enemy"]
 layout_mode = 0
-offset_right = 65.0
-offset_bottom = 65.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 12
-theme_override_fonts/font = ExtResource("50_4w656")
-theme_override_font_sizes/font_size = 32
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 2
+offset_left = 441.0
+offset_top = 183.0
+offset_right = 776.0
+offset_bottom = 288.0
 
-[node name="Boost" type="TextureRect" parent="Enemy/EnemyUI/Description/Status/Divider/Buffs"]
-layout_mode = 2
-texture = ExtResource("27_ntx8l")
-
-[node name="Label" type="Label" parent="Enemy/EnemyUI/Description/Status/Divider/Buffs/Boost"]
-layout_mode = 0
-offset_right = 65.0
-offset_bottom = 65.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 12
-theme_override_fonts/font = ExtResource("50_4w656")
-theme_override_font_sizes/font_size = 32
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 2
-
-[node name="Status" type="HBoxContainer" parent="Enemy/EnemyUI/Description/Status/Divider"]
-layout_mode = 2
-
-[node name="Poison" type="TextureRect" parent="Enemy/EnemyUI/Description/Status/Divider/Status"]
-layout_mode = 2
-texture = ExtResource("10_h8e4i")
-
-[node name="Label" type="Label" parent="Enemy/EnemyUI/Description/Status/Divider/Status/Poison"]
-layout_mode = 0
-offset_right = 65.0
-offset_bottom = 65.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 12
-theme_override_fonts/font = ExtResource("50_4w656")
-theme_override_font_sizes/font_size = 32
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 2
-
-[node name="Sleep" type="TextureRect" parent="Enemy/EnemyUI/Description/Status/Divider/Status"]
-layout_mode = 2
-texture = ExtResource("11_4lmeg")
-
-[node name="Label" type="Label" parent="Enemy/EnemyUI/Description/Status/Divider/Status/Sleep"]
-layout_mode = 0
-offset_right = 65.0
-offset_bottom = 65.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 12
-theme_override_fonts/font = ExtResource("50_4w656")
-theme_override_font_sizes/font_size = 32
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 2
-
-[node name="_placeholder_" type="Panel" parent="Enemy/EnemyUI/Description/Status/Divider"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_uypp3")
-
-[node name="Info" type="MarginContainer" parent="Enemy/EnemyUI/Description"]
-layout_mode = 2
-
-[node name="Border" type="Panel" parent="Enemy/EnemyUI/Description/Info"]
+[node name="Border" type="Panel" parent="Enemy/Info"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_blkrb")
 
-[node name="Background" type="MarginContainer" parent="Enemy/EnemyUI/Description/Info"]
+[node name="Background" type="MarginContainer" parent="Enemy/Info"]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="Background" type="Panel" parent="Enemy/EnemyUI/Description/Info/Background"]
+[node name="Background" type="Panel" parent="Enemy/Info/Background"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_abqjc")
 
-[node name="Info" type="VBoxContainer" parent="Enemy/EnemyUI/Description/Info/Background"]
+[node name="Info" type="VBoxContainer" parent="Enemy/Info/Background"]
 layout_mode = 2
 
-[node name="Info" type="HBoxContainer" parent="Enemy/EnemyUI/Description/Info/Background/Info"]
+[node name="Info" type="HBoxContainer" parent="Enemy/Info/Background/Info"]
 layout_mode = 2
 
-[node name="Name" type="MarginContainer" parent="Enemy/EnemyUI/Description/Info/Background/Info/Info"]
+[node name="Name" type="MarginContainer" parent="Enemy/Info/Background/Info/Info"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 5
 
-[node name="Label" type="Label" parent="Enemy/EnemyUI/Description/Info/Background/Info/Info/Name"]
+[node name="Label" type="Label" parent="Enemy/Info/Background/Info/Info/Name"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("50_4w656")
 theme_override_font_sizes/font_size = 20
@@ -477,14 +366,14 @@ text = "Enemy Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Level" type="MarginContainer" parent="Enemy/EnemyUI/Description/Info/Background/Info/Info"]
+[node name="Level" type="MarginContainer" parent="Enemy/Info/Background/Info/Info"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 0
 
-[node name="Label" type="Label" parent="Enemy/EnemyUI/Description/Info/Background/Info/Info/Level"]
+[node name="Label" type="Label" parent="Enemy/Info/Background/Info/Info/Level"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("50_4w656")
 theme_override_font_sizes/font_size = 20
@@ -492,66 +381,137 @@ text = "Level XXX"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="HealthBar" type="MarginContainer" parent="Enemy/EnemyUI/Description/Info/Background/Info"]
+[node name="HealthBar" type="MarginContainer" parent="Enemy/Info/Background/Info"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VerticalDivider" type="VBoxContainer" parent="Enemy/EnemyUI/Description/Info/Background/Info/HealthBar"]
+[node name="VerticalDivider" type="VBoxContainer" parent="Enemy/Info/Background/Info/HealthBar"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Top" type="MarginContainer" parent="Enemy/EnemyUI/Description/Info/Background/Info/HealthBar/VerticalDivider"]
+[node name="Top" type="MarginContainer" parent="Enemy/Info/Background/Info/HealthBar/VerticalDivider"]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="Enemy/EnemyUI/Description/Info/Background/Info/HealthBar/VerticalDivider/Top"]
+[node name="Panel" type="Panel" parent="Enemy/Info/Background/Info/HealthBar/VerticalDivider/Top"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
 
-[node name="Middle" type="HBoxContainer" parent="Enemy/EnemyUI/Description/Info/Background/Info/HealthBar/VerticalDivider"]
+[node name="Middle" type="HBoxContainer" parent="Enemy/Info/Background/Info/HealthBar/VerticalDivider"]
 layout_mode = 2
 
-[node name="Left" type="MarginContainer" parent="Enemy/EnemyUI/Description/Info/Background/Info/HealthBar/VerticalDivider/Middle"]
+[node name="Left" type="MarginContainer" parent="Enemy/Info/Background/Info/HealthBar/VerticalDivider/Middle"]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="Enemy/EnemyUI/Description/Info/Background/Info/HealthBar/VerticalDivider/Middle/Left"]
+[node name="Panel" type="Panel" parent="Enemy/Info/Background/Info/HealthBar/VerticalDivider/Middle/Left"]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
 
-[node name="Bar" type="ProgressBar" parent="Enemy/EnemyUI/Description/Info/Background/Info/HealthBar/VerticalDivider/Middle"]
+[node name="Bar" type="ProgressBar" parent="Enemy/Info/Background/Info/HealthBar/VerticalDivider/Middle"]
 custom_minimum_size = Vector2(271, 15)
 layout_mode = 2
 theme_override_styles/fill = SubResource("StyleBoxFlat_vke2r")
 show_percentage = false
 
-[node name="Right" type="MarginContainer" parent="Enemy/EnemyUI/Description/Info/Background/Info/HealthBar/VerticalDivider/Middle"]
+[node name="Right" type="MarginContainer" parent="Enemy/Info/Background/Info/HealthBar/VerticalDivider/Middle"]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="Enemy/EnemyUI/Description/Info/Background/Info/HealthBar/VerticalDivider/Middle/Right"]
+[node name="Panel" type="Panel" parent="Enemy/Info/Background/Info/HealthBar/VerticalDivider/Middle/Right"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
 
-[node name="Bottom" type="MarginContainer" parent="Enemy/EnemyUI/Description/Info/Background/Info/HealthBar/VerticalDivider"]
+[node name="Bottom" type="MarginContainer" parent="Enemy/Info/Background/Info/HealthBar/VerticalDivider"]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="Enemy/EnemyUI/Description/Info/Background/Info/HealthBar/VerticalDivider/Bottom"]
+[node name="Panel" type="Panel" parent="Enemy/Info/Background/Info/HealthBar/VerticalDivider/Bottom"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
 
-[node name="Enemy" type="MarginContainer" parent="Enemy/EnemyUI/Description"]
-layout_mode = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 10
+[node name="Status" type="VBoxContainer" parent="Enemy"]
+layout_mode = 0
+offset_left = 395.0
+offset_top = 339.0
+offset_right = 459.0
+offset_bottom = 607.0
 
-[node name="Panel" type="Panel" parent="Enemy/EnemyUI/Description/Enemy"]
-custom_minimum_size = Vector2(300, 325)
+[node name="Buffs" type="VBoxContainer" parent="Enemy/Status"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_0rl1p")
+
+[node name="Shield" type="TextureRect" parent="Enemy/Status/Buffs"]
+layout_mode = 2
+texture = ExtResource("26_b17eg")
+
+[node name="Label" type="Label" parent="Enemy/Status/Buffs/Shield"]
+layout_mode = 0
+offset_right = 65.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Boost" type="TextureRect" parent="Enemy/Status/Buffs"]
+layout_mode = 2
+texture = ExtResource("27_ntx8l")
+
+[node name="Label" type="Label" parent="Enemy/Status/Buffs/Boost"]
+layout_mode = 0
+offset_right = 65.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Status" type="VBoxContainer" parent="Enemy/Status"]
+layout_mode = 2
+
+[node name="Poison" type="TextureRect" parent="Enemy/Status/Status"]
+layout_mode = 2
+texture = ExtResource("10_h8e4i")
+
+[node name="Label" type="Label" parent="Enemy/Status/Status/Poison"]
+layout_mode = 0
+offset_right = 65.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Sleep" type="TextureRect" parent="Enemy/Status/Status"]
+layout_mode = 2
+texture = ExtResource("11_4lmeg")
+
+[node name="Label" type="Label" parent="Enemy/Status/Status/Sleep"]
+layout_mode = 0
+offset_right = 65.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="SoundEffects" type="Node" parent="Enemy"]
 
@@ -570,11 +530,15 @@ stream = ExtResource("24_wnkbs")
 [node name="Sing" type="AudioStreamPlayer2D" parent="Enemy/SoundEffects"]
 stream = ExtResource("25_6iyjs")
 
-[node name="Poison" type="AudioStreamPlayer2D" parent="Enemy/SoundEffects"]
+[node name="poison" type="AudioStreamPlayer2D" parent="Enemy/SoundEffects"]
 stream = ExtResource("15_ok6jj")
 volume_db = 10.0
 
-[node name="Sleep" type="AudioStreamPlayer2D" parent="Enemy/SoundEffects"]
+[node name="flinch" type="AudioStreamPlayer2D" parent="Enemy/SoundEffects"]
+stream = ExtResource("33_uatky")
+volume_db = 10.0
+
+[node name="sleep" type="AudioStreamPlayer2D" parent="Enemy/SoundEffects"]
 stream = ExtResource("15_0rl1p")
 volume_db = 10.0
 
@@ -584,407 +548,295 @@ stream = ExtResource("28_4w656")
 [node name="PsychoBoost" type="AudioStreamPlayer2D" parent="Enemy/SoundEffects"]
 stream = ExtResource("37_sm6fg")
 
-[node name="Rest" type="TextureRect" parent="."]
+[node name="banish" type="AudioStreamPlayer2D" parent="Enemy/SoundEffects"]
+stream = ExtResource("37_rqtf5")
+volume_db = 10.0
+
+[node name="Panel" type="Panel" parent="Enemy"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 0
+offset_left = 472.0
+offset_top = 300.0
+offset_right = 751.0
+offset_bottom = 579.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_sm6fg")
+script = ExtResource("28_sm6fg")
+
+[node name="Rest" type="Sprite2D" parent="."]
 visible = false
-offset_left = 101.0
-offset_top = 257.0
-offset_right = 613.0
-offset_bottom = 769.0
+position = Vector2(302, 464.00003)
+scale = Vector2(0.890625, 0.890625)
 texture = ExtResource("38_b17eg")
 
-[node name="Player" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("52_rnkwl")
+[node name="Inventory" type="MarginContainer" parent="."]
+offset_left = 372.0
+offset_top = 675.0
+offset_right = 826.0
+offset_bottom = 900.0
+theme_override_constants/margin_bottom = 20
+script = ExtResource("38_sm6fg")
 
-[node name="PlayerUI" type="CenterContainer" parent="Player"]
-layout_mode = 0
-offset_top = 268.0
-offset_right = 1201.0
-offset_bottom = 880.0
-
-[node name="PlayerMenus" type="HBoxContainer" parent="Player/PlayerUI"]
-layout_mode = 2
-
-[node name="ItemDescription" type="Panel" parent="Player/PlayerUI/PlayerMenus"]
-custom_minimum_size = Vector2(350, 0)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_xuqvo")
-
-[node name="ItemDescription" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ItemDescription"]
-visible = false
-custom_minimum_size = Vector2(350, 0)
-layout_mode = 0
-offset_left = 4.0
-offset_top = -20.0
-offset_right = 354.0
-offset_bottom = 443.0
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_right = 10
-script = ExtResource("56_e71vb")
-
-[node name="Border" type="Panel" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription"]
+[node name="Border" type="Panel" parent="Inventory"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_blkrb")
 
-[node name="Background" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription"]
+[node name="Inventory" type="MarginContainer" parent="Inventory"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Background" type="Panel" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background"]
-custom_minimum_size = Vector2(259, 443)
+[node name="Background" type="Panel" parent="Inventory/Inventory"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_abqjc")
 
-[node name="Description" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="DescriptionDivider" type="VBoxContainer" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description"]
-layout_mode = 2
-
-[node name="Name" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description/DescriptionDivider"]
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 8
-
-[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description/DescriptionDivider/Name"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("50_4w656")
-theme_override_font_sizes/font_size = 32
-text = "Item Name"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Type" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description/DescriptionDivider"]
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 0
-
-[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description/DescriptionDivider/Type"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("50_4w656")
-theme_override_font_sizes/font_size = 32
-text = "Item Type"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Divider1" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description/DescriptionDivider"]
-layout_mode = 2
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="Panel" type="Panel" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description/DescriptionDivider/Divider1"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
-
-[node name="Description" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description/DescriptionDivider"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description/DescriptionDivider/Description"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("50_4w656")
-theme_override_font_sizes/font_size = 28
-text = "Item Description"
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="Accuracy" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description/DescriptionDivider"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 0
-
-[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description/DescriptionDivider/Accuracy"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("50_4w656")
-theme_override_font_sizes/font_size = 28
-text = "ACC: XXX%"
-vertical_alignment = 1
-
-[node name="Divider2" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description/DescriptionDivider"]
-layout_mode = 2
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="Panel" type="Panel" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description/DescriptionDivider/Divider2"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
-
-[node name="Flavor" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description/DescriptionDivider"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription/Background/Description/DescriptionDivider/Flavor"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("50_4w656")
-theme_override_font_sizes/font_size = 24
-text = "Item Flavor"
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="ActionMenu" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus"]
-custom_minimum_size = Vector2(470, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 384
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 0
-
-[node name="Border" type="Panel" parent="Player/PlayerUI/PlayerMenus/ActionMenu"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_blkrb")
-
-[node name="Background" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ActionMenu"]
+[node name="Inventory" type="MarginContainer" parent="Inventory/Inventory"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Background" type="Panel" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background"]
+[node name="Items" type="HBoxContainer" parent="Inventory/Inventory/Inventory"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_abqjc")
+theme_override_constants/separation = 8
+alignment = 1
 
-[node name="Inventory" type="VBoxContainer" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background"]
+[node name="Food" type="MarginContainer" parent="Inventory/Inventory/Inventory/Items"]
 layout_mode = 2
-
-[node name="Usables" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory"]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 35
+theme_override_constants/margin_top = 90
 theme_override_constants/margin_bottom = 10
 
-[node name="UsablesDivider" type="HBoxContainer" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables"]
-layout_mode = 2
-theme_override_constants/separation = 90
-
-[node name="Weapon" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider"]
-layout_mode = 2
-
-[node name="Background" type="Panel" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Weapon"]
-custom_minimum_size = Vector2(80, 80)
+[node name="Background" type="Panel" parent="Inventory/Inventory/Inventory/Items/Food"]
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_rnkwl")
 
-[node name="Button" type="TextureButton" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Weapon"]
+[node name="Button" type="TextureButton" parent="Inventory/Inventory/Inventory/Items/Food"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("39_pjyto")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("54_vke2r")
+
+[node name="Weapon" type="MarginContainer" parent="Inventory/Inventory/Inventory/Items"]
+layout_mode = 2
+
+[node name="Background" type="Panel" parent="Inventory/Inventory/Inventory/Items/Weapon"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_rnkwl")
+
+[node name="Button" type="TextureButton" parent="Inventory/Inventory/Inventory/Items/Weapon"]
 layout_mode = 2
 disabled = true
 texture_normal = ExtResource("11_d2t1y")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
 script = ExtResource("54_vke2r")
 
-[node name="Gems" type="HBoxContainer" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider"]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="Gem1" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems"]
+[node name="Items" type="VBoxContainer" parent="Inventory/Inventory/Inventory/Items"]
 layout_mode = 2
 
-[node name="Background" type="Panel" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem1"]
+[node name="Gems" type="HBoxContainer" parent="Inventory/Inventory/Inventory/Items/Items"]
+layout_mode = 2
+alignment = 1
+
+[node name="Gem1" type="MarginContainer" parent="Inventory/Inventory/Inventory/Items/Items/Gems"]
+layout_mode = 2
+
+[node name="Background" type="Panel" parent="Inventory/Inventory/Inventory/Items/Items/Gems/Gem1"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_vke2r")
 
-[node name="Button" type="TextureButton" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem1"]
+[node name="Button" type="TextureButton" parent="Inventory/Inventory/Inventory/Items/Items/Gems/Gem1"]
 layout_mode = 2
 texture_normal = ExtResource("12_gngh3")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("54_vke2r")
 
-[node name="Gem2" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems"]
+[node name="DropItem" type="Button" parent="Inventory/Inventory/Inventory/Items/Items/Gems/Gem1"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rqtf5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1vm84")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wu3dr")
+
+[node name="Gem2" type="MarginContainer" parent="Inventory/Inventory/Inventory/Items/Items/Gems"]
 layout_mode = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 
-[node name="Background" type="Panel" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem2"]
+[node name="Background" type="Panel" parent="Inventory/Inventory/Inventory/Items/Items/Gems/Gem2"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_vke2r")
 
-[node name="Button" type="TextureButton" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem2"]
+[node name="Button" type="TextureButton" parent="Inventory/Inventory/Inventory/Items/Items/Gems/Gem2"]
 layout_mode = 2
 texture_normal = ExtResource("12_gngh3")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("54_vke2r")
 
-[node name="Consumables" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory"]
+[node name="DropItem" type="Button" parent="Inventory/Inventory/Inventory/Items/Items/Gems/Gem2"]
+visible = false
 layout_mode = 2
-theme_override_constants/margin_left = 161
-theme_override_constants/margin_right = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cyx1q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0dhbp")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_jx0wj")
 
-[node name="ConsumablesDivider" type="HBoxContainer" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables"]
+[node name="Drinks" type="HBoxContainer" parent="Inventory/Inventory/Inventory/Items/Items"]
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="Consumable1" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider"]
+[node name="Drink1" type="MarginContainer" parent="Inventory/Inventory/Inventory/Items/Items/Drinks"]
 layout_mode = 2
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 0
-theme_override_constants/margin_bottom = 0
 
-[node name="Background" type="Panel" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable1"]
-custom_minimum_size = Vector2(70, 70)
+[node name="Background" type="Panel" parent="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink1"]
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_uit24")
 
-[node name="Button" type="TextureButton" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable1"]
+[node name="Button" type="TextureButton" parent="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink1"]
 layout_mode = 2
 texture_normal = ExtResource("13_0n3wm")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("54_vke2r")
 
-[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable1/Button"]
-layout_mode = 0
-offset_right = 65.0
-offset_bottom = 65.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 12
-theme_override_fonts/font = ExtResource("50_4w656")
-theme_override_font_sizes/font_size = 32
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 2
-
-[node name="Consumable2" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider"]
-layout_mode = 2
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 0
-theme_override_constants/margin_bottom = 0
-
-[node name="Background" type="Panel" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable2"]
-custom_minimum_size = Vector2(70, 70)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_uit24")
-
-[node name="Button" type="TextureButton" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable2"]
-layout_mode = 2
-texture_normal = ExtResource("13_0n3wm")
-ignore_texture_size = true
-stretch_mode = 0
-script = ExtResource("54_vke2r")
-
-[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable2/Button"]
-layout_mode = 0
-offset_right = 65.0
-offset_bottom = 65.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 12
-theme_override_fonts/font = ExtResource("50_4w656")
-theme_override_font_sizes/font_size = 32
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 2
-
-[node name="Consumable3" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider"]
-layout_mode = 2
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 0
-theme_override_constants/margin_bottom = 0
-
-[node name="Background" type="Panel" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable3"]
-custom_minimum_size = Vector2(70, 70)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_uit24")
-
-[node name="Button" type="TextureButton" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable3"]
-layout_mode = 2
-texture_normal = ExtResource("13_0n3wm")
-ignore_texture_size = true
-stretch_mode = 0
-script = ExtResource("54_vke2r")
-
-[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable3/Button"]
-layout_mode = 0
-offset_right = 65.0
-offset_bottom = 65.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 12
-theme_override_fonts/font = ExtResource("50_4w656")
-theme_override_font_sizes/font_size = 32
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 2
-
-[node name="Screen" type="Panel" parent="Player/PlayerUI/PlayerMenus/ActionMenu"]
+[node name="DropItem" type="Button" parent="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink1"]
 visible = false
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_b17eg")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cyx1q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0dhbp")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_jx0wj")
 
-[node name="PlayerDescription" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus"]
+[node name="Drink2" type="MarginContainer" parent="Inventory/Inventory/Inventory/Items/Items/Drinks"]
+layout_mode = 2
+
+[node name="Background" type="Panel" parent="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_uit24")
+
+[node name="Button" type="TextureButton" parent="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink2"]
+layout_mode = 2
+texture_normal = ExtResource("13_0n3wm")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("54_vke2r")
+
+[node name="DropItem" type="Button" parent="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink2"]
+visible = false
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cyx1q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0dhbp")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_jx0wj")
+
+[node name="Drink3" type="MarginContainer" parent="Inventory/Inventory/Inventory/Items/Items/Drinks"]
+layout_mode = 2
+
+[node name="Background" type="Panel" parent="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink3"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_uit24")
+
+[node name="Button" type="TextureButton" parent="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink3"]
+layout_mode = 2
+texture_normal = ExtResource("13_0n3wm")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("54_vke2r")
+
+[node name="DropItem" type="Button" parent="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink3"]
+visible = false
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cyx1q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0dhbp")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_jx0wj")
+
+[node name="SoundEffect" type="AudioStreamPlayer2D" parent="Inventory"]
+position = Vector2(-372, -675)
+stream = ExtResource("23_htxhm")
+volume_db = 10.0
+
+[node name="Player" type="VBoxContainer" parent="."]
+offset_left = 907.0
+offset_right = 1179.0
+offset_bottom = 865.0
+alignment = 2
+script = ExtResource("52_rnkwl")
+
+[node name="Sprite" type="Sprite2D" parent="Player"]
+position = Vector2(140, 739)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("46_ntx8l")
+script = ExtResource("16_0rl1p")
+
+[node name="Emotes" type="MarginContainer" parent="Player"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 19
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="Description" type="VBoxContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription"]
+[node name="Emote" type="MarginContainer" parent="Player/Emotes"]
+visible = false
 layout_mode = 2
 
-[node name="Info" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description"]
+[node name="Background" type="Panel" parent="Player/Emotes/Emote"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_rnkwl")
+
+[node name="Button" type="TextureButton" parent="Player/Emotes/Emote"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("48_pjyto")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("54_vke2r")
+
+[node name="Emotes" type="VBoxContainer" parent="Player/Emotes"]
+layout_mode = 2
+alignment = 2
+
+[node name="Info" type="MarginContainer" parent="Player"]
 layout_mode = 2
 theme_override_constants/margin_left = 0
 
-[node name="Border" type="Panel" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info"]
+[node name="Border" type="Panel" parent="Player/Info"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_blkrb")
 
-[node name="Background" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info"]
+[node name="Info" type="MarginContainer" parent="Player/Info"]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="Background" type="Panel" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background"]
+[node name="Background" type="Panel" parent="Player/Info/Info"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_abqjc")
 
-[node name="Info" type="VBoxContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background"]
+[node name="Info" type="VBoxContainer" parent="Player/Info/Info"]
 layout_mode = 2
 
-[node name="Name" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info"]
+[node name="Name" type="MarginContainer" parent="Player/Info/Info/Info"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 5
 
-[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/Name"]
+[node name="Label" type="Label" parent="Player/Info/Info/Info/Name"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("50_4w656")
 theme_override_font_sizes/font_size = 36
@@ -992,129 +844,92 @@ text = "Player"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Powers" type="HBoxContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info"]
-layout_mode = 2
-
-[node name="AttackPower" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/Powers"]
+[node name="Power" type="MarginContainer" parent="Player/Info/Info/Info"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
+theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 5
 
-[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/Powers/AttackPower"]
+[node name="Stats" type="HBoxContainer" parent="Player/Info/Info/Info/Power"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Attack" type="Label" parent="Player/Info/Info/Info/Power/Stats"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("50_4w656")
 theme_override_font_sizes/font_size = 16
-text = "XX Attack Power"
+text = "XX Attack"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="GemPower" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/Powers"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 5
-
-[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/Powers/GemPower"]
+[node name="Magic" type="Label" parent="Player/Info/Info/Info/Power/Stats"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("50_4w656")
 theme_override_font_sizes/font_size = 16
-text = "XX Gem Power"
+text = "XX Magic"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Gold" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info"]
-visible = false
-layout_mode = 2
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 5
-
-[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/Gold"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("50_4w656")
-theme_override_font_sizes/font_size = 16
-text = "XXXX Gold"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Level" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info"]
-visible = false
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 0
-
-[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/Level"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("50_4w656")
-theme_override_font_sizes/font_size = 24
-text = "Level XXX"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="ExperienceBar" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info"]
+[node name="ExperienceBar" type="MarginContainer" parent="Player/Info/Info/Info"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 
-[node name="VerticalDivider" type="VBoxContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/ExperienceBar"]
+[node name="VerticalDivider" type="VBoxContainer" parent="Player/Info/Info/Info/ExperienceBar"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Top" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/ExperienceBar/VerticalDivider"]
+[node name="Top" type="MarginContainer" parent="Player/Info/Info/Info/ExperienceBar/VerticalDivider"]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/ExperienceBar/VerticalDivider/Top"]
+[node name="Panel" type="Panel" parent="Player/Info/Info/Info/ExperienceBar/VerticalDivider/Top"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
 
-[node name="Middle" type="HBoxContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/ExperienceBar/VerticalDivider"]
+[node name="Middle" type="HBoxContainer" parent="Player/Info/Info/Info/ExperienceBar/VerticalDivider"]
 layout_mode = 2
 
-[node name="Left" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/ExperienceBar/VerticalDivider/Middle"]
+[node name="Left" type="MarginContainer" parent="Player/Info/Info/Info/ExperienceBar/VerticalDivider/Middle"]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/ExperienceBar/VerticalDivider/Middle/Left"]
+[node name="Panel" type="Panel" parent="Player/Info/Info/Info/ExperienceBar/VerticalDivider/Middle/Left"]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
 
-[node name="Bar" type="ProgressBar" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/ExperienceBar/VerticalDivider/Middle"]
+[node name="Bar" type="ProgressBar" parent="Player/Info/Info/Info/ExperienceBar/VerticalDivider/Middle"]
 custom_minimum_size = Vector2(208, 15)
 layout_mode = 2
 theme_override_styles/fill = SubResource("StyleBoxFlat_rnkwl")
 show_percentage = false
 
-[node name="Right" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/ExperienceBar/VerticalDivider/Middle"]
+[node name="Right" type="MarginContainer" parent="Player/Info/Info/Info/ExperienceBar/VerticalDivider/Middle"]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/ExperienceBar/VerticalDivider/Middle/Right"]
+[node name="Panel" type="Panel" parent="Player/Info/Info/Info/ExperienceBar/VerticalDivider/Middle/Right"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
 
-[node name="Bottom" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/ExperienceBar/VerticalDivider"]
+[node name="Bottom" type="MarginContainer" parent="Player/Info/Info/Info/ExperienceBar/VerticalDivider"]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/ExperienceBar/VerticalDivider/Bottom"]
+[node name="Panel" type="Panel" parent="Player/Info/Info/Info/ExperienceBar/VerticalDivider/Bottom"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
 
-[node name="Health" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info"]
+[node name="Health" type="MarginContainer" parent="Player/Info/Info/Info"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 0
 
-[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/Health"]
+[node name="Label" type="Label" parent="Player/Info/Info/Info/Health"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("50_4w656")
 theme_override_font_sizes/font_size = 24
@@ -1122,82 +937,82 @@ text = "XXX/XXX HP"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="HealthBar" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info"]
+[node name="HealthBar" type="MarginContainer" parent="Player/Info/Info/Info"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VerticalDivider" type="VBoxContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/HealthBar"]
+[node name="VerticalDivider" type="VBoxContainer" parent="Player/Info/Info/Info/HealthBar"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Top" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/HealthBar/VerticalDivider"]
+[node name="Top" type="MarginContainer" parent="Player/Info/Info/Info/HealthBar/VerticalDivider"]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/HealthBar/VerticalDivider/Top"]
+[node name="Panel" type="Panel" parent="Player/Info/Info/Info/HealthBar/VerticalDivider/Top"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
 
-[node name="Middle" type="HBoxContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/HealthBar/VerticalDivider"]
+[node name="Middle" type="HBoxContainer" parent="Player/Info/Info/Info/HealthBar/VerticalDivider"]
 layout_mode = 2
 
-[node name="Left" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/HealthBar/VerticalDivider/Middle"]
+[node name="Left" type="MarginContainer" parent="Player/Info/Info/Info/HealthBar/VerticalDivider/Middle"]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/HealthBar/VerticalDivider/Middle/Left"]
+[node name="Panel" type="Panel" parent="Player/Info/Info/Info/HealthBar/VerticalDivider/Middle/Left"]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
 
-[node name="Bar" type="ProgressBar" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/HealthBar/VerticalDivider/Middle"]
+[node name="Bar" type="ProgressBar" parent="Player/Info/Info/Info/HealthBar/VerticalDivider/Middle"]
 custom_minimum_size = Vector2(208, 15)
 layout_mode = 2
 theme_override_styles/fill = SubResource("StyleBoxFlat_vke2r")
 show_percentage = false
 
-[node name="Right" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/HealthBar/VerticalDivider/Middle"]
+[node name="Right" type="MarginContainer" parent="Player/Info/Info/Info/HealthBar/VerticalDivider/Middle"]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/HealthBar/VerticalDivider/Middle/Right"]
+[node name="Panel" type="Panel" parent="Player/Info/Info/Info/HealthBar/VerticalDivider/Middle/Right"]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
 
-[node name="Bottom" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/HealthBar/VerticalDivider"]
+[node name="Bottom" type="MarginContainer" parent="Player/Info/Info/Info/HealthBar/VerticalDivider"]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/HealthBar/VerticalDivider/Bottom"]
+[node name="Panel" type="Panel" parent="Player/Info/Info/Info/HealthBar/VerticalDivider/Bottom"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
 
-[node name="Player" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description"]
+[node name="Effects" type="MarginContainer" parent="Player"]
 layout_mode = 2
 theme_override_constants/margin_top = 10
 
-[node name="Background" type="Panel" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player"]
-custom_minimum_size = Vector2(318, 265)
+[node name="Background" type="Panel" parent="Player/Effects"]
+custom_minimum_size = Vector2(0, 275)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_e71vb")
 
-[node name="Divider" type="HBoxContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player"]
+[node name="Effects" type="HBoxContainer" parent="Player/Effects"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider"]
-layout_mode = 2
-alignment = 2
-
-[node name="Buffs" type="VBoxContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer"]
+[node name="Effects" type="VBoxContainer" parent="Player/Effects/Effects"]
 layout_mode = 2
 alignment = 2
 
-[node name="Shield" type="TextureRect" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Buffs"]
+[node name="Buffs" type="VBoxContainer" parent="Player/Effects/Effects/Effects"]
+layout_mode = 2
+alignment = 2
+
+[node name="Shield" type="TextureRect" parent="Player/Effects/Effects/Effects/Buffs"]
 layout_mode = 2
 texture = ExtResource("26_b17eg")
 
-[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Buffs/Shield"]
+[node name="Label" type="Label" parent="Player/Effects/Effects/Effects/Buffs/Shield"]
 layout_mode = 0
 offset_right = 65.0
 offset_bottom = 65.0
@@ -1205,16 +1020,16 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("50_4w656")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="Boost" type="TextureRect" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Buffs"]
+[node name="Boost" type="TextureRect" parent="Player/Effects/Effects/Effects/Buffs"]
 layout_mode = 2
 texture = ExtResource("27_ntx8l")
 
-[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Buffs/Boost"]
+[node name="Label" type="Label" parent="Player/Effects/Effects/Effects/Buffs/Boost"]
 layout_mode = 0
 offset_right = 65.0
 offset_bottom = 65.0
@@ -1222,20 +1037,20 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("50_4w656")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="Status" type="VBoxContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer"]
+[node name="Status" type="VBoxContainer" parent="Player/Effects/Effects/Effects"]
 layout_mode = 2
 alignment = 2
 
-[node name="Poison" type="TextureRect" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Status"]
+[node name="Poison" type="TextureRect" parent="Player/Effects/Effects/Effects/Status"]
 layout_mode = 2
 texture = ExtResource("10_h8e4i")
 
-[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Status/Poison"]
+[node name="Label" type="Label" parent="Player/Effects/Effects/Effects/Status/Poison"]
 layout_mode = 0
 offset_right = 65.0
 offset_bottom = 65.0
@@ -1243,16 +1058,16 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("50_4w656")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="Sleep" type="TextureRect" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Status"]
+[node name="Sleep" type="TextureRect" parent="Player/Effects/Effects/Effects/Status"]
 layout_mode = 2
 texture = ExtResource("11_4lmeg")
 
-[node name="Label" type="Label" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Status/Sleep"]
+[node name="Label" type="Label" parent="Player/Effects/Effects/Effects/Status/Sleep"]
 layout_mode = 0
 offset_right = 65.0
 offset_bottom = 65.0
@@ -1260,26 +1075,10 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("50_4w656")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 2
-
-[node name="Sprite" type="Sprite2D" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider"]
-position = Vector2(208.5, 130.99994)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("46_ntx8l")
-script = ExtResource("16_0rl1p")
-
-[node name="MarginContainer" type="MarginContainer" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider"]
-visible = false
-layout_mode = 2
-theme_override_constants/margin_left = 10
-
-[node name="Panel" type="Panel" parent="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/MarginContainer"]
-custom_minimum_size = Vector2(256, 256)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_ok6jj")
 
 [node name="SoundEffects" type="Node" parent="Player"]
 
@@ -1295,6 +1094,10 @@ stream = ExtResource("25_0rl1p")
 
 [node name="Action" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
 
+[node name="boost" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
+stream = ExtResource("51_b17eg")
+volume_db = 10.0
+
 [node name="Miss" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
 stream = ExtResource("38_hrvbo")
 volume_db = 10.0
@@ -1308,156 +1111,142 @@ stream = ExtResource("44_0cbny")
 [node name="GainLevel" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
 stream = ExtResource("45_hrvbo")
 
-[node name="Poison" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
+[node name="poison" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
 stream = ExtResource("15_ok6jj")
 volume_db = 10.0
 
-[node name="Sleep" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
+[node name="sleep" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
 stream = ExtResource("15_0rl1p")
 volume_db = 10.0
 
-[node name="Shield" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
+[node name="shield" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
 stream = ExtResource("28_4w656")
+
+[node name="GemBreak" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
+stream = ExtResource("51_rqtf5")
+volume_db = 10.0
 
 [node name="GameOver" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
 stream = ExtResource("35_gngh3")
 volume_db = 10.0
 
-[node name="Gem3" type="MarginContainer" parent="Player"]
+[node name="Description" type="MarginContainer" parent="."]
 visible = false
-layout_mode = 0
-offset_top = 268.0
-offset_right = 80.0
-offset_bottom = 348.0
-theme_override_constants/margin_left = 0
+offset_top = 200.0
+offset_right = 350.0
+offset_bottom = 650.0
+theme_override_constants/margin_left = 20
+script = ExtResource("56_e71vb")
+
+[node name="Border" type="Panel" parent="Description"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_blkrb")
+
+[node name="Description" type="MarginContainer" parent="Description"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Background" type="Panel" parent="Description/Description"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_abqjc")
+
+[node name="Description" type="MarginContainer" parent="Description/Description"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="DescriptionDivider" type="VBoxContainer" parent="Description/Description/Description"]
+layout_mode = 2
+
+[node name="Name" type="MarginContainer" parent="Description/Description/Description/DescriptionDivider"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 0
-theme_override_constants/margin_bottom = 0
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 8
 
-[node name="Background" type="Panel" parent="Player/Gem3"]
-custom_minimum_size = Vector2(80, 80)
+[node name="Label" type="Label" parent="Description/Description/Description/DescriptionDivider/Name"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_vke2r")
-
-[node name="Button" type="TextureButton" parent="Player/Gem3"]
-layout_mode = 2
-texture_normal = ExtResource("12_gngh3")
-ignore_texture_size = true
-stretch_mode = 0
-script = ExtResource("54_vke2r")
-
-[node name="Consumable4" type="MarginContainer" parent="Player"]
-visible = false
-layout_mode = 0
-offset_left = 724.0
-offset_top = 773.0
-offset_right = 794.0
-offset_bottom = 843.0
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 0
-theme_override_constants/margin_bottom = 0
-
-[node name="Background" type="Panel" parent="Player/Consumable4"]
-custom_minimum_size = Vector2(70, 70)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_uit24")
-
-[node name="Button" type="TextureButton" parent="Player/Consumable4"]
-layout_mode = 2
-texture_normal = ExtResource("13_0n3wm")
-ignore_texture_size = true
-stretch_mode = 0
-script = ExtResource("54_vke2r")
-
-[node name="Label" type="Label" parent="Player/Consumable4/Button"]
-layout_mode = 0
-offset_right = 65.0
-offset_bottom = 65.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("50_4w656")
 theme_override_font_sizes/font_size = 32
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 2
 
-[node name="Consumable5" type="MarginContainer" parent="Player"]
-visible = false
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 0
-offset_left = 714.0
-offset_top = 773.0
-offset_right = 784.0
-offset_bottom = 843.0
-theme_override_constants/margin_left = 0
+[node name="Type" type="MarginContainer" parent="Description/Description/Description/DescriptionDivider"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 0
+theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 0
 
-[node name="Background" type="Panel" parent="Player/Consumable5"]
-custom_minimum_size = Vector2(70, 70)
+[node name="Label" type="Label" parent="Description/Description/Description/DescriptionDivider/Type"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_uit24")
-
-[node name="Button" type="TextureButton" parent="Player/Consumable5"]
-layout_mode = 2
-texture_normal = ExtResource("13_0n3wm")
-ignore_texture_size = true
-stretch_mode = 0
-script = ExtResource("54_vke2r")
-
-[node name="Label" type="Label" parent="Player/Consumable5/Button"]
-layout_mode = 0
-offset_right = 65.0
-offset_bottom = 65.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("50_4w656")
-theme_override_font_sizes/font_size = 32
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 2
+theme_override_font_sizes/font_size = 24
 
-[node name="MarginContainer" type="MarginContainer" parent="Player"]
-layout_mode = 0
-offset_left = 913.0
-offset_top = 208.0
-offset_right = 977.0
-offset_bottom = 272.0
+[node name="Divider1" type="MarginContainer" parent="Description/Description/Description/DescriptionDivider"]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
 
-[node name="Emote" type="MarginContainer" parent="Player/MarginContainer"]
+[node name="Panel" type="Panel" parent="Description/Description/Description/DescriptionDivider/Divider1"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
+
+[node name="Description" type="MarginContainer" parent="Description/Description/Description/DescriptionDivider"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="Description/Description/Description/DescriptionDivider/Description"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 28
+autowrap_mode = 2
+
+[node name="Accuracy" type="MarginContainer" parent="Description/Description/Description/DescriptionDivider"]
 visible = false
 layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 0
 
-[node name="Panel" type="Panel" parent="Player/MarginContainer/Emote"]
+[node name="Label" type="Label" parent="Description/Description/Description/DescriptionDivider/Accuracy"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_ruth0")
-
-[node name="Emote" type="TextureRect" parent="Player/MarginContainer/Emote"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-expand_mode = 2
-script = ExtResource("43_blkrb")
-
-[node name="Label" type="Label" parent="Player/MarginContainer/Emote/Emote"]
-visible = false
-layout_mode = 0
-offset_right = 65.0
-offset_bottom = 65.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("50_4w656")
-theme_override_font_sizes/font_size = 32
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 2
+theme_override_font_sizes/font_size = 28
+text = "ACC: XXX%"
+autowrap_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Player/MarginContainer"]
+[node name="Divider2" type="MarginContainer" parent="Description/Description/Description/DescriptionDivider"]
 layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Panel" type="Panel" parent="Description/Description/Description/DescriptionDivider/Divider2"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
+
+[node name="Flavor" type="MarginContainer" parent="Description/Description/Description/DescriptionDivider"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="Description/Description/Description/DescriptionDivider/Flavor"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 24
+autowrap_mode = 2
 
 [node name="Reward" type="Control" parent="."]
 layout_mode = 3
@@ -1466,16 +1255,13 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("34_4lmeg")
 
-[node name="TextureButton" type="TextureButton" parent="Reward"]
-layout_mode = 0
-offset_left = 396.0
-offset_top = 236.0
-offset_right = 908.0
-offset_bottom = 748.0
-scale = Vector2(0.75, 0.75)
-texture_normal = ExtResource("57_ntx8l")
+[node name="Sprite2D" type="Sprite2D" parent="Reward"]
+position = Vector2(592, 474)
+scale = Vector2(0.5917969, 0.5917969)
+texture = ExtResource("57_ntx8l")
+script = ExtResource("16_0rl1p")
 
-[node name="Reward" type="MarginContainer" parent="Reward"]
+[node name="EmoteReward" type="MarginContainer" parent="Reward"]
 visible = false
 layout_mode = 0
 offset_left = 600.0
@@ -1483,23 +1269,43 @@ offset_top = 403.0
 offset_right = 750.0
 offset_bottom = 553.0
 
-[node name="Background" type="Panel" parent="Reward/Reward"]
+[node name="Background" type="Panel" parent="Reward/EmoteReward"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_vke2r")
 
-[node name="Button" type="TextureButton" parent="Reward/Reward"]
+[node name="Button" type="TextureButton" parent="Reward/EmoteReward"]
 layout_mode = 2
 texture_normal = ExtResource("12_gngh3")
 ignore_texture_size = true
 stretch_mode = 0
-script = ExtResource("34_h8e4i")
+script = ExtResource("54_vke2r")
+
+[node name="ItemReward" type="MarginContainer" parent="Reward"]
+visible = false
+layout_mode = 0
+offset_left = 600.0
+offset_top = 403.0
+offset_right = 750.0
+offset_bottom = 553.0
+
+[node name="Background" type="Panel" parent="Reward/ItemReward"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vke2r")
+
+[node name="Button" type="TextureButton" parent="Reward/ItemReward"]
+layout_mode = 2
+texture_normal = ExtResource("12_gngh3")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("54_vke2r")
 
 [node name="Rewards" type="CenterContainer" parent="Reward"]
 layout_mode = 0
-offset_top = 425.0
+offset_top = 342.0
 offset_right = 1200.0
-offset_bottom = 505.0
+offset_bottom = 422.0
 
 [node name="Rewards" type="HBoxContainer" parent="Reward/Rewards"]
 layout_mode = 2
@@ -1507,10 +1313,10 @@ theme_override_constants/separation = 25
 
 [node name="Skip" type="Button" parent="Reward"]
 layout_mode = 0
-offset_left = 506.0
-offset_top = 570.0
-offset_right = 674.0
-offset_bottom = 654.0
+offset_left = 472.0
+offset_top = 568.0
+offset_right = 711.0
+offset_bottom = 664.0
 theme_override_constants/outline_size = 16
 theme_override_fonts/font = ExtResource("50_4w656")
 theme_override_font_sizes/font_size = 64
@@ -1945,7 +1751,6 @@ theme_override_constants/margin_bottom = 20
 
 [node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/Background/TabContainer/Overview/Scene"]
 layout_mode = 2
-texture = ExtResource("57_rnkwl")
 expand_mode = 1
 
 [node name="Description" type="Label" parent="Help/HelpMenu/HelpMenu/Background/TabContainer/Overview"]
@@ -1980,7 +1785,6 @@ theme_override_constants/margin_bottom = 20
 
 [node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/Background/TabContainer/Weapon/Scene"]
 layout_mode = 2
-texture = ExtResource("59_rm4vd")
 expand_mode = 1
 
 [node name="Description" type="Label" parent="Help/HelpMenu/HelpMenu/Background/TabContainer/Weapon"]
@@ -2058,131 +1862,165 @@ offset_bottom = 594.0
 pivot_offset = Vector2(128, 128)
 texture_normal = ExtResource("59_uit24")
 
-[connection signal="log_message" from="." to="LogUI/LogMenu/Background/Message/ScrollLogger" method="add_message"]
+[connection signal="log_message" from="." to="LogMenu/Background/Message/ScrollLogger" method="add_message"]
 [connection signal="pressed" from="Start/Start" to="." method="new_game" binds= ["demo"]]
 [connection signal="pressed" from="Start/Start" to="Start/Start/Sound" method="set_playing" binds= [true]]
 [connection signal="apply_status" from="Enemy" to="Player" method="statused"]
 [connection signal="deal_damage" from="Enemy" to="Player" method="attacked"]
 [connection signal="give_experience" from="Enemy" to="Player" method="grant_experience"]
-[connection signal="log_message" from="Enemy" to="LogUI/LogMenu/Background/Message/ScrollLogger" method="add_message"]
+[connection signal="log_message" from="Enemy" to="LogMenu/Background/Message/ScrollLogger" method="add_message"]
 [connection signal="pass_turn" from="Enemy" to="Player" method="take_turn"]
-[connection signal="mouse_entered" from="Enemy/EnemyUI/Description/Status/Divider/Buffs/Shield" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
-[connection signal="mouse_entered" from="Enemy/EnemyUI/Description/Status/Divider/Buffs/Shield" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description" binds= [{
+[connection signal="mouse_entered" from="Enemy/Status/Buffs/Shield" to="Description" method="show"]
+[connection signal="mouse_entered" from="Enemy/Status/Buffs/Shield" to="Description" method="show_description" binds= [{
 "description": "Block the next attack",
 "name": "Shield",
 "type": "buff"
 }]]
-[connection signal="mouse_exited" from="Enemy/EnemyUI/Description/Status/Divider/Buffs/Shield" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
-[connection signal="mouse_entered" from="Enemy/EnemyUI/Description/Status/Divider/Buffs/Boost" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
-[connection signal="mouse_exited" from="Enemy/EnemyUI/Description/Status/Divider/Buffs/Boost" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
-[connection signal="mouse_entered" from="Enemy/EnemyUI/Description/Status/Divider/Status/Poison" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
-[connection signal="mouse_entered" from="Enemy/EnemyUI/Description/Status/Divider/Status/Poison" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description" binds= [{
+[connection signal="mouse_exited" from="Enemy/Status/Buffs/Shield" to="Description" method="hide"]
+[connection signal="mouse_entered" from="Enemy/Status/Buffs/Boost" to="Description" method="show"]
+[connection signal="mouse_exited" from="Enemy/Status/Buffs/Boost" to="Description" method="hide"]
+[connection signal="mouse_entered" from="Enemy/Status/Status/Poison" to="Description" method="show"]
+[connection signal="mouse_entered" from="Enemy/Status/Status/Poison" to="Description" method="show_description" binds= [{
 "description": "Each turn damage per stack",
 "flavor": "They say it's the gift that keeps on giving.",
 "name": "Poison",
 "type": "status"
 }]]
-[connection signal="mouse_exited" from="Enemy/EnemyUI/Description/Status/Divider/Status/Poison" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
-[connection signal="mouse_entered" from="Enemy/EnemyUI/Description/Status/Divider/Status/Sleep" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
-[connection signal="mouse_entered" from="Enemy/EnemyUI/Description/Status/Divider/Status/Sleep" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description" binds= [{
+[connection signal="mouse_exited" from="Enemy/Status/Status/Poison" to="Description" method="hide"]
+[connection signal="mouse_entered" from="Enemy/Status/Status/Sleep" to="Description" method="show"]
+[connection signal="mouse_entered" from="Enemy/Status/Status/Sleep" to="Description" method="show_description" binds= [{
 "description": "Skip turn until you wake up",
 "flavor": "YOU GOTTA WAKE UP DUDE!!",
 "name": "Sleep",
 "type": "status"
 }]]
-[connection signal="mouse_exited" from="Enemy/EnemyUI/Description/Status/Divider/Status/Sleep" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
+[connection signal="mouse_exited" from="Enemy/Status/Status/Sleep" to="Description" method="hide"]
+[connection signal="mouse_entered" from="Enemy/Panel" to="Enemy/Panel" method="_show_enemy"]
+[connection signal="mouse_exited" from="Enemy/Panel" to="Description" method="hide"]
+[connection signal="show_enemy" from="Enemy/Panel" to="Description" method="show_description"]
+[connection signal="log_message" from="Inventory" to="LogMenu/Background/Message/ScrollLogger" method="add_message"]
+[connection signal="next_event" from="Inventory" to="." method="next_event"]
+[connection signal="sell_item" from="Inventory" to="Player" method="gain_experience"]
+[connection signal="mouse_entered" from="Inventory/Inventory/Inventory/Items/Food/Button" to="Inventory/Inventory/Inventory/Items/Food/Button" method="_show_item"]
+[connection signal="mouse_exited" from="Inventory/Inventory/Inventory/Items/Food/Button" to="Description" method="hide"]
+[connection signal="show_item" from="Inventory/Inventory/Inventory/Items/Food/Button" to="Description" method="show_item"]
+[connection signal="use_item" from="Inventory/Inventory/Inventory/Items/Food/Button" to="Player" method="use_food"]
+[connection signal="mouse_entered" from="Inventory/Inventory/Inventory/Items/Weapon/Button" to="Inventory/Inventory/Inventory/Items/Weapon/Button" method="_show_item"]
+[connection signal="mouse_exited" from="Inventory/Inventory/Inventory/Items/Weapon/Button" to="Description" method="hide"]
+[connection signal="pressed" from="Inventory/Inventory/Inventory/Items/Weapon/Button" to="Inventory" method="disable"]
+[connection signal="pressed" from="Inventory/Inventory/Inventory/Items/Weapon/Button" to="Inventory/Inventory/Inventory/Items/Weapon/Button" method="_use_item"]
+[connection signal="pressed" from="Inventory/Inventory/Inventory/Items/Weapon/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
+[connection signal="show_item" from="Inventory/Inventory/Inventory/Items/Weapon/Button" to="Description" method="show_item"]
+[connection signal="use_item" from="Inventory/Inventory/Inventory/Items/Weapon/Button" to="Player" method="use_weapon"]
+[connection signal="mouse_entered" from="Inventory/Inventory/Inventory/Items/Items/Gems/Gem1/Button" to="Inventory/Inventory/Inventory/Items/Items/Gems/Gem1/Button" method="_show_item"]
+[connection signal="mouse_exited" from="Inventory/Inventory/Inventory/Items/Items/Gems/Gem1/Button" to="Description" method="hide"]
+[connection signal="pressed" from="Inventory/Inventory/Inventory/Items/Items/Gems/Gem1/Button" to="Inventory" method="disable"]
+[connection signal="pressed" from="Inventory/Inventory/Inventory/Items/Items/Gems/Gem1/Button" to="Inventory/Inventory/Inventory/Items/Items/Gems/Gem1/Button" method="_use_item"]
+[connection signal="pressed" from="Inventory/Inventory/Inventory/Items/Items/Gems/Gem1/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
+[connection signal="show_item" from="Inventory/Inventory/Inventory/Items/Items/Gems/Gem1/Button" to="Description" method="show_item"]
+[connection signal="use_item" from="Inventory/Inventory/Inventory/Items/Items/Gems/Gem1/Button" to="Player" method="use_gem"]
+[connection signal="use_item" from="Inventory/Inventory/Inventory/Items/Items/Gems/Gem1/Button" to="Player" method="use_item"]
+[connection signal="pressed" from="Inventory/Inventory/Inventory/Items/Items/Gems/Gem1/DropItem" to="Inventory" method="sell_item_" binds= ["gem1"]]
+[connection signal="mouse_entered" from="Inventory/Inventory/Inventory/Items/Items/Gems/Gem2/Button" to="Inventory/Inventory/Inventory/Items/Items/Gems/Gem2/Button" method="_show_item"]
+[connection signal="mouse_exited" from="Inventory/Inventory/Inventory/Items/Items/Gems/Gem2/Button" to="Description" method="hide"]
+[connection signal="pressed" from="Inventory/Inventory/Inventory/Items/Items/Gems/Gem2/Button" to="Inventory" method="disable"]
+[connection signal="pressed" from="Inventory/Inventory/Inventory/Items/Items/Gems/Gem2/Button" to="Inventory/Inventory/Inventory/Items/Items/Gems/Gem2/Button" method="_use_item"]
+[connection signal="pressed" from="Inventory/Inventory/Inventory/Items/Items/Gems/Gem2/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
+[connection signal="show_item" from="Inventory/Inventory/Inventory/Items/Items/Gems/Gem2/Button" to="Description" method="show_item"]
+[connection signal="use_item" from="Inventory/Inventory/Inventory/Items/Items/Gems/Gem2/Button" to="Player" method="use_gem"]
+[connection signal="pressed" from="Inventory/Inventory/Inventory/Items/Items/Gems/Gem2/DropItem" to="Inventory" method="sell_item_" binds= ["gem2"]]
+[connection signal="mouse_entered" from="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink1/Button" to="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink1/Button" method="_show_item"]
+[connection signal="mouse_exited" from="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink1/Button" to="Description" method="hide"]
+[connection signal="pressed" from="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink1/Button" to="Inventory" method="disable"]
+[connection signal="pressed" from="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink1/Button" to="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink1/Button" method="_use_item"]
+[connection signal="pressed" from="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink1/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
+[connection signal="show_item" from="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink1/Button" to="Description" method="show_item"]
+[connection signal="use_item" from="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink1/Button" to="Player" method="use_drink"]
+[connection signal="pressed" from="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink1/DropItem" to="Inventory" method="sell_item_" binds= ["drink1"]]
+[connection signal="mouse_entered" from="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink2/Button" to="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink2/Button" method="_show_item"]
+[connection signal="mouse_exited" from="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink2/Button" to="Description" method="hide"]
+[connection signal="pressed" from="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink2/Button" to="Inventory" method="disable"]
+[connection signal="pressed" from="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink2/Button" to="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink2/Button" method="_use_item"]
+[connection signal="pressed" from="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink2/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
+[connection signal="show_item" from="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink2/Button" to="Description" method="show_item"]
+[connection signal="use_item" from="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink2/Button" to="Player" method="use_drink"]
+[connection signal="pressed" from="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink2/DropItem" to="Inventory" method="sell_item_" binds= ["drink2"]]
+[connection signal="mouse_entered" from="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink3/Button" to="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink3/Button" method="_show_item"]
+[connection signal="mouse_exited" from="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink3/Button" to="Description" method="hide"]
+[connection signal="pressed" from="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink3/Button" to="Inventory" method="disable"]
+[connection signal="pressed" from="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink3/Button" to="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink3/Button" method="_use_item"]
+[connection signal="pressed" from="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink3/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
+[connection signal="show_item" from="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink3/Button" to="Description" method="show_item"]
+[connection signal="use_item" from="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink3/Button" to="Player" method="use_drink"]
+[connection signal="pressed" from="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink3/DropItem" to="Inventory" method="sell_item_" binds= ["drink3"]]
 [connection signal="apply_status" from="Player" to="Enemy" method="statused" flags=3]
+[connection signal="break_gem" from="Player" to="Inventory" method="remove_item"]
+[connection signal="break_gem" from="Player" to="Inventory" method="break_gem"]
 [connection signal="deal_damage" from="Player" to="Enemy" method="attacked"]
+[connection signal="eat" from="Player" to="Inventory/Inventory/Inventory/Items/Food/Button" method="_use_item"]
+[connection signal="freebie" from="Player" to="Inventory" method="add_item"]
 [connection signal="game_over" from="Player" to="." method="start_menu"]
-[connection signal="log_message" from="Player" to="LogUI/LogMenu/Background/Message/ScrollLogger" method="add_message"]
+[connection signal="log_message" from="Player" to="LogMenu/Background/Message/ScrollLogger" method="add_message"]
 [connection signal="next_event" from="Player" to="." method="next_event"]
 [connection signal="pass_turn" from="Player" to="Enemy" method="take_turn"]
-[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Weapon/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
-[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Weapon/Button" to="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Weapon/Button" method="_show_item"]
-[connection signal="mouse_exited" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Weapon/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
-[connection signal="pressed" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Weapon/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
-[connection signal="show_item" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Weapon/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description"]
-[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem1/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
-[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem1/Button" to="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem1/Button" method="_show_item"]
-[connection signal="mouse_exited" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem1/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
-[connection signal="pressed" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem1/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
-[connection signal="show_item" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem1/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description"]
-[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem2/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
-[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem2/Button" to="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem2/Button" method="_show_item"]
-[connection signal="mouse_exited" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem2/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
-[connection signal="pressed" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem2/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
-[connection signal="show_item" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems/Gem2/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description"]
-[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable1/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
-[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable1/Button" to="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable1/Button" method="_show_item"]
-[connection signal="mouse_exited" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable1/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
-[connection signal="pressed" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable1/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
-[connection signal="show_item" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable1/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description"]
-[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable2/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
-[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable2/Button" to="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable2/Button" method="_show_item"]
-[connection signal="mouse_exited" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable2/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
-[connection signal="pressed" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable2/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
-[connection signal="show_item" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable2/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description"]
-[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable3/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
-[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable3/Button" to="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable3/Button" method="_show_item"]
-[connection signal="mouse_exited" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable3/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
-[connection signal="pressed" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable3/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
-[connection signal="show_item" from="Player/PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider/Consumable3/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description"]
-[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Buffs/Shield" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
-[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Buffs/Shield" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description" binds= [{
+[connection signal="start_turn" from="Player" to="Inventory" method="enable"]
+[connection signal="mouse_entered" from="Player/Emotes/Emote/Button" to="Player/Emotes/Emote/Button" method="_show_item"]
+[connection signal="mouse_exited" from="Player/Emotes/Emote/Button" to="Description" method="hide"]
+[connection signal="show_item" from="Player/Emotes/Emote/Button" to="Description" method="show_item"]
+[connection signal="mouse_entered" from="Player/Effects/Effects/Effects/Buffs/Shield" to="Description" method="show"]
+[connection signal="mouse_entered" from="Player/Effects/Effects/Effects/Buffs/Shield" to="Description" method="show_description" binds= [{
 "description": "Block the next attack",
 "flavor": "",
 "name": "Shield",
 "type": "buff"
 }]]
-[connection signal="mouse_exited" from="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Buffs/Shield" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
-[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Buffs/Boost" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
-[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Buffs/Boost" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description" binds= [{
+[connection signal="mouse_exited" from="Player/Effects/Effects/Effects/Buffs/Shield" to="Description" method="hide"]
+[connection signal="mouse_entered" from="Player/Effects/Effects/Effects/Buffs/Boost" to="Description" method="show"]
+[connection signal="mouse_entered" from="Player/Effects/Effects/Effects/Buffs/Boost" to="Description" method="show_description" binds= [{
 "description": "Deal extra damage",
 "flavor": "",
 "name": "Boost",
 "type": "buff"
 }]]
-[connection signal="mouse_exited" from="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Buffs/Boost" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
-[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Status/Poison" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
-[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Status/Poison" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description" binds= [{
+[connection signal="mouse_exited" from="Player/Effects/Effects/Effects/Buffs/Boost" to="Description" method="hide"]
+[connection signal="mouse_entered" from="Player/Effects/Effects/Effects/Status/Poison" to="Description" method="show"]
+[connection signal="mouse_entered" from="Player/Effects/Effects/Effects/Status/Poison" to="Description" method="show_description" binds= [{
 "description": "Each turn damage per stack",
 "flavor": "They say it's the gift that keeps on giving.",
 "name": "Poison",
 "type": "status"
 }]]
-[connection signal="mouse_exited" from="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Status/Poison" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
-[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Status/Sleep" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
-[connection signal="mouse_entered" from="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Status/Sleep" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description" binds= [{
+[connection signal="mouse_exited" from="Player/Effects/Effects/Effects/Status/Poison" to="Description" method="hide"]
+[connection signal="mouse_entered" from="Player/Effects/Effects/Effects/Status/Sleep" to="Description" method="show"]
+[connection signal="mouse_entered" from="Player/Effects/Effects/Effects/Status/Sleep" to="Description" method="show_description" binds= [{
 "description": "Skip turn until you wake up",
 "flavor": "YOU GOTTA WAKE UP DUDE!!",
 "name": "Sleep",
 "type": "status"
 }]]
-[connection signal="mouse_exited" from="Player/PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Status/Sleep" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
-[connection signal="mouse_entered" from="Player/Gem3/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
-[connection signal="mouse_entered" from="Player/Gem3/Button" to="Player/Gem3/Button" method="_show_item"]
-[connection signal="mouse_exited" from="Player/Gem3/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
-[connection signal="pressed" from="Player/Gem3/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
-[connection signal="show_item" from="Player/Gem3/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description"]
-[connection signal="mouse_entered" from="Player/Consumable4/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
-[connection signal="mouse_entered" from="Player/Consumable4/Button" to="Player/Consumable4/Button" method="_show_item"]
-[connection signal="mouse_exited" from="Player/Consumable4/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
-[connection signal="pressed" from="Player/Consumable4/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
-[connection signal="show_item" from="Player/Consumable4/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description"]
-[connection signal="mouse_entered" from="Player/Consumable5/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
-[connection signal="mouse_entered" from="Player/Consumable5/Button" to="Player/Consumable5/Button" method="_show_item"]
-[connection signal="mouse_exited" from="Player/Consumable5/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
-[connection signal="pressed" from="Player/Consumable5/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
-[connection signal="show_item" from="Player/Consumable5/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description"]
-[connection signal="mouse_entered" from="Player/MarginContainer/Emote/Emote" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
-[connection signal="mouse_entered" from="Player/MarginContainer/Emote/Emote" to="Player/MarginContainer/Emote/Emote" method="_show_item"]
-[connection signal="mouse_exited" from="Player/MarginContainer/Emote/Emote" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
-[connection signal="show_item" from="Player/MarginContainer/Emote/Emote" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description"]
-[connection signal="mouse_entered" from="Reward/Reward/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show"]
-[connection signal="mouse_entered" from="Reward/Reward/Button" to="Reward/Reward/Button" method="_show_item"]
-[connection signal="mouse_exited" from="Reward/Reward/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="hide"]
-[connection signal="pressed" from="Reward/Reward/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
-[connection signal="show_item" from="Reward/Reward/Button" to="Player/PlayerUI/PlayerMenus/ItemDescription/ItemDescription" method="show_description"]
+[connection signal="mouse_exited" from="Player/Effects/Effects/Effects/Status/Sleep" to="Description" method="hide"]
+[connection signal="mouse_entered" from="Reward/EmoteReward/Button" to="Reward/EmoteReward/Button" method="_show_item"]
+[connection signal="mouse_exited" from="Reward/EmoteReward/Button" to="Description" method="hide"]
+[connection signal="pressed" from="Reward/EmoteReward/Button" to="Reward" method="hide"]
+[connection signal="pressed" from="Reward/EmoteReward/Button" to="Reward/EmoteReward/Button" method="_take_item"]
+[connection signal="pressed" from="Reward/EmoteReward/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
+[connection signal="show_item" from="Reward/EmoteReward/Button" to="Description" method="show_item"]
+[connection signal="take_item" from="Reward/EmoteReward/Button" to="Player" method="add_emote"]
+[connection signal="mouse_entered" from="Reward/ItemReward/Button" to="Description" method="show"]
+[connection signal="mouse_entered" from="Reward/ItemReward/Button" to="Reward/ItemReward/Button" method="_show_item"]
+[connection signal="mouse_exited" from="Reward/ItemReward/Button" to="Description" method="hide"]
+[connection signal="pressed" from="Reward/ItemReward/Button" to="Reward" method="hide"]
+[connection signal="pressed" from="Reward/ItemReward/Button" to="Reward/ItemReward/Button" method="_take_item"]
+[connection signal="pressed" from="Reward/ItemReward/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
+[connection signal="show_item" from="Reward/ItemReward/Button" to="Description" method="show_item"]
+[connection signal="take_item" from="Reward/ItemReward/Button" to="Inventory" method="add_item"]
+[connection signal="mouse_entered" from="Reward/Skip" to="Description" method="show"]
+[connection signal="mouse_entered" from="Reward/Skip" to="Description" method="show_description" binds= [{
+"description": "Trash these items to get some bonus experience.",
+"name": "skip",
+"type": ""
+}]]
+[connection signal="mouse_exited" from="Reward/Skip" to="Description" method="hide"]
 [connection signal="pressed" from="Reward/Skip" to="." method="sell_rewards"]
 [connection signal="pressed" from="NextEvent/NextEvent" to="." method="next_event"]
 [connection signal="pressed" from="NextEvent/NextEvent" to="NextEvent" method="hide"]

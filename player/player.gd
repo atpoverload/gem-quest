@@ -2,52 +2,83 @@ extends "res://core/character.gd"
 
 var level = 0
 var experience = 0
-var health_growth = 0
 
-var weapon
 var attack_power = 0
 var magic_power = 0
-var consumables = {}
-var emotes = {}
+
+var emotes = []
 var crit_chance = 6
+var luck = 0
+var revives = 0
+var accuracy = 1
+var gem_break = 1
+var gem_power = 1
+var evasion = 1
 
-var gold = 0
+var on_attack = {}
+var freebies = {
+	'drink': 0,
+	'food': 0,
+}
+var gem_break_chance = 25;
 
+var health_growth = 0
+var affinities = {}
+
+var attack_label
+var magic_label
 var experience_bar
 
+signal start_turn
+signal break_gem
+signal eat
+signal freebie
 signal next_event
 signal game_over
 
 func _ready():
-	sprite = $PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/Sprite
-	health_bar = $PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/HealthBar/VerticalDivider/Middle/Bar
-	health_label = $PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/Health/Label
-	status_bar = $PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Status
-	buff_bar = $PlayerUI/PlayerMenus/PlayerDescription/Description/Player/Divider/VBoxContainer/Buffs
-	experience_bar = $PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/ExperienceBar/VerticalDivider/Middle/Bar
+	sprite = $Sprite
+	health_bar = $Info/Info/Info/HealthBar/VerticalDivider/Middle/Bar
+	health_label = $Info/Info/Info/Health/Label
+	status_bar = $Effects/Effects/Effects/Status
+	buff_bar = $Effects/Effects/Effects/Buffs
+	experience_bar = $Info/Info/Info/ExperienceBar/VerticalDivider/Middle/Bar
+	attack_label = $Info/Info/Info/Power/Stats/Attack
+	magic_label = $Info/Info/Info/Power/Stats/Magic
+	sounds = {}
+	for sound in $SoundEffects.get_children():
+		sounds[sound.name] = sound
 
 func log_state(method, message):
 	print("(%s)[player.gd][%s]<%s> %s" % [Time.get_datetime_string_from_system(), method, character_name, message])
 
 func set_player(player, level_):
 	log_state('new_player', 'creating new player %s - health=%d level=%d' % [player['name'], player['health'], level_])
+
 	character_name = player['name']
-	$PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/Name/Label.text = character_name
+	$Info/Info/Info/Name/Label.text = character_name
 
-	clear_inventory()
-	$PlayerUI/PlayerMenus/ItemDescription/ItemDescription.hide()
-
-	health_growth = int(2 * player['health'] / 10)
 	level = 0
-	max_health = player['health']
-	health = max_health
+	experience = 0
+
 	attack_power = 0
 	magic_power = 0
-	#health_growth = player['health']
+
+	emotes = []
+	for child in $Emotes/Emotes.get_children():
+		$Emotes/Emotes.remove_child(child)
+
+	crit_chance = 6
+	luck = 0
+
+	affinities = {}
+
+	health_growth = int(2 * player['health'] / 10)
+	max_health = player['health']
+	health = max_health
 	await gain_levels(level_)
 
 	status = {}
-	gold = 0
 
 	for status_icon in status_bar.get_children():
 		status_icon.hide()
@@ -56,9 +87,8 @@ func set_player(player, level_):
 	
 	sprite.reset()
 
-	$PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/Powers/AttackPower/Label.text = '%2d Attack' % attack_power
-	$PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/Powers/GemPower/Label.text = '%2d Magic' % magic_power
-	#$PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/Gold/Label.text = '%4d Gold' % gold
+	attack_label.text = '%2d Attack' % attack_power
+	magic_label.text = '%2d Magic' % magic_power
 
 # character management
 func rest_health():
@@ -75,7 +105,6 @@ func set_experience(value):
 func gain_levels(levels):
 	log_state('gain_levels', 'gaining %d levels' % levels)
 	level += levels
-	$PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/Level/Label.text = 'Level %3d' % level
 	# doing this to adjust the health gracefully
 	var old_max_health = max_health
 	var extra_health = health_growth * levels
@@ -98,8 +127,8 @@ func gain_levels(levels):
 	log_state('gain_levels', 'gaining a bonus %d magic' % adjustment)
 	magic_power += adjustment
 
-	$PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/Powers/AttackPower/Label.text = '%3d Attack' % attack_power
-	$PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/Powers/GemPower/Label.text = '%3d Magic' % magic_power
+	attack_label.text = '%3d Attack' % attack_power
+	magic_label.text = '%3d Magic' % magic_power
 
 	if visible:
 		var tween = sprite.hop2(2, 0.08, 20)
@@ -150,132 +179,57 @@ func grant_experience(xp):
 	await gain_experience(xp)
 	next_event.emit()
 
-# inventory management
-func clear_inventory():
-	log_state('clear_inventory', 'removing all items from inventory')
-	$PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Weapon/Button.remove_item()
-	for child in $PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems.get_children():
-		child.get_child(1).remove_item()
-	for child in $PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider.get_children():
-		child.get_child(1).remove_item()
+func add_emote(emote):
+	log_state('add_emote', 'emote: %s' % emote['name'])
+	emotes.append(emote['name'])
+	var row = null
+	if $Emotes/Emotes.get_child_count() == 0:
+		row = HBoxContainer.new()
+		row.alignment = BoxContainer.ALIGNMENT_END
+		$Emotes/Emotes.add_child(row)
+	else:
+		row = $Emotes/Emotes.get_child(0)
+		if row.get_child_count() == 5:
+			row = HBoxContainer.new()
+			row.alignment = BoxContainer.ALIGNMENT_END
+			$Emotes/Emotes.add_child(row)
+			$Emotes/Emotes.move_child(row, 0)
+	var emote_button = $Emotes/Emote.duplicate()
+	emote_button.get_child(1).set_item(emote)
+	row.add_child(emote_button)
+	row.move_child(emote_button, 0)
+	emote_button.show()
 
-# TODO: this is in desperate need of clean up
-func add_item(item):
-	log_state('add_item', 'adding %s to inventory' % item['name'])
-	match item['type']:
-		'weapon':
-			log_state('add_item', 'checking for free weapon slot')
-			var item_button = $PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Weapon/Button
-			if item_button.is_empty():
-				log_state('add_item', 'using %s as weapon' % item['name'])
-				weapon = item
-				item_button.set_item(self, item)
-				$SoundEffects/WeaponAcquire.playing = true
-				await get_tree().create_timer($SoundEffects/WeaponAcquire.stream.get_length() - 0.25).timeout
-			else:
-				log_state('add_item', 'replacing %s with %s' % [item_button._item['name'], item['name']])
-				var extra_gold = item_button._item['power'] * item_button._item.get('accuracy', 100) * (item_button._item['rarity'] + 1)
-				log_state('add_item', 'sold %s for %s gold ' % [item_button._item['name'], extra_gold])
-				await gain_experience(extra_gold)
-				$PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/Gold/Label.text = '%4d Gold' % gold
-				item_button.set_item(self, item)
-				$SoundEffects/WeaponAcquire.playing = true
-				await get_tree().create_timer($SoundEffects/WeaponAcquire.stream.get_length() - 0.25).timeout
-		'gem':
-			log_state('add_item', 'checking for free gem slot')
-			for child in $PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems.get_children():
-				var item_button = child.get_child(1)
-				if item_button.is_empty():
-					log_state('add_item', 'using %s as gem' % item['name'])
-					item_button.set_item(self, item)
-					$SoundEffects/GemAcquire.playing = true
-					await get_tree().create_timer($SoundEffects/GemAcquire.stream.get_length() - 0.25).timeout
-					return
-				elif item_button._item['name'] == item['name']:
-					log_state('add_item', 'found %s' % item['name'])
-					#magic_power += 1
-					#log_state('add_item', 'increasing gem power to %s' % magic_power)
-					#$PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/GemPower/Label.text = '%2d Gem Power' % magic_power
-					break
-				else:
-					log_state('add_item', 'already holding %s' % item_button._item['name'])
-			log_state('add_item', 'no gem slots available')
-			var extra_gold = 10 * (item['rarity'] + 1)
-			log_state('add_item', 'sold %s for %s gold ' % [item['name'], extra_gold])
-			await gain_experience(extra_gold)
-		'consumable':
-			log_state('add_item', 'checking for free consumable slot')
-			for child in $PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider.get_children():
-				var item_button = child.get_child(1)
-				if (item['name'] not in consumables or consumables[item['name']] == 0) and item_button.is_empty():
-					log_state('add_item', 'using %s as consumable' % item['name'])
-					consumables[item['name']] = 1
-					item_button.set_item(self, item)
-					item_button.get_child(0).text = str(consumables[item['name']])
-					if consumables[item['name']] == 1:
-						item_button.get_child(0).hide()
-					else:
-						item_button.get_child(0).show()
-					$SoundEffects/ConsumableAcquire.playing = true
-					await get_tree().create_timer($SoundEffects/ConsumableAcquire.stream.get_length() - 0.25).timeout
-					return
-				elif not item_button.is_empty() and item_button._item['name'] == item['name']:
-					log_state('add_item', 'adding %s to go from %d to %d' % [item['name'], consumables[item['name']], consumables[item['name']] + 1])
-					consumables[item['name']] += 1
-					item_button.get_child(0).text = str(consumables[item['name']])
-					if consumables[item['name']] == 1:
-						item_button.get_child(0).hide()
-					else:
-						item_button.get_child(0).show()
-					$SoundEffects/ConsumableAcquire.playing = true
-					await get_tree().create_timer($SoundEffects/ConsumableAcquire.stream.get_length() - 0.25).timeout
-					return
-				else:
-					log_state('add_item', 'already holding %s' % item['name'])
-			log_state('add_item', 'no consumable slots available')
-			var extra_gold = (item['power'] * item.get('accuracy', 100) * item['rarity'] + 1)
-			log_state('add_item', 'sold %s for %s gold ' % [item['name'], extra_gold])
-			await gain_experience(extra_gold)
-			$PlayerUI/PlayerMenus/PlayerDescription/Description/Info/Background/Info/Gold/Label.text = '%4d Gold' % gold
-		'emote':
-			log_state('add_item', 'adding emote')
-			for row in $MarginContainer/VBoxContainer.get_children():
-				for box in row.get_children():
-					var button = box.get_child(1)
-					if button._item['name'] == item['name']:
-						log_state('add_item', 'adding %s to go from %d to %d' % [item['name'], emotes[item['name']], emotes[item['name']] + 1])
-						emotes[item['name']] += 1
-						button.get_child(0).text = str(emotes[item['name']])
-						button.get_child(0).show()
-						if item['name'] == 'Yikes':
-							armor = emotes[item['name']]
-						return
-			log_state('add_item', '%s is a new emote, adding to table' % item['name'])
-			var button = $MarginContainer/Emote.duplicate()
-			emotes[item['name']] = 1
-			if item['name'] == 'Yikes':
-				armor = emotes[item['name']]
-			if $MarginContainer/VBoxContainer.get_child_count() > 0:
-				for row in $MarginContainer/VBoxContainer.get_children():
-					if row.get_child_count() < 4:
-						log_state('add_item', 'adding %s to existing row' % item['name'])
-						row.add_child(button)
-						button.get_child(1).set_item(item)
-						button.show()
-						return
-			log_state('add_item', 'creating new row for %s' % item['name'])
-			var row = HBoxContainer.new()
-			row.add_child(button)
-			$MarginContainer/VBoxContainer.add_child(row)
-			row.show()
-			button.get_child(1).set_item(item)
-			button.show()
+	# static boosts
+	if 'stat' in emote['effect']:
+		match emote['effect']['stat']:
+			'luck': luck += emote['effect']['amount']
+			'revives': revives += emote['effect']['amount']
+			'accuracy': accuracy *= 1 + emote['effect']['amount']
+			'gem_break': gem_break *= 1 + emote['effect']['amount']
+			'gem_power': gem_power *= 1 + emote['effect']['amount']
+			'evasion': evasion *= 1 + emote['effect']['amount']
+	elif 'attack' in emote['effect']:
+		if emote['effect']['attack'] not in on_attack:
+			on_attack[emote['effect']['attack']] = emote['effect']['chance']
+		else:
+			on_attack[emote['effect']['attack']] *= 1 + emote['effect']['chance'] / 100.0
+		log_state('add_emote', 'increased %s to %d' % [emote['effect']['attack'], on_attack[emote['effect']['attack']]])
+	elif 'resistance' in emote['effect']:
+		if emote['effect']['resistance'] not in resistances:
+			resistances[emote['effect']['resistance']] = emote['effect']['amount']
+		else:
+			resistances[emote['effect']['resistance']] *= emote['effect']['amount']
+		log_state('add_emote', 'adjusted %s to %d' % [emote['effect']['resistance'], resistances[emote['effect']['resistance']]])
+	elif 'freebie' in emote['effect']:
+		if emote['effect']['freebie'] not in freebies or freebies[emote['effect']['freebie']] == 0:
+			freebies[emote['effect']['freebie']] = emote['effect']['chance']
+		else:
+			freebies[emote['effect']['freebie']] *= 1 + emote['effect']['chance']
+		log_state('add_emote', 'adjusted %s to %d' % [emote['effect']['freebie'], freebies[emote['effect']['freebie']]])
+	next_event.emit()
 
-func drop_weapon():
-	log_state('drop_weapon', 'dropping %s' % $PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Weapon/Button._item['name'])
-	$PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Weapon/Button.remove_item()
-
-func break_gem(color):
+func check_break_gem(color):
 	log_state('break_gem', 'breaking %s gem' % color)
 	for child in $PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems.get_children():
 		var item_button = child.get_child(1)
@@ -285,70 +239,19 @@ func break_gem(color):
 			return
 	log_state('break_gem', 'not holding %s gem' % color)
 
-# ui helpers
-func enable():
-	log_state('enable', 'enabling items')
-	$PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Weapon/Button.disabled = false
-	$PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Weapon/Button.modulate = Color('White')
-	for child in $PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems.get_children():
-		child.get_child(1).disabled = false
-		child.get_child(1).modulate = Color('White')
-	for child in $PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider.get_children():
-		child.get_child(1).disabled = false
-		child.get_child(1).modulate = Color('White')
-
-func disable():
-	log_state('enable', 'disabling items')
-	$PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Weapon/Button.disabled = true
-	$PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Weapon/Button.modulate = Color('555555')
-	for child in $PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems.get_children():
-		child.get_child(1).disabled = true
-		child.get_child(1).modulate = Color('555555')
-	for child in $PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider.get_children():
-		child.get_child(1).disabled = true
-		child.get_child(1).modulate = Color('555555')
-	#$PlayerUI/PlayerMenus/ItemDescription/ItemDescription.hide()
-
 # actions
 func act():
 	await sprite.hop2(2, 0.10, 25)
 
-# emote helpers
-# TODO: may want to have the values in a lookup of some sort
-func ligC(accuracy):
-	if 'ligC' in emotes and emotes['ligC'] > 0:
-		var base_accuracy = accuracy
-		var adjustment = pow(1.20, emotes['ligC']) # 20% increase per rank
-		accuracy = min(100, base_accuracy * adjustment)
-		log_state('ligC', 'accuracy boosted %d * %.2f = %d)' % [base_accuracy, adjustment, accuracy])
-		return accuracy
-	else:
-		return accuracy
+func accuracy_check(accuracy_):
+	log_state('accuracy_check', 'base chance to hit %d' % accuracy_)
 
-func Slay(damage):
-	if 'Slay' in emotes and emotes['Slay'] > 0:
-		var base_damage = damage
-		damage = base_damage + emotes['Slay']
-		log_state('Slay', 'damage boosted %d * %d = %d' % [base_damage, emotes['Slay'], damage])
-		return damage
-	else:
-		return damage
-
-func Vampers(damage):
-	if 'Vampers' in emotes and emotes['Vampers'] > 0:
-		var adjustment = pow(1.10,  emotes['Vampers']) - 1
-		var stolen = damage * adjustment + 1
-		log_state('Vampers', 'stole %d * %.2f + 1 = %d HP' % [damage, adjustment, stolen])
-		log_message.emit('%s stole health' % character_name)
-		await set_health(health + stolen)
-
-func accuracy_check(accuracy):
 	# accuracy modifiers
-	accuracy = ligC(accuracy)
+	accuracy_ *= accuracy
 
 	var chance = randi() % 100
-	log_state('accuracy_check', 'chance to hit %d < %d = %s' % [chance, accuracy, chance < accuracy])
-	return chance < accuracy
+	log_state('accuracy_check', 'chance to hit %d < %d = %s' % [chance, accuracy_, chance < accuracy_])
+	return chance < accuracy_
 
 func critical_hit(damage):
 	var crit = randi() % 100
@@ -362,12 +265,13 @@ func critical_hit(damage):
 
 func get_weapon_damage(element, damage):
 	# damage modifiers
-	var base_damage = int(attack_power * Slay(damage))
+	#var base_damage = int(attack_power * Slay(damage))
+	var base_damage = int(attack_power * damage)
 	
 	var lower_bound = min(max(5 * base_damage, 50), 85)
 	var upper_bound = 100 - lower_bound
 	var damage_roll = (randi() % upper_bound + lower_bound) / 100.0
-	var calc = (base_damage / 3 + 2)
+	var calc = (base_damage / 3.0 + 2)
 	damage =  round(calc * damage_roll)
 	log_state('get_weapon_damage', 'damage roll %d * %f = %d' % [calc, damage_roll, damage])
 
@@ -386,10 +290,10 @@ func get_gem_damage(element, damage):
 	var lower_bound = min(max(5 * base_damage, 50), 85)
 	var upper_bound = 100 - lower_bound
 	var damage_roll = (randi() % upper_bound + lower_bound) / 100.0
-	var calc = (base_damage / 5 + 2)
+	var calc = (base_damage / 3.0 + 2)
 	damage =  round(calc * damage_roll)
-	log_state('get_weapon_damage', 'damage roll %d * %f = %d' % [calc, damage_roll, damage])
-	
+	log_state('get_gem_damage', 'damage roll %d * %f = %d' % [calc, damage_roll, damage])
+
 	# boost
 	if 'boost' in buffs:
 		damage *= (1 + 0.25 * buffs['boost'])
@@ -401,124 +305,211 @@ func get_gem_damage(element, damage):
 func get_stacks(element, effect, stacks):
 	return stacks + 1
 
+func sum(accum, number):
+	return accum + number
+
+func logic():
+	# TODO: make this trigger off status correctly, but we don't know the food's effect here
+	if health < max_health / 3.0:
+		await get_tree().create_timer(0.5).timeout
+		eat.emit()
+		await get_tree().create_timer(1.0).timeout
+	start_turn.emit()
+	log_message.emit('What will %s do?' % character_name)
+
 func miss():
 	await get_tree().create_timer(0.33).timeout
 	$SoundEffects/Miss.playing = true
 	log_message.emit('%s missed' % character_name)
 	await get_tree().create_timer($SoundEffects/Miss.stream.get_length() + 0.5).timeout
-	pass_turn.emit()
 
-func weapon_attack(item):
-	disable()
-	log_state('weapon_attack', 'attacking with %s' % item['name'])
+func death():
+	if revives > 0:
+		log_state('death', 'used one of %d revives' % revives)
+		revives -= 1
+		log_message.emit('%s evades death' % character_name)
+		await reset()
+	else:
+		log_state('death', 'game over :(')
+		log_message.emit('%s died' % character_name)
+		sprite.die()
+		await get_tree().create_timer(0.25).timeout
+		log_message.emit('Game Over!')
+		$SoundEffects/GameOver.playing = true
+		await get_tree().create_timer($SoundEffects/GameOver.stream.get_length() * 3 / 4).timeout
+		game_over.emit()
+
+func use_weapon(weapon) -> void:
+	log_state('use_weapon', 'attacking with %s' % weapon['name'])
 	log_message.emit('%s attacks' % character_name)
 	await act()
 
-	if accuracy_check(item.get('accuracy', 100)):
-		var element = item.get('element', 'normal')
-		var damage = get_weapon_damage(element, item['power'])
-		log_state('weapon_attack', 'attacking with %s for %d %s damage' % [item['name'], damage, element])
-		$SoundEffects/Action.stream = item['sound']
+	if accuracy_check(weapon.get('accuracy', 100)):
+		var element = weapon.get('element', 'normal')
+		var damage = get_weapon_damage(element, weapon['power'])
+		log_state('weapon_attack', 'attacking with %s for %d %s damage' % [weapon['name'], damage, element])
+		$SoundEffects/Action.stream = weapon['sound']
 		$SoundEffects/Action.playing = true
 		deal_damage.emit(element, damage)
-		await Vampers(damage)
+		await get_tree().create_timer(1.4).timeout
+		for effect in on_attack:
+			log_state('use_weapon', 'base chance to trigger %s %d' % [effect, on_attack[effect]])
+			var chance = randi() % 100
+			log_state('use_weapon', 'chance to trigger %d < %d = %s' % [chance, on_attack[effect], chance < on_attack[effect]])
+			if chance < on_attack[effect]:
+				match effect:
+					'repeat':
+						log_message.emit('%s attacks again' % character_name)
+						await act()
+						if accuracy_check(weapon.get('accuracy', 100)):
+							damage = get_weapon_damage(element, weapon['power']) / 2
+							log_state('weapon_attack', 'attacking with %s for %d %s damage' % [weapon['name'], damage, element])
+							$SoundEffects/Action.stream = weapon['sound']
+							$SoundEffects/Action.playing = true
+							deal_damage.emit(element, damage)
+							await get_tree().create_timer(1.4).timeout
+						else:
+							await miss()
+					'boost':
+						await gain_buff('boost', 1)
+					'flinch':
+						apply_status.emit(element, 'flinch', 1)
+					'banish':
+						apply_status.emit(element, 'banish', 1)
 	else:
 		await miss()
 
-func use_gem(item):
-	disable()
-	log_state('use_gem', 'using the %s' % item['name'])
+	await get_tree().create_timer(0.5).timeout
+	pass_turn.emit()
+
+func use_gem(gem) -> void:
+	# disable()
+	log_state('use_gem', 'using the %s' % gem['name'])
 	log_message.emit('%s uses the' % character_name)
 	await get_tree().create_timer(0.25).timeout
-	log_message.emit('%s' % item['name'])
+	log_message.emit('%s' % gem['name'])
 	$SoundEffects/UseGem.playing = true
 	await act()
 	await get_tree().create_timer($SoundEffects/UseGem.stream.get_length() / 2).timeout
 
-	if accuracy_check(item.get('accuracy', 100)):
-		$SoundEffects/Action.stream = item['sound']
+	if accuracy_check(gem.get('accuracy', 100)):
+		$SoundEffects/Action.stream = gem['sound']
 		$SoundEffects/Action.playing = true
-		var element = item.get('element', 'normal')
+		var element = gem.get('element', 'normal')
 		# TODO: this is a fake switch and it's bad
-		if 'power' in item:
-			var damage = get_gem_damage(element, item['power'])
-			log_state('use_gem', 'attacking with %s for %d %s damage' % [item['name'], damage, element])
+		if 'power' in gem:
+			var damage = get_gem_damage(element, gem['power'])
+			log_state('use_gem', 'attacking with %s for %d %s damage' % [gem['name'], damage, element])
 			deal_damage.emit(element, damage)
-		elif 'status' in item:
-			var effect = item['status']
-			var stacks = item.get('stacks', 0)
+			await get_tree().create_timer(1.4).timeout
+		elif 'status' in gem:
+			var effect = gem['status']
+			var stacks = gem.get('stacks', 0)
 			stacks = get_stacks(element, effect, stacks)
-			log_state('use_gem', 'applying %d stacks of %s with %s' % [stacks, effect, item['name']])
+			log_state('use_gem', 'applying %d stacks of %s with %s' % [stacks, effect, gem['name']])
 			apply_status.emit(element, effect, stacks)
-		elif 'buff' in item:
-			var buff = item['buff']
-			var stacks = item.get('stacks', 0)
+			await get_tree().create_timer(1).timeout
+		elif 'buff' in gem:
+			var buff = gem['buff']
+			var stacks = gem.get('stacks', 0)
 			stacks = get_stacks(element, buff, stacks)
-			log_state('use_gem', 'gain %s' % item['buff'])
+			log_state('use_gem', 'gain %s' % gem['buff'])
 			await gain_buff(buff, stacks)
 			await get_tree().create_timer($SoundEffects/Action.stream.get_length() / 4).timeout
-			pass_turn.emit()
 		else:
 			log_message.emit('It did nothing?')
-			await get_tree().create_timer(0.50).timeout
-			pass_turn.emit()
-		
-		break_gem
+			await get_tree().create_timer(1).timeout
 	else:
 		await miss()
 
-func use_consumable(item):
-	disable()
-	log_state('use_consumable', 'using %s' % item['name'])
-	$SoundEffects/Action.stream = item['sound']
+	await get_tree().create_timer(0.5).timeout
+
+	log_state('use_gem', 'base chance to break %d' % gem_break)
+	var chance = randi() % 100
+	var break_chance = gem_break_chance * gem_break
+	log_state('use_gem', 'chance to break %d < %d = %s' % [chance, break_chance, chance < break_chance])
+	# TODO: Think about other ways to do this.
+	if chance < break_chance:
+		break_gem.emit(gem)
+		log_message.emit('%s broke!' % gem['name'])
+		$SoundEffects/GemBreak.playing = true
+		await get_tree().create_timer($SoundEffects/GemBreak.stream.get_length() / 2).timeout
+		gem_break_chance = 25
+	else:
+		gem_break_chance += 1
+
+	pass_turn.emit()
+
+func use_drink(drink) -> void:
+	# disable()
+	log_state('use_drink', 'using %s' % drink['name'])
+	$SoundEffects/Action.stream = drink['sound']
 	$SoundEffects/Action.playing = true
+	if drink['name'][0] in 'AEIOUaeiou':
+		log_message.emit('Drank an %s' % drink['name'])
+	else:
+		log_message.emit('Drank a %s' % drink['name'])
 	await act()
 
-	if item['name'][0] in 'AEIOUaeiou':
-		log_message.emit('Using an %s' % item['name'])
-	else:
-		log_message.emit('Using a %s' % item['name'])
-	if 'power' in item:
-		log_state('use_consumable', 'restoring %s health' % item['power'])
-		set_health(health + item['power'])
-	if 'status' in item:
+	if 'power' in drink:
+		log_state('use_consumable', 'restoring %s health' % drink['power'])
+		set_health(health + drink['power'])
+	if 'status' in drink:
 		if 'status' == 'all':
 			log_state('use_consumable', 'removing all status effects')
 			for effect in status:
 				log_state('use_consumable', 'removing status effect %s' % effect)
 				set_status(effect, 0)
 		else:
-			log_state('use_consumable', 'removing status effect %s' % item['status'])
-			set_status(item['status'], 0)
-	# TODO: move into some sort of item amangement
-	for child in $PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Consumables/ConsumablesDivider.get_children():
-		var item_button = child.get_child(1)
-		if not item_button.is_empty() and item_button._item['name'] == item['name']:
-			log_state('use_consumable', 'removing a %s out of %s' % [item['name'], consumables[item['name']]])
-			consumables[item['name']] -= 1
-			item_button.get_child(0).text = str(consumables[item['name']])
-			if consumables[item['name']] == 1:
-				item_button.get_child(0).hide()
-			else:
-				item_button.get_child(0).show()
-			
-			if consumables[item['name']] == 0:
-				log_state('use_consumable', 'removing %s from inventory' % item['name'])
-				item_button.remove_item()
-			break
+			log_state('use_consumable', 'removing status effect %s' % drink['status'])
+			set_status(drink['status'], 0)
+
+	if freebies['drink'] > 0:
+		log_state('use_drink', 'base chance to freebie %d' % freebies['drink'])
+		var chance = randi() % 100
+		log_state('use_drink', 'chance to freebie %d < %d = %s' % [chance, freebies['drink'], chance < freebies['drink']])
+		if chance < freebies['drink']:
+			await get_tree().create_timer(0.75).timeout
+			freebie.emit(drink)
+			log_message.emit('Light got a freebie!')
+			await get_tree().create_timer($SoundEffects/ConsumableAcquire.stream.get_length() / 2).timeout
+
 	await get_tree().create_timer($SoundEffects/Action.stream.get_length()).timeout
 	pass_turn.emit()
 
-func logic():
-	log_message.emit('What will %s do?' % character_name)
-	enable()
+func use_food(food) -> void:
+	# disable()
+	log_state('use_food', 'using %s' % food['name'])
+	$SoundEffects/Action.stream = food['sound']
+	$SoundEffects/Action.playing = true
 
-func death():
-	log_state('death', 'game over :(')
-	log_message.emit('%s died' % character_name)
-	sprite.die()
-	await get_tree().create_timer(0.25).timeout
-	log_message.emit('Game Over!')
-	$SoundEffects/GameOver.playing = true
-	await get_tree().create_timer($SoundEffects/GameOver.stream.get_length() * 3 / 4).timeout
-	game_over.emit()
+	if food['name'][0] in 'AEIOUaeiou':
+		log_message.emit('Ate an %s' % food['name'])
+	else:
+		log_message.emit('Ate a %s' % food['name'])
+	if 'power' in food:
+		log_state('use_consumable', 'restoring %s health' % food['power'])
+		set_health(health + food['power'])
+	if 'status' in food:
+		if 'status' == 'all':
+			log_state('use_consumable', 'removing all status effects')
+			for effect in status:
+				log_state('use_consumable', 'removing status effect %s' % effect)
+				set_status(effect, 0)
+		else:
+			log_state('use_consumable', 'removing status effect %s' % food['status'])
+			set_status(food['status'], 0)
+
+	await act() 
+
+	if freebies['food'] > 0:
+		log_state('use_food', 'base chance to freebie %d' % freebies['food'])
+		var chance = randi() % 100
+		log_state('use_food', 'chance to freebie %d < %d = %s' % [chance, freebies['food'], chance < freebies['food']])
+		if chance < freebies['food']:
+			await get_tree().create_timer(0.75).timeout
+			freebie.emit(food)
+			log_message.emit('Light got a freebie!')
+			await get_tree().create_timer($SoundEffects/ConsumableAcquire.stream.get_length() + 1.0).timeout
+
+	#await get_tree().create_timer($SoundEffects/Action.stream.get_length()).timeout
