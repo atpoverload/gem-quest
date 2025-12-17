@@ -1,7 +1,8 @@
-[gd_scene load_steps=112 format=3 uid="uid://dtcriwdea6abg"]
+[gd_scene load_steps=113 format=3 uid="uid://dtcriwdea6abg"]
 
 [ext_resource type="Script" uid="uid://fn4hnueghmje" path="res://main.gd" id="1_yaehf"]
 [ext_resource type="AudioStream" uid="uid://dq413g1nheh08" path="res://music/7.-Fairy-Fountain.ogg" id="3_82xsv"]
+[ext_resource type="Script" path="res://scenarios/event_generator.gd" id="3_f1p13"]
 [ext_resource type="Script" uid="uid://dussordhjhql2" path="res://enemies/enemy_manager.gd" id="4_0cp0l"]
 [ext_resource type="AudioStream" uid="uid://cr8p4tem5lvu1" path="res://ui/sounds/rest.mp3" id="4_gngh3"]
 [ext_resource type="Script" uid="uid://dnio887h8hayq" path="res://items/item_manager.gd" id="4_ok6jj"]
@@ -184,6 +185,9 @@ script = ExtResource("1_yaehf")
 
 [node name="ScenarioManager" type="Node" parent="."]
 script = ExtResource("7_kq58d")
+
+[node name="EventGenerator" type="Node" parent="ScenarioManager"]
+script = ExtResource("3_f1p13")
 
 [node name="SoundManager" type="Node" parent="."]
 
@@ -1953,8 +1957,8 @@ texture_normal = ExtResource("59_uit24")
 [connection signal="use_item" from="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink3/Button" to="Player" method="use_drink"]
 [connection signal="pressed" from="Inventory/Inventory/Inventory/Items/Items/Drinks/Drink3/DropItem" to="Inventory" method="sell_item_" binds= ["drink3"]]
 [connection signal="apply_status" from="Player" to="Enemy" method="statused" flags=3]
-[connection signal="break_gem" from="Player" to="Inventory" method="remove_item"]
 [connection signal="break_gem" from="Player" to="Inventory" method="break_gem"]
+[connection signal="break_gem" from="Player" to="Inventory" method="remove_item"]
 [connection signal="deal_damage" from="Player" to="Enemy" method="attacked"]
 [connection signal="eat" from="Player" to="Inventory/Inventory/Inventory/Items/Food/Button" method="_use_item"]
 [connection signal="freebie" from="Player" to="Inventory" method="add_item"]

@@ -10,27 +10,139 @@
 		"Blueberries"
 	],
 	"drop_tables": {
-		"basic_sword": ["Short Sword", "Steak Knife", "Butter Knife", "Long Sword"],
-		"advanced_sword": ["Great Sword", "Chef's Knife", "Steak Knife", "Long Sword"],
-		"elemental_sword": ["Flametongue", "Icebrand", "Coral Sword", "Sword of War and Peace", "Frostmourne", "Lightsabre"],
-		"powerful_sword": ["Sword of War and Peace", "Frostmourne", "Lightsabre", "Master Sword", "Buster Sword"],
-		"basic_gem": ["White Gem", "Red Gem", "Blue Gem", "Green Gem"],
-		"any_gem": ["White Gem", "Red Gem", "Blue Gem", "Green Gem", "Orange Gem", "Purple Gem"],
-		"basic_drink": ["Potion", "Sodie Pop", "Super Potion", "Antidote"],
-		"sodie_pop": ["Sodie Pop"],
-		"advanced_drink": ["Lmoanade", "Ninty Potion", "Sodie Pop", "Super Potion", "Antidote"],
-		"powerful_drink": ["Hyper Potion", "Lmoanade", "Ninty Potion"],
-		"cold_one": ["Cold One 1", "Cold One 2", "Cold One 3", "Cold One 4"],
-		"nibble": ["Blueberries", "Maple Candy"],
-		"snack": ["Fresh Slice", "Blueberries", "Maple Candy", "Croissant"],
-		"lunch": ["Kraft Dinner", "Fresh Slice"],
-		"dinner": ["Poutine", "Kraft Dinner"],
-		"basic_healing": ["Blueberries", "Potion", "Maple Candy"],
-		"advanced_healing": ["Kraft Dinner", "Fresh Slice", "Super Potion", "Sodie Pop", "Maple Candy", "Croissant"],
-		"powerful_healing": ["Poutine", "Kraft Dinner", "Ninty Potion", "Lmoanade", "Maple Candy", "Croissant"],
-		"basic_damage": ["Red Gem", "Blue Gem", "Green Gem", "Short Sword", "Steak Knife", "Long Sword", "Butter Knife"],
-		"advanced_damage": ["Red Gem", "Blue Gem", "Green Gem", "Great Sword", "Steak Knife", "Long Sword", "Chef's Knife"],
-		"elemental_damage": ["Red Gem", "Blue Gem", "Green Gem", "Flametongue", "Coral Sword", "Icebrand"]
+		"basic_sword": [
+			"Short Sword",
+			"Steak Knife",
+			"Butter Knife",
+			"Long Sword"
+		],
+		"advanced_sword": [
+			"Great Sword",
+			"Chef's Knife",
+			"Steak Knife",
+			"Long Sword"
+		],
+		"elemental_sword": [
+			"Flametongue",
+			"Icebrand",
+			"Coral Sword",
+			"Sword of War and Peace",
+			"Frostmourne",
+			"Lightsabre"
+		],
+		"powerful_sword": [
+			"Sword of War and Peace",
+			"Frostmourne",
+			"Lightsabre",
+			"Master Sword",
+			"Buster Sword"
+		],
+		"basic_gem": [
+			"White Gem",
+			"Red Gem",
+			"Blue Gem",
+			"Green Gem"
+		],
+		"any_gem": [
+			"White Gem",
+			"Red Gem",
+			"Blue Gem",
+			"Green Gem",
+			"Orange Gem",
+			"Purple Gem"
+		],
+		"basic_drink": [
+			"Potion",
+			"Sodie Pop",
+			"Super Potion",
+			"Antidote"
+		],
+		"sodie_pop": [
+			"Sodie Pop"
+		],
+		"advanced_drink": [
+			"Lmoanade",
+			"Ninty Potion",
+			"Sodie Pop",
+			"Super Potion",
+			"Antidote"
+		],
+		"powerful_drink": [
+			"Hyper Potion",
+			"Lmoanade",
+			"Ninty Potion"
+		],
+		"cold_one": [
+			"Cold One 1",
+			"Cold One 2",
+			"Cold One 3",
+			"Cold One 4"
+		],
+		"nibble": [
+			"Blueberries",
+			"Maple Candy"
+		],
+		"snack": [
+			"Fresh Slice",
+			"Blueberries",
+			"Maple Candy",
+			"Croissant"
+		],
+		"lunch": [
+			"Kraft Dinner",
+			"Fresh Slice"
+		],
+		"dinner": [
+			"Poutine",
+			"Kraft Dinner"
+		],
+		"basic_healing": [
+			"Blueberries",
+			"Potion",
+			"Maple Candy"
+		],
+		"advanced_healing": [
+			"Kraft Dinner",
+			"Fresh Slice",
+			"Super Potion",
+			"Sodie Pop",
+			"Maple Candy",
+			"Croissant"
+		],
+		"powerful_healing": [
+			"Poutine",
+			"Kraft Dinner",
+			"Ninty Potion",
+			"Lmoanade",
+			"Maple Candy",
+			"Croissant"
+		],
+		"basic_damage": [
+			"Red Gem",
+			"Blue Gem",
+			"Green Gem",
+			"Short Sword",
+			"Steak Knife",
+			"Long Sword",
+			"Butter Knife"
+		],
+		"advanced_damage": [
+			"Red Gem",
+			"Blue Gem",
+			"Green Gem",
+			"Great Sword",
+			"Steak Knife",
+			"Long Sword",
+			"Chef's Knife"
+		],
+		"elemental_damage": [
+			"Red Gem",
+			"Blue Gem",
+			"Green Gem",
+			"Flametongue",
+			"Coral Sword",
+			"Icebrand"
+		]
 	},
 	"events": [
 		{
@@ -563,7 +675,7 @@
 			"level": 33,
 			"enemy": "Imakuni"
 		},
-				{
+		{
 			"type": "trap",
 			"checks": [
 				{
@@ -654,7 +766,7 @@
 				"amount": 1
 			}
 		},
-				{
+		{
 			"type": "trap",
 			"checks": [
 				{

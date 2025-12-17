@@ -14,10 +14,11 @@
 			"logic": {
 				"attack": 25,
 				"yawn": 25,
-				"loaf": 50,
+				"loaf": 50
 			},
 			"sound": "beep"
-		}, {
+		},
+		{
 			"name": "Imakuni Red",
 			"health": 10,
 			"power": 2,
@@ -31,10 +32,11 @@
 			"logic": {
 				"attack": 25,
 				"yawn": 25,
-				"loaf": 50,
+				"loaf": 50
 			},
 			"sound": "beep"
-		}, {
+		},
+		{
 			"name": "Imakuni Blue",
 			"health": 10,
 			"power": 2,
@@ -48,10 +50,11 @@
 			"logic": {
 				"attack": 25,
 				"yawn": 25,
-				"loaf": 50,
+				"loaf": 50
 			},
 			"sound": "beep"
-		}, {
+		},
+		{
 			"name": "Imakuni Green",
 			"health": 10,
 			"power": 2,
@@ -65,10 +68,11 @@
 			"logic": {
 				"attack": 25,
 				"yawn": 25,
-				"loaf": 50,
+				"loaf": 50
 			},
 			"sound": "beep"
-		}, {
+		},
+		{
 			"name": "LigMakuni",
 			"health": 8,
 			"power": 1,
@@ -76,10 +80,11 @@
 			"experience": 150,
 			"logic": {
 				"attack": 25,
-				"loaf": 75,
+				"loaf": 75
 			},
 			"sound": "roll"
-		}, {
+		},
+		{
 			"name": "Endgame LigMakuni",
 			"health": 20,
 			"power": 3,
@@ -87,10 +92,11 @@
 			"experience": 150,
 			"logic": {
 				"attack": 25,
-				"loaf": 75,
+				"loaf": 75
 			},
 			"sound": "roll"
-		}, {
+		},
+		{
 			"name": "Joelge",
 			"health": 7,
 			"power": 1,
@@ -99,60 +105,64 @@
 				"red": 0.5,
 				"blue": 0.5,
 				"green": 2,
-				"orange": 2,
+				"orange": 2
 			},
 			"experience": 150,
 			"logic": {
 				"attack": 50,
-				"yawn": 50,
+				"yawn": 50
 			},
 			"sound": "seaking"
-		}, {
+		},
+		{
 			"name": "Igglybuff",
 			"health": 10,
 			"power": 1,
 			"accuracy": 33,
 			"experience": 100,
 			"resistances": {
-				"white": 2.0
+				"white": 2
 			},
 			"logic": {
 				"attack": 10,
 				"sing": 20,
-				"loaf": 70,
+				"loaf": 70
 			},
 			"sound": "igglybuff"
-		}, {
+		},
+		{
 			"name": "Jigglypuff",
 			"health": 20,
 			"power": 1,
 			"accuracy": 50,
 			"experience": 150,
 			"resistances": {
-				"white": 2.0
+				"white": 2
 			},
 			"logic": {
 				"attack": 10,
 				"sing": 30,
-				"loaf": 60,
+				"loaf": 60
 			},
 			"sound": "jigglypuff"
-		}, {
+		},
+		{
 			"name": "Wigglytuff",
 			"health": 30,
 			"power": 2,
 			"accuracy": 50,
 			"experience": 200,
 			"resistances": {
-				"white": 2.0
+				"white": 2
 			},
 			"logic": {
 				"attack": 35,
 				"sing": 35,
-				"loaf": 30,
+				"loaf": 30
 			},
 			"sound": "wigglytuff"
-		}, {
+		},
+		{
 			"name": "Piloswine",
 			"health": 25,
 			"power": 3,
@@ -162,45 +172,48 @@
 				"red": 2,
 				"blue": 2,
 				"green": 2,
-				"orange": 0,
+				"orange": 0
 			},
 			"logic": {
 				"attack": 47,
 				"poison_gas": 20,
-				"loaf": 33,
+				"loaf": 33
 			},
 			"sound": "piloswine"
-		}, {
+		},
+		{
 			"name": "Swalot",
 			"health": 25,
 			"power": 3,
 			"accuracy": 55,
 			"experience": 150,
 			"resistances": {
-				"purple": 0.5,
+				"purple": 0.5
 			},
 			"logic": {
 				"attack": 20,
 				"poison_gas": 47,
-				"loaf": 33,
+				"loaf": 33
 			},
 			"sound": "swalot"
-		}, {
+		},
+		{
 			"name": "KEKing",
 			"health": 100,
 			"power": 10,
 			"accuracy": 50,
 			"experience": 300,
 			"resistances": {
-				"white": 2.0,
+				"white": 2
 			},
 			"logic": {
 				"attack": 5,
 				"yawn": 20,
-				"loaf": 75,
+				"loaf": 75
 			},
 			"sound": "slaking"
-		}, {
+		},
+		{
 			"name": "Blue's Mamoswine",
 			"health": 40,
 			"power": 1,
@@ -210,7 +223,7 @@
 				"red": 2,
 				"blue": 2,
 				"green": 2,
-				"orange": 0,
+				"orange": 0
 			},
 			"logic": {
 				"attack": 0,
@@ -218,60 +231,73 @@
 				"perish_song": 100
 			},
 			"sound": "mamoswine"
-		}, {
+		},
+		{
 			"name": "Deoxys",
 			"health": 35,
 			"power": 3,
 			"accuracy": 75,
-			"resistances": {},
+			"resistances": {
+
+			},
 			"experience": 500,
 			"logic": {
 				"attack": 50,
 				"yawn": 25,
-				"psycho_boost": 25,
+				"psycho_boost": 25
 			},
 			"sound": "deoxys"
-		}, {
+		},
+		{
 			"name": "Deoxys-A",
 			"health": 35,
 			"power": 5,
 			"accuracy": 50,
-			"resistances": {},
+			"resistances": {
+
+			},
 			"experience": 600,
 			"logic": {
 				"attack": 90,
-				"loaf": 10,
+				"loaf": 10
 			},
 			"sound": "deoxys"
-		}, {
+		},
+		{
 			"name": "Deoxys-D",
 			"health": 50,
 			"power": 2,
 			"accuracy": 90,
-			"resistances": {},
+			"resistances": {
+
+			},
 			"experience": 500,
 			"logic": {
 				"attack": 10,
 				"poison": 15,
 				"sleep": 15,
-				"loaf": 50,
+				"loaf": 50
 			},
 			"sound": "deoxys"
-		}, {
+		},
+		{
 			"name": "Deoxys-S",
 			"health": 35,
 			"power": 3,
 			"accuracy": 95,
-			"resistances": {},
+			"resistances": {
+
+			},
 			"experience": 500,
 			"logic": {
 				"attack": 10,
 				"sleep": 35,
 				"poison": 35,
-				"loaf": 20,
+				"loaf": 20
 			},
 			"sound": "deoxys"
-		}, {
+		},
+		{
 			"name": "Ryan Reynolds",
 			"health": 12,
 			"power": 1,
@@ -279,10 +305,11 @@
 			"experience": 150,
 			"logic": {
 				"attack": 50,
-				"loaf": 50,
+				"loaf": 50
 			},
 			"sound": "grunt"
-		}, {
+		},
+		{
 			"name": "Van Wilder",
 			"health": 12,
 			"power": 1,
@@ -290,10 +317,11 @@
 			"experience": 150,
 			"logic": {
 				"attack": 50,
-				"loaf": 50,
+				"loaf": 50
 			},
 			"sound": "grunt"
-		}, {
+		},
+		{
 			"name": "Deadpool",
 			"health": 12,
 			"power": 1,
@@ -301,10 +329,11 @@
 			"experience": 150,
 			"logic": {
 				"attack": 50,
-				"loaf": 50,
+				"loaf": 50
 			},
 			"sound": "grunt"
-		}, {
+		},
+		{
 			"name": "Deadpool 2",
 			"health": 12,
 			"power": 1,
@@ -312,10 +341,11 @@
 			"experience": 150,
 			"logic": {
 				"attack": 50,
-				"loaf": 50,
+				"loaf": 50
 			},
 			"sound": "grunt"
-		}, {
+		},
+		{
 			"name": "Deadpool 3",
 			"health": 12,
 			"power": 1,
@@ -323,54 +353,66 @@
 			"experience": 150,
 			"logic": {
 				"attack": 50,
-				"loaf": 50,
+				"loaf": 50
 			},
 			"sound": "grunt"
-		}, {
+		},
+		{
 			"name": "Caveman",
 			"health": 18,
 			"power": 1,
 			"accuracy": 75,
-			"resistances": {},
+			"resistances": {
+
+			},
 			"experience": 100,
 			"logic": {
 				"attack": 75,
-				"loaf": 25,
+				"loaf": 25
 			},
 			"sound": "grunt"
-		}, {
+		},
+		{
 			"name": "Tiki Man",
 			"health": 25,
 			"power": 1,
 			"accuracy": 75,
-			"resistances": {},
+			"resistances": {
+
+			},
 			"experience": 100,
 			"logic": {
 				"attack": 90,
-				"loaf": 10,
+				"loaf": 10
 			},
 			"sound": "grunt"
-		}, {
+		},
+		{
 			"name": "Quillback",
 			"health": 35,
 			"power": 3,
 			"accuracy": 50,
-			"resistances": {},
+			"resistances": {
+
+			},
 			"experience": 300,
 			"logic": {
 				"attack": 50,
-				"loaf": 50,
+				"loaf": 50
 			},
 			"sound": "quillback"
-		}, {
+		},
+		{
 			"name": "Olmec",
 			"health": 50,
 			"power": 10,
 			"accuracy": 10,
-			"resistances": {},
+			"resistances": {
+
+			},
 			"experience": 500,
 			"logic": {
-				"attack": 100,
+				"attack": 100
 			},
 			"sound": "olmec"
 		}
