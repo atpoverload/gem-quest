@@ -33,3 +33,7 @@ func _use_item():
 
 func _take_item():
 	take_item.emit(_item)
+
+func show_flavor() -> void:
+	if 'clips.twitch.tv' in _item['flavor']:
+		OS.shell_open('https://%s' % _item['flavor'])

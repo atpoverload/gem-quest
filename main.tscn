@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://dtcriwdea6abg"]
+[gd_scene load_steps=112 format=3 uid="uid://dtcriwdea6abg"]
 
 [ext_resource type="Script" uid="uid://fn4hnueghmje" path="res://main.gd" id="1_yaehf"]
 [ext_resource type="AudioStream" uid="uid://dq413g1nheh08" path="res://music/7.-Fairy-Fountain.ogg" id="3_82xsv"]
@@ -7,14 +7,18 @@
 [ext_resource type="Script" uid="uid://dnio887h8hayq" path="res://items/item_manager.gd" id="4_ok6jj"]
 [ext_resource type="AudioStream" uid="uid://dpijtn3wufyf8" path="res://ui/sounds/start-game.mp3" id="4_seu75"]
 [ext_resource type="AudioStream" uid="uid://hadl2rnmulyw" path="res://ui/sounds/battle.mp3" id="5_0n3wm"]
+[ext_resource type="AudioStream" uid="uid://b0yn7gw2x6vdn" path="res://ui/sounds/puzzle.mp3" id="5_c2n8d"]
 [ext_resource type="Script" uid="uid://c127fk14w2a0c" path="res://ui/scroll_log.gd" id="6_0rl1p"]
 [ext_resource type="AudioStream" uid="uid://c8mgkhhwvlhst" path="res://ui/sounds/treasure.mp3" id="6_qnost"]
 [ext_resource type="Texture2D" uid="uid://dowfvjyr3v411" path="res://enemies/sprites/Imakuni.png" id="6_vivmo"]
 [ext_resource type="Script" uid="uid://1wuxsnjbpr2f" path="res://scenarios/scenario_manager.gd" id="7_kq58d"]
 [ext_resource type="AudioStream" uid="uid://sqvcp24dnhnq" path="res://ui/sounds/victory.mp3" id="7_ruth0"]
 [ext_resource type="Script" uid="uid://rw5i8jj4jgy2" path="res://enemies/enemy.gd" id="8_seu75"]
+[ext_resource type="AudioStream" uid="uid://buas5c3iawqbr" path="res://ui/sounds/trap.mp3" id="9_phcyf"]
+[ext_resource type="AudioStream" uid="uid://qej4wqysbkjv" path="res://ui/sounds/puzzle-fail.mp3" id="10_birbe"]
 [ext_resource type="Texture2D" uid="uid://d0c85m5ir1xid" path="res://status/sprites/Poison.png" id="10_h8e4i"]
 [ext_resource type="Texture2D" uid="uid://c2oogb7t83dwj" path="res://status/sprites/Sleep.png" id="11_4lmeg"]
+[ext_resource type="Script" uid="uid://dyyce4q820k4e" path="res://items/lucky_item_generator.gd" id="11_5dllo"]
 [ext_resource type="Texture2D" uid="uid://crd5crekea0up" path="res://items/sprites/Rusty Sword.png" id="11_d2t1y"]
 [ext_resource type="Texture2D" uid="uid://be2ie6v3xn4px" path="res://items/sprites/White Gem.png" id="12_gngh3"]
 [ext_resource type="Texture2D" uid="uid://dytfgsmkejnxt" path="res://items/sprites/Potion.png" id="13_0n3wm"]
@@ -28,12 +32,12 @@
 [ext_resource type="Shader" uid="uid://cmj5cfj51ohpy" path="res://ui/shaders/rightwall.gdshader" id="15_ntx8l"]
 [ext_resource type="AudioStream" uid="uid://8x0p52crrwk4" path="res://status/sounds/poison.mp3" id="15_ok6jj"]
 [ext_resource type="Script" uid="uid://cqrifr7jskqj1" path="res://core/battle_sprite.gd" id="16_0rl1p"]
-[ext_resource type="Texture2D" uid="uid://c2udm048k1amx" path="res://ui/controls/arrow-left.png" id="16_074og"]
-[ext_resource type="Texture2D" uid="uid://cjsba15k7n3cg" path="res://ui/controls/arrow-right.png" id="18_getpj"]
 [ext_resource type="AudioStream" uid="uid://rkcey6aj14i5" path="res://enemies/sounds/attack.mp3" id="22_f6a44"]
 [ext_resource type="AudioStream" uid="uid://utmjdysrgkhd" path="res://enemies/sounds/miss.mp3" id="23_0cbny"]
 [ext_resource type="AudioStream" uid="uid://bpyc3xeioex0h" path="res://player/sounds/equip-weapon.mp3" id="23_htxhm"]
+[ext_resource type="Texture2D" uid="uid://cfceve2rmy8qj" path="res://ui/battle.png" id="23_wy5fy"]
 [ext_resource type="AudioStream" uid="uid://bkhxyltocdy3w" path="res://player/sounds/take-gem.mp3" id="24_4k2k6"]
+[ext_resource type="Texture2D" uid="uid://bilmh83i6a0pv" path="res://ui/puzzle.png" id="24_gx4rg"]
 [ext_resource type="AudioStream" uid="uid://dqrqsgj6py7yt" path="res://enemies/sounds/loaf.mp3" id="24_wnkbs"]
 [ext_resource type="AudioStream" uid="uid://ctwbgrnuyb8eu" path="res://player/sounds/take-consumable.mp3" id="25_0rl1p"]
 [ext_resource type="AudioStream" uid="uid://ccowflpe4oh76" path="res://enemies/sounds/sing.mp3" id="25_6iyjs"]
@@ -46,6 +50,8 @@
 [ext_resource type="AudioStream" uid="uid://bcs8mhex66nqa" path="res://status/sounds/flinch.mp3" id="33_uatky"]
 [ext_resource type="Script" uid="uid://grxn1mvuh5xk" path="res://items/reward.gd" id="34_4lmeg"]
 [ext_resource type="AudioStream" uid="uid://ea4p0qylkjvi" path="res://ui/sounds/game-over.mp3" id="35_gngh3"]
+[ext_resource type="AudioStream" uid="uid://bdkgsfs4hk137" path="res://enemies/sounds/perish-song.mp3" id="36_jx0wj"]
+[ext_resource type="AudioStream" uid="uid://chxxt4jf4myvs" path="res://enemies/sounds/poison-gas.mp3" id="37_kkkcx"]
 [ext_resource type="AudioStream" uid="uid://7hrunr8nwrcn" path="res://status/sounds/banish.mp3" id="37_rqtf5"]
 [ext_resource type="AudioStream" uid="uid://b4qlbbj5gs1c3" path="res://enemies/sounds/psycho-boost.mp3" id="37_sm6fg"]
 [ext_resource type="Texture2D" uid="uid://sullmbl4ueq5" path="res://ui/rest.png" id="38_b17eg"]
@@ -53,6 +59,9 @@
 [ext_resource type="Script" uid="uid://dw5dhlin3ipv8" path="res://player/inventory.gd" id="38_sm6fg"]
 [ext_resource type="Texture2D" uid="uid://l24xo5cu6au7" path="res://items/sprites/Big Root.png" id="39_pjyto"]
 [ext_resource type="AudioStream" uid="uid://8mjpuqkk6e1a" path="res://player/sounds/use-gem.mp3" id="39_uypp3"]
+[ext_resource type="Texture2D" uid="uid://vwp2x7wptg4a" path="res://ui/spike-pit.png" id="40_1vm84"]
+[ext_resource type="Texture2D" uid="uid://cu0i4esc4q302" path="res://ui/poison-darts.png" id="41_cyx1q"]
+[ext_resource type="Texture2D" uid="uid://dnt6ikojc4xon" path="res://ui/altar.png" id="41_wu3dr"]
 [ext_resource type="AudioStream" uid="uid://1chsnyp2sfny" path="res://ui/sounds/button.mp3" id="42_gngh3"]
 [ext_resource type="AudioStream" uid="uid://bjaqjbjdn2bvk" path="res://player/sounds/gain-experience.mp3" id="44_0cbny"]
 [ext_resource type="AudioStream" uid="uid://cepjfitbvvlsg" path="res://player/sounds/gain-level.mp3" id="45_hrvbo"]
@@ -63,10 +72,14 @@
 [ext_resource type="AudioStream" uid="uid://b7pctnpp1ay7s" path="res://player/sounds/break-gem.mp3" id="51_rqtf5"]
 [ext_resource type="Script" uid="uid://cgdbjl0ydalug" path="res://player/player.gd" id="52_rnkwl"]
 [ext_resource type="Script" uid="uid://b6it7cb2lij6j" path="res://items/item_button.gd" id="54_vke2r"]
+[ext_resource type="AudioStream" uid="uid://7pjscw6ul10n" path="res://player/sounds/critical-hit.mp3" id="56_34ol3"]
 [ext_resource type="Script" uid="uid://bt4o8ujcjv8up" path="res://ui/description_window.gd" id="56_e71vb"]
 [ext_resource type="Texture2D" uid="uid://pobea1ophdmj" path="res://ui/treasure.png" id="57_ntx8l"]
 [ext_resource type="Texture2D" uid="uid://br64ax5hvsrvg" path="res://ui/controls/arrow-up.png" id="58_vke2r"]
+[ext_resource type="Texture2D" uid="uid://bgarubnymrj3l" path="res://status/sprites/cursed.png" id="59_gx4rg"]
 [ext_resource type="Texture2D" uid="uid://4d4lpo3rga0x" path="res://items/sprites/Gold Gem.png" id="59_uit24"]
+[ext_resource type="AudioStream" uid="uid://cuaw3vrj2xw0b" path="res://status/sounds/cursed.mp3" id="63_kkkcx"]
+[ext_resource type="Script" uid="uid://diuuvvc2psof4" path="res://ui/answer.gd" id="73_5dllo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1vm84"]
 shader = ExtResource("13_rqtf5")
@@ -146,7 +159,25 @@ bg_color = Color(0, 0, 1, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e71vb"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vke2r"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gx4rg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5dllo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_phcyf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_birbe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f1p13"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wy5fy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4obbf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ovcoh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ppx11"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1yv1y"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_yaehf")
@@ -163,6 +194,9 @@ stream = ExtResource("42_gngh3")
 stream = ExtResource("4_gngh3")
 parameters/looping = true
 
+[node name="Puzzle" type="AudioStreamPlayer2D" parent="SoundManager"]
+stream = ExtResource("5_c2n8d")
+
 [node name="Battle" type="AudioStreamPlayer2D" parent="SoundManager"]
 stream = ExtResource("5_0n3wm")
 
@@ -172,11 +206,21 @@ stream = ExtResource("6_qnost")
 [node name="Victory" type="AudioStreamPlayer2D" parent="SoundManager"]
 stream = ExtResource("7_ruth0")
 
+[node name="Trap" type="AudioStreamPlayer2D" parent="SoundManager"]
+stream = ExtResource("9_phcyf")
+
+[node name="PuzzleFail" type="AudioStreamPlayer2D" parent="SoundManager"]
+stream = ExtResource("10_birbe")
+volume_db = 8.0
+
 [node name="EnemyManager" type="Node" parent="."]
 script = ExtResource("4_0cp0l")
 
 [node name="ItemManager" type="Node" parent="."]
 script = ExtResource("4_ok6jj")
+
+[node name="LuckyItemGenerator" type="Node" parent="ItemManager"]
+script = ExtResource("11_5dllo")
 
 [node name="Background" type="Control" parent="."]
 layout_mode = 3
@@ -197,7 +241,6 @@ axis_stretch_vertical = 1
 [node name="BackWall" type="NinePatchRect" parent="Background"]
 modulate = Color(0.17049986, 0.26514006, 0.2982014, 1)
 layout_mode = 0
-offset_top = -179.0
 offset_right = 1200.0
 offset_bottom = 523.0
 texture = ExtResource("14_b17eg")
@@ -208,9 +251,8 @@ axis_stretch_vertical = 1
 modulate = Color(0.17049986, 0.26514006, 0.2982014, 1)
 material = SubResource("ShaderMaterial_uatky")
 layout_mode = 0
-offset_top = -27.0
 offset_right = 350.0
-offset_bottom = 873.0
+offset_bottom = 900.0
 texture = ExtResource("14_b17eg")
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
@@ -220,9 +262,8 @@ modulate = Color(0.17049986, 0.26514006, 0.2982014, 1)
 material = SubResource("ShaderMaterial_rqtf5")
 layout_mode = 0
 offset_left = 850.0
-offset_top = -377.0
 offset_right = 1200.0
-offset_bottom = 523.0
+offset_bottom = 900.0
 texture = ExtResource("14_b17eg")
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
@@ -240,6 +281,54 @@ texture_normal = ExtResource("15_b17eg")
 stream = ExtResource("3_82xsv")
 volume_db = -7.5
 autoplay = true
+parameters/looping = true
+
+[node name="Events" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Rest" type="Sprite2D" parent="Events"]
+visible = false
+position = Vector2(302, 464.00003)
+scale = Vector2(0.890625, 0.890625)
+texture = ExtResource("38_b17eg")
+
+[node name="SpikePit" type="Sprite2D" parent="Events"]
+visible = false
+position = Vector2(590.00006, 603)
+scale = Vector2(0.56638867, 0.5663887)
+texture = ExtResource("40_1vm84")
+script = ExtResource("16_0rl1p")
+
+[node name="PoisonDart" type="Sprite2D" parent="Events"]
+visible = false
+position = Vector2(600.00006, 604)
+scale = Vector2(0.6173083, 0.61730844)
+texture = ExtResource("41_cyx1q")
+script = ExtResource("16_0rl1p")
+
+[node name="Altar" type="Sprite2D" parent="Events"]
+visible = false
+position = Vector2(610, 520.00006)
+scale = Vector2(0.36089694, 0.36089694)
+texture = ExtResource("41_wu3dr")
+script = ExtResource("16_0rl1p")
+
+[node name="Battle" type="Sprite2D" parent="Events"]
+visible = false
+position = Vector2(602, 482)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("23_wy5fy")
+script = ExtResource("16_0rl1p")
+
+[node name="Puzzle" type="Sprite2D" parent="Events"]
+visible = false
+position = Vector2(590.00006, 516.99994)
+scale = Vector2(0.56638867, 0.5663887)
+texture = ExtResource("24_gx4rg")
+script = ExtResource("16_0rl1p")
 
 [node name="LogMenu" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(1200, 0)
@@ -545,6 +634,12 @@ volume_db = 10.0
 [node name="Shield" type="AudioStreamPlayer2D" parent="Enemy/SoundEffects"]
 stream = ExtResource("28_4w656")
 
+[node name="PerishSong" type="AudioStreamPlayer2D" parent="Enemy/SoundEffects"]
+stream = ExtResource("36_jx0wj")
+
+[node name="PoisonGas" type="AudioStreamPlayer2D" parent="Enemy/SoundEffects"]
+stream = ExtResource("37_kkkcx")
+
 [node name="PsychoBoost" type="AudioStreamPlayer2D" parent="Enemy/SoundEffects"]
 stream = ExtResource("37_sm6fg")
 
@@ -562,13 +657,8 @@ offset_bottom = 579.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_sm6fg")
 script = ExtResource("28_sm6fg")
 
-[node name="Rest" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(302, 464.00003)
-scale = Vector2(0.890625, 0.890625)
-texture = ExtResource("38_b17eg")
-
 [node name="Inventory" type="MarginContainer" parent="."]
+visible = false
 offset_left = 372.0
 offset_top = 675.0
 offset_right = 826.0
@@ -660,6 +750,7 @@ stretch_mode = 0
 script = ExtResource("54_vke2r")
 
 [node name="DropItem" type="Button" parent="Inventory/Inventory/Inventory/Items/Items/Gems/Gem1"]
+visible = false
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_rqtf5")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_1vm84")
@@ -767,6 +858,7 @@ stream = ExtResource("23_htxhm")
 volume_db = 10.0
 
 [node name="Player" type="VBoxContainer" parent="."]
+visible = false
 offset_left = 907.0
 offset_right = 1179.0
 offset_bottom = 865.0
@@ -797,7 +889,6 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_rnkwl")
 
 [node name="Button" type="TextureButton" parent="Player/Emotes/Emote"]
 layout_mode = 2
-disabled = true
 texture_normal = ExtResource("48_pjyto")
 ignore_texture_size = true
 stretch_mode = 0
@@ -1080,7 +1171,27 @@ text = "0"
 horizontal_alignment = 2
 vertical_alignment = 2
 
+[node name="Cursed" type="TextureRect" parent="Player/Effects/Effects/Effects/Status"]
+layout_mode = 2
+texture = ExtResource("59_gx4rg")
+
+[node name="Label" type="Label" parent="Player/Effects/Effects/Effects/Status/Cursed"]
+layout_mode = 0
+offset_right = 65.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [node name="SoundEffects" type="Node" parent="Player"]
+
+[node name="CriticalHit" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
+stream = ExtResource("56_34ol3")
 
 [node name="WeaponAcquire" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
 stream = ExtResource("23_htxhm")
@@ -1122,6 +1233,10 @@ volume_db = 10.0
 [node name="shield" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
 stream = ExtResource("28_4w656")
 
+[node name="cursed" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
+stream = ExtResource("63_kkkcx")
+volume_db = 10.0
+
 [node name="GemBreak" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
 stream = ExtResource("51_rqtf5")
 volume_db = 10.0
@@ -1129,6 +1244,85 @@ volume_db = 10.0
 [node name="GameOver" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
 stream = ExtResource("35_gngh3")
 volume_db = 10.0
+
+[node name="Damage" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
+stream = ExtResource("22_f6a44")
+volume_db = 10.0
+
+[node name="Reward" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("34_4lmeg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Reward"]
+position = Vector2(592, 474)
+scale = Vector2(0.5917969, 0.5917969)
+texture = ExtResource("57_ntx8l")
+script = ExtResource("16_0rl1p")
+
+[node name="EmoteReward" type="MarginContainer" parent="Reward"]
+visible = false
+layout_mode = 0
+offset_left = 600.0
+offset_top = 403.0
+offset_right = 750.0
+offset_bottom = 553.0
+
+[node name="Background" type="Panel" parent="Reward/EmoteReward"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vke2r")
+
+[node name="Button" type="TextureButton" parent="Reward/EmoteReward"]
+layout_mode = 2
+texture_normal = ExtResource("12_gngh3")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("54_vke2r")
+
+[node name="ItemReward" type="MarginContainer" parent="Reward"]
+visible = false
+layout_mode = 0
+offset_left = 600.0
+offset_top = 403.0
+offset_right = 750.0
+offset_bottom = 553.0
+
+[node name="Background" type="Panel" parent="Reward/ItemReward"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vke2r")
+
+[node name="Button" type="TextureButton" parent="Reward/ItemReward"]
+layout_mode = 2
+texture_normal = ExtResource("12_gngh3")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("54_vke2r")
+
+[node name="Rewards" type="CenterContainer" parent="Reward"]
+layout_mode = 0
+offset_top = 342.0
+offset_right = 1200.0
+offset_bottom = 422.0
+
+[node name="Rewards" type="HBoxContainer" parent="Reward/Rewards"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Skip" type="Button" parent="Reward"]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 568.0
+offset_right = 711.0
+offset_bottom = 664.0
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 64
+text = "SKIP"
 
 [node name="Description" type="MarginContainer" parent="."]
 visible = false
@@ -1248,79 +1442,163 @@ theme_override_fonts/font = ExtResource("50_4w656")
 theme_override_font_sizes/font_size = 24
 autowrap_mode = 2
 
-[node name="Reward" type="Control" parent="."]
+[node name="Puzzle" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("34_4lmeg")
 
-[node name="Sprite2D" type="Sprite2D" parent="Reward"]
-position = Vector2(592, 474)
-scale = Vector2(0.5917969, 0.5917969)
-texture = ExtResource("57_ntx8l")
-script = ExtResource("16_0rl1p")
-
-[node name="EmoteReward" type="MarginContainer" parent="Reward"]
-visible = false
+[node name="MarginContainer" type="MarginContainer" parent="Puzzle"]
 layout_mode = 0
-offset_left = 600.0
-offset_top = 403.0
-offset_right = 750.0
-offset_bottom = 553.0
+offset_left = 415.0
+offset_top = 200.0
+offset_right = 789.0
+offset_bottom = 614.0
 
-[node name="Background" type="Panel" parent="Reward/EmoteReward"]
-custom_minimum_size = Vector2(150, 150)
+[node name="Border" type="Panel" parent="Puzzle/MarginContainer"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_vke2r")
+theme_override_styles/panel = SubResource("StyleBoxFlat_blkrb")
 
-[node name="Button" type="TextureButton" parent="Reward/EmoteReward"]
+[node name="Background" type="MarginContainer" parent="Puzzle/MarginContainer"]
 layout_mode = 2
-texture_normal = ExtResource("12_gngh3")
-ignore_texture_size = true
-stretch_mode = 0
-script = ExtResource("54_vke2r")
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="ItemReward" type="MarginContainer" parent="Reward"]
-visible = false
-layout_mode = 0
-offset_left = 600.0
-offset_top = 403.0
-offset_right = 750.0
-offset_bottom = 553.0
-
-[node name="Background" type="Panel" parent="Reward/ItemReward"]
-custom_minimum_size = Vector2(150, 150)
+[node name="Background" type="Panel" parent="Puzzle/MarginContainer/Background"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_vke2r")
+theme_override_styles/panel = SubResource("StyleBoxFlat_abqjc")
 
-[node name="Button" type="TextureButton" parent="Reward/ItemReward"]
+[node name="Background2" type="MarginContainer" parent="Puzzle/MarginContainer/Background"]
 layout_mode = 2
-texture_normal = ExtResource("12_gngh3")
-ignore_texture_size = true
-stretch_mode = 0
-script = ExtResource("54_vke2r")
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="Rewards" type="CenterContainer" parent="Reward"]
-layout_mode = 0
-offset_top = 342.0
-offset_right = 1200.0
-offset_bottom = 422.0
-
-[node name="Rewards" type="HBoxContainer" parent="Reward/Rewards"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Puzzle/MarginContainer/Background/Background2"]
 layout_mode = 2
-theme_override_constants/separation = 25
 
-[node name="Skip" type="Button" parent="Reward"]
-layout_mode = 0
-offset_left = 472.0
-offset_top = 568.0
-offset_right = 711.0
-offset_bottom = 664.0
-theme_override_constants/outline_size = 16
+[node name="Question" type="Label" parent="Puzzle/MarginContainer/Background/Background2/VBoxContainer"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("50_4w656")
-theme_override_font_sizes/font_size = 64
-text = "SKIP"
+theme_override_font_sizes/font_size = 48
+text = "100 + 100 = ?"
+horizontal_alignment = 1
+
+[node name="Answer" type="Label" parent="Puzzle/MarginContainer/Background/Background2/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 24
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+script = ExtResource("73_5dllo")
+
+[node name="CenterContainer" type="CenterContainer" parent="Puzzle/MarginContainer/Background/Background2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Buttons" type="GridContainer" parent="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="1" type="Button" parent="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons"]
+custom_minimum_size = Vector2(84, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 48
+text = "1	"
+
+[node name="2" type="Button" parent="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons"]
+custom_minimum_size = Vector2(84, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 48
+text = "2"
+
+[node name="3" type="Button" parent="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons"]
+custom_minimum_size = Vector2(84, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 48
+text = "3"
+
+[node name="4" type="Button" parent="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons"]
+custom_minimum_size = Vector2(84, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 48
+text = "4"
+
+[node name="5" type="Button" parent="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons"]
+custom_minimum_size = Vector2(84, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 48
+text = "5"
+
+[node name="6" type="Button" parent="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons"]
+custom_minimum_size = Vector2(84, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 48
+text = "6"
+
+[node name="7" type="Button" parent="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons"]
+custom_minimum_size = Vector2(84, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 48
+text = "7"
+
+[node name="8" type="Button" parent="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons"]
+custom_minimum_size = Vector2(84, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 48
+text = "8"
+
+[node name="9" type="Button" parent="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons"]
+custom_minimum_size = Vector2(84, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 48
+text = "9"
+
+[node name="Clear" type="Button" parent="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons"]
+custom_minimum_size = Vector2(84, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 48
+text = "C"
+
+[node name="0" type="Button" parent="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons"]
+custom_minimum_size = Vector2(84, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 48
+text = "0"
+
+[node name="Input" type="Button" parent="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons"]
+custom_minimum_size = Vector2(84, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 48
+text = "#"
 
 [node name="NextEvent" type="MarginContainer" parent="."]
 visible = false
@@ -1336,6 +1614,11 @@ theme_override_constants/margin_bottom = 0
 [node name="NextEvent" type="Button" parent="NextEvent"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 96
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gx4rg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5dllo")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_phcyf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_birbe")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f1p13")
 icon = ExtResource("27_xuqvo")
 flat = true
 
@@ -1344,11 +1627,11 @@ scale = Vector2(0.9, 0.9)
 stream = ExtResource("13_d2t1y")
 
 [node name="Help" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 
 [node name="HelpMenu" type="Control" parent="Help"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -1362,355 +1645,6 @@ theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
-
-[node name="HelpMenu" type="Control" parent="Help/HelpMenu/HelpMenu"]
-layout_mode = 2
-
-[node name="Background" type="ColorRect" parent="Help/HelpMenu/HelpMenu/HelpMenu"]
-layout_mode = 0
-color = Color(0.0980392, 0.0980392, 0.294118, 1)
-
-[node name="Scene" type="CenterContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu"]
-layout_mode = 0
-offset_right = 807.0
-offset_bottom = 540.0
-
-[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/HelpMenu/Scene"]
-custom_minimum_size = Vector2(807, 540)
-layout_mode = 2
-texture = SubResource("CompressedTexture2D_vke2r")
-expand_mode = 1
-
-[node name="HelpScreens" type="TabContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu"]
-layout_mode = 0
-offset_left = 75.0
-offset_top = 58.0
-offset_right = 896.0
-offset_bottom = 111.0
-theme_override_font_sizes/font_size = 32
-tab_alignment = 1
-current_tab = 0
-tabs_position = 1
-clip_tabs = false
-tabs_visible = false
-
-[node name="Overview" type="Control" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens"]
-layout_mode = 2
-metadata/_tab_index = 0
-
-[node name="Scene" type="CenterContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Overview"]
-visible = false
-layout_mode = 0
-offset_left = 7.0
-offset_top = 55.0
-offset_right = 814.0
-offset_bottom = 595.0
-
-[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Overview/Scene"]
-custom_minimum_size = Vector2(807, 540)
-layout_mode = 2
-texture = SubResource("CompressedTexture2D_vke2r")
-expand_mode = 1
-
-[node name="Arrow2" type="CenterContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Overview"]
-layout_mode = 0
-offset_left = 741.0
-offset_top = 442.0
-offset_right = 997.0
-offset_bottom = 490.0
-rotation = 2.90946
-
-[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Overview/Arrow2"]
-custom_minimum_size = Vector2(256, 48)
-layout_mode = 2
-texture = ExtResource("16_074og")
-expand_mode = 1
-
-[node name="Arrow3" type="CenterContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Overview"]
-layout_mode = 0
-offset_left = 702.0
-offset_top = 389.0
-offset_right = 898.0
-offset_bottom = 437.0
-rotation = 2.96706
-
-[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Overview/Arrow3"]
-custom_minimum_size = Vector2(196, 48)
-layout_mode = 2
-texture = ExtResource("16_074og")
-expand_mode = 1
-
-[node name="Arrow" type="CenterContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Overview"]
-visible = false
-layout_mode = 0
-offset_left = 150.0
-offset_top = -50.0
-offset_right = 278.0
-offset_bottom = 78.0
-rotation = 1.84656
-
-[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Overview/Arrow"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-texture = ExtResource("16_074og")
-expand_mode = 1
-
-[node name="Label" type="Label" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Overview"]
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 201.0
-offset_top = 299.0
-offset_right = -285.0
-offset_bottom = 478.0
-theme_override_constants/outline_size = 8
-text = "Venture into the dungeon and
-defeat enemies to find the Gold Gem
-
-Gain levels to increase your attack power
-and maximum health
-
-When you run out of HP, it's game over!"
-
-[node name="Weapons" type="Control" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens"]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 1
-
-[node name="Scene" type="CenterContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Weapons"]
-visible = false
-layout_mode = 0
-offset_left = 8.0
-offset_top = 53.0
-offset_right = 815.0
-offset_bottom = 593.0
-
-[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Weapons/Scene"]
-custom_minimum_size = Vector2(807, 540)
-layout_mode = 2
-texture = SubResource("CompressedTexture2D_vke2r")
-expand_mode = 1
-
-[node name="Arrow2" type="CenterContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Weapons"]
-layout_mode = 0
-offset_left = 675.0
-offset_top = 386.0
-offset_right = 931.0
-offset_bottom = 434.0
-rotation = 3.14159
-
-[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Weapons/Arrow2"]
-custom_minimum_size = Vector2(256, 48)
-layout_mode = 2
-texture = ExtResource("16_074og")
-expand_mode = 1
-
-[node name="Arrow" type="CenterContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Weapons"]
-layout_mode = 0
-offset_left = 209.0
-offset_top = 496.0
-offset_right = 337.0
-offset_bottom = 624.0
-rotation = -1.39626
-
-[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Weapons/Arrow"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-texture = ExtResource("16_074og")
-expand_mode = 1
-
-[node name="Label" type="Label" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Weapons"]
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 202.0
-offset_top = 334.0
-offset_right = -374.0
-offset_bottom = 383.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 8
-text = "Weapons deal damage based
-on their power and your level"
-
-[node name="Gems" type="Control" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens"]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 2
-
-[node name="Arrow" type="CenterContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Gems"]
-layout_mode = 0
-offset_left = 292.0
-offset_top = 475.0
-offset_right = 420.0
-offset_bottom = 603.0
-rotation = -1.39626
-
-[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Gems/Arrow"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-texture = ExtResource("16_074og")
-expand_mode = 1
-
-[node name="Label" type="Label" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Gems"]
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 243.0
-offset_top = 243.0
-offset_right = -249.0
-offset_bottom = 370.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 8
-text = "Gems have a variety of effects and
-increase in power each time you get one
-  Red: Deals damage
-  Green: Poisons the enemy
-  Blue: Puts the enemy to sleep"
-
-[node name="Consumables" type="Control" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens"]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 3
-
-[node name="Scene" type="CenterContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Consumables"]
-visible = false
-layout_mode = 0
-offset_left = 9.0
-offset_top = 30.0
-offset_right = 816.0
-offset_bottom = 570.0
-
-[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Consumables/Scene"]
-custom_minimum_size = Vector2(807, 540)
-layout_mode = 2
-texture = SubResource("CompressedTexture2D_vke2r")
-expand_mode = 1
-
-[node name="Arrow" type="CenterContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Consumables"]
-layout_mode = 0
-offset_left = 293.0
-offset_top = 473.0
-offset_right = 421.0
-offset_bottom = 601.0
-rotation = -1.39626
-
-[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Consumables/Arrow"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-texture = ExtResource("16_074og")
-expand_mode = 1
-
-[node name="Label" type="Label" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Consumables"]
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 244.0
-offset_top = 241.0
-offset_right = -225.0
-offset_bottom = 368.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 8
-text = "Consumable items restore health or status:
- - Potion: Heals 20 HP
- - Sodie Pop: Heals 50 HP
- - Antidote: Heals poison
- - Full Restore: Heals all HP and Status"
-
-[node name="Status" type="Control" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens"]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 4
-
-[node name="Scene" type="CenterContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Status"]
-visible = false
-layout_mode = 0
-offset_left = 8.0
-offset_top = 30.0
-offset_right = 815.0
-offset_bottom = 570.0
-
-[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Status/Scene"]
-custom_minimum_size = Vector2(807, 540)
-layout_mode = 2
-texture = SubResource("CompressedTexture2D_vke2r")
-expand_mode = 1
-
-[node name="Arrow2" type="CenterContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Status"]
-layout_mode = 0
-offset_left = 639.0
-offset_top = 536.0
-offset_right = 895.0
-offset_bottom = 584.0
-rotation = 4.02997
-
-[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Status/Arrow2"]
-custom_minimum_size = Vector2(256, 48)
-layout_mode = 2
-texture = ExtResource("16_074og")
-expand_mode = 1
-
-[node name="Arrow" type="CenterContainer" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Status"]
-layout_mode = 0
-offset_left = 442.0
-offset_top = 203.0
-offset_right = 570.0
-offset_bottom = 331.0
-rotation = 1.84656
-
-[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Status/Arrow"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-texture = ExtResource("16_074og")
-expand_mode = 1
-
-[node name="Label" type="Label" parent="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens/Status"]
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 202.0
-offset_top = 274.0
-offset_right = -293.0
-offset_bottom = 375.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 8
-text = "Character can recieve status effects
-to hinder their fighting:
- - Poison: Take damage each turn
- - Sleep: Unable to act until you wake up"
-
-[node name="Title" type="Label" parent="Help/HelpMenu/HelpMenu/HelpMenu"]
-layout_mode = 0
-offset_left = 346.0
-offset_top = 14.0
-offset_right = 621.0
-offset_bottom = 64.0
-theme_override_font_sizes/font_size = 36
-text = "How to Play"
-horizontal_alignment = 1
-
-[node name="Previous" type="Button" parent="Help/HelpMenu/HelpMenu/HelpMenu"]
-visible = false
-layout_mode = 0
-offset_left = 101.0
-offset_top = 314.0
-offset_right = 621.0
-offset_bottom = 834.0
-scale = Vector2(0.25, 0.25)
-theme_override_font_sizes/font_size = 32
-icon = ExtResource("16_074og")
-flat = true
-
-[node name="Next" type="Button" parent="Help/HelpMenu/HelpMenu/HelpMenu"]
-visible = false
-layout_mode = 0
-offset_left = 741.0
-offset_top = 301.0
-offset_right = 1261.0
-offset_bottom = 821.0
-scale = Vector2(0.25, 0.25)
-theme_override_font_sizes/font_size = 32
-icon = ExtResource("18_getpj")
-flat = true
 
 [node name="Border" type="Panel" parent="Help/HelpMenu/HelpMenu"]
 layout_mode = 2
@@ -1727,82 +1661,139 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_abqjc")
 
-[node name="TabContainer" type="TabContainer" parent="Help/HelpMenu/HelpMenu/Background"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Help/HelpMenu/HelpMenu/Background"]
 layout_mode = 2
-current_tab = 1
-clip_tabs = false
-tabs_visible = false
+theme_override_constants/separation = 25
 
-[node name="Overview" type="Control" parent="Help/HelpMenu/HelpMenu/Background/TabContainer"]
-visible = false
+[node name="Title" type="Label" parent="Help/HelpMenu/HelpMenu/Background/VBoxContainer"]
 layout_mode = 2
-metadata/_tab_index = 0
-
-[node name="Scene" type="MarginContainer" parent="Help/HelpMenu/HelpMenu/Background/TabContainer/Overview"]
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 31.0
-offset_bottom = 31.0
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/Background/TabContainer/Overview/Scene"]
-layout_mode = 2
-expand_mode = 1
-
-[node name="Description" type="Label" parent="Help/HelpMenu/HelpMenu/Background/TabContainer/Overview"]
-layout_mode = 0
-offset_left = 27.0
-offset_top = 10.0
-offset_right = 1060.0
-offset_bottom = 286.0
-theme_override_colors/font_color = Color(0.30588236, 0.62352943, 0.49019608, 1)
-theme_override_constants/outline_size = 25
+theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("50_4w656")
 theme_override_font_sizes/font_size = 75
-text = "Venture into the
-Dungeon and Find
-the Gold Gem!"
+text = "SOME HELP FOR YOU!"
 horizontal_alignment = 1
 
-[node name="Weapon" type="Control" parent="Help/HelpMenu/HelpMenu/Background/TabContainer"]
+[node name="Description" type="Label" parent="Help/HelpMenu/HelpMenu/Background/VBoxContainer"]
 layout_mode = 2
-metadata/_tab_index = 1
-
-[node name="Scene" type="MarginContainer" parent="Help/HelpMenu/HelpMenu/Background/TabContainer/Weapon"]
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 31.0
-offset_bottom = 31.0
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="TextureRect" type="TextureRect" parent="Help/HelpMenu/HelpMenu/Background/TabContainer/Weapon/Scene"]
-layout_mode = 2
-expand_mode = 1
-
-[node name="Description" type="Label" parent="Help/HelpMenu/HelpMenu/Background/TabContainer/Weapon"]
-layout_mode = 0
-offset_left = 27.0
-offset_top = 51.0
-offset_right = 1060.0
-offset_bottom = 327.0
-theme_override_colors/font_color = Color(0.30588236, 0.62352943, 0.49019608, 1)
-theme_override_constants/outline_size = 25
+theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("50_4w656")
-theme_override_font_sizes/font_size = 75
-text = "Weapons deal
-damage based
-on your level"
+theme_override_font_sizes/font_size = 32
+text = "Venture into the dungeon to discover the gold gem!"
 horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Help/HelpMenu/HelpMenu/Background/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Help/HelpMenu/HelpMenu/Background/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Description" type="Label" parent="Help/HelpMenu/HelpMenu/Background/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(550, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 28
+text = "Wield mighty weapons to vanquish fearsome foes"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Description3" type="Label" parent="Help/HelpMenu/HelpMenu/Background/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(550, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 26
+text = "Chug powerful drinks to restore your health and status"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Description2" type="Label" parent="Help/HelpMenu/HelpMenu/Background/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(550, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 27
+text = "Overcome fiendish spikes, noxious gas, and ancient curses"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Help/HelpMenu/HelpMenu/Background/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Description4" type="Label" parent="Help/HelpMenu/HelpMenu/Background/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(550, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 28
+text = "Use gems to cast magic spells to bolster your strength"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Description5" type="Label" parent="Help/HelpMenu/HelpMenu/Background/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(550, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 26
+text = "Enjoy delicious food on the go when the battle gets rough"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Description2" type="Label" parent="Help/HelpMenu/HelpMenu/Background/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(550, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 28
+text = "Solve mind boggling puzzles to uncover secret treasures"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Description6" type="Label" parent="Help/HelpMenu/HelpMenu/Background/VBoxContainer"]
+custom_minimum_size = Vector2(550, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 35
+text = "Gather your resolve at soothing Rest spots"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Description7" type="Label" parent="Help/HelpMenu/HelpMenu/Background/VBoxContainer"]
+custom_minimum_size = Vector2(550, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Description4" type="Label" parent="Help/HelpMenu/HelpMenu/Background/VBoxContainer"]
+custom_minimum_size = Vector2(550, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 24
+text = "And of course...."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Description5" type="Label" parent="Help/HelpMenu/HelpMenu/Background/VBoxContainer"]
+custom_minimum_size = Vector2(550, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("50_4w656")
+theme_override_font_sizes/font_size = 48
+text = "Collect as many shinies as you can!"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Previous" type="TextureButton" parent="Help/HelpMenu"]
+visible = false
 layout_mode = 0
 offset_top = 561.0
 offset_right = 512.0
@@ -1813,6 +1804,7 @@ texture_normal = ExtResource("58_vke2r")
 stretch_mode = 0
 
 [node name="Next" type="TextureButton" parent="Help/HelpMenu"]
+visible = false
 layout_mode = 0
 offset_left = 1200.0
 offset_top = 434.0
@@ -1847,8 +1839,14 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_abqjc")
 [node name="Button" type="Button" parent="Help/HelpButton"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
 theme_override_fonts/font = ExtResource("50_4w656")
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wy5fy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4obbf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ovcoh")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ppx11")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1yv1y")
 toggle_mode = true
 text = "Help"
 flat = true
@@ -1900,6 +1898,7 @@ texture_normal = ExtResource("59_uit24")
 [connection signal="show_enemy" from="Enemy/Panel" to="Description" method="show_description"]
 [connection signal="log_message" from="Inventory" to="LogMenu/Background/Message/ScrollLogger" method="add_message"]
 [connection signal="next_event" from="Inventory" to="." method="next_event"]
+[connection signal="sell_item" from="Inventory" to="." method="sell_rewards"]
 [connection signal="sell_item" from="Inventory" to="Player" method="gain_experience"]
 [connection signal="mouse_entered" from="Inventory/Inventory/Inventory/Items/Food/Button" to="Inventory/Inventory/Inventory/Items/Food/Button" method="_show_item"]
 [connection signal="mouse_exited" from="Inventory/Inventory/Inventory/Items/Food/Button" to="Description" method="hide"]
@@ -1918,8 +1917,8 @@ texture_normal = ExtResource("59_uit24")
 [connection signal="pressed" from="Inventory/Inventory/Inventory/Items/Items/Gems/Gem1/Button" to="Inventory/Inventory/Inventory/Items/Items/Gems/Gem1/Button" method="_use_item"]
 [connection signal="pressed" from="Inventory/Inventory/Inventory/Items/Items/Gems/Gem1/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
 [connection signal="show_item" from="Inventory/Inventory/Inventory/Items/Items/Gems/Gem1/Button" to="Description" method="show_item"]
-[connection signal="use_item" from="Inventory/Inventory/Inventory/Items/Items/Gems/Gem1/Button" to="Player" method="use_gem"]
 [connection signal="use_item" from="Inventory/Inventory/Inventory/Items/Items/Gems/Gem1/Button" to="Player" method="use_item"]
+[connection signal="use_item" from="Inventory/Inventory/Inventory/Items/Items/Gems/Gem1/Button" to="Player" method="use_gem"]
 [connection signal="pressed" from="Inventory/Inventory/Inventory/Items/Items/Gems/Gem1/DropItem" to="Inventory" method="sell_item_" binds= ["gem1"]]
 [connection signal="mouse_entered" from="Inventory/Inventory/Inventory/Items/Items/Gems/Gem2/Button" to="Inventory/Inventory/Inventory/Items/Items/Gems/Gem2/Button" method="_show_item"]
 [connection signal="mouse_exited" from="Inventory/Inventory/Inventory/Items/Items/Gems/Gem2/Button" to="Description" method="hide"]
@@ -1966,6 +1965,7 @@ texture_normal = ExtResource("59_uit24")
 [connection signal="start_turn" from="Player" to="Inventory" method="enable"]
 [connection signal="mouse_entered" from="Player/Emotes/Emote/Button" to="Player/Emotes/Emote/Button" method="_show_item"]
 [connection signal="mouse_exited" from="Player/Emotes/Emote/Button" to="Description" method="hide"]
+[connection signal="pressed" from="Player/Emotes/Emote/Button" to="Player/Emotes/Emote/Button" method="show_flavor"]
 [connection signal="show_item" from="Player/Emotes/Emote/Button" to="Description" method="show_item"]
 [connection signal="mouse_entered" from="Player/Effects/Effects/Effects/Buffs/Shield" to="Description" method="show"]
 [connection signal="mouse_entered" from="Player/Effects/Effects/Effects/Buffs/Shield" to="Description" method="show_description" binds= [{
@@ -1999,6 +1999,14 @@ texture_normal = ExtResource("59_uit24")
 "type": "status"
 }]]
 [connection signal="mouse_exited" from="Player/Effects/Effects/Effects/Status/Sleep" to="Description" method="hide"]
+[connection signal="mouse_entered" from="Player/Effects/Effects/Effects/Status/Cursed" to="Description" method="show"]
+[connection signal="mouse_entered" from="Player/Effects/Effects/Effects/Status/Cursed" to="Description" method="show_description" binds= [{
+"description": "Death comes for you",
+"flavor": "What a horrible night to have a curse.",
+"name": "Cursed",
+"type": "status"
+}]]
+[connection signal="mouse_exited" from="Player/Effects/Effects/Effects/Status/Cursed" to="Description" method="hide"]
 [connection signal="mouse_entered" from="Reward/EmoteReward/Button" to="Reward/EmoteReward/Button" method="_show_item"]
 [connection signal="mouse_exited" from="Reward/EmoteReward/Button" to="Description" method="hide"]
 [connection signal="pressed" from="Reward/EmoteReward/Button" to="Reward" method="hide"]
@@ -2006,8 +2014,8 @@ texture_normal = ExtResource("59_uit24")
 [connection signal="pressed" from="Reward/EmoteReward/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
 [connection signal="show_item" from="Reward/EmoteReward/Button" to="Description" method="show_item"]
 [connection signal="take_item" from="Reward/EmoteReward/Button" to="Player" method="add_emote"]
-[connection signal="mouse_entered" from="Reward/ItemReward/Button" to="Description" method="show"]
 [connection signal="mouse_entered" from="Reward/ItemReward/Button" to="Reward/ItemReward/Button" method="_show_item"]
+[connection signal="mouse_entered" from="Reward/ItemReward/Button" to="Description" method="show"]
 [connection signal="mouse_exited" from="Reward/ItemReward/Button" to="Description" method="hide"]
 [connection signal="pressed" from="Reward/ItemReward/Button" to="Reward" method="hide"]
 [connection signal="pressed" from="Reward/ItemReward/Button" to="Reward/ItemReward/Button" method="_take_item"]
@@ -2016,18 +2024,43 @@ texture_normal = ExtResource("59_uit24")
 [connection signal="take_item" from="Reward/ItemReward/Button" to="Inventory" method="add_item"]
 [connection signal="mouse_entered" from="Reward/Skip" to="Description" method="show"]
 [connection signal="mouse_entered" from="Reward/Skip" to="Description" method="show_description" binds= [{
-"description": "Trash these items to get some bonus experience.",
+"description": "Trash these items to get a random shiny.",
 "name": "skip",
 "type": ""
 }]]
 [connection signal="mouse_exited" from="Reward/Skip" to="Description" method="hide"]
 [connection signal="pressed" from="Reward/Skip" to="." method="sell_rewards"]
+[connection signal="pressed" from="Reward/Skip" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
+[connection signal="send_code" from="Puzzle/MarginContainer/Background/Background2/VBoxContainer/Answer" to="." method="solve_puzzle"]
+[connection signal="pressed" from="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/1" to="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/1" method="release_focus"]
+[connection signal="pressed" from="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/1" to="Puzzle/MarginContainer/Background/Background2/VBoxContainer/Answer" method="add_number" binds= [1]]
+[connection signal="pressed" from="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/2" to="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/2" method="release_focus"]
+[connection signal="pressed" from="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/2" to="Puzzle/MarginContainer/Background/Background2/VBoxContainer/Answer" method="add_number" binds= [2]]
+[connection signal="pressed" from="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/3" to="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/3" method="release_focus"]
+[connection signal="pressed" from="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/3" to="Puzzle/MarginContainer/Background/Background2/VBoxContainer/Answer" method="add_number" binds= [3]]
+[connection signal="pressed" from="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/4" to="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/4" method="release_focus"]
+[connection signal="pressed" from="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/4" to="Puzzle/MarginContainer/Background/Background2/VBoxContainer/Answer" method="add_number" binds= [4]]
+[connection signal="pressed" from="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/5" to="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/5" method="release_focus"]
+[connection signal="pressed" from="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/5" to="Puzzle/MarginContainer/Background/Background2/VBoxContainer/Answer" method="add_number" binds= [5]]
+[connection signal="pressed" from="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/6" to="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/6" method="release_focus"]
+[connection signal="pressed" from="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/6" to="Puzzle/MarginContainer/Background/Background2/VBoxContainer/Answer" method="add_number" binds= [6]]
+[connection signal="pressed" from="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/7" to="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/7" method="release_focus"]
+[connection signal="pressed" from="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/7" to="Puzzle/MarginContainer/Background/Background2/VBoxContainer/Answer" method="add_number" binds= [7]]
+[connection signal="pressed" from="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/8" to="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/8" method="release_focus"]
+[connection signal="pressed" from="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/8" to="Puzzle/MarginContainer/Background/Background2/VBoxContainer/Answer" method="add_number" binds= [8]]
+[connection signal="pressed" from="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/9" to="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/9" method="release_focus"]
+[connection signal="pressed" from="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/9" to="Puzzle/MarginContainer/Background/Background2/VBoxContainer/Answer" method="add_number" binds= [9]]
+[connection signal="pressed" from="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/Clear" to="Puzzle/MarginContainer/Background/Background2/VBoxContainer/Answer" method="clear_number"]
+[connection signal="pressed" from="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/Clear" to="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/Clear" method="release_focus"]
+[connection signal="pressed" from="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/0" to="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/0" method="release_focus"]
+[connection signal="pressed" from="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/0" to="Puzzle/MarginContainer/Background/Background2/VBoxContainer/Answer" method="add_number" binds= [0]]
+[connection signal="pressed" from="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/Input" to="Puzzle/MarginContainer/Background/Background2/VBoxContainer/Answer" method="input"]
+[connection signal="pressed" from="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/Input" to="Puzzle/MarginContainer/Background/Background2/VBoxContainer/CenterContainer/Buttons/Input" method="release_focus"]
 [connection signal="pressed" from="NextEvent/NextEvent" to="." method="next_event"]
 [connection signal="pressed" from="NextEvent/NextEvent" to="NextEvent" method="hide"]
 [connection signal="pressed" from="NextEvent/NextEvent" to="SoundManager/Rest" method="set_playing" binds= [false]]
 [connection signal="pressed" from="NextEvent/NextEvent" to="NextEvent/NextEvent/Sound" method="set_playing" binds= [true]]
-[connection signal="pressed" from="Help/HelpMenu/HelpMenu/HelpMenu/Previous" to="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens" method="previous_tab"]
-[connection signal="pressed" from="Help/HelpMenu/HelpMenu/HelpMenu/Next" to="Help/HelpMenu/HelpMenu/HelpMenu/HelpScreens" method="next_tab"]
+[connection signal="pressed" from="Help/HelpButton/Button" to="Help/HelpButton/Button" method="release_focus"]
 [connection signal="pressed" from="Help/HelpButton/Button" to="SoundManager/ButtonPressedSound" method="set_playing" binds= [true]]
 [connection signal="toggled" from="Help/HelpButton/Button" to="Help/HelpMenu" method="set_visible"]
 [connection signal="pressed" from="Victory" to="." method="start_menu"]

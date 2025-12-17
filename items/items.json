@@ -4,15 +4,15 @@
 			"name": "Rusty Sword",
 			"type": "weapon",
 			"power": 1,
-			"accuracy": 50,
+			"accuracy": 75,
 			"sound": "sword",
 			"flavor": "An old sword, use with care!",
-			"rarity": 1,
+			"rarity": -1,
 		}, {
 			"name": "Butter Knife",
 			"type": "weapon",
 			"power": 1,
-			"accuracy": 80,
+			"accuracy": 90,
 			"sound": "sword",
 			"flavor": "Butter than nothing 😏",
 			"rarity": 1,
@@ -20,39 +20,23 @@
 			"name": "Steak Knife",
 			"type": "weapon",
 			"power": 2,
-			"accuracy": 80,
+			"accuracy": 90,
 			"sound": "sword",
 			"flavor": "Not effective against vampires",
-			"rarity": 1,
-		}, {
-			"name": "Pairing Knife",
-			"type": "weapon",
-			"power": 3,
-			"accuracy": 80,
-			"sound": "sword",
-			"flavor": "Pair of deez",
 			"rarity": 2,
 		}, {
 			"name": "Chef's Knife",
 			"type": "weapon",
-			"power": 4,
-			"accuracy": 80,
+			"power": 3,
+			"accuracy": 90,
 			"sound": "sword",
-			"flavor": "",
+			"flavor": "*Kiss*",
 			"rarity": 3,
-		}, {
-			"name": "Gordon Approved™ Knife",
-			"type": "weapon",
-			"power": 5,
-			"accuracy": 80,
-			"sound": "sword",
-			"flavor": "It looked sharper in the infomercial.",
-			"rarity": 4,
 		}, {
 			"name": "Short Sword",
 			"type": "weapon",
 			"power": 2,
-			"accuracy": 65,
+			"accuracy": 75,
 			"sound": "sword",
 			"flavor": "Shorter than a sword.",
 			"rarity": 1,
@@ -60,7 +44,7 @@
 			"name": "Long Sword",
 			"type": "weapon",
 			"power": 4,
-			"accuracy": 65,
+			"accuracy": 75,
 			"sound": "sword",
 			"flavor": "Longer than a sword.",
 			"rarity": 2,
@@ -68,38 +52,14 @@
 			"name": "Great Sword",
 			"type": "weapon",
 			"power": 6,
-			"accuracy": 65,
+			"accuracy": 75,
 			"sound": "sword",
-			"flavor": "What's so great about it?",
-			"rarity": 4,
-		}, {
-			"name": "Greater Sword",
-			"type": "weapon",
-			"power": 8,
-			"accuracy": 65,
-			"sound": "sword",
-			"flavor": "What's so greater about it?",
-			"rarity": 5,
-		}, {
-			"name": "Letter Opener",
-			"type": "weapon",
-			"power": 1,
-			"accuracy": 100,
-			"sound": "sword",
-			"flavor": "",
-			"rarity": 2,
-		}, {
-			"name": "Box Cutter",
-			"type": "weapon",
-			"power": 3,
-			"accuracy": 100,
-			"sound": "sword",
-			"flavor": "I'll cut you like a box, along the flaps!",
+			"flavor": "Greater than a sword.",
 			"rarity": 4,
 		}, {
 			"name": "Flametongue",
 			"type": "weapon",
-			"power": 5,
+			"power": 4,
 			"element": "red",
 			"accuracy": 75,
 			"sound": "sword",
@@ -108,16 +68,16 @@
 		},	{
 			"name": "Sword of War and Peace",
 			"type": "weapon",
-			"power": 8,
+			"power": 6,
 			"element": "red",
 			"accuracy": 75,
 			"sound": "sword",
-			"flavor": "",
-			"rarity": 10,
+			"flavor": "Light doesn't know what this is.",
+			"rarity": 8,
 		},	{
 			"name": "Icebrand",
 			"type": "weapon",
-			"power": 5,
+			"power": 4,
 			"element": "blue",
 			"accuracy": 75,
 			"sound": "sword",
@@ -126,16 +86,16 @@
 		},	{
 			"name": "Frostmourne",
 			"type": "weapon",
-			"power": 8,
+			"power": 6,
 			"element": "blue",
 			"accuracy": 75,
 			"sound": "sword",
 			"flavor": "Frostmourne hungers...",
-			"rarity": 10,
+			"rarity": 8,
 		},	{
 			"name": "Coral Sword",
 			"type": "weapon",
-			"power": 5,
+			"power": 4,
 			"element": "green",
 			"accuracy": 75,
 			"sound": "sword",
@@ -144,16 +104,16 @@
 		},	{
 			"name": "Lightsabre",
 			"type": "weapon",
-			"power": 8,
+			"power": 6,
 			"element": "green",
 			"accuracy": 75,
 			"sound": "sword",
-			"flavor": "",
-			"rarity": 10,
+			"flavor": "The lightsabre is the weapon of a Jeid, an elegant weapon of a more civiliezd age.",
+			"rarity": 8,
 		},	{
 			"name": "Master Sword",
 			"type": "weapon",
-			"power": 8,
+			"power": 6,
 			"accuracy": 100,
 			"sound": "sword",
 			"flavor": "I knew I was the hero.",
@@ -161,7 +121,7 @@
 		},	{
 			"name": "Buster Sword",
 			"type": "weapon",
-			"power": 15,
+			"power": 10,
 			"accuracy": 50,
 			"sound": "sword",
 			"flavor": "Sword made for felling monsters.",
@@ -170,8 +130,6 @@
 			"name": "White Gem",
 			"type": "gem",
 			"element": "white",
-			"power": 1,
-			"accuracy": 100,
 			"sound": "magic",
 			"flavor": "I hope this doesn't break again.",
 			"rarity": 1,
@@ -180,7 +138,7 @@
 			"type": "gem",
 			"element": "red",
 			"power": 2,
-			"accuracy": 50,
+			"accuracy": 90,
 			"sound": "fire",
 			"flavor": "It feels warm, but it doesn't taste warm.",
 			"rarity": 1,
@@ -189,7 +147,7 @@
 			"type": "gem",
 			"element": "green",
 			"status": "poison",
-			"accuracy": 75,
+			"accuracy": 85,
 			"sound": "magic",
 			"flavor": "It's so green!",
 			"rarity": 1,
@@ -197,7 +155,8 @@
 			"name": "Blue Gem",
 			"type": "gem",
 			"element": "blue",
-			"buff": "shield",
+			"power": 1,
+			"accuracy": 100,
 			"sound": "magic",
 			"flavor": "Is this a shiny?",
 			"rarity": 1,
@@ -213,63 +172,10 @@
 			"name": "Purple Gem",
 			"type": "gem",
 			"element": "purple",
-			"power": 2,
-			"accuracy": 100,
-			"sound": "magic",
-			"flavor": "This definitely tastes like grape :(",
-			"rarity": 3,
-		},	{
-			"name": "Eggshell Gem",
-			"type": "gem",
-			"element": "white",
-			"power": 1,
-			"accuracy": 100,
-			"sound": "magic",
-			"flavor": "Need to use a soft touch.",
-			"rarity": 2,
-		},	{
-			"name": "Cherry Gem",
-			"type": "gem",
-			"element": "red",
-			"power": 2,
-			"accuracy": 50,
-			"sound": "magic",
-			"flavor": "",
-			"rarity": 3,
-		},	{
-			"name": "Olive Gem",
-			"type": "gem",
-			"element": "green",
-			"status": "poison",
-			"accuracy": 75,
-			"sound": "magic",
-			"flavor": "It's so green!",
-			"rarity": 3,
-		},	{
-			"name": "Cobalt Gem",
-			"type": "gem",
-			"element": "blue",
 			"buff": "shield",
 			"sound": "magic",
-			"flavor": "Is this a shiny?",
-			"rarity": 3,
-		},	{
-			"name": "Tangerine Gem",
-			"type": "gem",
-			"element": "orange",
-			"buff": "boost",
-			"sound": "magic",
-			"flavor": "Isn't this a pomegranate?",
-			"rarity": 4,
-		},	{
-			"name": "Plum Gem",
-			"type": "gem",
-			"element": "purple",
-			"power": 2,
-			"accuracy": 100,
-			"sound": "magic",
 			"flavor": "This definitely tastes like grape :(",
-			"rarity": 4,
+			"rarity": 2,
 		},	{
 			"name": "Potion",
 			"type": "drink",
@@ -283,35 +189,35 @@
 			"power": 60,
 			"sound": "soda",
 			"flavor": "Give me 60 HP",
-			"rarity": 1,
+			"rarity": 2,
 		},	{
 			"name": "Super Potion",
 			"type": "drink",
 			"power": 60,
 			"sound": "potion",
 			"flavor": "",
-			"rarity": 1,
+			"rarity": 2,
 		},	{
 			"name": "Lmoanade",
 			"type": "drink",
 			"power": 90,
 			"sound": "soda",
-			"flavor": "",
-			"rarity": 2,
+			"flavor": "lmoa",
+			"rarity": 3,
 		},	{
 			"name": "Ninty Potion",
 			"type": "drink",
 			"power": 90,
 			"sound": "potion",
-			"flavor": "",
-			"rarity": 2,
+			"flavor": "Served best at Ninty Degrees",
+			"rarity": 3,
 		},	{
 			"name": "Hyper Potion",
 			"type": "drink",
 			"power": 200,
 			"sound": "potion",
 			"flavor": "",
-			"rarity": 3,
+			"rarity": 4,
 		},	{
 			"name": "Antidote",
 			"type": "drink",
@@ -322,122 +228,74 @@
 		},	{
 			"name": "Cold One 1",
 			"type": "drink",
-			"power": 1000,
-			"status": "all",
+			"power": 100,
+			"status": "poison",
 			"sound": "soda",
 			"flavor": "Crack a cold one!",
 			"rarity": 5,
 		},	{
 			"name": "Cold One 2",
 			"type": "drink",
-			"power": 1000,
-			"status": "all",
+			"power": 100,
+			"status": "cursed",
 			"sound": "soda",
 			"flavor": "Crack a cold one!",
 			"rarity": 5,
 		},	{
 			"name": "Cold One 3",
 			"type": "drink",
-			"power": 1000,
-			"status": "all",
+			"power": 100,
+			"buff": "boost",
 			"sound": "soda",
 			"flavor": "Crack a cold one!",
 			"rarity": 5,
 		},	{
 			"name": "Cold One 4",
 			"type": "drink",
-			"power": 1000,
-			"status": "all",
+			"power": 300,
 			"sound": "soda",
 			"flavor": "Crack a cold one!",
 			"rarity": 5,
 		}, {
 			"name": "Blueberries",
 			"type": "food",
-			"power": 20,
+			"power": 12,
 			"sound": "food",
 			"flavor": "Fresh bloobs.",
 			"rarity": 1,
 		},	{
-			"name": "Quagberry",
+			"name": "Fresh Slice",
 			"type": "food",
 			"power": 30,
 			"sound": "food",
-			"flavor": "What kind of bush grows these?",
+			"flavor": "Hot and ready.",
 			"rarity": 2,
 		},	{
-			"name": "Cough Drops",
+			"name": "Kraft Dinner",
+			"type": "food",
+			"power": 65,
+			"sound": "food",
+			"flavor": "A meal for four in nine minutes for an everyday price of 19 cents.",
+			"rarity": 3,
+		},	{
+			"name": "Poutine",
+			"type": "food",
+			"power": 100,
+			"sound": "food",
+			"flavor": "",
+			"rarity": 4,
+		},	{
+			"name": "Maple Candy",
 			"type": "food",
 			"status": "poison",
 			"sound": "food",
 			"flavor": "",
 			"rarity": 1,
 		},	{
-			"name": "Smelling Salt",
+			"name": "Croissant",
 			"type": "food",
 			"status": "sleep",
 			"sound": "food",
-			"flavor": "",
-			"rarity": 2,
-		},	{
-			"name": "Fresh Slice",
-			"type": "food",
-			"power": 50,
-			"sound": "food",
-			"flavor": "Hot and ready.",
-			"rarity": 3,
-		},	{
-			"name": "Less Fresh Slice",
-			"type": "food",
-			"power": 25,
-			"sound": "food",
-			"flavor": "Not so ready.",
-			"rarity": -1,
-		},	{
-			"name": "Not Fresh Slice",
-			"type": "food",
-			"power": 1,
-			"sound": "food",
-			"flavor": "Is it worth eating?",
-			"rarity": -1,
-		},	{
-			"name": "Big Root",
-			"type": "food",
-			"power": 80,
-			"sound": "food",
-			"flavor": "",
-			"rarity": 3,
-		},	{
-			"name": "Goldy",
-			"type": "emote",
-			"description": "increased luck",
-			"effect": {
-				"stat": "luck",
-				"amount": 1
-			},
-			"sound": "",
-			"flavor": "We need Goldy on the tree for some luck.",
-			"rarity": 1,
-		},	{
-			"name": "The Pod",
-			"type": "emote",
-			"description": "increased luck",
-			"effect": {
-				"stat": "luck",
-				"amount": 1
-			},
-			"sound": "",
-			"flavor": "",
-			"rarity": 1,
-		},	{
-			"name": "Joelge",
-			"type": "emote",
-			"description": "increased luck",
-			"effect": {
-				"stat": "luck",
-				"amount": 1
-			},
-			"sound": "",
 			"flavor": "",
 			"rarity": 1,
 		},	{
@@ -479,7 +337,7 @@
 			"description": "increased accuracy",
 			"effect": {
 				"stat": "accuracy",
-				"amount": 0.10
+				"amount": 10
 			},
 			"sound": "",
 			"flavor": "",
@@ -511,8 +369,8 @@
 			"type": "emote",
 			"description": "more crits",
 			"effect": {
-				"stat": "crit chance",
-				"amount": 0.1
+				"stat": "crit_chance",
+				"amount": 25
 			},
 			"sound": "",
 			"flavor": "",
@@ -523,7 +381,7 @@
 			"description": "gems resist breaking",
 			"effect": {
 				"stat": "gem_break",
-				"amount": 0.1
+				"amount": -10
 			},
 			"sound": "",
 			"flavor": "",
@@ -533,8 +391,8 @@
 			"type": "emote",
 			"description": "gems are stronger",
 			"effect": {
-				"stat": "gem power",
-				"amount": 0.1
+				"stat": "gem_power",
+				"amount": 10
 			},
 			"sound": "",
 			"flavor": "",
@@ -542,7 +400,7 @@
 		},	{
 			"name": "Masher",
 			"type": "emote",
-			"description": "attacks can boost",
+			"description": "attacks may boost",
 			"effect": {
 				"attack": "boost",
 				"chance": 25
@@ -556,7 +414,7 @@
 			"description": "freebie food",
 			"effect": {
 				"freebie": "food",
-				"chance": 100
+				"chance": 10
 			},
 			"sound": "",
 			"flavor": "",
@@ -567,7 +425,7 @@
 			"description": "freebie drinks",
 			"effect": {
 				"freebie": "drink",
-				"chance": 100
+				"chance": 10
 			},
 			"sound": "",
 			"flavor": "",
@@ -575,7 +433,7 @@
 		},	{
 			"name": "Bitey",
 			"type": "emote",
-			"description": "attacks can flinch",
+			"description": "attacks may flinch",
 			"effect": {
 				"attack": "flinch",
 				"chance": 10
@@ -586,14 +444,916 @@
 		},	{
 			"name": "Shadowfax",
 			"type": "emote",
-			"description": "can evade",
+			"description": "may evade",
 			"effect": {
 				"stat": "evasion",
-				"amount": 0.1
+				"amount": 6
 			},
 			"sound": "",
 			"flavor": "",
 			"rarity": 1,
-		}, 
+		},	{
+			"name": "Goldy",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/MildFriendlyCrabsBleedPurple-E-n-6q9CeQC_s4hp",
+			"rarity": 1,
+		},	{
+			"name": "The Pod",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/ColdCloudyCookieSuperVinlin-IpCKZ6NOr2iCfZ4s",
+			"rarity": 1,
+		},	{
+			"name": "Joelge",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "",
+			"rarity": 1,
+		}, {
+			"name": "Oddish 2",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/RelentlessArborealBadgerDatSheffy-i4F2yc5BvIxkXgzk",
+			"rarity": 1
+		}, {
+			"name": "Golbat",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/KindHilariousTitanCoolStoryBob-z6ZxyOAD32Zj21KH",
+			"rarity": 1
+		}, {
+			"name": "Zigzagoon",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/FaintResoluteScallionSaltBae-AkYN1cwOFoq6kqQk",
+			"rarity": 1
+		}, {
+			"name": "FR Octillery",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/OptimisticElatedPeanutOMGScoots-FiiTu42hSCw0VdXx",
+			"rarity": 1
+		}, {
+			"name": "Wailmer",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/UgliestExcitedHamsterPanicVis-8IogpjIK2jCid3iK",
+			"rarity": 1
+		}, {
+			"name": "Jynx",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/SilkyDullTardigradeTheRinger-_88JCTNzkGBf76pb",
+			"rarity": 1
+		}, {
+			"name": "Meditite 2",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/DiligentAmorphousCroquetteYouWHY-E8oFr4dp87V_W5b6",
+			"rarity": 1
+		}, {
+			"name": "Arbok",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/AdorableLitigiousWolverinePJSugar-Rq497dt4zeWsweno",
+			"rarity": 1
+		}, {
+			"name": "FR Pineco",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/TenuousCarelessPanRalpherZ-wWt35PD9eEC8uAxB",
+			"rarity": 1
+		}, {
+			"name": "Chansey",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/CrunchySuspiciousDiscImGlitch-tcfhPc5GAa3lsfkB",
+			"rarity": 1
+		}, {
+			"name": "Tauros",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/DullSpikyCucumberSwiftRage-0Guf8K2h7vkrgl1r",
+			"rarity": 1
+		}, {
+			"name": "Cubone",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/ColorfulTenuousAnteaterJonCarnage-vRe9sJSppdJVMtY9",
+			"rarity": 1
+		}, {
+			"name": "Beldum",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/AffluentCloudyPeppermintSwiftRage-ITsNoGNd3OD1FcaG",
+			"rarity": 1
+		}, {
+			"name": "Clamperl",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/BashfulRefinedPartridgeCharlieBitMe-Rgxpi4Md7-Zxy-Gq",
+			"rarity": 1
+		}, {
+			"name": "Oddish",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/ShakingCrunchyRaccoonLeeroyJenkins-GVJ1_7vn7c4k_seC",
+			"rarity": 1
+		}, {
+			"name": "Skitty",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/SquareSparklingSushiUWot-HImIX9ErYkZ-hZth",
+			"rarity": 1
+		}, {
+			"name": "Spoink",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/AthleticFrozenLocustWholeWheat-e2iBpGWvUjCd28bY",
+			"rarity": 1
+		}, {
+			"name": "Houndour",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/AltruisticTentativeHorseBatChest-1hRaoFG37nq4g8mi",
+			"rarity": 1
+		}, {
+			"name": "Furret",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/SpotlessBlatantPancakePanicBasket-P20DRlRb06Uqy4Gp",
+			"rarity": 1
+		}, {
+			"name": "Totodile",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/WrongFragileJayCorgiDerp-g8kSsxnelB7BUWwp",
+			"rarity": 1
+		}, {
+			"name": "Meditite",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/FrigidRudePicklesOpieOP-2lc_5Wxl9mILMMZl",
+			"rarity": 1
+		}, {
+			"name": "Skiploom",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/CoyYawningScorpionPogChamp-CFHruLSSVzWdWeOn",
+			"rarity": 1
+		}, {
+			"name": "Solrock 2",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/InspiringUnusualArtichokeBloodTrail-jPR-Q2rKq-W2FQu8",
+			"rarity": 1
+		}, {
+			"name": "Omastar",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/ReliableEndearingPigeonAMPEnergyCherry-7R8Iy-gNgOrvGiBF",
+			"rarity": 1
+		}, {
+			"name": "Ludicolo",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/WonderfulPlainTigerTBTacoRight-5jdS45xLOmky-eot",
+			"rarity": 1
+		}, {
+			"name": "Ekans",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/CuteEnticingWoodcockDatSheffy-CVPwMll0fTNEV_c1",
+			"rarity": 1
+		}, {
+			"name": "Chikorita",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/SucculentEnjoyableClipzKeyboardCat-WSJBaib5c_2HbA8d",
+			"rarity": 1
+		}, {
+			"name": "Raticate",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/ImpossibleGorgeousDiamondBudBlast-e3eGfkvUvcp-rUlR",
+			"rarity": 1
+		}, {
+			"name": "Umbreon",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/FantasticUglySandwichSwiftRage-Z1zxNbY8Vrlyz2WP",
+			"rarity": 1
+		}, {
+			"name": "Sunkern",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/ColorfulHyperPeafowlWutFace-i3hOJA7_eTm2zecd",
+			"rarity": 1
+		}, {
+			"name": "Grimer",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/OddEndearingFalconOMGScoots-6cs-8tvVHkVvXuKB",
+			"rarity": 1
+		}, {
+			"name": "HG Typhlosion",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/FaintExquisiteOrangeYouDontSay-7JsP4VUFyThBSTHm",
+			"rarity": 1
+		}, {
+			"name": "Venomoth",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/DirtyBelovedGiraffeEleGiggle-9jr_3t2c15pbi0fJ",
+			"rarity": 1
+		}, {
+			"name": "Haunter",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/StrongSpunkySlothPraiseIt-3mNWeTxArTPRFl3I",
+			"rarity": 1
+		}, {
+			"name": "Blastoise",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/ToughDullRaccoonNononoCat-ooU4oJJ8lVxnzJep",
+			"rarity": 1
+		}, {
+			"name": "Wurmple",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/SmellyAttractiveZebraWutFace-kUM6q64xBnIe4tR5",
+			"rarity": 1
+		}, {
+			"name": "Ponyta",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/TawdryInnocentHorsePeoplesChamp-jFoUyRUxAfBfPnEx",
+			"rarity": 1
+		}, {
+			"name": "Cloyster",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/NeighborlyIronicLionDBstyle-KeUrP3GTJwcMpeZS",
+			"rarity": 1
+		}, {
+			"name": "Goldeen",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/OptimisticExquisiteAardvarkTooSpicy-6frlFw3toWgWOpIo",
+			"rarity": 1
+		}, {
+			"name": "Lotad",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/AuspiciousLuckyPuppyCopyThis-uStQO0-fVm02pvvq",
+			"rarity": 1
+		}, {
+			"name": "FR Trapinch",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/PiliableZealousToadVoteYea-Y7osuEFL5NCjqMHL",
+			"rarity": 1
+		}, {
+			"name": "Smeargle",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/ImpossibleMistyHamSquadGoals-r2ofLn7bCXGw3PmZ?filter=clips&range=7d&sort=time",
+			"rarity": 1
+		}, {
+			"name": "Porygon",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/DignifiedAliveCasetteNomNom-vPbaFtRvQ_xlZ54v",
+			"rarity": 1
+		}, {
+			"name": "Gliscor",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/MoldySmellyBearDatBoi-Gt5wwzeFKXXHzZcG",
+			"rarity": 1
+		}, {
+			"name": "Fearow",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/AltruisticSucculentPassionfruitTakeNRG-38xBH5memeiGiG4O",
+			"rarity": 1
+		}, {
+			"name": "Cyndaquil",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/GeniusMildHumanSoonerLater-pd5EWclJvsfMnbBq",
+			"rarity": 1
+		}, {
+			"name": "Shuckle",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "",
+			"rarity": 1
+		}, {
+			"name": "HG Octillery",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/TawdryProtectiveArmadilloStrawBeary-mRShZSvud0FpKMDv",
+			"rarity": 1
+		}, {
+			"name": "HG Trapinch",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/TawdryProtectiveArmadilloStrawBeary-mRShZSvud0FpKMDv",
+			"rarity": 1
+		}, {
+			"name": "HG Pineco",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "",
+			"rarity": 1
+		}, {
+			"name": "Froslass",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/GoldenAmusedOcelotDBstyle-Bb_1eKlbDJIRFu-_",
+			"rarity": 1
+		}, {
+			"name": "FR Typhlosion",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "",
+			"rarity": 1
+		}, {
+			"name": "Hippowdon",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/SavoryAgilePlumberSuperVinlin-1o5S1hhe9t_Up5LF",
+			"rarity": 1
+		}, {
+			"name": "Sealeo",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/SpoopyObliqueYakinikuBudStar-PJVWWpMEGmIMjelZ",
+			"rarity": 1
+		}, {
+			"name": "Magmar",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "",
+			"rarity": 1
+		}, {
+			"name": "Electrode",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/ResourcefulAmazingLampArgieB8-0BSXzc_i9kBcpDbu",
+			"rarity": 1
+		}, {
+			"name": "Mothim",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/CaringObliqueCrabCmonBruh-uJxOpCFbBagaj2s6",
+			"rarity": 1
+		}, {
+			"name": "Swellow",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/BeautifulConcernedRaccoonAMPEnergy-0_8JjLwUN7LVnBiU",
+			"rarity": 1
+		}, {
+			"name": "Volbeat 2",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/AdventurousHandsomeWatercressVoteNay-7-ZGUvB8jyMWDwHU",
+			"rarity": 1
+		}, {
+			"name": "Gligar",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/BoredAttractiveToothM4xHeh-zmuxcp2pNPl89QeX",
+			"rarity": 1
+		}, {
+			"name": "Beautifly",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/MotionlessColdbloodedMooseKappa-EOz9q2wHTSSHXEFw",
+			"rarity": 1
+		}, {
+			"name": "Pelipper",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/SleepyBillowingSwordTwitchRPG-cc9eb3c0Rqek3MsT",
+			"rarity": 1
+		}, {
+			"name": "Swalot",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/CheerfulDiligentTitanSSSsss-IwW72ZRoDGC5V4Zi",
+			"rarity": 1
+		}, {
+			"name": "Paras",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/ColorfulExquisiteNikudonSquadGoals-3h_80-LF3Zb3fxdA",
+			"rarity": 1
+		}, {
+			"name": "Glalie",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/GlutenFreeWittyPhoneLeeroyJenkins-hcwFhv5aOJ2gLOJJ",
+			"rarity": 1
+		}, {
+			"name": "Nidorino",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "",
+			"rarity": 1
+		}, {
+			"name": "Sceptile",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/KindSpinelessRavenGrammarKing-4Xdl9TENZbxVfFbq",
+			"rarity": 1
+		}, {
+			"name": "Volbeat",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/PrettiestCredulousKeyboardEleGiggle-vT6Uzst-wLV5k_YL",
+			"rarity": 1
+		}, {
+			"name": "Solrock",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/DullDaintySproutFloof-2alfyZFRrFQEw1mh",
+			"rarity": 1
+		}, {
+			"name": "Milotic",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "",
+			"rarity": 1
+		}, {
+			"name": "Luvdisc",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/NaiveBetterAirGuitarTwitchRPG-HAMbugLpLcWnI0VB",
+			"rarity": 1
+		}, {
+			"name": "Linoone",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/AgileHyperDogYouWHY-ug9U68ocZFoOYXeQ",
+			"rarity": 1
+		}, {
+			"name": "Krabby",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "",
+			"rarity": 1
+		}, {
+			"name": "Mankey",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "clips.twitch.tv/GracefulTenuousLadiesKreygasm-0DEWjIp0daQoQoH7",
+			"rarity": 1
+		}, {
+			"name": "Staryu",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "",
+			"rarity": 1
+		}, {
+			"name": "Tangela",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "",
+			"rarity": 1
+		}, {
+			"name": "Grovyle",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "",
+			"rarity": 1
+		}, {
+			"name": "Sharpedo",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "",
+			"rarity": 1
+		}, {
+			"name": "Smoochum",
+			"type": "emote",
+			"description": "increased luck",
+			"effect": {
+				"stat": "luck",
+				"amount": 1
+			},
+			"sound": "",
+			"flavor": "",
+			"rarity": 1
+		}
 	]
 }

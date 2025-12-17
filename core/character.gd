@@ -9,6 +9,7 @@ var health = 0
 var status = {}
 var buffs = {}
 var armor = 0
+var evasion = 0
 
 var sprite
 var health_bar
@@ -99,12 +100,23 @@ func _die() -> bool:
 	return false
 
 func damaged(element, damage):
+	if evasion > 0:
+		log_state('damaged', 'base chance to evade %d' % evasion)
+		var evasion_ = int(evasion)
+		var chance = randi() % 100
+		log_state('damaged', 'chance to evade %d < %d = %s' % [chance, evasion_, chance < evasion_])
+		if chance < evasion_:
+			await get_tree().create_timer(0.3).timeout
+			log_message.emit('%s evaded.' % character_name)
+			sounds['Miss'].playing = true
+			await sprite.shake2(2, 0.10, 15).finished
+			return
 	var resistance = 1
 	if element in resistances:
 		resistance = resistances[element]
 	var adjusted_damage = resistance * damage - armor
 	log_state('damaged', '%s (%.2f) * %d = %d' % [element, resistance, damage, adjusted_damage])
-	await sprite.damaged(adjusted_damage / 10 + 1)
+	await sprite.damaged(2)
 	await set_health(health - adjusted_damage)
 
 func gain_status(element: String, effect: String, value: int) -> void:
@@ -212,15 +224,15 @@ func sleep() -> bool:
 
 func wake_up() -> bool:
 	var value = status['sleep']
-	var chance = 1.0 / (sqrt(value) + 1)
-	var wake_up_chance = randf()
+	var chance = int(ceil(100 * (1.0 / (sqrt(value) + 1))))
+	var wake_up_chance = randi() % 100
 	var awoken = wake_up_chance < chance
 	var sleeping = value > 0 and not awoken;
 
 	log_state('wake_up', 'value: %d, chance: %4f, roll: %4f, sleeping: %s' % [value, chance, wake_up_chance, sleeping])
 
 	if sleeping:
-		set_status('sleep', max(0, value / 2))
+		set_status('sleep', max(0, int(floor(value / 2))))
 		return true
 	else:
 		log_message.emit('%s woke up' % character_name)
@@ -228,6 +240,20 @@ func wake_up() -> bool:
 		set_status('sleep', 0)
 		await get_tree().create_timer(0.75).timeout
 		return false
+
+func cursed() -> bool:
+	if 'cursed' not in status or status['cursed'] == 0:
+		return false
+	if status['cursed'] < 100:
+		log_state('cursed', 'value: %d' % status['cursed'])
+		log_message.emit('The curse grows...')
+		set_status('cursed', int(floor(status['cursed'] + 1)))
+		$SoundEffects/cursed.playing = true
+		await get_tree().create_timer(0.75).timeout
+	elif status['cursed'] == 100:
+		log_message.emit('What a horrible time to have a curse')
+		return true
+	return false
 
 func take_turn():
 	log_state('take_turn', 'hp: %d, status: %s' % [health, status])
@@ -239,10 +265,12 @@ func take_turn():
 		death()
 	elif await flinch():
 		pass_turn.emit()
-	elif await sleep():
-		pass_turn.emit()
 	elif await poison() and await _die():
 		death()
+	elif await cursed():
+		death()
+	elif await sleep():
+		pass_turn.emit()
 	else:
 		await logic()
 

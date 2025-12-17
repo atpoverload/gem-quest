@@ -27,11 +27,11 @@ func set_enemy(enemy, level_: int):
 	$Info/Background/Info/Info/Name/Label.text = character_name
 	
 	level = level_
-	experience = enemy['experience'] * level
+	experience = enemy['experience'] * int(ceil(level / 2) + 1)
 
 	$Info/Background/Info/Info/Level/Label.text = 'Level %3d' % level
 
-	max_health = int(2 * level * enemy['health'] / 10) + level + 2
+	max_health = ceil(2 * level * enemy['health'] / 10) + level + 2
 	health = max_health
 	health_bar.max_value = max_health
 	health_bar.value = health
@@ -56,7 +56,6 @@ func set_enemy(enemy, level_: int):
 	logic_ = enemy['logic']
 	$Panel.set_enemy(enemy)
 
-#func attack(power, accuracy):
 func attack():
 	log_state('attack', 'attacking with %s')
 	log_message.emit('%s attacks' % character_name)
@@ -72,7 +71,7 @@ func attack():
 		await get_tree().create_timer(0.33).timeout
 		$SoundEffects/Miss.playing = true
 		log_message.emit('%s missed' % character_name)
-		await get_tree().create_timer($SoundEffects/Miss.stream.get_length() + 0.5).timeout
+		await get_tree().create_timer($SoundEffects/Miss.stream.get_length()).timeout
 
 	#pass_turn.emit()
 
@@ -99,7 +98,7 @@ func yawn():
 		await get_tree().create_timer(0.33).timeout
 		$SoundEffects/Miss.playing = true
 		log_message.emit('%s missed' % character_name)
-		await get_tree().create_timer($SoundEffects/Miss.stream.get_length() + 0.5).timeout
+		await get_tree().create_timer($SoundEffects/Miss.stream.get_length()).timeout
 
 	#pass_turn.emit()
 
@@ -118,16 +117,16 @@ func sing():
 		await get_tree().create_timer(0.33).timeout
 		$SoundEffects/Miss.playing = true
 		log_message.emit('%s missed' % character_name)
-		await get_tree().create_timer($SoundEffects/Miss.stream.get_length() + 0.5).timeout
+		await get_tree().create_timer($SoundEffects/Miss.stream.get_length()).timeout
 		#pass_turn.emit()
 
 func poison_gas():
-	log_state('poison_gas', 'poison_gasing with %s')
+	log_state('poison_gas', 'poison_gasing')
 	log_message.emit('%s uses Poison Gas' % character_name)
 	var chance = randi() % 100
-	$SoundEffects/poison.playing = true
+	$SoundEffects/PoisonGas.playing = true
 	await sprite.attack(1)
-	await get_tree().create_timer($SoundEffects/poison.stream.get_length() / 2).timeout
+	await get_tree().create_timer($SoundEffects/PoisonGas.stream.get_length()).timeout
 	log_state('poison_gas', 'chance to hit %d < %d' % [chance, accuracy])
 	if chance < accuracy:
 		var stacks = int(sqrt(power * level))
@@ -138,7 +137,26 @@ func poison_gas():
 		await get_tree().create_timer(0.33).timeout
 		$SoundEffects/Miss.playing = true
 		log_message.emit('%s missed' % character_name)
-		await get_tree().create_timer($SoundEffects/Miss.stream.get_length() + 0.5).timeout
+		await get_tree().create_timer($SoundEffects/Miss.stream.get_length()).timeout
+		#pass_turn.emit()
+
+func perish_song():
+	log_state('perish_song', 'perish_songing')
+	log_message.emit('%s uses Perish Song' % character_name)
+	var chance = randi() % 100
+	$SoundEffects/PerishSong.playing = true
+	await sprite.attack(1)
+	await get_tree().create_timer($SoundEffects/PerishSong.stream.get_length()).timeout
+	log_state('perish_song', 'chance to hit %d < %d' % [chance, accuracy])
+	if chance < accuracy:
+		log_state('perish_song', 'apply 1')
+		#$SoundEffects/Attack.playing = true
+		apply_status.emit('music', 'cursed', 1)
+	else:
+		await get_tree().create_timer(0.33).timeout
+		$SoundEffects/Miss.playing = true
+		log_message.emit('%s missed' % character_name)
+		await get_tree().create_timer($SoundEffects/Miss.stream.get_length()).timeout
 		#pass_turn.emit()
 
 func psycho_boost():
@@ -158,7 +176,7 @@ func psycho_boost():
 		await get_tree().create_timer(0.33).timeout
 		$SoundEffects/Miss.playing = true
 		log_message.emit('%s missed' % character_name)
-		await get_tree().create_timer($SoundEffects/Miss.stream.get_length() + 0.5).timeout
+		await get_tree().create_timer($SoundEffects/Miss.stream.get_length()).timeout
 		#pass_turn.emit()
 
 #func spit(value):
@@ -175,12 +193,13 @@ func logic():
 		total_chance += logic_[action]
 		var chance = randi() % 100
 		if chance < total_chance:
-			Callable(self, action).call()
+			await Callable(self, action).call()
 			break
 	await get_tree().create_timer(1).timeout
 	pass_turn.emit()
 
 func death():
 	$SoundEffects/BattleCry.playing = true
-	await get_tree().create_timer($SoundEffects/BattleCry.stream.get_length() / 2).timeout
+	if $SoundEffects/BattleCry.stream:
+		await get_tree().create_timer($SoundEffects/BattleCry.stream.get_length() / 2).timeout
 	give_experience.emit(experience)

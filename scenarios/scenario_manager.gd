@@ -4,6 +4,7 @@ var level
 var character
 var items
 var events
+var drop_tables
 
 var cursor
 
@@ -24,6 +25,7 @@ func load_scenario(scenario):
 	log_state('load_scenario', 'starting items [%s]' % ','.join(items))
 	events = scenario['events']
 	log_state('load_scenario', 'found %d events' % len(events))
+	drop_tables = scenario['drop_tables']
 	cursor = 0
 
 func starting_level():

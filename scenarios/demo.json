@@ -1,251 +1,676 @@
 {
-	"level": 1.0,
+	"level": 1,
 	"character": {
 		"name": "Light",
-		"health": 5.0
+		"health": 5
 	},
 	"items": [
 		"Rusty Sword",
 		"Potion",
-		"Blueberries",
+		"Blueberries"
 	],
+	"drop_tables": {
+		"basic_sword": ["Short Sword", "Steak Knife", "Butter Knife", "Long Sword"],
+		"advanced_sword": ["Great Sword", "Chef's Knife", "Steak Knife", "Long Sword"],
+		"elemental_sword": ["Flametongue", "Icebrand", "Coral Sword", "Sword of War and Peace", "Frostmourne", "Lightsabre"],
+		"powerful_sword": ["Sword of War and Peace", "Frostmourne", "Lightsabre", "Master Sword", "Buster Sword"],
+		"basic_gem": ["White Gem", "Red Gem", "Blue Gem", "Green Gem"],
+		"any_gem": ["White Gem", "Red Gem", "Blue Gem", "Green Gem", "Orange Gem", "Purple Gem"],
+		"basic_drink": ["Potion", "Sodie Pop", "Super Potion", "Antidote"],
+		"sodie_pop": ["Sodie Pop"],
+		"advanced_drink": ["Lmoanade", "Ninty Potion", "Sodie Pop", "Super Potion", "Antidote"],
+		"powerful_drink": ["Hyper Potion", "Lmoanade", "Ninty Potion"],
+		"cold_one": ["Cold One 1", "Cold One 2", "Cold One 3", "Cold One 4"],
+		"nibble": ["Blueberries", "Maple Candy"],
+		"snack": ["Fresh Slice", "Blueberries", "Maple Candy", "Croissant"],
+		"lunch": ["Kraft Dinner", "Fresh Slice"],
+		"dinner": ["Poutine", "Kraft Dinner"],
+		"basic_healing": ["Blueberries", "Potion", "Maple Candy"],
+		"advanced_healing": ["Kraft Dinner", "Fresh Slice", "Super Potion", "Sodie Pop", "Maple Candy", "Croissant"],
+		"powerful_healing": ["Poutine", "Kraft Dinner", "Ninty Potion", "Lmoanade", "Maple Candy", "Croissant"],
+		"basic_damage": ["Red Gem", "Blue Gem", "Green Gem", "Short Sword", "Steak Knife", "Long Sword", "Butter Knife"],
+		"advanced_damage": ["Red Gem", "Blue Gem", "Green Gem", "Great Sword", "Steak Knife", "Long Sword", "Chef's Knife"],
+		"elemental_damage": ["Red Gem", "Blue Gem", "Green Gem", "Flametongue", "Coral Sword", "Icebrand"]
+	},
 	"events": [
 		{
 			"type": "treasure",
-			"reward": "gem",
-			"count": 3.0,
-			"rarity": 1.0
+			"reward": "basic_gem",
+			"count": 3,
+			"rarity": 1
 		},
 		{
 			"type": "treasure",
 			"reward": "emote",
-			"count": 3.0,
-			"rarity": 1.0
+			"count": 3,
+			"rarity": 1
+		},
+		{
+			"type": "treasure",
+			"reward": "lucky",
+			"count": 2,
+			"rarity": 1
 		},
 		{
 			"type": "battle",
-			"level": 1.0,
+			"level": 1,
 			"enemy": "Imakuni"
 		},
 		{
 			"type": "battle",
-			"level": 1.0,
+			"level": 1,
 			"enemy": "LigMakuni"
 		},
 		{
 			"type": "treasure",
 			"reward": "emote",
-			"count": 2.0,
-			"rarity": 1.0
+			"count": 2,
+			"rarity": 1
 		},
 		{
-			"type": "pause"
+			"type": "puzzle",
+			"challenge": 99,
+			"event": {
+				"type": "treasure",
+				"reward": "lucky",
+				"count": 2,
+				"rarity": 1
+			}
 		},
 		{
 			"type": "battle",
-			"level": 2.0,
+			"level": 2,
 			"enemy": "Imakuni"
 		},
 		{
 			"type": "battle",
-			"level": 2.0,
+			"level": 2,
 			"enemy": "Joelge"
 		},
 		{
 			"type": "treasure",
 			"reward": "damage",
-			"count": 3.0,
-			"rarity": 2.0
+			"count": 3,
+			"rarity": 2
 		},
 		{
 			"type": "treasure",
-			"reward": "potion",
-			"count": 2.0,
-			"rarity": 1.0
+			"reward": "basic_potion",
+			"count": 2,
+			"rarity": 1
+		},
+		{
+			"type": "puzzle",
+			"challenge": 149,
+			"event": {
+				"type": "treasure",
+				"reward": "any_gem",
+				"count": 1,
+				"rarity": 2
+			}
+		},
+		{
+			"type": "puzzle",
+			"challenge": 99,
+			"event": {
+				"type": "treasure",
+				"reward": "nibble",
+				"count": 1,
+				"rarity": 2
+			}
+		},
+		{
+			"type": "trap",
+			"checks": [
+				{
+					"stat": "magic",
+					"danger": 50
+				}
+			],
+			"event": {
+				"type": "status",
+				"effect": "sleep",
+				"amount": 1
+			}
 		},
 		{
 			"type": "battle",
-			"level": 2.0,
+			"level": 3,
 			"enemy": "LigMakuni"
 		},
 		{
 			"type": "battle",
-			"level": 3.0,
+			"level": 4,
 			"enemy": "Joelge"
 		},
 		{
-			"type": "treasure",
-			"reward": "emote",
-			"count": 3.0,
-			"rarity": 2.0
+			"type": "trap",
+			"checks": [
+				{
+					"stat": "magic",
+					"danger": 50
+				}
+			],
+			"event": {
+				"type": "status",
+				"effect": "poison",
+				"amount": 1
+			}
 		},
 		{
-			"type": "rest",
-			"safety": 2.0
+			"type": "trap",
+			"checks": [
+				{
+					"stat": "might",
+					"danger": 100
+				}
+			],
+			"event": {
+				"type": "battle",
+				"level": 5,
+				"enemy": "Ryan Reynolds"
+			}
 		},
 		{
 			"type": "battle",
-			"level": 3.0,
+			"level": 5,
 			"enemy": "Wigglytuff"
 		},
 		{
 			"type": "treasure",
-			"reward": "gem",
-			"count": 3.0,
-			"rarity": 3.0
+			"reward": "any_gem",
+			"count": 3,
+			"rarity": 3
 		},
 		{
 			"type": "treasure",
-			"reward": "weapon",
-			"count": 3.0,
-			"rarity": 3.0
+			"reward": "emote",
+			"count": 3,
+			"rarity": 2
+		},
+		{
+			"type": "treasure",
+			"reward": "advanced_sword",
+			"count": 3,
+			"rarity": 3
 		},
 		{
 			"type": "rest",
-			"safety": 5.0
+			"safety": 5
 		},
 		{
 			"type": "battle",
-			"level": 7.0,
+			"level": 7,
 			"enemy": "Piloswine"
 		},
 		{
 			"type": "battle",
-			"level": 7.0,
+			"level": 7,
 			"enemy": "Swalot"
 		},
 		{
 			"type": "treasure",
 			"reward": "emote",
-			"count": 2.0,
-			"rarity": 3.0
+			"count": 2,
+			"rarity": 3
 		},
 		{
 			"type": "treasure",
-			"reward": "potion",
-			"count": 1.0,
-			"rarity": 4.0
+			"reward": "advanced_drink",
+			"count": 2,
+			"rarity": 4
+		},
+		{
+			"type": "puzzle",
+			"challenge": 199,
+			"event": {
+				"type": "treasure",
+				"reward": "snack",
+				"count": 2,
+				"rarity": 3
+			}
 		},
 		{
 			"type": "battle",
-			"level": 8.0,
+			"level": 8,
 			"enemy": "Igglybuff"
 		},
 		{
 			"type": "battle",
-			"level": 10.0,
+			"level": 10,
 			"enemy": "Jigglypuff"
 		},
 		{
-			"type": "treasure",
-			"reward": "potion",
-			"count": 3.0,
-			"rarity": 4.0
-		},
-		{
-			"type": "treasure",
-			"reward": "potion",
-			"count": 3.0,
-			"rarity": 4.0
-		},
-		{
-			"type": "pause"
-		},
-		{
 			"type": "battle",
-			"level": 12.0,
+			"level": 12,
 			"enemy": "Piloswine"
 		},
 		{
-			"type": "rest",
-			"safety": 1.0
+			"type": "treasure",
+			"reward": "advanced_drink",
+			"count": 3,
+			"rarity": 4
+		},
+		{
+			"type": "treasure",
+			"reward": "snack",
+			"count": 2,
+			"rarity": 4
+		},
+		{
+			"type": "puzzle",
+			"challenge": 399,
+			"event": {
+				"type": "treasure",
+				"reward": "advanced_damage",
+				"count": 1,
+				"rarity": 3
+			}
+		},
+		{
+			"type": "trap",
+			"checks": [
+				{
+					"stat": "might",
+					"danger": 250
+				}
+			],
+			"event": {
+				"type": "battle",
+				"level": 13,
+				"enemy": "Blue's Mamoswine"
+			}
 		},
 		{
 			"type": "battle",
-			"level": 5.0,
+			"level": 15,
 			"enemy": "KEKing"
 		},
 		{
+			"type": "treasure",
+			"reward": "elemental_sword",
+			"count": 3,
+			"rarity": 1
+		},
+		{
+			"type": "treasure",
+			"reward": "powerful_healing",
+			"count": 2,
+			"rarity": 1
+		},
+		{
+			"type": "puzzle",
+			"challenge": 199,
+			"event": {
+				"type": "treasure",
+				"reward": "lunch",
+				"count": 2,
+				"rarity": 1
+			}
+		},
+		{
 			"type": "rest",
-			"safety": 5.0
+			"safety": 5
+		},
+		{
+			"type": "trap",
+			"checks": [
+				{
+					"stat": "morale",
+					"danger": 500
+				},
+				{
+					"stat": "might",
+					"danger": 500
+				},
+				{
+					"stat": "magic",
+					"danger": 500
+				}
+			],
+			"event": {
+				"type": "status",
+				"effect": "cursed",
+				"amount": 1
+			}
 		},
 		{
 			"type": "battle",
-			"level": 15.0,
-			"enemy": "Joelge"
+			"level": 20,
+			"enemy": "Caveman"
+		},
+		{
+			"type": "trap",
+			"checks": [
+				{
+					"stat": "might",
+					"danger": 350
+				}
+			],
+			"event": {
+				"type": "damage",
+				"amount": "25"
+			}
 		},
 		{
 			"type": "battle",
-			"level": 17.0,
-			"enemy": "LigMakuni"
+			"level": 20,
+			"enemy": "Caveman"
+		},
+		{
+			"type": "trap",
+			"checks": [
+				{
+					"stat": "might",
+					"danger": 300
+				}
+			],
+			"event": {
+				"type": "battle",
+				"level": 20,
+				"enemy": "Van Wilder"
+			}
+		},
+		{
+			"type": "treasure",
+			"reward": "elemental_damage",
+			"count": 2,
+			"rarity": 7
+		},
+		{
+			"type": "trap",
+			"checks": [
+				{
+					"stat": "might",
+					"danger": 350
+				}
+			],
+			"event": {
+				"type": "damage",
+				"amount": "25"
+			}
+		},
+		{
+			"type": "treasure",
+			"reward": "any_gem",
+			"count": 2,
+			"rarity": 7
+		},
+		{
+			"type": "battle",
+			"level": 22,
+			"enemy": "Caveman"
+		},
+		{
+			"type": "battle",
+			"level": 23,
+			"enemy": "Caveman"
+		},
+		{
+			"type": "battle",
+			"level": 25,
+			"enemy": "Quillback"
+		},
+		{
+			"type": "puzzle",
+			"challenge": 399,
+			"event": {
+				"type": "treasure",
+				"reward": "any_gem",
+				"count": 2,
+				"rarity": 7
+			}
+		},
+		{
+			"type": "puzzle",
+			"challenge": 299,
+			"event": {
+				"type": "treasure",
+				"reward": "dinner",
+				"count": 2,
+				"rarity": 7
+			}
+		},
+		{
+			"type": "battle",
+			"level": 23,
+			"enemy": "Tiki Man"
+		},
+		{
+			"type": "battle",
+			"level": 23,
+			"enemy": "Tiki Man"
+		},
+		{
+			"type": "puzzle",
+			"challenge": 999,
+			"event": {
+				"type": "treasure",
+				"reward": "powerful_sword",
+				"count": 1,
+				"rarity": 7
+			}
+		},
+		{
+			"type": "battle",
+			"level": 25,
+			"enemy": "Olmec"
+		},
+		{
+			"type": "treasure",
+			"reward": "powerful_sword",
+			"count": 3,
+			"rarity": 10
+		},
+		{
+			"type": "treasure",
+			"reward": "any_gem",
+			"count": 2,
+			"rarity": 10
+		},
+		{
+			"type": "treasure",
+			"reward": "cold_one",
+			"count": 2,
+			"rarity": 4
+		},
+		{
+			"type": "treasure",
+			"reward": "dinner",
+			"count": 2,
+			"rarity": 1
 		},
 		{
 			"type": "treasure",
 			"reward": "emote",
-			"count": 3.0,
-			"rarity": 5.0
+			"count": 2,
+			"rarity": 1
 		},
 		{
 			"type": "treasure",
-			"reward": "weapon",
-			"count": 2.0,
-			"rarity": 4.0
-		},
-		{
-			"type": "pause"
-		},
-		{
-			"type": "battle",
-			"level": 20.0,
-			"enemy": "Imakuni"
-		},
-		{
-			"type": "battle",
-			"level": 20.0,
-			"enemy": "Imakuni"
-		},
-		{
-			"type": "battle",
-			"level": 20.0,
-			"enemy": "Imakuni"
-		},
-		{
-			"type": "battle",
-			"level": 20.0,
-			"enemy": "Imakuni"
+			"reward": "emote",
+			"count": 2,
+			"rarity": 1
 		},
 		{
 			"type": "treasure",
-			"reward": "gem",
-			"count": 3.0,
-			"rarity": 4.0
+			"reward": "lucky",
+			"count": 2,
+			"rarity": 1
 		},
 		{
 			"type": "treasure",
-			"reward": "potion",
-			"count": 3.0,
-			"rarity": 4.0
+			"reward": "lucky",
+			"count": 2,
+			"rarity": 1
 		},
 		{
-			"type": "pause"
+			"type": "rest",
+			"safety": 5
+		},
+		{
+			"type": "trap",
+			"checks": [
+				{
+					"stat": "magic",
+					"danger": 500
+				}
+			],
+			"event": {
+				"type": "status",
+				"effect": "poison",
+				"amount": 10
+			}
 		},
 		{
 			"type": "battle",
-			"level": 17.0,
+			"level": 30,
+			"enemy": "Joelge"
+		},
+		{
+			"type": "battle",
+			"level": 35,
+			"enemy": "LigMakuni"
+		},
+		{
+			"type": "trap",
+			"checks": [
+				{
+					"stat": "might",
+					"danger": 500
+				}
+			],
+			"event": {
+				"type": "battle",
+				"level": 35,
+				"enemy": "Deadpool"
+			}
+		},
+		{
+			"type": "treasure",
+			"reward": "emote",
+			"count": 3,
+			"rarity": 5
+		},
+		{
+			"type": "treasure",
+			"reward": "any_gem",
+			"count": 2,
+			"rarity": 8
+		},
+		{
+			"type": "battle",
+			"level": 33,
+			"enemy": "Imakuni"
+		},
+				{
+			"type": "trap",
+			"checks": [
+				{
+					"stat": "might",
+					"danger": 500
+				}
+			],
+			"event": {
+				"type": "battle",
+				"level": 35,
+				"enemy": "Deadpool 2"
+			}
+		},
+		{
+			"type": "battle",
+			"level": 33,
+			"enemy": "Imakuni Red"
+		},
+		{
+			"type": "battle",
+			"level": 33,
+			"enemy": "Imakuni Blue"
+		},
+		{
+			"type": "battle",
+			"level": 3,
+			"enemy": "Imakuni Green"
+		},
+		{
+			"type": "trap",
+			"checks": [
+				{
+					"stat": "might",
+					"danger": 500
+				}
+			],
+			"event": {
+				"type": "damage",
+				"amount": 50
+			}
+		},
+		{
+			"type": "treasure",
+			"reward": "any_gem",
+			"count": 3,
+			"rarity": 4
+		},
+		{
+			"type": "treasure",
+			"reward": "powerful_drink",
+			"count": 3,
+			"rarity": 4
+		},
+		{
+			"type": "battle",
+			"level": 40,
+			"enemy": "Blue's Mamoswine"
+		},
+		{
+			"type": "battle",
+			"level": 40,
 			"enemy": "Swalot"
 		},
 		{
 			"type": "battle",
-			"level": 17.0,
+			"level": 40,
 			"enemy": "Wigglytuff"
 		},
 		{
-			"type": "rest",
-			"safety": 100.0
+			"type": "trap",
+			"checks": [
+				{
+					"stat": "morale",
+					"danger": 500
+				},
+				{
+					"stat": "might",
+					"danger": 500
+				},
+				{
+					"stat": "magic",
+					"danger": 500
+				}
+			],
+			"event": {
+				"type": "status",
+				"effect": "cursed",
+				"amount": 1
+			}
+		},
+				{
+			"type": "trap",
+			"checks": [
+				{
+					"stat": "might",
+					"danger": 500
+				}
+			],
+			"event": {
+				"type": "battle",
+				"level": 35,
+				"enemy": "Deadpool 3"
+			}
 		},
 		{
 			"type": "battle",
-			"level": 20.0,
+			"level": 50,
 			"enemy": "Deoxys"
 		},
 		{

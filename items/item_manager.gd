@@ -9,6 +9,9 @@ var food = []
 var emotes = []
 var damages = []
 var healing = []
+var lucky = []
+
+var drop_tables = {}
 
 func log_state(method, message):
 	print("(%s)[item_manager.gd][%s] %s" % [Time.get_datetime_string_from_system(), method, message])
@@ -49,7 +52,7 @@ func load_items(items_file):
 			items[item['name']]['rarity'] = int(item['rarity'])
 		else:
 			items[item['name']]['rarity'] = 0
-		# BAD! BAD! BAD! the player API shouldn't live here
+		# TODO: BAD! BAD! BAD! the player API shouldn't live here
 		match item['type']:
 			'weapon':
 				items[item['name']]['description'] = '%d Attack Power' % items[item['name']]['power']
@@ -62,6 +65,8 @@ func load_items(items_file):
 					items[item['name']]['description'] = 'Apply %s' % items[item['name']]['status']
 				elif 'buff' in item:
 					items[item['name']]['description'] = 'Apply %s' % items[item['name']]['buff']
+				else:
+					items[item['name']]['description'] = 'It does nothing?'
 				items[item['name']]['action'] = 'use_gem'
 				gems.append(item['name'])
 			'drink':
@@ -82,6 +87,8 @@ func load_items(items_file):
 				items[item['name']]['description'] = item['description']
 				items[item['name']]['effect'] = item['effect']
 				emotes.append(item['name'])
+				if 'stat' in item['effect'] and item['effect']['stat'] == 'luck':
+					lucky.append(item['name'])
 		log_state('load_items', 'loaded %s' % item['name'])
 
 func _ready() -> void:
@@ -94,41 +101,48 @@ func get_rewards(event):
 	log_state('get_rewards', 'creates rewards for event %s' % event)
 	# TODO: totally change this
 	var rewards = []
-	match event['reward']:
-		'weapon':
-			for weapon in weapons:
-				if items[weapon]['rarity'] <= event['rarity']:
-					rewards.append(weapon)
-		'gem':
-			for gem in gems:
-				if items[gem]['rarity'] <= event['rarity']:
-					rewards.append(gem)
-		'drink':
-			for drink in drinks:
-				if items[drink]['rarity'] <= event['rarity']:
-					rewards.append(drink)
-		'food':
-			for food in food:
-				if items[food]['rarity'] <= event['rarity']:
-					rewards.append(food)
-		'emote':
-			for emote in emotes:
-				if items[emote]['rarity'] <= event['rarity']:
-					rewards.append(emote)
-		'damage':
-			for damage in damages:
-				if items[damage]['rarity'] <= event['rarity']:
-					rewards.append(damage)
-		'heal':
-			for heal in healing:
-				if items[heal]['rarity'] <= event['rarity']:
-					rewards.append(heal)
-		_:
-			for item in items:
-				if items[item]['rarity'] <= event['rarity']:
-					rewards.append(item)
+	if event['reward'] in drop_tables:
+		rewards = drop_tables[event['reward']]
+	else:
+		match event['reward']:
+			'weapon':
+				for weapon in weapons:
+					if items[weapon]['rarity'] <= event['rarity']:
+						rewards.append(weapon)
+			'gem':
+				for gem in gems:
+					if items[gem]['rarity'] <= event['rarity']:
+						rewards.append(gem)
+			'drink':
+				for drink in drinks:
+					if items[drink]['rarity'] <= event['rarity']:
+						rewards.append(drink)
+			'food':
+				for food_ in food:
+					if items[food_]['rarity'] <= event['rarity']:
+						rewards.append(food_)
+			'emote':
+				for emote in emotes:
+					if emote not in lucky and items[emote]['rarity'] <= event['rarity']:
+						rewards.append(emote)
+			'damage':
+				for damage in damages:
+					if items[damage]['rarity'] <= event['rarity']:
+						rewards.append(damage)
+			'heal':
+				for heal in healing:
+					if items[heal]['rarity'] <= event['rarity']:
+						rewards.append(heal)
+			'shiny', 'shinies', 'lucky':
+				for luck in lucky:
+					if items[luck]['rarity'] <= event['rarity']:
+						rewards.append(luck)
+			_:
+				for item in items:
+					if items[item]['rarity'] <= event['rarity']:
+						rewards.append(item)
 	log_state('get_rewards', 'pool of items found: %s' % ', '.join(rewards))
 	rewards.shuffle()
 	rewards = rewards.slice(0, event['count'])
-	log_state('getrewards', 'items chosen: %s' % ', '.join(rewards))
+	log_state('get_rewards', 'items chosen: %s' % ', '.join(rewards))
 	return rewards

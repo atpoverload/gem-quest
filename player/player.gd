@@ -1,29 +1,28 @@
 extends "res://core/character.gd"
 
-var level = 0
+var level = 1
 var experience = 0
 
-var attack_power = 0
-var magic_power = 0
+var affinities = {}
+
+var health_power = 0.0
+var attack_power = 0.0
+var magic_power = 0.0
 
 var emotes = []
 var crit_chance = 6
 var luck = 0
 var revives = 0
-var accuracy = 1
-var gem_break = 1
-var gem_power = 1
-var evasion = 1
+var accuracy = 100
+var gem_break = 100
+var gem_power = 100
 
 var on_attack = {}
 var freebies = {
 	'drink': 0,
 	'food': 0,
 }
-var gem_break_chance = 25;
-
-var health_growth = 0
-var affinities = {}
+var gem_break_chance = 5;
 
 var attack_label
 var magic_label
@@ -52,30 +51,61 @@ func _ready():
 func log_state(method, message):
 	print("(%s)[player.gd][%s]<%s> %s" % [Time.get_datetime_string_from_system(), method, character_name, message])
 
+func reset_attributes():
+	level = 1
+	experience = 0
+
+	# TODO: i would like more affinities, and more things that change them
+	affinities = {
+		'morale': 0,
+		'might': 0,
+		'magic': 0,
+	}
+
+	health = 0
+	max_health = 0
+	
+	gem_break_chance = 5;
+	
+	health_power = 0
+	attack_power = 0
+	magic_power = 0
+
+	emotes = []
+	crit_chance = 6
+	luck = 0
+	revives = 0
+	accuracy = 100
+	gem_break = 100
+	gem_power = 100
+	on_attack = {}
+	freebies = {
+		'drink': 0,
+		'food': 0,
+	}
+
 func set_player(player, level_):
 	log_state('new_player', 'creating new player %s - health=%d level=%d' % [player['name'], player['health'], level_])
 
 	character_name = player['name']
 	$Info/Info/Info/Name/Label.text = character_name
 
-	level = 0
-	experience = 0
-
-	attack_power = 0
-	magic_power = 0
-
-	emotes = []
+	reset_attributes()
+	
 	for child in $Emotes/Emotes.get_children():
 		$Emotes/Emotes.remove_child(child)
 
-	crit_chance = 6
-	luck = 0
+	# TODO: find a good starting distribution
+	var h = randf()
+	var a = randf()
+	var m = randf()
+	var s = h + a + m
+	affinities = {
+		'morale': int(ceil(h / s * 20)) + 1,
+		'might': int(ceil(a / s * 20)) + 1,
+		'magic': int(ceil(m / s * 20)) + 1,
+	}
 
-	affinities = {}
-
-	health_growth = int(2 * player['health'] / 10)
-	max_health = player['health']
-	health = max_health
 	await gain_levels(level_)
 
 	status = {}
@@ -103,27 +133,27 @@ func set_experience(value):
 	await tween.finished
 
 func gain_levels(levels):
-	log_state('gain_levels', 'gaining %d levels' % levels)
 	level += levels
+	log_state('gain_levels', 'gaining %d levels' % levels)
 	# doing this to adjust the health gracefully
 	var old_max_health = max_health
-	var extra_health = health_growth * levels
+	var extra_health = int(ceil(2 * levels * affinities['morale'] / 10)) + levels
 	var adjustment = 0
 	for l in range(levels):
-		adjustment += 6 - int(sqrt(randi() % 36))
+		adjustment += int(ceil(sqrt(affinities['morale'] - floor(sqrt(randi() % affinities['morale']^2)))))
 	log_state('gain_levels', 'gaining a bonus %d + %d HP' % [extra_health, adjustment])
 	max_health += int(extra_health + adjustment)
 	health_bar.max_value = max_health
 
 	adjustment = 0
 	for l in range(levels):
-		adjustment += 6 - int(sqrt(randi() % 36))
+		adjustment += int(ceil(sqrt(affinities['might'] - floor(sqrt(randi() % affinities['might']^2)))))
 	log_state('gain_levels', 'gaining a bonus %d attack' % adjustment)
 	attack_power += adjustment
 
 	adjustment = 0
 	for l in range(levels):
-		adjustment += 6 - int(sqrt(randi() % 36))
+		adjustment += int(ceil(sqrt(affinities['magic'] - floor(sqrt(randi() % affinities['magic']^2)))))
 	log_state('gain_levels', 'gaining a bonus %d magic' % adjustment)
 	magic_power += adjustment
 
@@ -135,7 +165,7 @@ func gain_levels(levels):
 		if old_max_health > 0:
 			var temp_health = int((1 - float(old_max_health - health) / old_max_health) * max_health)
 			health_bar.value = temp_health
-			await set_health(temp_health + rest_health())
+			await set_health(int(temp_health + rest_health() / 2))
 		else:
 			health_bar.value = max_health
 			await set_health(max_health)
@@ -200,44 +230,71 @@ func add_emote(emote):
 	row.move_child(emote_button, 0)
 	emote_button.show()
 
+	# TODO: this is totally wrong
 	# static boosts
 	if 'stat' in emote['effect']:
 		match emote['effect']['stat']:
-			'luck': luck += emote['effect']['amount']
-			'revives': revives += emote['effect']['amount']
-			'accuracy': accuracy *= 1 + emote['effect']['amount']
-			'gem_break': gem_break *= 1 + emote['effect']['amount']
-			'gem_power': gem_power *= 1 + emote['effect']['amount']
-			'evasion': evasion *= 1 + emote['effect']['amount']
+			'crit_chance':
+				crit_chance = crit_chance * (100 + emote['effect']['amount']) / 100
+				log_state('add_emote', 'increased crit chance to %d' % crit_chance)
+				affinities['might'] += 1
+				affinities['magic'] += 1
+			'luck':
+				luck += emote['effect']['amount']
+				log_state('add_emote', 'increased luck to %d' % luck)
+				affinities['morale'] += 1
+				affinities['might'] += 1
+				affinities['magic'] += 1
+			'revives':
+				revives += emote['effect']['amount']
+				log_state('add_emote', 'increased revives to %d' % revives)
+				affinities['morale'] += 1
+				affinities['magic'] += 1
+			'accuracy':
+				accuracy = accuracy * (100 + emote['effect']['amount']) / 100
+				log_state('add_emote', 'increased accuracy to %d' % accuracy)
+				affinities['morale'] += 1
+				affinities['might'] += 1
+			'gem_break':
+				gem_break = gem_break * (100 + emote['effect']['amount']) / 100
+				log_state('add_emote', 'increased gem break to %d' % gem_break)
+				affinities['morale'] += 1
+				affinities['magic'] += 1
+			'gem_power':
+				gem_power = gem_power * (100 + emote['effect']['amount']) / 100
+				log_state('add_emote', 'increased gem power to %d' % gem_power)
+				affinities['might'] += 1
+				affinities['magic'] += 1
+			'evasion':
+				if evasion == 0:
+					evasion = emote['effect']['amount']
+				else:
+					evasion = evasion * (100 + emote['effect']['amount']) / 100
+				affinities['might'] += 1
+				affinities['morale'] += 1
+				log_state('add_emote', 'increased evasion to %d' % evasion)
 	elif 'attack' in emote['effect']:
-		if emote['effect']['attack'] not in on_attack:
+		if emote['effect']['attack'] not in on_attack or on_attack[emote['effect']['attack']] == 0:
 			on_attack[emote['effect']['attack']] = emote['effect']['chance']
 		else:
-			on_attack[emote['effect']['attack']] *= 1 + emote['effect']['chance'] / 100.0
-		log_state('add_emote', 'increased %s to %d' % [emote['effect']['attack'], on_attack[emote['effect']['attack']]])
+			on_attack[emote['effect']['attack']] = on_attack[emote['effect']['attack']] * (100 + emote['effect']['chance']) / 100
+		affinities['might'] += 1
+		log_state('add_emote', 'increased %s on attack to %d' % [emote['effect']['attack'], on_attack[emote['effect']['attack']]])
 	elif 'resistance' in emote['effect']:
 		if emote['effect']['resistance'] not in resistances:
 			resistances[emote['effect']['resistance']] = emote['effect']['amount']
 		else:
 			resistances[emote['effect']['resistance']] *= emote['effect']['amount']
-		log_state('add_emote', 'adjusted %s to %d' % [emote['effect']['resistance'], resistances[emote['effect']['resistance']]])
+		affinities['magic'] += 1
+		log_state('add_emote', 'adjusted %s resistance to %d' % [emote['effect']['resistance'], resistances[emote['effect']['resistance']]])
 	elif 'freebie' in emote['effect']:
 		if emote['effect']['freebie'] not in freebies or freebies[emote['effect']['freebie']] == 0:
 			freebies[emote['effect']['freebie']] = emote['effect']['chance']
 		else:
-			freebies[emote['effect']['freebie']] *= 1 + emote['effect']['chance']
-		log_state('add_emote', 'adjusted %s to %d' % [emote['effect']['freebie'], freebies[emote['effect']['freebie']]])
+			freebies[emote['effect']['freebie']] = freebies[emote['effect']['freebie']] * (100 + emote['effect']['chance']) / 100
+		affinities['morale'] += 1
+		log_state('add_emote', 'adjusted %s freebie to %d' % [emote['effect']['freebie'], freebies[emote['effect']['freebie']]])
 	next_event.emit()
-
-func check_break_gem(color):
-	log_state('break_gem', 'breaking %s gem' % color)
-	for child in $PlayerUI/PlayerMenus/ActionMenu/Background/Inventory/Usables/UsablesDivider/Gems.get_children():
-		var item_button = child.get_child(1)
-		if not item_button.is_empty() and item_button._item['color'] == color:
-			log_state('break_gem', 'broke %s gem' % color)
-			item_button.remove_item()
-			return
-	log_state('break_gem', 'not holding %s gem' % color)
 
 # actions
 func act():
@@ -248,62 +305,78 @@ func accuracy_check(accuracy_):
 
 	# accuracy modifiers
 	accuracy_ *= accuracy
+	accuracy_ = floor(accuracy_ / 100)
 
 	var chance = randi() % 100
 	log_state('accuracy_check', 'chance to hit %d < %d = %s' % [chance, accuracy_, chance < accuracy_])
 	return chance < accuracy_
 
 func critical_hit(damage):
-	var crit = randi() % 100
-	log_state('critical_hit', 'crit chance %d < %d' % [crit, crit_chance])
-	if crit < crit_chance:
+	var chance = randi() % 100
+	var crit_chance_ = floor(crit_chance)
+	log_state('critical_hit', 'crit chance %d < %d' % [chance, crit_chance_])
+	if chance < crit_chance_:
 		var base_damage = damage
 		damage *= 2
 		log_state('critical_hit', 'damage boosted %d * 2 = %d' % [base_damage, damage])
+		affinities['might'] += 1
+		affinities['magic'] += 1
 		log_message.emit('It\'s a critical hit!')
+		$SoundEffects/CriticalHit.play()
 	return damage
 
 func get_weapon_damage(element, damage):
 	# damage modifiers
-	#var base_damage = int(attack_power * Slay(damage))
-	var base_damage = int(attack_power * damage)
+	var base_damage = ceil(attack_power * damage)
 	
-	var lower_bound = min(max(5 * base_damage, 50), 85)
+	var lower_bound = int(min(max(5 * base_damage, 50), 85))
 	var upper_bound = 100 - lower_bound
-	var damage_roll = (randi() % upper_bound + lower_bound) / 100.0
+	var choice = randi()
+	var damage_roll = (choice % upper_bound + lower_bound) / 100.0
 	var calc = (base_damage / 3.0 + 2)
-	damage =  round(calc * damage_roll)
+	damage = int(ceil(calc * damage_roll))
 	log_state('get_weapon_damage', 'damage roll %d * %f = %d' % [calc, damage_roll, damage])
 
 	# boost
 	if 'boost' in buffs:
-		damage *= (1 + 0.25 * buffs['boost'])
+		damage *= ceil(1 + 0.25 * buffs['boost'])
 	# crit
 	damage = critical_hit(damage)
 
 	return int(damage)
 
+# TODO: unsure what's happening here
 func get_gem_damage(element, damage):
 	# damage modifiers
-	var base_damage = int(magic_power * damage)
+	var base_damage = ceil(magic_power * damage * gem_power / 100.0)
 
-	var lower_bound = min(max(5 * base_damage, 50), 85)
+	var lower_bound = int(min(max(5 * base_damage, 50), 85))
 	var upper_bound = 100 - lower_bound
-	var damage_roll = (randi() % upper_bound + lower_bound) / 100.0
-	var calc = (base_damage / 3.0 + 2)
-	damage =  round(calc * damage_roll)
+	var damage_roll = (randi() % int(upper_bound) + lower_bound) / 100.0
+	var calc = base_damage / 3.0 + 2
+	damage = int(ceil(calc * damage_roll))
 	log_state('get_gem_damage', 'damage roll %d * %f = %d' % [calc, damage_roll, damage])
 
 	# boost
 	if 'boost' in buffs:
-		damage *= (1 + 0.25 * buffs['boost'])
+		damage *= ceil(1 + 0.25 * buffs['boost'])
 	# crit
 	damage = critical_hit(damage)
 
 	return damage
 
 func get_stacks(element, effect, stacks):
-	return stacks + 1
+	# damage modifiers
+	var base_damage = ceil(magic_power * (stacks + 1) * gem_power / 100.0)
+
+	var lower_bound = int(min(max(5 * base_damage, 50), 85))
+	var upper_bound = 100 - lower_bound
+	var damage_roll = (randi() % int(upper_bound) + lower_bound) / 100.0
+	var calc = base_damage / 6.0 + 2
+	stacks = int(ceil(calc * damage_roll))
+	log_state('get_stacks', 'damage roll %d * %f = %d' % [calc, damage_roll, stacks])
+
+	return stacks
 
 func sum(accum, number):
 	return accum + number
@@ -342,9 +415,12 @@ func death():
 func use_weapon(weapon) -> void:
 	log_state('use_weapon', 'attacking with %s' % weapon['name'])
 	log_message.emit('%s attacks' % character_name)
+	affinities['might'] += 1
+	affinities['morale'] += 1
 	await act()
 
 	if accuracy_check(weapon.get('accuracy', 100)):
+		await get_tree().create_timer(0.4).timeout
 		var element = weapon.get('element', 'normal')
 		var damage = get_weapon_damage(element, weapon['power'])
 		log_state('weapon_attack', 'attacking with %s for %d %s damage' % [weapon['name'], damage, element])
@@ -362,7 +438,8 @@ func use_weapon(weapon) -> void:
 						log_message.emit('%s attacks again' % character_name)
 						await act()
 						if accuracy_check(weapon.get('accuracy', 100)):
-							damage = get_weapon_damage(element, weapon['power']) / 2
+							await get_tree().create_timer(0.4).timeout
+							damage = int(ceil(get_weapon_damage(element, weapon['power']) / 2.0))
 							log_state('weapon_attack', 'attacking with %s for %d %s damage' % [weapon['name'], damage, element])
 							$SoundEffects/Action.stream = weapon['sound']
 							$SoundEffects/Action.playing = true
@@ -379,7 +456,7 @@ func use_weapon(weapon) -> void:
 	else:
 		await miss()
 
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.3).timeout
 	pass_turn.emit()
 
 func use_gem(gem) -> void:
@@ -389,6 +466,8 @@ func use_gem(gem) -> void:
 	await get_tree().create_timer(0.25).timeout
 	log_message.emit('%s' % gem['name'])
 	$SoundEffects/UseGem.playing = true
+	affinities['magic'] += 1
+	affinities['morale'] += 1
 	await act()
 	await get_tree().create_timer($SoundEffects/UseGem.stream.get_length() / 2).timeout
 
@@ -418,23 +497,27 @@ func use_gem(gem) -> void:
 			await get_tree().create_timer($SoundEffects/Action.stream.get_length() / 4).timeout
 		else:
 			log_message.emit('It did nothing?')
+			affinities['morale'] += 1
+			affinities['might'] += 1
+			affinities['magic'] += 1
 			await get_tree().create_timer(1).timeout
 	else:
 		await miss()
 
 	await get_tree().create_timer(0.5).timeout
 
-	log_state('use_gem', 'base chance to break %d' % gem_break)
+	log_state('use_gem', 'base chance to break %d' % gem_break_chance)
 	var chance = randi() % 100
-	var break_chance = gem_break_chance * gem_break
+	var break_chance = int(floor(gem_break_chance * gem_break / 100.0))
 	log_state('use_gem', 'chance to break %d < %d = %s' % [chance, break_chance, chance < break_chance])
 	# TODO: Think about other ways to do this.
 	if chance < break_chance:
 		break_gem.emit(gem)
-		log_message.emit('%s broke!' % gem['name'])
+		log_message.emit('The %s broke!' % gem['name'])
 		$SoundEffects/GemBreak.playing = true
 		await get_tree().create_timer($SoundEffects/GemBreak.stream.get_length() / 2).timeout
-		gem_break_chance = 25
+		affinities['magic'] += 1
+		gem_break_chance = 5
 	else:
 		gem_break_chance += 1
 
@@ -449,6 +532,7 @@ func use_drink(drink) -> void:
 		log_message.emit('Drank an %s' % drink['name'])
 	else:
 		log_message.emit('Drank a %s' % drink['name'])
+	affinities['morale'] += 1
 	await act()
 
 	if 'power' in drink:
@@ -467,11 +551,13 @@ func use_drink(drink) -> void:
 	if freebies['drink'] > 0:
 		log_state('use_drink', 'base chance to freebie %d' % freebies['drink'])
 		var chance = randi() % 100
-		log_state('use_drink', 'chance to freebie %d < %d = %s' % [chance, freebies['drink'], chance < freebies['drink']])
-		if chance < freebies['drink']:
+		var freebie_ = int(floor(freebies['drink']))
+		log_state('use_drink', 'chance to freebie %d < %d = %s' % [chance, freebie_, chance < freebie_])
+		if chance < freebie_:
 			await get_tree().create_timer(0.75).timeout
 			freebie.emit(drink)
 			log_message.emit('Light got a freebie!')
+			affinities['morale'] += 1
 			await get_tree().create_timer($SoundEffects/ConsumableAcquire.stream.get_length() / 2).timeout
 
 	await get_tree().create_timer($SoundEffects/Action.stream.get_length()).timeout
@@ -482,6 +568,7 @@ func use_food(food) -> void:
 	log_state('use_food', 'using %s' % food['name'])
 	$SoundEffects/Action.stream = food['sound']
 	$SoundEffects/Action.playing = true
+	affinities['morale'] += 1
 
 	if food['name'][0] in 'AEIOUaeiou':
 		log_message.emit('Ate an %s' % food['name'])
@@ -505,11 +592,13 @@ func use_food(food) -> void:
 	if freebies['food'] > 0:
 		log_state('use_food', 'base chance to freebie %d' % freebies['food'])
 		var chance = randi() % 100
-		log_state('use_food', 'chance to freebie %d < %d = %s' % [chance, freebies['food'], chance < freebies['food']])
-		if chance < freebies['food']:
+		var freebie_ = int(floor(freebies['food']))
+		log_state('use_food', 'chance to freebie %d < %d = %s' % [chance, freebie_, chance < freebie_])
+		if chance < freebie_:
 			await get_tree().create_timer(0.75).timeout
 			freebie.emit(food)
 			log_message.emit('Light got a freebie!')
+			affinities['morale'] += 1
 			await get_tree().create_timer($SoundEffects/ConsumableAcquire.stream.get_length() + 1.0).timeout
 
 	#await get_tree().create_timer($SoundEffects/Action.stream.get_length()).timeout

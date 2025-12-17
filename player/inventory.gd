@@ -32,6 +32,7 @@ func add_item(item, starting=false):
 					log_state("add_item", "already have %s" % item['name'])
 					sell_item_2('gem%d' % i)
 					item_button = gem.get_child(1)
+					starting = true
 					break
 				i += 1
 		'drink':
@@ -45,7 +46,7 @@ func add_item(item, starting=false):
 		if not item_button.is_empty():
 			log_state("add_item", "selling existing item %s" % item_button._item)
 			#log_message.emit('Selling %s' % item_button._item['name'])
-			
+
 			log_state("add_item", "adding to slot %s" % item)
 			$SoundEffect.stream = equip_sounds[item['type']]
 			$SoundEffect.playing = true
@@ -66,13 +67,13 @@ func add_item(item, starting=false):
 		log_state("add_item", "no slot found for %s" % item)
 		match item['type']:
 			'gem':
-				log_message.emit('Need to sell a Gem!')
+				log_message.emit('Need to trash a Gem!')
 				$Inventory/Inventory/Items/Items/Gems/Gem1/DropItem.show()
 				$Inventory/Inventory/Items/Items/Gems/Gem2/DropItem.show()
 				next_item = item
 				log_state("add_item", "no slot found for %s" % item)
 			'drink':
-				log_message.emit('Need to sell a Drink!')
+				log_message.emit('Need to trash a Drink!')
 				$Inventory/Inventory/Items/Items/Drinks/Drink1/DropItem.show()
 				$Inventory/Inventory/Items/Items/Drinks/Drink2/DropItem.show()
 				$Inventory/Inventory/Items/Items/Drinks/Drink3/DropItem.show()
@@ -91,29 +92,30 @@ func remove_item(item):
 
 func sell_item_(item):
 	log_state("sell_item_", "selling item %s" % item)
+	# TODO: find a formula to compute a price
 	var price = 0
 	match item:
 		'weapon':
 			price = $Inventory/Inventory/Items/Weapon/Button._item['rarity']
-			log_message.emit('Selling %s' % $Inventory/Inventory/Items/Weapon/Button._item['name'])
+			log_message.emit('Trashing %s' % $Inventory/Inventory/Items/Weapon/Button._item['name'])
 		'gem1':
 			price = $Inventory/Inventory/Items/Items/Gems/Gem1/Button._item['rarity']
-			log_message.emit('Selling %s' % $Inventory/Inventory/Items/Items/Gems/Gem1/Button._item['name'])
+			log_message.emit('Trashing %s' % $Inventory/Inventory/Items/Items/Gems/Gem1/Button._item['name'])
 		'gem2':
 			price = $Inventory/Inventory/Items/Items/Gems/Gem2/Button._item['rarity']
-			log_message.emit('Selling %s' % $Inventory/Inventory/Items/Items/Gems/Gem2/Button._item['name'])
+			log_message.emit('Trashing %s' % $Inventory/Inventory/Items/Items/Gems/Gem2/Button._item['name'])
 		'drink1':
 			price = $Inventory/Inventory/Items/Items/Drinks/Drink1/Button._item['rarity']
-			log_message.emit('Selling %s' % $Inventory/Inventory/Items/Items/Drinks/Drink1/Button._item['name'])
+			log_message.emit('Trashing %s' % $Inventory/Inventory/Items/Items/Drinks/Drink1/Button._item['name'])
 		'drink2':
 			price = $Inventory/Inventory/Items/Items/Drinks/Drink2/Button._item['rarity']
-			log_message.emit('Selling %s' % $Inventory/Inventory/Items/Items/Drinks/Drink2/Button._item['name'])
+			log_message.emit('Trashing %s' % $Inventory/Inventory/Items/Items/Drinks/Drink2/Button._item['name'])
 		'drink3':
 			price = $Inventory/Inventory/Items/Items/Drinks/Drink3/Button._item['rarity']
-			log_message.emit('Selling %s' % $Inventory/Inventory/Items/Items/Drinks/Drink3/Button._item['name'])
+			log_message.emit('Trashing %s' % $Inventory/Inventory/Items/Items/Drinks/Drink3/Button._item['name'])
 		'food':
 			price = $Inventory/Inventory/Items/Food/Button._item['rarity']
-			log_message.emit('Selling %s' % $Inventory/Inventory/Items/Food/Button._item['name'])
+			log_message.emit('Trashing %s' % $Inventory/Inventory/Items/Food/Button._item['name'])
 	remove_item(item)
 
 	$Inventory/Inventory/Items/Items/Gems/Gem1/DropItem.hide()
@@ -122,14 +124,15 @@ func sell_item_(item):
 	$Inventory/Inventory/Items/Items/Drinks/Drink2/DropItem.hide()
 	$Inventory/Inventory/Items/Items/Drinks/Drink3/DropItem.hide()
 
-	sell_item.emit(100 * price)
+	#sell_item.emit(100 * price)
+	sell_item.emit()
 	if next_item != null:
 		item = next_item
 		next_item = null
-		add_item(item)
-	else:
-		await get_tree().create_timer(1).timeout
-		next_event.emit()
+		add_item(item, true)
+	#else:
+		#await get_tree().create_timer(1).timeout
+		#next_event.emit()
 
 func sell_item_2(item):
 	log_state("sell_item_2", "selling item %s" % item)
@@ -137,25 +140,25 @@ func sell_item_2(item):
 	match item:
 		'weapon':
 			price = $Inventory/Inventory/Items/Weapon/Button._item['rarity']
-			log_message.emit('Selling %s' % $Inventory/Inventory/Items/Weapon/Button._item['name'])
+			log_message.emit('Trashing %s' % $Inventory/Inventory/Items/Weapon/Button._item['name'])
 		'gem1':
 			price = $Inventory/Inventory/Items/Items/Gems/Gem1/Button._item['rarity']
-			log_message.emit('Selling %s' % $Inventory/Inventory/Items/Items/Gems/Gem1/Button._item['name'])
+			log_message.emit('Trashing %s' % $Inventory/Inventory/Items/Items/Gems/Gem1/Button._item['name'])
 		'gem2':
 			price = $Inventory/Inventory/Items/Items/Gems/Gem2/Button._item['rarity']
-			log_message.emit('Selling %s' % $Inventory/Inventory/Items/Items/Gems/Gem2/Button._item['name'])
+			log_message.emit('Trashing %s' % $Inventory/Inventory/Items/Items/Gems/Gem2/Button._item['name'])
 		'drink1':
 			price = $Inventory/Inventory/Items/Items/Drinks/Drink1/Button._item['rarity']
-			log_message.emit('Selling %s' % $Inventory/Inventory/Items/Items/Drinks/Drink1/Button._item['name'])
+			log_message.emit('Trashing %s' % $Inventory/Inventory/Items/Items/Drinks/Drink1/Button._item['name'])
 		'drink2':
 			price = $Inventory/Inventory/Items/Items/Drinks/Drink2/Button._item['rarity']
-			log_message.emit('Selling %s' % $Inventory/Inventory/Items/Items/Drinks/Drink2/Button._item['name'])
+			log_message.emit('Trashing %s' % $Inventory/Inventory/Items/Items/Drinks/Drink2/Button._item['name'])
 		'drink3':
 			price = $Inventory/Inventory/Items/Items/Drinks/Drink3/Button._item['rarity']
-			log_message.emit('Selling %s' % $Inventory/Inventory/Items/Items/Drinks/Drink3/Button._item['name'])
+			log_message.emit('Trashing %s' % $Inventory/Inventory/Items/Items/Drinks/Drink3/Button._item['name'])
 		'food':
 			price = $Inventory/Inventory/Items/Food/Button._item['rarity']
-			log_message.emit('Selling %s' % $Inventory/Inventory/Items/Food/Button._item['name'])
+			log_message.emit('Trashing %s' % $Inventory/Inventory/Items/Food/Button._item['name'])
 	remove_item(item)
 
 	$Inventory/Inventory/Items/Items/Gems/Gem1/DropItem.hide()
@@ -164,7 +167,8 @@ func sell_item_2(item):
 	$Inventory/Inventory/Items/Items/Drinks/Drink2/DropItem.hide()
 	$Inventory/Inventory/Items/Items/Drinks/Drink3/DropItem.hide()
 
-	sell_item.emit(100 * price)
+	#sell_item.emit(100 * price)
+	sell_item.emit()
 
 func break_gem(item):
 	if $Inventory/Inventory/Items/Items/Gems/Gem1/Button._item == item:

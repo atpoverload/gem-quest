@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
 void vertex() {
-	VERTEX.y -= VERTEX.x;
+	VERTEX.y -= 1.075 * VERTEX.x;
 }
 
 void fragment() {
