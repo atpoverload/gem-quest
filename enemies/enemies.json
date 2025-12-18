@@ -226,9 +226,9 @@
 				"orange": 0
 			},
 			"logic": {
-				"attack": 0,
-				"loaf": 0,
-				"perish_song": 100
+				"attack": 25,
+				"loaf": 25,
+				"perish_song": 50
 			},
 			"sound": "mamoswine"
 		},
@@ -298,7 +298,7 @@
 			"sound": "deoxys"
 		},
 		{
-			"name": "Ryan Reynolds",
+			"name": "Ryan",
 			"health": 12,
 			"power": 1,
 			"accuracy": 55,

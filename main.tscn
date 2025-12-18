@@ -1245,6 +1245,9 @@ volume_db = 10.0
 stream = ExtResource("22_f6a44")
 volume_db = 10.0
 
+[node name="Puzzle" type="AudioStreamPlayer2D" parent="Player/SoundEffects"]
+stream = ExtResource("5_c2n8d")
+
 [node name="Reward" type="Control" parent="."]
 visible = false
 layout_mode = 3

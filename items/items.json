@@ -266,7 +266,7 @@
 			"description": "attacks may banish",
 			"effect": {
 				"attack": "banish",
-				"chance": 1
+				"chance": 5
 			},
 			"sound": "",
 			"flavor": "ligQUAG"
@@ -279,7 +279,7 @@
 				"amount": 0.9
 			},
 			"sound": "",
-			"flavor": ""
+			"flavor": "clips.twitch.tv/DistinctAnnoyingTaroUWot-HtAchIdk5LGixcvP"
 		},	{
 			"name": "Bloomer",
 			"type": "emote",
@@ -289,7 +289,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "Tieing is almost winning"
+			"flavor": "clips.twitch.tv/RoundFrigidStaplePraiseIt-joa8L7D-fXRJtEjT"
 		},	{
 			"name": "Baja",
 			"type": "emote",
@@ -299,7 +299,7 @@
 				"amount": 10
 			},
 			"sound": "",
-			"flavor": ""
+			"flavor": "clips.twitch.tv/KawaiiBoxyWalrusPartyTime-U1f4D6gX_Dytp3tt"
 		},	{
 			"name": "Quagamence",
 			"type": "emote",
@@ -309,7 +309,7 @@
 				"amount": 0
 			},
 			"sound": "",
-			"flavor": ""
+			"flavor": "clips.twitch.tv/RenownedAntediluvianHorseradishStinkyCheese-VHf4YUJ-bEXSCCrw"
 		},	{
 			"name": "Nilbog",
 			"type": "emote",
@@ -329,7 +329,7 @@
 				"amount": 25
 			},
 			"sound": "",
-			"flavor": ""
+			"flavor": "clips.twitch.tv/HungryAmericanJuiceResidentSleeper-vx--hxTxvCooTk_D"
 		},	{
 			"name": "Dux",
 			"type": "emote",
@@ -339,7 +339,7 @@
 				"amount": -10
 			},
 			"sound": "",
-			"flavor": ""
+			"flavor": "clips.twitch.tv/SnappyTentativeCodKlappa-E57BKC6_826h9UnI"
 		},	{
 			"name": "Eggy",
 			"type": "emote",
@@ -359,7 +359,7 @@
 				"chance": 25
 			},
 			"sound": "",
-			"flavor": ""
+			"flavor": "clips.twitch.tv/MushyGenerousAlmondRuleFive-2fxyI8zXDZMPUiQ0"
 		},	{
 			"name": "Totoro",
 			"type": "emote",
@@ -369,7 +369,7 @@
 				"chance": 10
 			},
 			"sound": "",
-			"flavor": ""
+			"flavor": "clips.twitch.tv/"
 		},	{
 			"name": "Totoro 2",
 			"type": "emote",
@@ -389,7 +389,7 @@
 				"chance": 10
 			},
 			"sound": "",
-			"flavor": ""
+			"flavor": "clips.twitch.tv/ObservantOriginalKoalaKappa-2vUz9XO9Ye_U_qwA"
 		},	{
 			"name": "Shadowfax",
 			"type": "emote",
@@ -399,7 +399,7 @@
 				"amount": 6
 			},
 			"sound": "",
-			"flavor": ""
+			"flavor": "clips.twitch.tv/YummyFantasticArtichokeFunRun-Ww8R689tw52O0i3u"
 		},	{
 			"name": "Goldy",
 			"type": "emote",

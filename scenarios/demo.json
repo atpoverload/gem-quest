@@ -165,7 +165,7 @@
 		},
 		{
 			"type": "puzzle",
-			"challenge": 99,
+			"challenge": 199,
 			"event": {
 				"type": "treasure",
 				"reward": "emote",
@@ -264,7 +264,7 @@
 			"event": {
 				"type": "battle",
 				"level": 5,
-				"enemy": "Ryan Reynolds"
+				"enemy": "Ryan"
 			}
 		},
 		{
@@ -822,7 +822,7 @@
 			"event": {
 				"type": "battle",
 				"level": 50,
-				"enemy": "Ryan Reynolds"
+				"enemy": "Ryan"
 			}
 		},
 		{

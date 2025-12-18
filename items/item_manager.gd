@@ -72,22 +72,22 @@ func load_items(items_file):
 			'drink':
 				var description = []
 				if 'power' in item:
-					description.append('Restores %s HP' % items[item['name']]['power'])
+					description.append('Heal %s HP' % items[item['name']]['power'])
 				if 'status' in item:
-					description.append('Removes %s' % items[item['name']]['status'])
+					description.append('Remove %s' % items[item['name']]['status'])
 				if 'buff' in item:
-					description.append('Grants %s' % items[item['name']]['buff'])
+					description.append('Grant %s' % items[item['name']]['buff'])
 				items[item['name']]['description'] = '\n'.join(description)
 				items[item['name']]['action'] = 'use_consumable'
 				drinks.append(item['name'])
 			'food':
 				var description = []
 				if 'power' in item:
-					description.append('Restores %s HP' % items[item['name']]['power'])
+					description.append('Heal %s HP' % items[item['name']]['power'])
 				if 'status' in item:
-					description.append('Removes %s' % items[item['name']]['status'])
+					description.append('Remove %s' % items[item['name']]['status'])
 				if 'buff' in item:
-					description.append('Grants %s' % items[item['name']]['buff'])
+					description.append('Grant %s' % items[item['name']]['buff'])
 				items[item['name']]['description'] = '\n'.join(description)
 				items[item['name']]['action'] = 'use_consumable'
 				food.append(item['name'])
@@ -131,7 +131,7 @@ func get_rewards(event):
 						rewards.append(food_)
 			'emote':
 				for emote in emotes:
-					if emote not in lucky:
+					if emote not in lucky and emote == 'Bloomer':
 						rewards.append(emote)
 			'damage':
 				for damage in damages:

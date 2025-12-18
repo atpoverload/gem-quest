@@ -219,7 +219,7 @@ func add_emote(emote):
 		$Emotes/Emotes.add_child(row)
 	else:
 		row = $Emotes/Emotes.get_child(0)
-		if row.get_child_count() == 5:
+		if row.get_child_count() == 6:
 			row = HBoxContainer.new()
 			row.alignment = BoxContainer.ALIGNMENT_END
 			$Emotes/Emotes.add_child(row)
@@ -328,7 +328,7 @@ func critical_hit(damage):
 
 func get_weapon_damage(element, damage):
 	# damage modifiers
-	var base_damage = ceil(sqrt(attack_power) * damage)
+	var base_damage = ceil(attack_power * damage) / 2
 	
 	var lower_bound = int(min(max(5 * base_damage, 50), 85))
 	var upper_bound = 100 - lower_bound
@@ -399,10 +399,15 @@ func miss():
 
 func death():
 	if revives > 0:
+		await get_tree().create_timer(1.0).timeout
 		log_state('death', 'used one of %d revives' % revives)
 		revives -= 1
 		log_message.emit('%s evades death' % character_name)
+		$SoundEffects/Puzzle.playing = true
+		sprite.reset()
 		await reset()
+		await get_tree().create_timer(1.0).timeout
+		await logic()
 	else:
 		log_state('death', 'game over :(')
 		log_message.emit('%s died' % character_name)

@@ -192,18 +192,18 @@ func poison() -> bool:
 	return false
 
 func flinch() -> bool:
-	if 'flinched' not in status:
+	if 'flinch' not in status:
 		return false
-	var value = status['flinched']
+	var value = status['flinch']
 	if value == 0:
 		return false
 	if value > 0:
 		log_state('flinch', 'value: %d' % value)
 		log_message.emit('%s flinched.' % character_name)
-		$SoundEffects/sleep.playing = true
+		#$SoundEffects/sleep.playing = true
 		await sprite.damaged(1)
 		await get_tree().create_timer(0.25).timeout
-		status['flinched'] = 0
+		status['flinch'] = 0
 		return true
 	return false
 
