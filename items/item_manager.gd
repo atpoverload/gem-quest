@@ -131,7 +131,7 @@ func get_rewards(event):
 						rewards.append(food_)
 			'emote':
 				for emote in emotes:
-					if emote not in lucky and emote == 'Bloomer':
+					if emote not in lucky:
 						rewards.append(emote)
 			'damage':
 				for damage in damages:
