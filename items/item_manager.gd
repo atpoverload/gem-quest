@@ -64,23 +64,31 @@ func load_items(items_file):
 				elif 'status' in item:
 					items[item['name']]['description'] = 'Apply %s' % items[item['name']]['status']
 				elif 'buff' in item:
-					items[item['name']]['description'] = 'Apply %s' % items[item['name']]['buff']
+					items[item['name']]['description'] = 'Grant %s' % items[item['name']]['buff']
 				else:
 					items[item['name']]['description'] = 'It does nothing?'
 				items[item['name']]['action'] = 'use_gem'
 				gems.append(item['name'])
 			'drink':
+				var description = []
 				if 'power' in item:
-					items[item['name']]['description'] = 'Restores %s health' % items[item['name']]['power']
+					description.append('Restores %s HP' % items[item['name']]['power'])
 				if 'status' in item:
-					items[item['name']]['description'] = 'Removes %s status' % items[item['name']]['status']
+					description.append('Removes %s' % items[item['name']]['status'])
+				if 'buff' in item:
+					description.append('Grants %s' % items[item['name']]['buff'])
+				items[item['name']]['description'] = '\n'.join(description)
 				items[item['name']]['action'] = 'use_consumable'
 				drinks.append(item['name'])
 			'food':
+				var description = []
 				if 'power' in item:
-					items[item['name']]['description'] = 'Restores %s health' % items[item['name']]['power']
+					description.append('Restores %s HP' % items[item['name']]['power'])
 				if 'status' in item:
-					items[item['name']]['description'] = 'Removes %s status' % items[item['name']]['status']
+					description.append('Removes %s' % items[item['name']]['status'])
+				if 'buff' in item:
+					description.append('Grants %s' % items[item['name']]['buff'])
+				items[item['name']]['description'] = '\n'.join(description)
 				items[item['name']]['action'] = 'use_consumable'
 				food.append(item['name'])
 			'emote':
@@ -123,7 +131,7 @@ func get_rewards(event):
 						rewards.append(food_)
 			'emote':
 				for emote in emotes:
-					if emote not in lucky and items[emote]['rarity'] <= event['rarity']:
+					if emote not in lucky:
 						rewards.append(emote)
 			'damage':
 				for damage in damages:

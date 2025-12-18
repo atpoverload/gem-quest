@@ -244,13 +244,13 @@ func wake_up() -> bool:
 func cursed() -> bool:
 	if 'cursed' not in status or status['cursed'] == 0:
 		return false
-	if status['cursed'] < 100:
+	if status['cursed'] < 30:
 		log_state('cursed', 'value: %d' % status['cursed'])
 		log_message.emit('The curse grows...')
 		set_status('cursed', int(floor(status['cursed'] + 1)))
 		$SoundEffects/cursed.playing = true
 		await get_tree().create_timer(0.75).timeout
-	elif status['cursed'] == 100:
+	elif status['cursed'] == 30:
 		log_message.emit('What a horrible time to have a curse')
 		return true
 	return false

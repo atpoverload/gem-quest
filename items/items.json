@@ -6,56 +6,49 @@
 			"power": 1,
 			"accuracy": 75,
 			"sound": "sword",
-			"flavor": "An old sword, use with care!",
-			"rarity": -1,
+			"flavor": "An old sword, use with care!"
 		}, {
 			"name": "Butter Knife",
 			"type": "weapon",
 			"power": 1,
 			"accuracy": 90,
 			"sound": "sword",
-			"flavor": "Butter than nothing 😏",
-			"rarity": 1,
+			"flavor": "Butter than nothing 😏"
 		}, {
 			"name": "Steak Knife",
 			"type": "weapon",
 			"power": 2,
 			"accuracy": 90,
 			"sound": "sword",
-			"flavor": "Not effective against vampires",
-			"rarity": 2,
+			"flavor": "Not effective against vampires"
 		}, {
 			"name": "Chef's Knife",
 			"type": "weapon",
 			"power": 3,
 			"accuracy": 90,
 			"sound": "sword",
-			"flavor": "*Kiss*",
-			"rarity": 3,
+			"flavor": "*Kiss*"
 		}, {
 			"name": "Short Sword",
 			"type": "weapon",
 			"power": 2,
 			"accuracy": 75,
 			"sound": "sword",
-			"flavor": "Shorter than a sword.",
-			"rarity": 1,
+			"flavor": "Shorter than a sword."
 		}, {
 			"name": "Long Sword",
 			"type": "weapon",
 			"power": 4,
 			"accuracy": 75,
 			"sound": "sword",
-			"flavor": "Longer than a sword.",
-			"rarity": 2,
+			"flavor": "Longer than a sword."
 		}, {
 			"name": "Great Sword",
 			"type": "weapon",
 			"power": 6,
 			"accuracy": 75,
 			"sound": "sword",
-			"flavor": "Greater than a sword.",
-			"rarity": 4,
+			"flavor": "Greater than a sword."
 		}, {
 			"name": "Flametongue",
 			"type": "weapon",
@@ -63,8 +56,7 @@
 			"element": "red",
 			"accuracy": 75,
 			"sound": "sword",
-			"flavor": "Sword infused with the power of fire.",
-			"rarity": 5,
+			"flavor": "Sword infused with the power of fire."
 		},	{
 			"name": "Sword of War and Peace",
 			"type": "weapon",
@@ -72,8 +64,7 @@
 			"element": "red",
 			"accuracy": 75,
 			"sound": "sword",
-			"flavor": "Light doesn't know what this is.",
-			"rarity": 8,
+			"flavor": "Light doesn't know what this is."
 		},	{
 			"name": "Icebrand",
 			"type": "weapon",
@@ -81,8 +72,7 @@
 			"element": "blue",
 			"accuracy": 75,
 			"sound": "sword",
-			"flavor": "Sword infused with the power of ice.",
-			"rarity": 5,
+			"flavor": "Sword infused with the power of ice."
 		},	{
 			"name": "Frostmourne",
 			"type": "weapon",
@@ -90,8 +80,7 @@
 			"element": "blue",
 			"accuracy": 75,
 			"sound": "sword",
-			"flavor": "Frostmourne hungers...",
-			"rarity": 8,
+			"flavor": "Frostmourne hungers..."
 		},	{
 			"name": "Coral Sword",
 			"type": "weapon",
@@ -99,8 +88,7 @@
 			"element": "green",
 			"accuracy": 75,
 			"sound": "sword",
-			"flavor": "Sword infused with the power of lightning. ",
-			"rarity": 5,
+			"flavor": "Sword infused with the power of lightning. "
 		},	{
 			"name": "Lightsabre",
 			"type": "weapon",
@@ -108,31 +96,27 @@
 			"element": "green",
 			"accuracy": 75,
 			"sound": "sword",
-			"flavor": "The lightsabre is the weapon of a Jeid, an elegant weapon of a more civiliezd age.",
-			"rarity": 8,
+			"flavor": "The lightsabre is the weapon of a Jeid, an elegant weapon of a more civiliezd age."
 		},	{
 			"name": "Master Sword",
 			"type": "weapon",
 			"power": 6,
 			"accuracy": 100,
 			"sound": "sword",
-			"flavor": "I knew I was the hero.",
-			"rarity": 10,
+			"flavor": "I knew I was the hero."
 		},	{
 			"name": "Buster Sword",
 			"type": "weapon",
 			"power": 10,
-			"accuracy": 50,
+			"accuracy": 69,
 			"sound": "sword",
-			"flavor": "Sword made for felling monsters.",
-			"rarity": 10,
+			"flavor": "Sword made for felling monsters."
 		},	{
 			"name": "White Gem",
 			"type": "gem",
 			"element": "white",
 			"sound": "magic",
-			"flavor": "I hope this doesn't break again.",
-			"rarity": 1,
+			"flavor": "I hope this doesn't break again."
 		},	{
 			"name": "Red Gem",
 			"type": "gem",
@@ -140,8 +124,7 @@
 			"power": 2,
 			"accuracy": 90,
 			"sound": "fire",
-			"flavor": "It feels warm, but it doesn't taste warm.",
-			"rarity": 1,
+			"flavor": "It feels warm, but it doesn't taste warm."
 		},	{
 			"name": "Green Gem",
 			"type": "gem",
@@ -149,8 +132,7 @@
 			"status": "poison",
 			"accuracy": 85,
 			"sound": "magic",
-			"flavor": "It's so green!",
-			"rarity": 1,
+			"flavor": "It's so green!"
 		},	{
 			"name": "Blue Gem",
 			"type": "gem",
@@ -158,146 +140,126 @@
 			"power": 1,
 			"accuracy": 100,
 			"sound": "magic",
-			"flavor": "Is this a shiny?",
-			"rarity": 1,
+			"flavor": "Is this a shiny?"
 		},	{
 			"name": "Orange Gem",
 			"type": "gem",
 			"element": "orange",
 			"buff": "boost",
 			"sound": "magic",
-			"flavor": "Isn't this a pomegranate?",
-			"rarity": 2,
+			"flavor": "Isn't this a pomegranate?"
 		},	{
 			"name": "Purple Gem",
 			"type": "gem",
 			"element": "purple",
 			"buff": "shield",
 			"sound": "magic",
-			"flavor": "This definitely tastes like grape :(",
-			"rarity": 2,
+			"flavor": "This definitely tastes like grape :("
 		},	{
 			"name": "Potion",
 			"type": "drink",
 			"power": 20,
 			"sound": "potion",
-			"flavor": "I hope this is enough to beat Rick.",
-			"rarity": 1,
+			"flavor": "I hope this is enough to beat Rick."
 		},	{
 			"name": "Sodie Pop",
 			"type": "drink",
 			"power": 60,
 			"sound": "soda",
-			"flavor": "Give me 60 HP",
-			"rarity": 2,
+			"flavor": "Give me 60 HP"
 		},	{
 			"name": "Super Potion",
 			"type": "drink",
 			"power": 60,
 			"sound": "potion",
-			"flavor": "",
-			"rarity": 2,
+			"flavor": ""
 		},	{
 			"name": "Lmoanade",
 			"type": "drink",
 			"power": 90,
 			"sound": "soda",
-			"flavor": "lmoa",
-			"rarity": 3,
+			"flavor": "lmoa"
 		},	{
 			"name": "Ninty Potion",
 			"type": "drink",
 			"power": 90,
 			"sound": "potion",
-			"flavor": "Served best at Ninty Degrees",
-			"rarity": 3,
+			"flavor": "Served best at Ninty Degrees"
 		},	{
 			"name": "Hyper Potion",
 			"type": "drink",
 			"power": 200,
 			"sound": "potion",
-			"flavor": "",
-			"rarity": 4,
+			"flavor": ""
 		},	{
 			"name": "Antidote",
 			"type": "drink",
 			"status": "poison",
 			"sound": "potion",
-			"flavor": "I hate the grape flavored one.",
-			"rarity": 1,
+			"flavor": "I hate the grape flavored one."
 		},	{
 			"name": "Cold One 1",
 			"type": "drink",
 			"power": 100,
 			"status": "poison",
 			"sound": "soda",
-			"flavor": "Crack a cold one!",
-			"rarity": 5,
+			"flavor": "Crack a cold one!"
 		},	{
 			"name": "Cold One 2",
 			"type": "drink",
 			"power": 100,
 			"status": "cursed",
 			"sound": "soda",
-			"flavor": "Crack a cold one!",
-			"rarity": 5,
+			"flavor": "Crack a cold one!"
 		},	{
 			"name": "Cold One 3",
 			"type": "drink",
 			"power": 100,
 			"buff": "boost",
 			"sound": "soda",
-			"flavor": "Crack a cold one!",
-			"rarity": 5,
+			"flavor": "Crack a cold one!"
 		},	{
 			"name": "Cold One 4",
 			"type": "drink",
 			"power": 300,
 			"sound": "soda",
-			"flavor": "Crack a cold one!",
-			"rarity": 5,
+			"flavor": "Crack a cold one!"
 		}, {
 			"name": "Blueberries",
 			"type": "food",
 			"power": 12,
 			"sound": "food",
-			"flavor": "Fresh bloobs.",
-			"rarity": 1,
+			"flavor": "Fresh bloobs."
 		},	{
 			"name": "Fresh Slice",
 			"type": "food",
 			"power": 30,
 			"sound": "food",
-			"flavor": "Hot and ready.",
-			"rarity": 2,
+			"flavor": "Hot and ready."
 		},	{
 			"name": "Kraft Dinner",
 			"type": "food",
 			"power": 65,
 			"sound": "food",
-			"flavor": "A meal for four in nine minutes for an everyday price of 19 cents.",
-			"rarity": 3,
+			"flavor": "A meal for four in nine minutes for an everyday price of 19 cents."
 		},	{
 			"name": "Poutine",
 			"type": "food",
 			"power": 100,
 			"sound": "food",
-			"flavor": "",
-			"rarity": 4,
+			"flavor": ""
 		},	{
 			"name": "Maple Candy",
 			"type": "food",
 			"status": "poison",
 			"sound": "food",
-			"flavor": "",
-			"rarity": 1,
+			"flavor": ""
 		},	{
 			"name": "Croissant",
 			"type": "food",
 			"status": "sleep",
 			"sound": "food",
-			"flavor": "",
-			"rarity": 1,
+			"flavor": ""
 		},	{
 			"name": "Quag",
 			"type": "emote",
@@ -307,8 +269,7 @@
 				"chance": 1
 			},
 			"sound": "",
-			"flavor": "ligQUAG",
-			"rarity": 1,
+			"flavor": "ligQUAG"
 		},	{
 			"name": "Potato",
 			"type": "emote",
@@ -318,8 +279,7 @@
 				"amount": 0.9
 			},
 			"sound": "",
-			"flavor": "",
-			"rarity": 1,
+			"flavor": ""
 		},	{
 			"name": "Bloomer",
 			"type": "emote",
@@ -329,8 +289,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "Tieing is almost winning",
-			"rarity": 1,
+			"flavor": "Tieing is almost winning"
 		},	{
 			"name": "Baja",
 			"type": "emote",
@@ -340,8 +299,7 @@
 				"amount": 10
 			},
 			"sound": "",
-			"flavor": "",
-			"rarity": 1,
+			"flavor": ""
 		},	{
 			"name": "Quagamence",
 			"type": "emote",
@@ -351,8 +309,7 @@
 				"amount": 0
 			},
 			"sound": "",
-			"flavor": "",
-			"rarity": 1,
+			"flavor": ""
 		},	{
 			"name": "Nilbog",
 			"type": "emote",
@@ -362,8 +319,7 @@
 				"chance": 50
 			},
 			"sound": "",
-			"flavor": "",
-			"rarity": 1,
+			"flavor": ""
 		},	{
 			"name": "Bladez",
 			"type": "emote",
@@ -373,8 +329,7 @@
 				"amount": 25
 			},
 			"sound": "",
-			"flavor": "",
-			"rarity": 1,
+			"flavor": ""
 		},	{
 			"name": "Dux",
 			"type": "emote",
@@ -384,8 +339,7 @@
 				"amount": -10
 			},
 			"sound": "",
-			"flavor": "",
-			"rarity": 1,
+			"flavor": ""
 		},	{
 			"name": "Eggy",
 			"type": "emote",
@@ -395,8 +349,7 @@
 				"amount": 10
 			},
 			"sound": "",
-			"flavor": "",
-			"rarity": 1,
+			"flavor": ""
 		},	{
 			"name": "Masher",
 			"type": "emote",
@@ -406,8 +359,7 @@
 				"chance": 25
 			},
 			"sound": "",
-			"flavor": "",
-			"rarity": 1,
+			"flavor": ""
 		},	{
 			"name": "Totoro",
 			"type": "emote",
@@ -417,8 +369,7 @@
 				"chance": 10
 			},
 			"sound": "",
-			"flavor": "",
-			"rarity": 1,
+			"flavor": ""
 		},	{
 			"name": "Totoro 2",
 			"type": "emote",
@@ -428,8 +379,7 @@
 				"chance": 10
 			},
 			"sound": "",
-			"flavor": "",
-			"rarity": 1,
+			"flavor": ""
 		},	{
 			"name": "Bitey",
 			"type": "emote",
@@ -439,8 +389,7 @@
 				"chance": 10
 			},
 			"sound": "",
-			"flavor": "",
-			"rarity": 1,
+			"flavor": ""
 		},	{
 			"name": "Shadowfax",
 			"type": "emote",
@@ -450,8 +399,7 @@
 				"amount": 6
 			},
 			"sound": "",
-			"flavor": "",
-			"rarity": 1,
+			"flavor": ""
 		},	{
 			"name": "Goldy",
 			"type": "emote",
@@ -461,8 +409,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/MildFriendlyCrabsBleedPurple-E-n-6q9CeQC_s4hp",
-			"rarity": 1,
+			"flavor": "clips.twitch.tv/MildFriendlyCrabsBleedPurple-E-n-6q9CeQC_s4hp"
 		},	{
 			"name": "The Pod",
 			"type": "emote",
@@ -472,8 +419,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/ColdCloudyCookieSuperVinlin-IpCKZ6NOr2iCfZ4s",
-			"rarity": 1,
+			"flavor": "clips.twitch.tv/ColdCloudyCookieSuperVinlin-IpCKZ6NOr2iCfZ4s"
 		},	{
 			"name": "Joelge",
 			"type": "emote",
@@ -483,8 +429,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "",
-			"rarity": 1,
+			"flavor": ""
 		}, {
 			"name": "Oddish 2",
 			"type": "emote",
@@ -494,8 +439,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/RelentlessArborealBadgerDatSheffy-i4F2yc5BvIxkXgzk",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/RelentlessArborealBadgerDatSheffy-i4F2yc5BvIxkXgzk"
 		}, {
 			"name": "Golbat",
 			"type": "emote",
@@ -505,8 +449,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/KindHilariousTitanCoolStoryBob-z6ZxyOAD32Zj21KH",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/KindHilariousTitanCoolStoryBob-z6ZxyOAD32Zj21KH"
 		}, {
 			"name": "Zigzagoon",
 			"type": "emote",
@@ -516,8 +459,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/FaintResoluteScallionSaltBae-AkYN1cwOFoq6kqQk",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/FaintResoluteScallionSaltBae-AkYN1cwOFoq6kqQk"
 		}, {
 			"name": "FR Octillery",
 			"type": "emote",
@@ -527,8 +469,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/OptimisticElatedPeanutOMGScoots-FiiTu42hSCw0VdXx",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/OptimisticElatedPeanutOMGScoots-FiiTu42hSCw0VdXx"
 		}, {
 			"name": "Wailmer",
 			"type": "emote",
@@ -538,8 +479,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/UgliestExcitedHamsterPanicVis-8IogpjIK2jCid3iK",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/UgliestExcitedHamsterPanicVis-8IogpjIK2jCid3iK"
 		}, {
 			"name": "Jynx",
 			"type": "emote",
@@ -549,8 +489,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/SilkyDullTardigradeTheRinger-_88JCTNzkGBf76pb",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/SilkyDullTardigradeTheRinger-_88JCTNzkGBf76pb"
 		}, {
 			"name": "Meditite 2",
 			"type": "emote",
@@ -560,8 +499,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/DiligentAmorphousCroquetteYouWHY-E8oFr4dp87V_W5b6",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/DiligentAmorphousCroquetteYouWHY-E8oFr4dp87V_W5b6"
 		}, {
 			"name": "Arbok",
 			"type": "emote",
@@ -571,8 +509,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/AdorableLitigiousWolverinePJSugar-Rq497dt4zeWsweno",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/AdorableLitigiousWolverinePJSugar-Rq497dt4zeWsweno"
 		}, {
 			"name": "FR Pineco",
 			"type": "emote",
@@ -582,8 +519,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/TenuousCarelessPanRalpherZ-wWt35PD9eEC8uAxB",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/TenuousCarelessPanRalpherZ-wWt35PD9eEC8uAxB"
 		}, {
 			"name": "Chansey",
 			"type": "emote",
@@ -593,8 +529,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/CrunchySuspiciousDiscImGlitch-tcfhPc5GAa3lsfkB",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/CrunchySuspiciousDiscImGlitch-tcfhPc5GAa3lsfkB"
 		}, {
 			"name": "Tauros",
 			"type": "emote",
@@ -604,8 +539,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/DullSpikyCucumberSwiftRage-0Guf8K2h7vkrgl1r",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/DullSpikyCucumberSwiftRage-0Guf8K2h7vkrgl1r"
 		}, {
 			"name": "Cubone",
 			"type": "emote",
@@ -615,8 +549,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/ColorfulTenuousAnteaterJonCarnage-vRe9sJSppdJVMtY9",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/ColorfulTenuousAnteaterJonCarnage-vRe9sJSppdJVMtY9"
 		}, {
 			"name": "Beldum",
 			"type": "emote",
@@ -626,8 +559,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/AffluentCloudyPeppermintSwiftRage-ITsNoGNd3OD1FcaG",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/AffluentCloudyPeppermintSwiftRage-ITsNoGNd3OD1FcaG"
 		}, {
 			"name": "Clamperl",
 			"type": "emote",
@@ -637,8 +569,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/BashfulRefinedPartridgeCharlieBitMe-Rgxpi4Md7-Zxy-Gq",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/BashfulRefinedPartridgeCharlieBitMe-Rgxpi4Md7-Zxy-Gq"
 		}, {
 			"name": "Oddish",
 			"type": "emote",
@@ -648,8 +579,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/ShakingCrunchyRaccoonLeeroyJenkins-GVJ1_7vn7c4k_seC",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/ShakingCrunchyRaccoonLeeroyJenkins-GVJ1_7vn7c4k_seC"
 		}, {
 			"name": "Skitty",
 			"type": "emote",
@@ -659,8 +589,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/SquareSparklingSushiUWot-HImIX9ErYkZ-hZth",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/SquareSparklingSushiUWot-HImIX9ErYkZ-hZth"
 		}, {
 			"name": "Spoink",
 			"type": "emote",
@@ -670,8 +599,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/AthleticFrozenLocustWholeWheat-e2iBpGWvUjCd28bY",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/AthleticFrozenLocustWholeWheat-e2iBpGWvUjCd28bY"
 		}, {
 			"name": "Houndour",
 			"type": "emote",
@@ -681,8 +609,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/AltruisticTentativeHorseBatChest-1hRaoFG37nq4g8mi",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/AltruisticTentativeHorseBatChest-1hRaoFG37nq4g8mi"
 		}, {
 			"name": "Furret",
 			"type": "emote",
@@ -692,8 +619,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/SpotlessBlatantPancakePanicBasket-P20DRlRb06Uqy4Gp",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/SpotlessBlatantPancakePanicBasket-P20DRlRb06Uqy4Gp"
 		}, {
 			"name": "Totodile",
 			"type": "emote",
@@ -703,8 +629,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/WrongFragileJayCorgiDerp-g8kSsxnelB7BUWwp",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/WrongFragileJayCorgiDerp-g8kSsxnelB7BUWwp"
 		}, {
 			"name": "Meditite",
 			"type": "emote",
@@ -714,8 +639,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/FrigidRudePicklesOpieOP-2lc_5Wxl9mILMMZl",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/FrigidRudePicklesOpieOP-2lc_5Wxl9mILMMZl"
 		}, {
 			"name": "Skiploom",
 			"type": "emote",
@@ -725,8 +649,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/CoyYawningScorpionPogChamp-CFHruLSSVzWdWeOn",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/CoyYawningScorpionPogChamp-CFHruLSSVzWdWeOn"
 		}, {
 			"name": "Solrock 2",
 			"type": "emote",
@@ -736,8 +659,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/InspiringUnusualArtichokeBloodTrail-jPR-Q2rKq-W2FQu8",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/InspiringUnusualArtichokeBloodTrail-jPR-Q2rKq-W2FQu8"
 		}, {
 			"name": "Omastar",
 			"type": "emote",
@@ -747,8 +669,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/ReliableEndearingPigeonAMPEnergyCherry-7R8Iy-gNgOrvGiBF",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/ReliableEndearingPigeonAMPEnergyCherry-7R8Iy-gNgOrvGiBF"
 		}, {
 			"name": "Ludicolo",
 			"type": "emote",
@@ -758,8 +679,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/WonderfulPlainTigerTBTacoRight-5jdS45xLOmky-eot",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/WonderfulPlainTigerTBTacoRight-5jdS45xLOmky-eot"
 		}, {
 			"name": "Ekans",
 			"type": "emote",
@@ -769,8 +689,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/CuteEnticingWoodcockDatSheffy-CVPwMll0fTNEV_c1",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/CuteEnticingWoodcockDatSheffy-CVPwMll0fTNEV_c1"
 		}, {
 			"name": "Chikorita",
 			"type": "emote",
@@ -780,8 +699,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/SucculentEnjoyableClipzKeyboardCat-WSJBaib5c_2HbA8d",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/SucculentEnjoyableClipzKeyboardCat-WSJBaib5c_2HbA8d"
 		}, {
 			"name": "Raticate",
 			"type": "emote",
@@ -791,8 +709,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/ImpossibleGorgeousDiamondBudBlast-e3eGfkvUvcp-rUlR",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/ImpossibleGorgeousDiamondBudBlast-e3eGfkvUvcp-rUlR"
 		}, {
 			"name": "Umbreon",
 			"type": "emote",
@@ -802,8 +719,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/FantasticUglySandwichSwiftRage-Z1zxNbY8Vrlyz2WP",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/FantasticUglySandwichSwiftRage-Z1zxNbY8Vrlyz2WP"
 		}, {
 			"name": "Sunkern",
 			"type": "emote",
@@ -813,8 +729,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/ColorfulHyperPeafowlWutFace-i3hOJA7_eTm2zecd",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/ColorfulHyperPeafowlWutFace-i3hOJA7_eTm2zecd"
 		}, {
 			"name": "Grimer",
 			"type": "emote",
@@ -824,8 +739,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/OddEndearingFalconOMGScoots-6cs-8tvVHkVvXuKB",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/OddEndearingFalconOMGScoots-6cs-8tvVHkVvXuKB"
 		}, {
 			"name": "HG Typhlosion",
 			"type": "emote",
@@ -835,8 +749,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/FaintExquisiteOrangeYouDontSay-7JsP4VUFyThBSTHm",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/FaintExquisiteOrangeYouDontSay-7JsP4VUFyThBSTHm"
 		}, {
 			"name": "Venomoth",
 			"type": "emote",
@@ -846,8 +759,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/DirtyBelovedGiraffeEleGiggle-9jr_3t2c15pbi0fJ",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/DirtyBelovedGiraffeEleGiggle-9jr_3t2c15pbi0fJ"
 		}, {
 			"name": "Haunter",
 			"type": "emote",
@@ -857,8 +769,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/StrongSpunkySlothPraiseIt-3mNWeTxArTPRFl3I",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/StrongSpunkySlothPraiseIt-3mNWeTxArTPRFl3I"
 		}, {
 			"name": "Blastoise",
 			"type": "emote",
@@ -868,8 +779,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/ToughDullRaccoonNononoCat-ooU4oJJ8lVxnzJep",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/ToughDullRaccoonNononoCat-ooU4oJJ8lVxnzJep"
 		}, {
 			"name": "Wurmple",
 			"type": "emote",
@@ -879,8 +789,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/SmellyAttractiveZebraWutFace-kUM6q64xBnIe4tR5",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/SmellyAttractiveZebraWutFace-kUM6q64xBnIe4tR5"
 		}, {
 			"name": "Ponyta",
 			"type": "emote",
@@ -890,8 +799,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/TawdryInnocentHorsePeoplesChamp-jFoUyRUxAfBfPnEx",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/TawdryInnocentHorsePeoplesChamp-jFoUyRUxAfBfPnEx"
 		}, {
 			"name": "Cloyster",
 			"type": "emote",
@@ -901,8 +809,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/NeighborlyIronicLionDBstyle-KeUrP3GTJwcMpeZS",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/NeighborlyIronicLionDBstyle-KeUrP3GTJwcMpeZS"
 		}, {
 			"name": "Goldeen",
 			"type": "emote",
@@ -912,8 +819,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/OptimisticExquisiteAardvarkTooSpicy-6frlFw3toWgWOpIo",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/OptimisticExquisiteAardvarkTooSpicy-6frlFw3toWgWOpIo"
 		}, {
 			"name": "Lotad",
 			"type": "emote",
@@ -923,8 +829,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/AuspiciousLuckyPuppyCopyThis-uStQO0-fVm02pvvq",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/AuspiciousLuckyPuppyCopyThis-uStQO0-fVm02pvvq"
 		}, {
 			"name": "FR Trapinch",
 			"type": "emote",
@@ -934,8 +839,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/PiliableZealousToadVoteYea-Y7osuEFL5NCjqMHL",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/PiliableZealousToadVoteYea-Y7osuEFL5NCjqMHL"
 		}, {
 			"name": "Smeargle",
 			"type": "emote",
@@ -945,8 +849,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/ImpossibleMistyHamSquadGoals-r2ofLn7bCXGw3PmZ?filter=clips&range=7d&sort=time",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/ImpossibleMistyHamSquadGoals-r2ofLn7bCXGw3PmZ?filter=clips&range=7d&sort=time"
 		}, {
 			"name": "Porygon",
 			"type": "emote",
@@ -956,8 +859,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/DignifiedAliveCasetteNomNom-vPbaFtRvQ_xlZ54v",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/DignifiedAliveCasetteNomNom-vPbaFtRvQ_xlZ54v"
 		}, {
 			"name": "Gliscor",
 			"type": "emote",
@@ -967,8 +869,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/MoldySmellyBearDatBoi-Gt5wwzeFKXXHzZcG",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/MoldySmellyBearDatBoi-Gt5wwzeFKXXHzZcG"
 		}, {
 			"name": "Fearow",
 			"type": "emote",
@@ -978,8 +879,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/AltruisticSucculentPassionfruitTakeNRG-38xBH5memeiGiG4O",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/AltruisticSucculentPassionfruitTakeNRG-38xBH5memeiGiG4O"
 		}, {
 			"name": "Cyndaquil",
 			"type": "emote",
@@ -989,8 +889,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/GeniusMildHumanSoonerLater-pd5EWclJvsfMnbBq",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/GeniusMildHumanSoonerLater-pd5EWclJvsfMnbBq"
 		}, {
 			"name": "Shuckle",
 			"type": "emote",
@@ -1000,8 +899,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "",
-			"rarity": 1
+			"flavor": ""
 		}, {
 			"name": "HG Octillery",
 			"type": "emote",
@@ -1011,8 +909,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/TawdryProtectiveArmadilloStrawBeary-mRShZSvud0FpKMDv",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/TawdryProtectiveArmadilloStrawBeary-mRShZSvud0FpKMDv"
 		}, {
 			"name": "HG Trapinch",
 			"type": "emote",
@@ -1022,8 +919,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/TawdryProtectiveArmadilloStrawBeary-mRShZSvud0FpKMDv",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/TawdryProtectiveArmadilloStrawBeary-mRShZSvud0FpKMDv"
 		}, {
 			"name": "HG Pineco",
 			"type": "emote",
@@ -1033,8 +929,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "",
-			"rarity": 1
+			"flavor": ""
 		}, {
 			"name": "Froslass",
 			"type": "emote",
@@ -1044,8 +939,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/GoldenAmusedOcelotDBstyle-Bb_1eKlbDJIRFu-_",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/GoldenAmusedOcelotDBstyle-Bb_1eKlbDJIRFu-_"
 		}, {
 			"name": "FR Typhlosion",
 			"type": "emote",
@@ -1055,8 +949,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "",
-			"rarity": 1
+			"flavor": ""
 		}, {
 			"name": "Hippowdon",
 			"type": "emote",
@@ -1066,8 +959,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/SavoryAgilePlumberSuperVinlin-1o5S1hhe9t_Up5LF",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/SavoryAgilePlumberSuperVinlin-1o5S1hhe9t_Up5LF"
 		}, {
 			"name": "Sealeo",
 			"type": "emote",
@@ -1077,8 +969,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/SpoopyObliqueYakinikuBudStar-PJVWWpMEGmIMjelZ",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/SpoopyObliqueYakinikuBudStar-PJVWWpMEGmIMjelZ"
 		}, {
 			"name": "Magmar",
 			"type": "emote",
@@ -1088,8 +979,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "",
-			"rarity": 1
+			"flavor": ""
 		}, {
 			"name": "Electrode",
 			"type": "emote",
@@ -1099,8 +989,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/ResourcefulAmazingLampArgieB8-0BSXzc_i9kBcpDbu",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/ResourcefulAmazingLampArgieB8-0BSXzc_i9kBcpDbu"
 		}, {
 			"name": "Mothim",
 			"type": "emote",
@@ -1110,8 +999,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/CaringObliqueCrabCmonBruh-uJxOpCFbBagaj2s6",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/CaringObliqueCrabCmonBruh-uJxOpCFbBagaj2s6"
 		}, {
 			"name": "Swellow",
 			"type": "emote",
@@ -1121,8 +1009,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/BeautifulConcernedRaccoonAMPEnergy-0_8JjLwUN7LVnBiU",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/BeautifulConcernedRaccoonAMPEnergy-0_8JjLwUN7LVnBiU"
 		}, {
 			"name": "Volbeat 2",
 			"type": "emote",
@@ -1132,8 +1019,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/AdventurousHandsomeWatercressVoteNay-7-ZGUvB8jyMWDwHU",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/AdventurousHandsomeWatercressVoteNay-7-ZGUvB8jyMWDwHU"
 		}, {
 			"name": "Gligar",
 			"type": "emote",
@@ -1143,8 +1029,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/BoredAttractiveToothM4xHeh-zmuxcp2pNPl89QeX",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/BoredAttractiveToothM4xHeh-zmuxcp2pNPl89QeX"
 		}, {
 			"name": "Beautifly",
 			"type": "emote",
@@ -1154,8 +1039,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/MotionlessColdbloodedMooseKappa-EOz9q2wHTSSHXEFw",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/MotionlessColdbloodedMooseKappa-EOz9q2wHTSSHXEFw"
 		}, {
 			"name": "Pelipper",
 			"type": "emote",
@@ -1165,8 +1049,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/SleepyBillowingSwordTwitchRPG-cc9eb3c0Rqek3MsT",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/SleepyBillowingSwordTwitchRPG-cc9eb3c0Rqek3MsT"
 		}, {
 			"name": "Swalot",
 			"type": "emote",
@@ -1176,8 +1059,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/CheerfulDiligentTitanSSSsss-IwW72ZRoDGC5V4Zi",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/CheerfulDiligentTitanSSSsss-IwW72ZRoDGC5V4Zi"
 		}, {
 			"name": "Paras",
 			"type": "emote",
@@ -1187,8 +1069,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/ColorfulExquisiteNikudonSquadGoals-3h_80-LF3Zb3fxdA",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/ColorfulExquisiteNikudonSquadGoals-3h_80-LF3Zb3fxdA"
 		}, {
 			"name": "Glalie",
 			"type": "emote",
@@ -1198,8 +1079,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/GlutenFreeWittyPhoneLeeroyJenkins-hcwFhv5aOJ2gLOJJ",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/GlutenFreeWittyPhoneLeeroyJenkins-hcwFhv5aOJ2gLOJJ"
 		}, {
 			"name": "Nidorino",
 			"type": "emote",
@@ -1209,8 +1089,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "",
-			"rarity": 1
+			"flavor": ""
 		}, {
 			"name": "Sceptile",
 			"type": "emote",
@@ -1220,8 +1099,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/KindSpinelessRavenGrammarKing-4Xdl9TENZbxVfFbq",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/KindSpinelessRavenGrammarKing-4Xdl9TENZbxVfFbq"
 		}, {
 			"name": "Volbeat",
 			"type": "emote",
@@ -1231,8 +1109,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/PrettiestCredulousKeyboardEleGiggle-vT6Uzst-wLV5k_YL",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/PrettiestCredulousKeyboardEleGiggle-vT6Uzst-wLV5k_YL"
 		}, {
 			"name": "Solrock",
 			"type": "emote",
@@ -1242,8 +1119,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/DullDaintySproutFloof-2alfyZFRrFQEw1mh",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/DullDaintySproutFloof-2alfyZFRrFQEw1mh"
 		}, {
 			"name": "Milotic",
 			"type": "emote",
@@ -1253,8 +1129,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "",
-			"rarity": 1
+			"flavor": ""
 		}, {
 			"name": "Luvdisc",
 			"type": "emote",
@@ -1264,8 +1139,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/NaiveBetterAirGuitarTwitchRPG-HAMbugLpLcWnI0VB",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/NaiveBetterAirGuitarTwitchRPG-HAMbugLpLcWnI0VB"
 		}, {
 			"name": "Linoone",
 			"type": "emote",
@@ -1275,8 +1149,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/AgileHyperDogYouWHY-ug9U68ocZFoOYXeQ",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/AgileHyperDogYouWHY-ug9U68ocZFoOYXeQ"
 		}, {
 			"name": "Krabby",
 			"type": "emote",
@@ -1286,8 +1159,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "",
-			"rarity": 1
+			"flavor": ""
 		}, {
 			"name": "Mankey",
 			"type": "emote",
@@ -1297,8 +1169,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "clips.twitch.tv/GracefulTenuousLadiesKreygasm-0DEWjIp0daQoQoH7",
-			"rarity": 1
+			"flavor": "clips.twitch.tv/GracefulTenuousLadiesKreygasm-0DEWjIp0daQoQoH7"
 		}, {
 			"name": "Staryu",
 			"type": "emote",
@@ -1308,8 +1179,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "",
-			"rarity": 1
+			"flavor": ""
 		}, {
 			"name": "Tangela",
 			"type": "emote",
@@ -1319,8 +1189,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "",
-			"rarity": 1
+			"flavor": ""
 		}, {
 			"name": "Grovyle",
 			"type": "emote",
@@ -1330,8 +1199,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "",
-			"rarity": 1
+			"flavor": ""
 		}, {
 			"name": "Sharpedo",
 			"type": "emote",
@@ -1341,8 +1209,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "",
-			"rarity": 1
+			"flavor": ""
 		}, {
 			"name": "Smoochum",
 			"type": "emote",
@@ -1352,8 +1219,7 @@
 				"amount": 1
 			},
 			"sound": "",
-			"flavor": "",
-			"rarity": 1
+			"flavor": ""
 		}
 	]
 }

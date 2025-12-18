@@ -23,5 +23,8 @@ func show_item(item) -> void:
 		$Description/Description/DescriptionDivider/Description/Label.text = '\n'.join([item['description'], 'ACC: %3d%%' % item['accuracy']])
 	else:
 		$Description/Description/DescriptionDivider/Description/Label.text = item['description']
-	$Description/Description/DescriptionDivider/Flavor/Label.text = item['flavor']
+	if 'clips.twitch.tv' in item['flavor']:
+		$Description/Description/DescriptionDivider/Flavor/Label.text = 'Click to watch the clip!'
+	else:
+		$Description/Description/DescriptionDivider/Flavor/Label.text = item['flavor']
 	visible = true

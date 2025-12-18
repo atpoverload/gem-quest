@@ -13,11 +13,9 @@
 		"basic_sword": [
 			"Short Sword",
 			"Steak Knife",
-			"Butter Knife",
-			"Long Sword"
+			"Butter Knife"
 		],
 		"advanced_sword": [
-			"Great Sword",
 			"Chef's Knife",
 			"Steak Knife",
 			"Long Sword"
@@ -53,8 +51,6 @@
 		],
 		"basic_drink": [
 			"Potion",
-			"Sodie Pop",
-			"Super Potion",
 			"Antidote"
 		],
 		"sodie_pop": [
@@ -79,14 +75,11 @@
 			"Cold One 4"
 		],
 		"nibble": [
-			"Blueberries",
-			"Maple Candy"
+			"Blueberries"
 		],
 		"snack": [
 			"Fresh Slice",
-			"Blueberries",
-			"Maple Candy",
-			"Croissant"
+			"Blueberries"
 		],
 		"lunch": [
 			"Kraft Dinner",
@@ -98,24 +91,19 @@
 		],
 		"basic_healing": [
 			"Blueberries",
-			"Potion",
-			"Maple Candy"
+			"Potion"
 		],
 		"advanced_healing": [
 			"Kraft Dinner",
 			"Fresh Slice",
 			"Super Potion",
-			"Sodie Pop",
-			"Maple Candy",
-			"Croissant"
+			"Sodie Pop"
 		],
 		"powerful_healing": [
 			"Poutine",
-			"Kraft Dinner",
 			"Ninty Potion",
 			"Lmoanade",
-			"Maple Candy",
-			"Croissant"
+			"Hyper Potion"
 		],
 		"basic_damage": [
 			"Red Gem",
@@ -148,20 +136,22 @@
 		{
 			"type": "treasure",
 			"reward": "basic_gem",
-			"count": 3,
-			"rarity": 1
+			"count": 3
 		},
 		{
 			"type": "treasure",
 			"reward": "emote",
-			"count": 3,
-			"rarity": 1
+			"count": 2
 		},
 		{
 			"type": "treasure",
-			"reward": "lucky",
-			"count": 2,
-			"rarity": 1
+			"reward": "cold_one",
+			"count": 4
+		},
+		{
+			"type": "treasure",
+			"reward": "emote",
+			"count": 2
 		},
 		{
 			"type": "battle",
@@ -176,17 +166,15 @@
 		{
 			"type": "treasure",
 			"reward": "emote",
-			"count": 2,
-			"rarity": 1
+			"count": 2
 		},
 		{
 			"type": "puzzle",
 			"challenge": 99,
 			"event": {
 				"type": "treasure",
-				"reward": "lucky",
-				"count": 2,
-				"rarity": 1
+				"reward": "emote",
+				"count": 1
 			}
 		},
 		{
@@ -201,15 +189,8 @@
 		},
 		{
 			"type": "treasure",
-			"reward": "damage",
-			"count": 3,
-			"rarity": 2
-		},
-		{
-			"type": "treasure",
-			"reward": "basic_potion",
-			"count": 2,
-			"rarity": 1
+			"reward": "emote",
+			"count": 2
 		},
 		{
 			"type": "puzzle",
@@ -217,8 +198,7 @@
 			"event": {
 				"type": "treasure",
 				"reward": "any_gem",
-				"count": 1,
-				"rarity": 2
+				"count": 1
 			}
 		},
 		{
@@ -226,9 +206,8 @@
 			"challenge": 99,
 			"event": {
 				"type": "treasure",
-				"reward": "nibble",
-				"count": 1,
-				"rarity": 2
+				"reward": "basic_healing",
+				"count": 1
 			}
 		},
 		{
@@ -256,6 +235,16 @@
 			"enemy": "Joelge"
 		},
 		{
+			"type": "treasure",
+			"reward": "emote",
+			"count": 2
+		},
+		{
+			"type": "treasure",
+			"reward": "basic_drink",
+			"count": 2
+		},
+		{
 			"type": "trap",
 			"checks": [
 				{
@@ -273,8 +262,8 @@
 			"type": "trap",
 			"checks": [
 				{
-					"stat": "might",
-					"danger": 100
+					"stat": "morale",
+					"danger": 200
 				}
 			],
 			"event": {
@@ -290,21 +279,23 @@
 		},
 		{
 			"type": "treasure",
+			"reward": "basic_sword",
+			"count": 2
+		},
+		{
+			"type": "treasure",
 			"reward": "any_gem",
-			"count": 3,
-			"rarity": 3
+			"count": 2
+		},
+		{
+			"type": "treasure",
+			"reward": "basic_drink",
+			"count": 2
 		},
 		{
 			"type": "treasure",
 			"reward": "emote",
-			"count": 3,
-			"rarity": 2
-		},
-		{
-			"type": "treasure",
-			"reward": "advanced_sword",
-			"count": 3,
-			"rarity": 3
+			"count": 2
 		},
 		{
 			"type": "rest",
@@ -323,14 +314,7 @@
 		{
 			"type": "treasure",
 			"reward": "emote",
-			"count": 2,
-			"rarity": 3
-		},
-		{
-			"type": "treasure",
-			"reward": "advanced_drink",
-			"count": 2,
-			"rarity": 4
+			"count": 2
 		},
 		{
 			"type": "puzzle",
@@ -338,8 +322,7 @@
 			"event": {
 				"type": "treasure",
 				"reward": "snack",
-				"count": 2,
-				"rarity": 3
+				"count": 2
 			}
 		},
 		{
@@ -359,24 +342,26 @@
 		},
 		{
 			"type": "treasure",
+			"reward": "emote",
+			"count": 2
+		},
+		{
+			"type": "treasure",
 			"reward": "advanced_drink",
-			"count": 3,
-			"rarity": 4
+			"count": 3
 		},
 		{
 			"type": "treasure",
 			"reward": "snack",
-			"count": 2,
-			"rarity": 4
+			"count": 2
 		},
 		{
 			"type": "puzzle",
 			"challenge": 399,
 			"event": {
 				"type": "treasure",
-				"reward": "advanced_damage",
-				"count": 1,
-				"rarity": 3
+				"reward": "any_gem",
+				"count": 1
 			}
 		},
 		{
@@ -400,15 +385,13 @@
 		},
 		{
 			"type": "treasure",
-			"reward": "elemental_sword",
-			"count": 3,
-			"rarity": 1
+			"reward": "advanced_sword",
+			"count": 2
 		},
 		{
 			"type": "treasure",
-			"reward": "powerful_healing",
-			"count": 2,
-			"rarity": 1
+			"reward": "advanced_drink",
+			"count": 2
 		},
 		{
 			"type": "puzzle",
@@ -416,8 +399,16 @@
 			"event": {
 				"type": "treasure",
 				"reward": "lunch",
-				"count": 2,
-				"rarity": 1
+				"count": 1
+			}
+		},
+		{
+			"type": "puzzle",
+			"challenge": 499,
+			"event": {
+				"type": "treasure",
+				"reward": "any_gem",
+				"count": 1
 			}
 		},
 		{
@@ -461,7 +452,7 @@
 			],
 			"event": {
 				"type": "damage",
-				"amount": "25"
+				"amount": "50"
 			}
 		},
 		{
@@ -473,7 +464,7 @@
 			"type": "trap",
 			"checks": [
 				{
-					"stat": "might",
+					"stat": "morale",
 					"danger": 300
 				}
 			],
@@ -482,12 +473,6 @@
 				"level": 20,
 				"enemy": "Van Wilder"
 			}
-		},
-		{
-			"type": "treasure",
-			"reward": "elemental_damage",
-			"count": 2,
-			"rarity": 7
 		},
 		{
 			"type": "trap",
@@ -499,14 +484,32 @@
 			],
 			"event": {
 				"type": "damage",
-				"amount": "25"
+				"amount": "50"
 			}
 		},
 		{
 			"type": "treasure",
+			"reward": "emote",
+			"count": 2
+		},
+		{
+			"type": "treasure",
 			"reward": "any_gem",
-			"count": 2,
-			"rarity": 7
+			"count": 2
+		},
+		{
+			"type": "treasure",
+			"reward": "powerful_drink",
+			"count": 2
+		},
+		{
+			"type": "puzzle",
+			"challenge": 9999,
+			"event": {
+				"type": "treasure",
+				"reward": "cold_one",
+				"count": 1
+			}
 		},
 		{
 			"type": "battle",
@@ -524,13 +527,22 @@
 			"enemy": "Quillback"
 		},
 		{
+			"type": "treasure",
+			"reward": "emote",
+			"count": 2
+		},
+		{
+			"type": "treasure",
+			"reward": "advanced_drink",
+			"count": 2
+		},
+		{
 			"type": "puzzle",
 			"challenge": 399,
 			"event": {
 				"type": "treasure",
 				"reward": "any_gem",
-				"count": 2,
-				"rarity": 7
+				"count": 1
 			}
 		},
 		{
@@ -539,8 +551,7 @@
 			"event": {
 				"type": "treasure",
 				"reward": "dinner",
-				"count": 2,
-				"rarity": 7
+				"count": 1
 			}
 		},
 		{
@@ -554,13 +565,17 @@
 			"enemy": "Tiki Man"
 		},
 		{
+			"type": "treasure",
+			"reward": "emote",
+			"count": 2
+		},
+		{
 			"type": "puzzle",
 			"challenge": 999,
 			"event": {
 				"type": "treasure",
-				"reward": "powerful_sword",
-				"count": 1,
-				"rarity": 7
+				"reward": "elemental_sword",
+				"count": 1
 			}
 		},
 		{
@@ -571,50 +586,42 @@
 		{
 			"type": "treasure",
 			"reward": "powerful_sword",
-			"count": 3,
-			"rarity": 10
+			"count": 3
 		},
 		{
 			"type": "treasure",
 			"reward": "any_gem",
-			"count": 2,
-			"rarity": 10
+			"count": 2
+		},
+{
+			"type": "treasure",
+			"reward": "any_gem",
+			"count": 2
 		},
 		{
 			"type": "treasure",
 			"reward": "cold_one",
-			"count": 2,
-			"rarity": 4
+			"count": 4
+		},
+		{
+			"type": "treasure",
+			"reward": "powerful_drink",
+			"count": 2
 		},
 		{
 			"type": "treasure",
 			"reward": "dinner",
-			"count": 2,
-			"rarity": 1
+			"count": 2
 		},
 		{
 			"type": "treasure",
 			"reward": "emote",
-			"count": 2,
-			"rarity": 1
+			"count": 2
 		},
 		{
 			"type": "treasure",
 			"reward": "emote",
-			"count": 2,
-			"rarity": 1
-		},
-		{
-			"type": "treasure",
-			"reward": "lucky",
-			"count": 2,
-			"rarity": 1
-		},
-		{
-			"type": "treasure",
-			"reward": "lucky",
-			"count": 2,
-			"rarity": 1
+			"count": 2
 		},
 		{
 			"type": "rest",
@@ -631,7 +638,21 @@
 			"event": {
 				"type": "status",
 				"effect": "poison",
-				"amount": 10
+				"amount": 25
+			}
+		},
+		{
+			"type": "trap",
+			"checks": [
+				{
+					"stat": "magic",
+					"danger": 500
+				}
+			],
+			"event": {
+				"type": "status",
+				"effect": "sleep",
+				"amount": 20
 			}
 		},
 		{
@@ -648,7 +669,7 @@
 			"type": "trap",
 			"checks": [
 				{
-					"stat": "might",
+					"stat": "morale",
 					"danger": 500
 				}
 			],
@@ -661,14 +682,12 @@
 		{
 			"type": "treasure",
 			"reward": "emote",
-			"count": 3,
-			"rarity": 5
+			"count": 3
 		},
 		{
 			"type": "treasure",
 			"reward": "any_gem",
-			"count": 2,
-			"rarity": 8
+			"count": 2
 		},
 		{
 			"type": "battle",
@@ -679,7 +698,7 @@
 			"type": "trap",
 			"checks": [
 				{
-					"stat": "might",
+					"stat": "morale",
 					"danger": 500
 				}
 			],
@@ -701,8 +720,22 @@
 		},
 		{
 			"type": "battle",
-			"level": 3,
+			"level": 33,
 			"enemy": "Imakuni Green"
+		},
+{
+			"type": "trap",
+			"checks": [
+				{
+					"stat": "morale",
+					"danger": 500
+				}
+			],
+			"event": {
+				"type": "battle",
+				"level": 35,
+				"enemy": "Deadpool 3"
+			}
 		},
 		{
 			"type": "trap",
@@ -714,20 +747,37 @@
 			],
 			"event": {
 				"type": "damage",
-				"amount": 50
+				"amount": 200
 			}
 		},
 		{
 			"type": "treasure",
+			"reward": "emote",
+			"count": 2
+		},
+		{
+			"type": "treasure",
 			"reward": "any_gem",
-			"count": 3,
-			"rarity": 4
+			"count": 2
+		},
+		{
+			"type": "treasure",
+			"reward": "cold_one",
+			"count": 4
 		},
 		{
 			"type": "treasure",
 			"reward": "powerful_drink",
-			"count": 3,
-			"rarity": 4
+			"count": 2
+		},
+		{
+			"type": "puzzle",
+			"challenge": 9999,
+			"event": {
+				"type": "treasure",
+				"reward": "powerful_sword",
+				"count": 1
+			}
 		},
 		{
 			"type": "battle",
@@ -737,12 +787,12 @@
 		{
 			"type": "battle",
 			"level": 40,
-			"enemy": "Swalot"
+			"enemy": "Wigglytuff"
 		},
 		{
 			"type": "battle",
 			"level": 40,
-			"enemy": "Wigglytuff"
+			"enemy": "KEKing"
 		},
 		{
 			"type": "trap",
@@ -776,8 +826,8 @@
 			],
 			"event": {
 				"type": "battle",
-				"level": 35,
-				"enemy": "Deadpool 3"
+				"level": 50,
+				"enemy": "Ryan Reynolds"
 			}
 		},
 		{

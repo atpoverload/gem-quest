@@ -1,8 +1,7 @@
-[gd_scene load_steps=113 format=3 uid="uid://dtcriwdea6abg"]
+[gd_scene load_steps=111 format=3 uid="uid://dtcriwdea6abg"]
 
 [ext_resource type="Script" uid="uid://fn4hnueghmje" path="res://main.gd" id="1_yaehf"]
 [ext_resource type="AudioStream" uid="uid://dq413g1nheh08" path="res://music/7.-Fairy-Fountain.ogg" id="3_82xsv"]
-[ext_resource type="Script" path="res://scenarios/event_generator.gd" id="3_f1p13"]
 [ext_resource type="Script" uid="uid://dussordhjhql2" path="res://enemies/enemy_manager.gd" id="4_0cp0l"]
 [ext_resource type="AudioStream" uid="uid://cr8p4tem5lvu1" path="res://ui/sounds/rest.mp3" id="4_gngh3"]
 [ext_resource type="Script" uid="uid://dnio887h8hayq" path="res://items/item_manager.gd" id="4_ok6jj"]
@@ -19,7 +18,6 @@
 [ext_resource type="AudioStream" uid="uid://qej4wqysbkjv" path="res://ui/sounds/puzzle-fail.mp3" id="10_birbe"]
 [ext_resource type="Texture2D" uid="uid://d0c85m5ir1xid" path="res://status/sprites/Poison.png" id="10_h8e4i"]
 [ext_resource type="Texture2D" uid="uid://c2oogb7t83dwj" path="res://status/sprites/Sleep.png" id="11_4lmeg"]
-[ext_resource type="Script" uid="uid://dyyce4q820k4e" path="res://items/lucky_item_generator.gd" id="11_5dllo"]
 [ext_resource type="Texture2D" uid="uid://crd5crekea0up" path="res://items/sprites/Rusty Sword.png" id="11_d2t1y"]
 [ext_resource type="Texture2D" uid="uid://be2ie6v3xn4px" path="res://items/sprites/White Gem.png" id="12_gngh3"]
 [ext_resource type="Texture2D" uid="uid://dytfgsmkejnxt" path="res://items/sprites/Potion.png" id="13_0n3wm"]
@@ -186,9 +184,6 @@ script = ExtResource("1_yaehf")
 [node name="ScenarioManager" type="Node" parent="."]
 script = ExtResource("7_kq58d")
 
-[node name="EventGenerator" type="Node" parent="ScenarioManager"]
-script = ExtResource("3_f1p13")
-
 [node name="SoundManager" type="Node" parent="."]
 
 [node name="ButtonPressedSound" type="AudioStreamPlayer2D" parent="SoundManager"]
@@ -222,9 +217,6 @@ script = ExtResource("4_0cp0l")
 
 [node name="ItemManager" type="Node" parent="."]
 script = ExtResource("4_ok6jj")
-
-[node name="LuckyItemGenerator" type="Node" parent="ItemManager"]
-script = ExtResource("11_5dllo")
 
 [node name="Background" type="Control" parent="."]
 layout_mode = 3

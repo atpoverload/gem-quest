@@ -316,6 +316,7 @@ func critical_hit(damage):
 	var crit_chance_ = floor(crit_chance)
 	log_state('critical_hit', 'crit chance %d < %d' % [chance, crit_chance_])
 	if chance < crit_chance_:
+		luck += 1
 		var base_damage = damage
 		damage *= 2
 		log_state('critical_hit', 'damage boosted %d * 2 = %d' % [base_damage, damage])
@@ -327,7 +328,7 @@ func critical_hit(damage):
 
 func get_weapon_damage(element, damage):
 	# damage modifiers
-	var base_damage = ceil(attack_power * damage)
+	var base_damage = ceil(sqrt(attack_power) * damage)
 	
 	var lower_bound = int(min(max(5 * base_damage, 50), 85))
 	var upper_bound = 100 - lower_bound
@@ -420,6 +421,7 @@ func use_weapon(weapon) -> void:
 	await act()
 
 	if accuracy_check(weapon.get('accuracy', 100)):
+		luck += 1
 		await get_tree().create_timer(0.4).timeout
 		var element = weapon.get('element', 'normal')
 		var damage = get_weapon_damage(element, weapon['power'])
@@ -433,11 +435,13 @@ func use_weapon(weapon) -> void:
 			var chance = randi() % 100
 			log_state('use_weapon', 'chance to trigger %d < %d = %s' % [chance, on_attack[effect], chance < on_attack[effect]])
 			if chance < on_attack[effect]:
+				luck += 1
 				match effect:
 					'repeat':
 						log_message.emit('%s attacks again' % character_name)
 						await act()
 						if accuracy_check(weapon.get('accuracy', 100)):
+							luck += 1
 							await get_tree().create_timer(0.4).timeout
 							damage = int(ceil(get_weapon_damage(element, weapon['power']) / 2.0))
 							log_state('weapon_attack', 'attacking with %s for %d %s damage' % [weapon['name'], damage, element])
@@ -472,6 +476,7 @@ func use_gem(gem) -> void:
 	await get_tree().create_timer($SoundEffects/UseGem.stream.get_length() / 2).timeout
 
 	if accuracy_check(gem.get('accuracy', 100)):
+		luck += 1
 		$SoundEffects/Action.stream = gem['sound']
 		$SoundEffects/Action.playing = true
 		var element = gem.get('element', 'normal')
@@ -497,6 +502,7 @@ func use_gem(gem) -> void:
 			await get_tree().create_timer($SoundEffects/Action.stream.get_length() / 4).timeout
 		else:
 			log_message.emit('It did nothing?')
+			luck += 1
 			affinities['morale'] += 1
 			affinities['might'] += 1
 			affinities['magic'] += 1
@@ -519,6 +525,7 @@ func use_gem(gem) -> void:
 		affinities['magic'] += 1
 		gem_break_chance = 5
 	else:
+		luck += 1
 		gem_break_chance += 1
 
 	pass_turn.emit()
@@ -547,6 +554,10 @@ func use_drink(drink) -> void:
 		else:
 			log_state('use_consumable', 'removing status effect %s' % drink['status'])
 			set_status(drink['status'], 0)
+	if 'buff' in drink:
+		if drink['buff'] not in buffs:
+			buffs[drink['buff']] = 0
+		set_buff(drink['buff'], buffs[drink['buff']] + drink['power'])
 
 	if freebies['drink'] > 0:
 		log_state('use_drink', 'base chance to freebie %d' % freebies['drink'])
@@ -554,6 +565,7 @@ func use_drink(drink) -> void:
 		var freebie_ = int(floor(freebies['drink']))
 		log_state('use_drink', 'chance to freebie %d < %d = %s' % [chance, freebie_, chance < freebie_])
 		if chance < freebie_:
+			luck += 1
 			await get_tree().create_timer(0.75).timeout
 			freebie.emit(drink)
 			log_message.emit('Light got a freebie!')
@@ -564,6 +576,7 @@ func use_drink(drink) -> void:
 	pass_turn.emit()
 
 func use_food(food) -> void:
+	luck += 1
 	# disable()
 	log_state('use_food', 'using %s' % food['name'])
 	$SoundEffects/Action.stream = food['sound']
@@ -586,6 +599,10 @@ func use_food(food) -> void:
 		else:
 			log_state('use_consumable', 'removing status effect %s' % food['status'])
 			set_status(food['status'], 0)
+	if 'buff' in food:
+		if food['buff'] not in buffs:
+			buffs[food['buff']] = 0
+		set_buff(food['buff'], buffs[food['buff']] + food['power'])
 
 	await act() 
 
@@ -595,6 +612,7 @@ func use_food(food) -> void:
 		var freebie_ = int(floor(freebies['food']))
 		log_state('use_food', 'chance to freebie %d < %d = %s' % [chance, freebie_, chance < freebie_])
 		if chance < freebie_:
+			luck += 1
 			await get_tree().create_timer(0.75).timeout
 			freebie.emit(food)
 			log_message.emit('Light got a freebie!')

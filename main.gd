@@ -276,3 +276,5 @@ func victory():
 	log_message.emit('%s found the Gold Gem!' % $Player.character_name)
 	$Victory.show()
 	$SoundManager/Victory.playing = true
+	await get_tree().create_timer(1.25).timeout
+	log_message.emit('Your luck was %d!' % $Player.luck)
