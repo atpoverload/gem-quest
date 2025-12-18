@@ -53,7 +53,7 @@
 			"Potion",
 			"Antidote"
 		],
-		"sodie_pop": [
+		"sodie pop": [
 			"Sodie Pop"
 		],
 		"advanced_drink": [
@@ -68,7 +68,7 @@
 			"Lmoanade",
 			"Ninty Potion"
 		],
-		"cold_one": [
+		"cold one": [
 			"Cold One 1",
 			"Cold One 2",
 			"Cold One 3",
@@ -142,11 +142,6 @@
 			"type": "treasure",
 			"reward": "emote",
 			"count": 2
-		},
-		{
-			"type": "treasure",
-			"reward": "cold_one",
-			"count": 4
 		},
 		{
 			"type": "treasure",
@@ -507,7 +502,7 @@
 			"challenge": 9999,
 			"event": {
 				"type": "treasure",
-				"reward": "cold_one",
+				"reward": "cold one",
 				"count": 1
 			}
 		},
@@ -600,7 +595,7 @@
 		},
 		{
 			"type": "treasure",
-			"reward": "cold_one",
+			"reward": "cold one",
 			"count": 4
 		},
 		{
@@ -762,7 +757,7 @@
 		},
 		{
 			"type": "treasure",
-			"reward": "cold_one",
+			"reward": "cold one",
 			"count": 4
 		},
 		{
