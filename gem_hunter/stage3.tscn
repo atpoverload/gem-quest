@@ -1,0 +1,270 @@
+[gd_scene format=3 uid="uid://b8p7uycovukoe"]
+
+[ext_resource type="Texture2D" path="res://ui/backgrounds/dungeon/floor.png" id="1_etun6"]
+[ext_resource type="Script" uid="uid://b1nvkq7k6ani" path="res://gem_hunter/gemhunter.gd" id="1_p2h1m"]
+[ext_resource type="Texture2D" path="res://items/sprites/Gold Gem.png" id="2_sikqy"]
+[ext_resource type="PackedScene" uid="uid://d3hk1uk0ip324" path="res://gem_hunter/ledge.tscn" id="4_h5m2e"]
+[ext_resource type="PackedScene" uid="uid://23e2sf34fou3" path="res://gem_hunter/spike.tscn" id="5_jmkyt"]
+[ext_resource type="PackedScene" uid="uid://wxceij8lpds3" path="res://gem_hunter/monster.tscn" id="7_2y5ka"]
+[ext_resource type="PackedScene" uid="uid://d2wtf6kqrqxs7" path="res://gem_hunter/player.tscn" id="8_1semi"]
+[ext_resource type="PackedScene" uid="uid://buyu48uhsn3wj" path="res://gem_hunter/block.tscn" id="8_avotn"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jmkyt"]
+blend_mode = 3
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8emtg"]
+friction = 0.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2y5ka"]
+distance = 5.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_etun6"]
+normal = Vector2(1, 0)
+distance = 15.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_y8nbw"]
+normal = Vector2(-1, 0)
+distance = 15.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sikqy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fvof6"]
+radius = 12.0
+
+[node name="Stage3" type="Node2D" unique_id=1228466904]
+script = ExtResource("1_p2h1m")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2032497724]
+texture_repeat = 2
+material = SubResource("CanvasItemMaterial_jmkyt")
+position = Vector2(350, 250)
+texture = ExtResource("1_etun6")
+region_enabled = true
+region_rect = Rect2(0, 0, 700, 525)
+
+[node name="Hazards" type="Node2D" parent="." unique_id=1578874771]
+
+[node name="Spike2" parent="Hazards" unique_id=956076999 instance=ExtResource("5_jmkyt")]
+position = Vector2(356, 129)
+
+[node name="Spike3" parent="Hazards" unique_id=899675422 instance=ExtResource("5_jmkyt")]
+position = Vector2(313, 510)
+
+[node name="BottomFloor" type="StaticBody2D" parent="." unique_id=356964813]
+position = Vector2(0, 525)
+physics_material_override = SubResource("PhysicsMaterial_8emtg")
+
+[node name="Sprite2D" type="Sprite2D" parent="BottomFloor" unique_id=2037393640]
+texture_repeat = 2
+position = Vector2(350, 0)
+texture = ExtResource("1_etun6")
+region_enabled = true
+region_rect = Rect2(0, 0, 700, 25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomFloor" unique_id=528733008]
+shape = SubResource("WorldBoundaryShape2D_2y5ka")
+
+[node name="Ledges" type="Node2D" parent="." unique_id=976707333]
+
+[node name="Ledge1" parent="Ledges" unique_id=1001054865 instance=ExtResource("4_h5m2e")]
+position = Vector2(338, 324)
+width = 50
+height = 25
+
+[node name="Ledge2" parent="Ledges" unique_id=48400244 instance=ExtResource("4_h5m2e")]
+position = Vector2(505, 420)
+width = 50
+height = 25
+
+[node name="Ledge3" parent="Ledges" unique_id=649339316 instance=ExtResource("4_h5m2e")]
+position = Vector2(384, 420)
+width = 50
+height = 25
+
+[node name="Ledge4" parent="Ledges" unique_id=1488737307 instance=ExtResource("4_h5m2e")]
+position = Vector2(250, 420)
+width = 50
+height = 25
+
+[node name="Ledge5" parent="Ledges" unique_id=501879262 instance=ExtResource("4_h5m2e")]
+position = Vector2(68, 420)
+width = 100
+height = 25
+
+[node name="Ledge6" parent="Ledges" unique_id=1629832202 instance=ExtResource("4_h5m2e")]
+position = Vector2(55, 388)
+width = 64
+height = 35
+
+[node name="Ledge7" parent="Ledges" unique_id=1681095954 instance=ExtResource("4_h5m2e")]
+position = Vector2(149, 345)
+width = 50
+height = 25
+
+[node name="Ledge8" parent="Ledges" unique_id=2101435031 instance=ExtResource("4_h5m2e")]
+position = Vector2(41, 300)
+width = 50
+height = 25
+
+[node name="Ledge9" parent="Ledges" unique_id=1129309334 instance=ExtResource("4_h5m2e")]
+position = Vector2(149, 265)
+width = 50
+height = 25
+
+[node name="Ledge10" parent="Ledges" unique_id=1840422613 instance=ExtResource("4_h5m2e")]
+position = Vector2(637, 265)
+width = 75
+height = 25
+
+[node name="Ledge11" parent="Ledges" unique_id=586793451 instance=ExtResource("4_h5m2e")]
+position = Vector2(456, 283)
+width = 50
+height = 25
+
+[node name="Ledge12" parent="Ledges" unique_id=1336118127 instance=ExtResource("4_h5m2e")]
+position = Vector2(225, 141)
+width = 450
+height = 25
+
+[node name="Ledge14" parent="Ledges" unique_id=281774978 instance=ExtResource("4_h5m2e")]
+position = Vector2(558, 199)
+width = 50
+height = 25
+
+[node name="Ledge15" parent="Ledges" unique_id=2071772546 instance=ExtResource("4_h5m2e")]
+position = Vector2(666, 164)
+width = 50
+height = 25
+
+[node name="Ledge16" parent="Ledges" unique_id=1235014290 instance=ExtResource("4_h5m2e")]
+position = Vector2(558, 117)
+width = 50
+height = 25
+
+[node name="Ledge13" parent="Ledges" unique_id=1444146312 instance=ExtResource("4_h5m2e")]
+position = Vector2(87, 108)
+width = 125
+height = 30
+
+[node name="Ledge17" parent="Ledges" unique_id=1083350843 instance=ExtResource("4_h5m2e")]
+position = Vector2(438, 115)
+width = 25
+height = 25
+
+[node name="Ledge18" parent="Ledges" unique_id=407246581 instance=ExtResource("4_h5m2e")]
+position = Vector2(631, 490)
+width = 50
+height = 40
+
+[node name="Ledge19" parent="Ledges" unique_id=913925563 instance=ExtResource("4_h5m2e")]
+position = Vector2(664, 459)
+width = 50
+height = 40
+
+[node name="Ledge21" parent="Ledges" unique_id=1039369397 instance=ExtResource("4_h5m2e")]
+position = Vector2(87, 121)
+width = 125
+height = 30
+
+[node name="LeftWall" type="StaticBody2D" parent="." unique_id=1077443025]
+physics_material_override = SubResource("PhysicsMaterial_8emtg")
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftWall" unique_id=552939185]
+texture_repeat = 2
+position = Vector2(12, 262)
+texture = ExtResource("1_etun6")
+region_enabled = true
+region_rect = Rect2(0, 0, 25, 525)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=1679470660]
+shape = SubResource("WorldBoundaryShape2D_etun6")
+
+[node name="RightWall" type="StaticBody2D" parent="." unique_id=1759902567]
+position = Vector2(700, 0)
+physics_material_override = SubResource("PhysicsMaterial_8emtg")
+
+[node name="Sprite2D" type="Sprite2D" parent="RightWall" unique_id=1377813041]
+texture_repeat = 2
+position = Vector2(-12, 262)
+texture = ExtResource("1_etun6")
+region_enabled = true
+region_rect = Rect2(0, 0, 25, 525)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" unique_id=729667499]
+shape = SubResource("WorldBoundaryShape2D_y8nbw")
+
+[node name="Monsters" type="Node2D" parent="." unique_id=28170472]
+
+[node name="Monster" parent="Monsters" unique_id=12513880 instance=ExtResource("7_2y5ka")]
+position = Vector2(549, 488)
+gravity = 650
+jump_strength = 450
+walk_speed = -50
+hop_wait = 1.5
+
+[node name="Monster2" parent="Monsters" unique_id=338582220 instance=ExtResource("7_2y5ka")]
+position = Vector2(340, 294)
+gravity = 1000
+jump_strength = 500
+hop_wait = 1.0
+
+[node name="Monster3" parent="Monsters" unique_id=129243818 instance=ExtResource("7_2y5ka")]
+position = Vector2(458, 253)
+gravity = 350
+
+[node name="Monster4" parent="Monsters" unique_id=1263086189 instance=ExtResource("7_2y5ka")]
+position = Vector2(415, 112)
+gravity = 1000
+walk_speed = -100
+hop_wait = 0.25
+
+[node name="Blocks" type="Node2D" parent="." unique_id=400144630]
+position = Vector2(-1, 0)
+
+[node name="Block3" parent="Blocks" unique_id=57319925 instance=ExtResource("8_avotn")]
+position = Vector2(664, 490)
+width = 48
+height = 48
+
+[node name="Block5" parent="Blocks" unique_id=1473784272 instance=ExtResource("8_avotn")]
+position = Vector2(664, 244)
+width = 48
+height = 32
+
+[node name="Block6" parent="Blocks" unique_id=416401620 instance=ExtResource("8_avotn")]
+position = Vector2(49, 508)
+width = 50
+height = 20
+
+[node name="Block4" parent="Blocks" unique_id=308389978 instance=ExtResource("8_avotn")]
+position = Vector2(39, 402)
+width = 32
+height = 32
+
+[node name="Block7" parent="Blocks" unique_id=1726924171 instance=ExtResource("8_avotn")]
+position = Vector2(68, 125)
+width = 96
+height = 32
+
+[node name="Block8" parent="Blocks" unique_id=1472813777 instance=ExtResource("8_avotn")]
+position = Vector2(438, 123)
+width = 12
+height = 32
+
+[node name="Treasure" type="StaticBody2D" parent="." unique_id=2014165655]
+position = Vector2(54, 72)
+physics_material_override = SubResource("PhysicsMaterial_sikqy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Treasure" unique_id=952392923]
+position = Vector2(0, -0.5)
+shape = SubResource("CircleShape2D_fvof6")
+
+[node name="Reward" type="Sprite2D" parent="Treasure" unique_id=1429778291]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_sikqy")
+
+[node name="Player" parent="." unique_id=301346617 instance=ExtResource("8_1semi")]
+position = Vector2(46, 463)
+
+[connection signal="die" from="Player" to="." method="_die"]
+[connection signal="win" from="Player" to="." method="_win"]

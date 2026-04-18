@@ -1,0 +1,695 @@
+[gd_scene format=3 uid="uid://pwwnrhptvww4"]
+
+[ext_resource type="Script" uid="uid://bfhno8hrobsfy" path="res://gem_quest.gd" id="1_g3m4e"]
+[ext_resource type="Script" uid="uid://cdqpeg221bgen" path="res://gemanizer/resource_manager.gd" id="2_4kk0d"]
+[ext_resource type="Script" uid="uid://c1j7n7y0gmd18" path="res://gemanizer/item_manager.gd" id="3_5msn2"]
+[ext_resource type="Script" uid="uid://ipgktcym4fbg" path="res://gemanizer/snack_generator.gd" id="4_56yqq"]
+[ext_resource type="Script" uid="uid://bp3brhkfm0c32" path="res://gemanizer/lucky_item_manager.gd" id="4_oachj"]
+[ext_resource type="Script" uid="uid://dionul5dqf3tr" path="res://gemanizer/enemy_manager.gd" id="4_r0wgc"]
+[ext_resource type="Script" uid="uid://bpg3vu6ox1wln" path="res://gemanizer/random_pokemon_generator.gd" id="5_3bwph"]
+[ext_resource type="Script" uid="uid://di1htr3pppdwn" path="res://gemanizer/emote_manager.gd" id="5_4kk0d"]
+[ext_resource type="Script" uid="uid://d4ljidws321e" path="res://gemanizer/event_generator.gd" id="5_ds2gf"]
+[ext_resource type="Script" uid="uid://dsxolgu33s3f6" path="res://gemanizer/pokemon_resource_fetcher.gd" id="6_b2axd"]
+[ext_resource type="Script" uid="uid://dtlpeeijh7ke8" path="res://gemanizer/item_generator.gd" id="6_epa1x"]
+[ext_resource type="Script" uid="uid://xdb6j8ei62sj" path="res://gemanizer/event_manager.gd" id="6_kdcmn"]
+[ext_resource type="Script" uid="uid://c0fskkmqbr3w" path="res://gemanizer/item_evolver.gd" id="7_n0yab"]
+[ext_resource type="Script" uid="uid://cdvx2jpqjjjnl" path="res://gemanizer/enemy_generator.gd" id="7_rv4n2"]
+[ext_resource type="Script" uid="uid://dklvs2040lnji" path="res://gemanizer/gemon_generator.gd" id="9_3bs5p"]
+[ext_resource type="AudioStream" uid="uid://c1w25mnu4x5wt" path="res://resources/events/sounds/shrine.wav" id="10_8ow54"]
+[ext_resource type="Script" uid="uid://bxud1uh0p5lfo" path="res://event_manager.gd" id="13_dgfme"]
+[ext_resource type="PackedScene" uid="uid://bnc1wl50q76fu" path="res://gemanizer/enemy.tscn" id="15_82cj4"]
+[ext_resource type="AudioStream" uid="uid://jbyk17uf0m8y" path="res://resources/events/sounds/battle.mp3" id="15_ocy85"]
+[ext_resource type="PackedScene" uid="uid://bdwagxk0ksncv" path="res://gemanizer/reward.tscn" id="16_n7so8"]
+[ext_resource type="PackedScene" uid="uid://dmwjegn0we5g5" path="res://gemanizer/player.tscn" id="17_mr2y0"]
+[ext_resource type="Script" uid="uid://dda1jsv28hfci" path="res://gemanizer/background.gd" id="17_rmdmg"]
+[ext_resource type="AudioStream" uid="uid://bf6y1bwj7j3pq" path="res://resources/ui/sounds/save.mp3" id="18_iih7d"]
+[ext_resource type="PackedScene" uid="uid://b2dqjlh1atcwa" path="res://gemanizer/inventory.tscn" id="18_oachj"]
+[ext_resource type="Script" uid="uid://cqrifr7jskqj1" path="res://core/battle_sprite.gd" id="18_r0wgc"]
+[ext_resource type="PackedScene" uid="uid://bgrqrf5278g10" path="res://gemanizer/description.tscn" id="19_auynk"]
+[ext_resource type="Script" uid="uid://d25luokb73tio" path="res://gemanizer/scroll_log.gd" id="20_56yqq"]
+[ext_resource type="AudioStream" uid="uid://bu50n31fb8rql" path="res://resources/events/sounds/spike.wav" id="22_ped2r"]
+[ext_resource type="Texture2D" uid="uid://86a2ef0kk7dr" path="res://resources/ui/sprites/Travel.png" id="23_jwqgr"]
+[ext_resource type="Texture2D" uid="uid://cmlwcmdh386y8" path="res://resources/ui/background/forest.png" id="24_gdbxq"]
+[ext_resource type="Texture2D" uid="uid://bkdmx2owuwrhy" path="res://resources/ui/background/start-screen.png" id="24_gwfmw"]
+[ext_resource type="Texture2D" uid="uid://cq12u8c3hrklg" path="res://resources/ui/background/cave.png" id="25_ad4t7"]
+[ext_resource type="AudioStream" uid="uid://b247dkp7cb4sc" path="res://resources/events/sounds/cursed.mp3" id="26_n7so8"]
+[ext_resource type="AudioStream" uid="uid://bnr2whvaxot16" path="res://resources/ui/sounds/next.wav" id="26_rv4n2"]
+[ext_resource type="Texture2D" uid="uid://dxononeuwb8y1" path="res://resources/ui/background/dungeon.png" id="26_xw5m1"]
+[ext_resource type="Texture2D" uid="uid://kk2xwcgktg6v" path="res://resources/ui/background/temple.png" id="27_b1s1g"]
+[ext_resource type="Texture2D" uid="uid://lxsfqjjunc63" path="res://resources/ui/background/space.png" id="28_mfvnk"]
+[ext_resource type="AudioStream" uid="uid://8ffw31ymvlm8" path="res://resources/ui/music/QUAG.mp3" id="28_ocy85"]
+[ext_resource type="AudioStream" uid="uid://bl5mb77c3woe6" path="res://resources/ui/music/Fairy Fountain Lofi.ogg" id="31_3gp3k"]
+[ext_resource type="AudioStream" uid="uid://b516p21062uxj" path="res://resources/ui/music/Dark Cave.mp3" id="31_dgfme"]
+[ext_resource type="AudioStream" uid="uid://coom88ydhqsu0" path="res://resources/ui/music/Viridian Forest Lofi.mp3" id="31_jxqgm"]
+[ext_resource type="AudioStream" uid="uid://cbejw13mjijrh" path="res://resources/ui/music/SMT Shopping Arcade.mp3" id="31_n0yab"]
+[ext_resource type="AudioStream" uid="uid://8ufk571roq5w" path="res://resources/ui/music/Imakuni's Theme.mp3" id="32_dgfme"]
+[ext_resource type="AudioStream" uid="uid://njki73qwfqsh" path="res://resources/ui/music/In the Cellar.mp3" id="32_ewepf"]
+[ext_resource type="AudioStream" uid="uid://cmkaiwt3kuvhu" path="res://resources/ui/music/Nikujennu - Megadora City.mp3" id="32_ocy85"]
+[ext_resource type="Texture2D" uid="uid://dyx5ub6dfaby1" path="res://resources/events/sprites/Spike Trap.png" id="33_3gp3k"]
+[ext_resource type="AudioStream" uid="uid://tpvsej0ci4f1" path="res://resources/ui/music/War Of The Gems.mp3" id="34_jxqgm"]
+[ext_resource type="Texture2D" uid="uid://ca257i7163qcp" path="res://resources/events/sprites/Curse Trap.png" id="35_3gp3k"]
+[ext_resource type="Texture2D" uid="uid://cvosda6dsoswp" path="res://resources/events/sprites/Altar.png" id="38_3gp3k"]
+[ext_resource type="Script" uid="uid://bmf1rsdem1bfs" path="res://gemanizer/lucky_items.gd" id="39_auynk"]
+[ext_resource type="AudioStream" uid="uid://dmq5nrrmtjabw" path="res://resources/player/sounds/gem-break.wav" id="41_jxqgm"]
+[ext_resource type="Texture2D" uid="uid://dt4m2lxptyb06" path="res://resources/events/sprites/Rest.png" id="44_iih7d"]
+[ext_resource type="AudioStream" uid="uid://caf3wj52hqr5i" path="res://resources/events/sounds/rest.mp3" id="45_n1fin"]
+[ext_resource type="PackedScene" uid="uid://bfje62ca1hy3s" path="res://gem_hunter/arcade.tscn" id="49_n1fin"]
+[ext_resource type="AudioStream" uid="uid://cgcl343ddcvtj" path="res://resources/ui/sounds/button.mp3" id="53_ewepf"]
+[ext_resource type="Texture2D" uid="uid://cm02md0e0hqi5" path="res://resources/ui/sprites/Next.png" id="55_iih7d"]
+[ext_resource type="AudioStream" uid="uid://cvvuxn5qdxmn4" path="res://resources/ui/sounds/next.mp3" id="55_n1fin"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ikg3y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kb7ri"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8xsq0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1r5mh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ocy85"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dgfme"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ewepf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jxqgm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iih7d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n1fin"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_82cj4"]
+bg_color = Color(1, 1, 1, 0.6862745)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 0.5882353)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n7so8"]
+bg_color = Color(0, 0, 0, 0.78431374)
+border_color = Color(0, 0, 0, 0.78431374)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_blkrb"]
+bg_color = Color(1, 1, 1, 0.6862745)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 0.5882353)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abqjc"]
+bg_color = Color(0, 0, 0, 0.78431374)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 0.78431374)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4k2k6"]
+
+[node name="GemQuest" type="Node2D" unique_id=705130625]
+script = ExtResource("1_g3m4e")
+
+[node name="ResourceManager" type="Node" parent="." unique_id=567440584]
+script = ExtResource("2_4kk0d")
+
+[node name="ItemManager" type="Node" parent="ResourceManager" unique_id=1613530617]
+script = ExtResource("3_5msn2")
+
+[node name="LuckyItemManager" type="Node" parent="ResourceManager/ItemManager" unique_id=1011718355]
+script = ExtResource("4_oachj")
+
+[node name="SnackGenerator" type="Node" parent="ResourceManager/ItemManager" unique_id=891193718]
+script = ExtResource("4_56yqq")
+
+[node name="ItemGenerator" type="Node" parent="ResourceManager/ItemManager" unique_id=734083277]
+script = ExtResource("6_epa1x")
+
+[node name="ItemEvolver" type="Node" parent="ResourceManager/ItemManager" unique_id=50866281]
+script = ExtResource("7_n0yab")
+
+[node name="EnemyManager" type="Node" parent="ResourceManager" unique_id=259636859]
+script = ExtResource("4_r0wgc")
+
+[node name="RandomMonsterGenerator" type="Node" parent="ResourceManager/EnemyManager" unique_id=734645668]
+script = ExtResource("5_3bwph")
+
+[node name="PokemonResourceFetcher" type="Node" parent="ResourceManager/EnemyManager/RandomMonsterGenerator" unique_id=933044700]
+script = ExtResource("6_b2axd")
+
+[node name="GEMonGenerator" type="Node" parent="ResourceManager/EnemyManager" unique_id=1697484235]
+script = ExtResource("9_3bs5p")
+
+[node name="EnemyGenerator" type="Node" parent="ResourceManager/EnemyManager" unique_id=365564684]
+script = ExtResource("7_rv4n2")
+
+[node name="EmoteManager" type="Node" parent="ResourceManager" unique_id=549955754]
+script = ExtResource("5_4kk0d")
+
+[node name="EventManager" type="Node" parent="ResourceManager" unique_id=1122837628]
+script = ExtResource("6_kdcmn")
+
+[node name="EventGenerator" type="Node" parent="ResourceManager/EventManager" unique_id=850386341]
+script = ExtResource("5_ds2gf")
+
+[node name="EventManager" type="Control" parent="." unique_id=177422910]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("13_dgfme")
+
+[node name="SoundManager" type="Node" parent="." unique_id=979121954]
+
+[node name="Battle" type="AudioStreamPlayer2D" parent="SoundManager" unique_id=304849676]
+stream = ExtResource("15_ocy85")
+
+[node name="Shrine" type="AudioStreamPlayer2D" parent="SoundManager" unique_id=873943438]
+stream = ExtResource("10_8ow54")
+
+[node name="Trap" type="AudioStreamPlayer2D" parent="SoundManager" unique_id=977132543]
+stream = ExtResource("15_ocy85")
+
+[node name="Save" type="AudioStreamPlayer2D" parent="SoundManager" unique_id=276914706]
+stream = ExtResource("18_iih7d")
+
+[node name="Background" type="Control" parent="." unique_id=536149447]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("17_rmdmg")
+
+[node name="Background" type="Control" parent="Background" unique_id=992811752]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Start Screen" type="Sprite2D" parent="Background/Background" unique_id=1030782948]
+position = Vector2(600, 450)
+texture = ExtResource("24_gwfmw")
+
+[node name="Forest" type="Sprite2D" parent="Background/Background" unique_id=909811701]
+visible = false
+position = Vector2(600, 450)
+texture = ExtResource("24_gdbxq")
+
+[node name="Cave" type="Sprite2D" parent="Background/Background" unique_id=638079782]
+visible = false
+position = Vector2(600, 450)
+texture = ExtResource("25_ad4t7")
+
+[node name="Dungeon" type="Sprite2D" parent="Background/Background" unique_id=454662356]
+visible = false
+position = Vector2(600, 450)
+texture = ExtResource("26_xw5m1")
+
+[node name="Temple" type="Sprite2D" parent="Background/Background" unique_id=2134687967]
+visible = false
+position = Vector2(600, 450)
+texture = ExtResource("27_b1s1g")
+
+[node name="Space" type="Sprite2D" parent="Background/Background" unique_id=1467352852]
+visible = false
+position = Vector2(600, 450)
+texture = ExtResource("28_mfvnk")
+
+[node name="Music" type="Control" parent="Background" unique_id=319190751]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Start Screen" type="AudioStreamPlayer2D" parent="Background/Music" unique_id=737604918]
+stream = ExtResource("31_3gp3k")
+volume_db = -15.0
+parameters/looping = true
+
+[node name="Lofi Zelda" type="AudioStreamPlayer2D" parent="Background/Music" unique_id=1716697771]
+stream = ExtResource("31_3gp3k")
+volume_db = -15.0
+parameters/looping = true
+
+[node name="Viridian Forest" type="AudioStreamPlayer2D" parent="Background/Music" unique_id=1076276548]
+stream = ExtResource("31_jxqgm")
+volume_db = -10.0
+
+[node name="Dark Cave" type="AudioStreamPlayer2D" parent="Background/Music" unique_id=951310932]
+stream = ExtResource("31_dgfme")
+volume_db = -3.0
+parameters/looping = true
+
+[node name="In the Cellar" type="AudioStreamPlayer2D" parent="Background/Music" unique_id=1058638818]
+stream = ExtResource("32_ewepf")
+volume_db = 1.0
+parameters/looping = true
+
+[node name="War Of The Gems" type="AudioStreamPlayer2D" parent="Background/Music" unique_id=381427002]
+stream = ExtResource("34_jxqgm")
+volume_db = -4.0
+parameters/looping = true
+
+[node name="Arcade" type="AudioStreamPlayer2D" parent="Background/Music" unique_id=1308349721]
+stream = ExtResource("31_n0yab")
+parameters/looping = true
+
+[node name="Quaggening" type="AudioStreamPlayer2D" parent="Background/Music" unique_id=1785962728]
+stream = ExtResource("28_ocy85")
+volume_db = -10.0
+
+[node name="Imakuni" type="AudioStreamPlayer2D" parent="Background/Music" unique_id=1403523880]
+stream = ExtResource("32_dgfme")
+volume_db = -18.0
+parameters/looping = true
+
+[node name="Boss Battle" type="AudioStreamPlayer2D" parent="Background/Music" unique_id=620714182]
+stream = ExtResource("32_ocy85")
+volume_db = -5.0
+parameters/looping = true
+
+[node name="NPC" type="Button" parent="." unique_id=899355531]
+visible = false
+offset_left = 450.0
+offset_top = 149.0
+offset_right = 750.0
+offset_bottom = 533.0
+theme_override_colors/font_pressed_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ikg3y")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kb7ri")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8xsq0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1r5mh")
+flat = true
+
+[node name="NPC" type="Sprite2D" parent="NPC" unique_id=979631418]
+position = Vector2(141, 307)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("18_r0wgc")
+
+[node name="Enemy" parent="." unique_id=2095959434 instance=ExtResource("15_82cj4")]
+visible = false
+offset_left = 376.0
+offset_top = 155.0
+offset_right = 376.0
+offset_bottom = 155.0
+
+[node name="Trap" type="Control" parent="." unique_id=522976013]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 486.00006
+offset_top = 491.00006
+offset_right = 526.00006
+offset_bottom = 531.00006
+scale = Vector2(0.65, 0.65)
+
+[node name="Damage" type="Sprite2D" parent="Trap" unique_id=385960156]
+visible = false
+position = Vector2(113.84606, 32.3076)
+texture = ExtResource("33_3gp3k")
+script = ExtResource("18_r0wgc")
+
+[node name="Spike" type="AudioStreamPlayer2D" parent="Trap/Damage" unique_id=2083033955]
+stream = ExtResource("22_ped2r")
+
+[node name="Curse" type="Sprite2D" parent="Trap" unique_id=1534502711]
+visible = false
+position = Vector2(112.3076, 29.230679)
+texture = ExtResource("35_3gp3k")
+script = ExtResource("18_r0wgc")
+
+[node name="Cursed" type="AudioStreamPlayer2D" parent="Trap/Curse" unique_id=1305533423]
+stream = ExtResource("26_n7so8")
+
+[node name="Shrine" type="Control" parent="." unique_id=516917576]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 591.0
+offset_top = 600.0
+offset_right = 631.0
+offset_bottom = 640.0
+scale = Vector2(0.65, 0.65)
+
+[node name="Heal" type="Sprite2D" parent="Shrine" unique_id=1505841802]
+visible = false
+position = Vector2(389.2308, -107.69232)
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("23_jwqgr")
+script = ExtResource("18_r0wgc")
+
+[node name="Blessing" type="Sprite2D" parent="Shrine" unique_id=1664972189]
+visible = false
+position = Vector2(-359.99997, -109.23078)
+scale = Vector2(-0.3, 0.3)
+texture = ExtResource("23_jwqgr")
+script = ExtResource("18_r0wgc")
+
+[node name="Altar" type="Control" parent="." unique_id=200086117]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 514.0
+offset_top = 464.00006
+offset_right = 554.0
+offset_bottom = 504.00006
+scale = Vector2(0.65, 0.65)
+
+[node name="Altar" type="Sprite2D" parent="Altar" unique_id=999912916]
+position = Vector2(170.76924, -43.077023)
+texture = ExtResource("38_3gp3k")
+script = ExtResource("18_r0wgc")
+
+[node name="Description" type="Button" parent="Altar" unique_id=1919364004]
+layout_mode = 0
+offset_left = 81.53846
+offset_top = -238.46164
+offset_right = 286.15387
+offset_bottom = -35.384705
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ocy85")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dgfme")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ewepf")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_jxqgm")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_iih7d")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n1fin")
+text = "	"
+
+[node name="Skip" type="Button" parent="Altar" unique_id=2146750635]
+layout_mode = 0
+offset_left = 93.84612
+offset_top = 58.461452
+offset_right = 276.84613
+offset_bottom = 133.46146
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ocy85")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dgfme")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ewepf")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_jxqgm")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_iih7d")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n1fin")
+text = "Skip"
+
+[node name="BreakGem" type="AudioStreamPlayer2D" parent="Altar" unique_id=1392710893]
+stream = ExtResource("41_jxqgm")
+
+[node name="Rest" type="Control" parent="." unique_id=296717729]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 613.0
+offset_top = 321.0
+offset_right = 653.0
+offset_bottom = 361.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Rest" unique_id=314516820]
+position = Vector2(168, 95)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("44_iih7d")
+
+[node name="Bonfire" type="AudioStreamPlayer2D" parent="Rest/Sprite2D" unique_id=738390453]
+stream = ExtResource("45_n1fin")
+
+[node name="Choice" type="HBoxContainer" parent="." unique_id=1506065703]
+visible = false
+offset_left = 571.0
+offset_top = 435.0
+offset_right = 611.0
+offset_bottom = 475.0
+
+[node name="Reward" parent="." unique_id=1356578307 instance=ExtResource("16_n7so8")]
+visible = false
+offset_left = 368.0
+offset_top = 461.0
+offset_right = 368.0
+offset_bottom = 461.0
+
+[node name="Player" parent="." unique_id=990444946 instance=ExtResource("17_mr2y0")]
+visible = false
+offset_left = 921.0
+offset_top = 151.0
+offset_right = 921.0
+offset_bottom = 151.0
+
+[node name="Inventory" parent="." unique_id=444710667 instance=ExtResource("18_oachj")]
+visible = false
+offset_left = 672.0
+offset_top = 346.0
+offset_right = 672.0
+offset_bottom = 346.0
+pivot_offset = Vector2(164, 371)
+
+[node name="Arcade" parent="." unique_id=1891670607 instance=ExtResource("49_n1fin")]
+visible = false
+
+[node name="LuckyItems" type="Control" parent="." unique_id=1368796508]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("39_auynk")
+
+[node name="GridContainer" type="GridContainer" parent="LuckyItems" unique_id=1046470134]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 710.0
+offset_right = 34.0
+offset_bottom = 710.0
+theme_override_constants/h_separation = -32
+theme_override_constants/v_separation = -32
+columns = 10
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="LuckyItems" unique_id=1020792786]
+stream = ExtResource("10_8ow54")
+
+[node name="Description" parent="." unique_id=1673580151 instance=ExtResource("19_auynk")]
+visible = false
+offset_left = 22.0
+offset_top = 185.0
+offset_right = 322.0
+offset_bottom = 685.0
+
+[node name="Dialogue" type="MarginContainer" parent="." unique_id=1263423471]
+visible = false
+offset_left = 28.0
+offset_top = 165.0
+offset_right = 385.0
+offset_bottom = 647.0
+
+[node name="Border" type="Panel" parent="Dialogue" unique_id=1560701383]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_82cj4")
+
+[node name="Dialogue" type="MarginContainer" parent="Dialogue" unique_id=1930087125]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Background" type="Panel" parent="Dialogue/Dialogue" unique_id=1215668586]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n7so8")
+
+[node name="Dialogue" type="MarginContainer" parent="Dialogue/Dialogue" unique_id=10961356]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Dialogue" type="VBoxContainer" parent="Dialogue/Dialogue/Dialogue" unique_id=2007454298]
+custom_minimum_size = Vector2(325, 450)
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Dialogue/Dialogue/Dialogue/Dialogue" unique_id=1568031338]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Text" type="Label" parent="Dialogue/Dialogue/Dialogue/Dialogue" unique_id=461787089]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+autowrap_mode = 2
+
+[node name="Logger" type="MarginContainer" parent="." unique_id=574335598]
+custom_minimum_size = Vector2(1200, 0)
+offset_right = 1200.0
+offset_bottom = 150.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="Border" type="Panel" parent="Logger" unique_id=1802192841]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_blkrb")
+
+[node name="Background" type="MarginContainer" parent="Logger" unique_id=634607877]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Background" type="Panel" parent="Logger/Background" unique_id=32449805]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_abqjc")
+
+[node name="Message" type="MarginContainer" parent="Logger/Background" unique_id=554460347]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel" type="Panel" parent="Logger/Background/Message" unique_id=1359949468]
+clip_contents = true
+custom_minimum_size = Vector2(1137, 90)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4k2k6")
+
+[node name="ScrollLogger" type="ScrollContainer" parent="Logger/Background/Message" unique_id=316965387]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("20_56yqq")
+
+[node name="Messages" type="VBoxContainer" parent="Logger/Background/Message/ScrollLogger" unique_id=499122742]
+custom_minimum_size = Vector2(1136, 0)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 2
+
+[node name="Next" type="TextureButton" parent="." unique_id=231673568]
+visible = false
+offset_left = 393.0
+offset_top = 208.0
+offset_right = 905.0
+offset_bottom = 720.0
+scale = Vector2(0.5, 0.5)
+disabled = true
+texture_normal = ExtResource("55_iih7d")
+
+[node name="Confirm" type="AudioStreamPlayer2D" parent="Next" unique_id=395302746]
+stream = ExtResource("26_rv4n2")
+volume_db = 2.0
+
+[node name="Start" type="Button" parent="." unique_id=302845989]
+visible = false
+offset_left = 337.0
+offset_top = 181.0
+offset_right = 684.0
+offset_bottom = 378.0
+theme_override_colors/font_pressed_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 150
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ikg3y")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kb7ri")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8xsq0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1r5mh")
+text = "Start"
+flat = true
+
+[node name="Confirm" type="AudioStreamPlayer2D" parent="Start" unique_id=285673404]
+stream = ExtResource("55_n1fin")
+
+[node name="Reset" type="Button" parent="." unique_id=154613874]
+visible = false
+offset_left = 15.0
+offset_top = 812.0
+offset_right = 198.0
+offset_bottom = 884.0
+theme_override_colors/font_pressed_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ikg3y")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kb7ri")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8xsq0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1r5mh")
+text = "Reset"
+flat = true
+
+[node name="Confirm" type="AudioStreamPlayer2D" parent="Reset" unique_id=1780629862]
+stream = ExtResource("53_ewepf")
+
+[connection signal="fetched_monster" from="ResourceManager/EnemyManager/RandomMonsterGenerator/PokemonResourceFetcher" to="ResourceManager/EnemyManager/RandomMonsterGenerator" method="add_monster"]
+[connection signal="apply_curse" from="Enemy" to="Player" method="cursed"]
+[connection signal="deal_damage" from="Enemy" to="Player" method="damaged"]
+[connection signal="die" from="Enemy" to="." method="win_battle"]
+[connection signal="end_turn" from="Enemy" to="Player" method="take_turn"]
+[connection signal="flee" from="Enemy" to="." method="end_battle"]
+[connection signal="hide_description" from="Enemy" to="Description" method="hide"]
+[connection signal="log_message" from="Enemy" to="Logger/Background/Message/ScrollLogger" method="add_message"]
+[connection signal="mouse_exited" from="Enemy" to="Description" method="hide"]
+[connection signal="show_description" from="Enemy" to="Description" method="show_description"]
+[connection signal="mouse_entered" from="Altar/Description" to="Description" method="show_description" binds= ["Altar", "Event", "Break a gem to empower your weapon.", "", ""]]
+[connection signal="mouse_exited" from="Altar/Description" to="Description" method="hide"]
+[connection signal="button_down" from="Altar/Skip" to="." method="skip_reward"]
+[connection signal="mouse_entered" from="Altar/Skip" to="Description" method="show_description" binds= ["Skip", "", "Skips this altar in exchange for a lucky item.", "", ""]]
+[connection signal="mouse_exited" from="Altar/Skip" to="Description" method="hide"]
+[connection signal="choose_reward" from="Reward" to="Reward" method="hide"]
+[connection signal="choose_reward" from="Reward" to="Player" method="add_emote"]
+[connection signal="choose_reward" from="Reward" to="Player" method="add_item"]
+[connection signal="choose_reward" from="Reward" to="Inventory" method="add_item"]
+[connection signal="hide_description" from="Reward" to="Description" method="hide"]
+[connection signal="show_description" from="Reward" to="Description" method="show_description"]
+[connection signal="skip_reward" from="Reward" to="." method="skip_reward"]
+[connection signal="apply_curse" from="Player" to="Enemy" method="cursed"]
+[connection signal="break_gem" from="Player" to="Inventory" method="remove_item"]
+[connection signal="deal_damage" from="Player" to="Enemy" method="damaged"]
+[connection signal="die" from="Player" to="." method="game_over"]
+[connection signal="do_act" from="Player" to="Inventory" method="act"]
+[connection signal="eat_food" from="Player" to="Inventory" method="_on_player_eat_food"]
+[connection signal="end_turn" from="Player" to="Enemy" method="take_turn"]
+[connection signal="freebie" from="Player" to="Inventory" method="add_freebie_item"]
+[connection signal="hide_description" from="Player" to="Description" method="hide"]
+[connection signal="log_message" from="Player" to="Logger/Background/Message/ScrollLogger" method="add_message"]
+[connection signal="next_event" from="Player" to="." method="next_event"]
+[connection signal="show_description" from="Player" to="Description" method="show_description"]
+[connection signal="start_turn" from="Player" to="Inventory" method="enable2"]
+[connection signal="drop_item" from="Inventory" to="." method="set_next_item"]
+[connection signal="hide_item" from="Inventory" to="Description" method="hide"]
+[connection signal="log_message" from="Inventory" to="Logger/Background/Message/ScrollLogger" method="add_message"]
+[connection signal="next_event" from="Inventory" to="." method="next_event"]
+[connection signal="show_item" from="Inventory" to="Description" method="show_description"]
+[connection signal="use_item" from="Inventory" to="." method="trash_item"]
+[connection signal="use_item" from="Inventory" to="Player" method="use_item"]
+[connection signal="use_item" from="Inventory" to="Inventory" method="disable"]
+[connection signal="win" from="Arcade" to="." method="solve_puzzle"]
+[connection signal="hide_description" from="LuckyItems" to="Description" method="hide"]
+[connection signal="show_description" from="LuckyItems" to="Description" method="show_description"]
+[connection signal="mouse_entered" from="Next" to="Description" method="show_description" binds= ["Next Room", "Action", "Move deeper into the game.", "", "Literacy is a bridge from misery to hope."]]
+[connection signal="mouse_exited" from="Next" to="Description" method="hide"]
+[connection signal="pressed" from="Next" to="." method="next_event"]
+[connection signal="pressed" from="Next" to="Next" method="hide"]
+[connection signal="pressed" from="Next" to="Next" method="release_focus"]
+[connection signal="pressed" from="Next" to="Next/Confirm" method="play"]
+[connection signal="pressed" from="Start" to="." method="new_game"]
+[connection signal="pressed" from="Start" to="Start" method="hide"]
+[connection signal="pressed" from="Start" to="Start" method="release_focus"]
+[connection signal="pressed" from="Start" to="Start/Confirm" method="play"]
+[connection signal="pressed" from="Start" to="Reset" method="hide"]
+[connection signal="mouse_entered" from="Reset" to="Description" method="show_description" binds= ["Reset", "Action", "Deletes existing saved data.", "", ""]]
+[connection signal="mouse_exited" from="Reset" to="Description" method="hide"]
+[connection signal="pressed" from="Reset" to="." method="delete_save"]
+[connection signal="pressed" from="Reset" to="Reset" method="hide"]
+[connection signal="pressed" from="Reset" to="Reset" method="release_focus"]
+[connection signal="pressed" from="Reset" to="Reset/Confirm" method="play"]

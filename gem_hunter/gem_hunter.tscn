@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://b8o244cvmkxb4"]
+
+[ext_resource type="Texture2D" uid="uid://qerrtw4y6pos" path="res://gem_hunter/resources/sprites/floor.png" id="1_etun6"]
+[ext_resource type="Script" uid="uid://c5m3p34t5vw0e" path="res://gem_hunter/gem_hunter.gd" id="1_jmkyt"]
+[ext_resource type="Texture2D" uid="uid://3cd4v1aack0j" path="res://gem_hunter/resources/sprites/Gold Gem.png" id="2_sikqy"]
+[ext_resource type="PackedScene" uid="uid://sukja0wwd6a" path="res://gem_hunter/wall.tscn" id="3_rj4gy"]
+[ext_resource type="PackedScene" uid="uid://d2wtf6kqrqxs7" path="res://gem_hunter/player.tscn" id="8_1semi"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jmkyt"]
+blend_mode = 3
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sikqy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fvof6"]
+radius = 19.0
+
+[node name="GemHunter" type="Node2D" unique_id=1228466904]
+script = ExtResource("1_jmkyt")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=2032497724]
+texture_repeat = 2
+material = SubResource("CanvasItemMaterial_jmkyt")
+position = Vector2(350, 250)
+texture = ExtResource("1_etun6")
+region_enabled = true
+region_rect = Rect2(0, 0, 700, 525)
+
+[node name="BottomFloor" parent="." unique_id=1367249074 instance=ExtResource("3_rj4gy")]
+position = Vector2(0, 525)
+
+[node name="Ledges" type="Node2D" parent="." unique_id=976707333]
+
+[node name="LeftWall" parent="." unique_id=562291883 instance=ExtResource("3_rj4gy")]
+rotation = 1.5707964
+scale = Vector2(0.768, 1)
+
+[node name="RightWall" parent="." unique_id=255370267 instance=ExtResource("3_rj4gy")]
+position = Vector2(700, 537.68)
+rotation = -1.5707964
+scale = Vector2(0.768, 1)
+
+[node name="Hazards" type="Node2D" parent="." unique_id=1831864686]
+
+[node name="Monsters" type="Node2D" parent="." unique_id=28170472]
+
+[node name="Player" parent="." unique_id=301346617 instance=ExtResource("8_1semi")]
+
+[node name="Treasure" type="StaticBody2D" parent="." unique_id=2014165655]
+physics_material_override = SubResource("PhysicsMaterial_sikqy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Treasure" unique_id=952392923]
+position = Vector2(0, -0.5)
+shape = SubResource("CircleShape2D_fvof6")
+
+[node name="Reward" type="Sprite2D" parent="Treasure" unique_id=1429778291]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_sikqy")
+
+[node name="Blocks" type="Node2D" parent="." unique_id=400144630]
+
+[connection signal="win" from="Player" to="." method="_win"]

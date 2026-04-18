@@ -1,0 +1,161 @@
+[gd_scene format=3 uid="uid://cm317sr1pqoag"]
+
+[ext_resource type="Texture2D" path="res://ui/backgrounds/dungeon/floor.png" id="1_etun6"]
+[ext_resource type="Script" uid="uid://b1nvkq7k6ani" path="res://gem_hunter/gemhunter.gd" id="1_p2h1m"]
+[ext_resource type="Texture2D" path="res://items/sprites/Gold Gem.png" id="2_sikqy"]
+[ext_resource type="PackedScene" uid="uid://d3hk1uk0ip324" path="res://gem_hunter/ledge.tscn" id="4_2vwwo"]
+[ext_resource type="PackedScene" uid="uid://23e2sf34fou3" path="res://gem_hunter/spike.tscn" id="5_rxh4f"]
+[ext_resource type="PackedScene" uid="uid://wxceij8lpds3" path="res://gem_hunter/monster.tscn" id="7_2y5ka"]
+[ext_resource type="PackedScene" uid="uid://d2wtf6kqrqxs7" path="res://gem_hunter/player.tscn" id="8_1semi"]
+[ext_resource type="PackedScene" uid="uid://buyu48uhsn3wj" path="res://gem_hunter/block.tscn" id="8_avotn"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jmkyt"]
+blend_mode = 3
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8emtg"]
+friction = 0.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2y5ka"]
+distance = 5.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_etun6"]
+normal = Vector2(1, 0)
+distance = 15.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_y8nbw"]
+normal = Vector2(-1, 0)
+distance = 15.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sikqy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fvof6"]
+radius = 12.0
+
+[node name="Stage2" type="Node2D" unique_id=1228466904]
+script = ExtResource("1_p2h1m")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2032497724]
+texture_repeat = 2
+material = SubResource("CanvasItemMaterial_jmkyt")
+position = Vector2(350, 250)
+texture = ExtResource("1_etun6")
+region_enabled = true
+region_rect = Rect2(0, 0, 700, 525)
+
+[node name="Hazards" type="Node2D" parent="." unique_id=75935593]
+
+[node name="Spike" parent="Hazards" unique_id=899675422 instance=ExtResource("5_rxh4f")]
+position = Vector2(232, 480)
+
+[node name="Spike2" parent="Hazards" unique_id=572746267 instance=ExtResource("5_rxh4f")]
+position = Vector2(491, 480)
+
+[node name="Spike3" parent="Hazards" unique_id=276606221 instance=ExtResource("5_rxh4f")]
+position = Vector2(354, 480)
+
+[node name="BottomFloor" type="StaticBody2D" parent="." unique_id=356964813]
+position = Vector2(1, 491)
+physics_material_override = SubResource("PhysicsMaterial_8emtg")
+
+[node name="Sprite2D" type="Sprite2D" parent="BottomFloor" unique_id=2037393640]
+texture_repeat = 2
+position = Vector2(350, 9)
+texture = ExtResource("1_etun6")
+region_enabled = true
+region_rect = Rect2(0, 0, 700, 25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomFloor" unique_id=528733008]
+shape = SubResource("WorldBoundaryShape2D_2y5ka")
+
+[node name="LeftWall" type="StaticBody2D" parent="." unique_id=1077443025]
+physics_material_override = SubResource("PhysicsMaterial_8emtg")
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftWall" unique_id=552939185]
+texture_repeat = 2
+position = Vector2(12, 262)
+texture = ExtResource("1_etun6")
+region_enabled = true
+region_rect = Rect2(0, 0, 25, 525)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=1679470660]
+shape = SubResource("WorldBoundaryShape2D_etun6")
+
+[node name="RightWall" type="StaticBody2D" parent="." unique_id=1759902567]
+position = Vector2(700, 0)
+physics_material_override = SubResource("PhysicsMaterial_8emtg")
+
+[node name="Sprite2D" type="Sprite2D" parent="RightWall" unique_id=1377813041]
+texture_repeat = 2
+position = Vector2(-12, 262)
+texture = ExtResource("1_etun6")
+region_enabled = true
+region_rect = Rect2(0, 0, 25, 525)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" unique_id=729667499]
+shape = SubResource("WorldBoundaryShape2D_y8nbw")
+
+[node name="Ledges" type="Node2D" parent="." unique_id=1279905221]
+
+[node name="Ledge5" parent="Ledges" unique_id=1001054865 instance=ExtResource("4_2vwwo")]
+position = Vector2(267, 321)
+width = 30
+height = 25
+
+[node name="Ledge6" parent="Ledges" unique_id=2034525542 instance=ExtResource("4_2vwwo")]
+position = Vector2(404, 280)
+width = 30
+height = 25
+
+[node name="Ledge7" parent="Ledges" unique_id=584047311 instance=ExtResource("4_2vwwo")]
+position = Vector2(198, 349)
+width = 30
+height = 25
+
+[node name="Monsters" type="Node2D" parent="." unique_id=28170472]
+
+[node name="Monster" parent="Monsters" unique_id=12513880 instance=ExtResource("7_2y5ka")]
+position = Vector2(499, 458)
+gravity = 650
+jump_strength = 450
+walk_speed = -50
+hop_wait = 1.5
+
+[node name="Treasure" type="StaticBody2D" parent="." unique_id=2014165655]
+position = Vector2(642, 213)
+physics_material_override = SubResource("PhysicsMaterial_sikqy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Treasure" unique_id=952392923]
+position = Vector2(0, -0.5)
+shape = SubResource("CircleShape2D_fvof6")
+
+[node name="Reward" type="Sprite2D" parent="Treasure" unique_id=1429778291]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_sikqy")
+
+[node name="Blocks" type="Node2D" parent="." unique_id=400144630]
+
+[node name="Block7" parent="Blocks" unique_id=308389978 instance=ExtResource("8_avotn")]
+position = Vector2(129, 451)
+width = 100
+height = 56
+
+[node name="Block3" parent="Blocks" unique_id=57319925 instance=ExtResource("8_avotn")]
+position = Vector2(635, 392)
+width = 140
+height = 250
+
+[node name="Block6" parent="Blocks" unique_id=416401620 instance=ExtResource("8_avotn")]
+position = Vector2(50, 389)
+width = 100
+height = 250
+
+[node name="Block8" parent="Blocks" unique_id=1401074527 instance=ExtResource("8_avotn")]
+position = Vector2(119, 367)
+width = 50
+height = 40
+
+[node name="Player" parent="." unique_id=301346617 instance=ExtResource("8_1semi")]
+position = Vector2(57, 198)
+
+[connection signal="die" from="Player" to="." method="_die"]
+[connection signal="win" from="Player" to="." method="_win"]

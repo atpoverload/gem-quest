@@ -1,0 +1,3875 @@
+name: Demo
+properties:
+  action_type:
+    - Attack
+    - Heal
+    - AddCurse
+    - RemoveCurse
+    - AddBlessing
+    - RemoveBlessing
+    - DoNothing
+  color_type:
+    - White
+    - Red
+    - Green
+    - Blue
+    - Orange
+    - Purple
+    - Pink
+  curse_type:
+    - Poison
+    - Sleep
+    - Break
+    - Doom
+    - Flinch
+    - Burn
+    - Freeze
+    - Shock
+  blessing_type:
+    - Boost
+    - Shield
+    - Lucky
+    - Tumble
+  stat_type:
+    - Luck
+  item_type:
+    - Weapon
+    - Gem
+    - Drink
+    - Food
+  passive_type:
+    - OnAttack
+    - Stat
+  on_attack_type:
+    - AttackAgain
+    - AddBlessing
+    - AddCurse
+  event_type:
+    - Background
+    - Battle
+    - Dialogue
+    - Flee
+    - Puzzle
+    - Rest
+    - Reward
+    - Shrine
+    - Trap
+    - Travel
+    - Victory
+curses:
+  Poison:
+    name: Poison
+    effect: Deals damage every turn.
+    flavor: 12 damage from brock. 15 from forest. 8 from forest to Pewter. 10 from rock tunnel. 10 from route 22. 22 from mt moon without grass.
+  Sleep:
+    name: Sleep
+    effect: Can't act until you wake up.
+    flavor: GOTTA WAKE UP DUDE!!!
+  Break:
+    name: Break
+    effect: Reduced defenses.
+    flavor:
+  Doom:
+    name: Doom
+    effect: Death comes for you.
+    flavor: What a horrible night to have a curse.
+  Flinch:
+    name: Flinch
+    effect: Skip next action.
+    flavor: BONK!!
+  Banish:
+    name: Banish
+    effect: May disappear forever.
+    flavor: Take a lap.
+  Burnt:
+    name: Burnt
+    effect: Causes damage on attacking.
+    flavor: Severe burns that hurts when attacking.
+  Freeze:
+    name: Freeze
+    effect: May be unable to move.
+    flavor: A cold chill that may prevent skills.
+  Shock:
+    name: Shock
+    effect: Reduced accuracy.
+    flavor: Convulsions that reduces accuracy.
+blessings:
+  Boost:
+    name: Boost
+    effect: Deal extra weapon damage.
+    flavor: GIMME THE BOOOOST!!!
+  Shield:
+    name: Shield
+    effect: Prevent the next attack.
+    flavor: Hinorpa protect me.
+  Lucky:
+    name: Lucky
+    effect: You are very lucky.
+    flavor: SOOO LUCKY!!
+  Tumble:
+    name: Tumble
+    effect: Evade more easily
+    flavor:
+items:
+  entries:
+    - name: Rusty Sword
+      type: Weapon
+      action:
+        type: Attack
+        power: 1
+        accuracy: 75
+      flavor: An old sword, barely able to cut pizza. Good luck!
+    - name: Short Sword
+      type: Weapon
+      action:
+        type: Attack
+        power: 2
+        accuracy: 75
+      flavor: Shorter than a sword.
+    - name: Long Sword
+      type: Weapon
+      action:
+        type: Attack
+        power: 3
+        accuracy: 75
+      flavor: Longer than a sword.
+    - name: Mod Sword
+      type: Weapon
+      action:
+        type: Attack
+        power: 0
+        accuracy: 100
+        on_attack:
+          action: AddCurse
+          status: Banish
+          power: 1
+          chance: 100
+      flavor: I hope you apologize in your ban request.
+    - name: Flametongue
+      type: Weapon
+      color: Red
+      action:
+        type: Attack
+        power: 3
+        accuracy: 75
+        on_attack:
+          action: AddCurse
+          status: Burnt
+          power: 1
+          chance: 50
+      flavor: Sword infused with the power of fire.
+    - name: Icebrand
+      type: Weapon
+      color: Blue
+      action:
+        type: Attack
+        power: 3
+        accuracy: 75
+        on_attack:
+          action: AddCurse
+          status: Freeze
+          power: 1
+          chance: 50
+      flavor: Sword infused with the power of ice.
+    - name: Coral Sword
+      type: Weapon
+      color: Purple
+      action:
+        type: Attack
+        power: 3
+        accuracy: 75
+        on_attack:
+          action: AddCurse
+          status: Shock
+          power: 1
+          chance: 50
+      flavor: Sword infused with the power of lightning.
+    - name: Frostmourne
+      type: Weapon
+      action:
+        type: Attack
+        power: 3
+        accuracy: 75
+      on_attack:
+        action: AttackAgain
+        chance: 50
+      flavor: Frostmourne hungers...
+    - name: Master Sword
+      type: Weapon
+      action:
+        type: Attack
+        power: 3
+        accuracy: 75
+        on_attack:
+          action: AddBlessing
+          status: Boost
+          power: 1
+          chance: 50
+      flavor: This legendary sword is imbued with awe-inspiring magical power
+        and can only be wielded by the righteous. That means if you've
+        been very naughty, you probably won't be able to use it.
+    - name: Buster Sword
+      type: Weapon
+      action:
+        type: Attack
+        power: 6
+        accuracy: 50
+      flavor: Sword made for felling monsters.
+    - name: White Gem
+      type: Gem
+      color: White
+      action:
+        type: DoNothing
+        effect: AffinityUp
+      flavor: I hope this doesn't break again.
+    - name: Red Gem
+      type: Gem
+      color: Red
+      action:
+        type: Attack
+        power: 2
+        accuracy: 85
+        on_attack:
+          action: AddCurse
+          status: Burnt
+          power: 1
+          chance: 25
+      flavor: Scorches foes with an intense blast of fire.
+    - name: Green Gem
+      type: Gem
+      color: Green
+      action:
+        type: AddCurse
+        status: Poison
+        power: 1
+        accuracy: 85
+      flavor: Sprays a cloud of toxic gas.
+    - name: Blue Gem
+      type: Gem
+      color: Blue
+      action:
+        type: Attack
+        power: 2
+        accuracy: 95
+        on_attack:
+          action: AddCurse
+          status: Freeze
+          power: 1
+          chance: 50
+      flavor: Strikes with an icy-cold beam of energy.
+    - name: Orange Gem
+      type: Gem
+      color: Orange
+      action:
+        type: AddBlessing
+        power: 1
+        status: Boost
+      flavor: Tenses your muscles to bulk up.
+    - name: Purple Gem
+      type: Gem
+      color: Purple
+      action:
+        type: Attack
+        power: 2
+        accuracy: 85
+        on_attack:
+          action: AddCurse
+          status: Shock
+          power: 1
+          chance: 50
+      flavor: Attacks with a strong electric blast.
+    - name: Pink Gem
+      type: Gem
+      color: Pink
+      action:
+        type: Weapon
+        power: 1
+        accuracy: 100
+      flavor: Attacks with an angelic sword.
+    - name: Sodie Pop
+      type: Drink
+      action:
+        type: Heal
+        power: 60
+      flavor: A sodie-pop type medicine for treating wounds.
+    - name: Super Sodie
+      type: Drink
+      action:
+        type: Heal
+        power: 100
+      flavor: A sodie-pop type medicine for treating wounds.
+    - name: Hyper Sodie
+      type: Drink
+      action:
+        type: Heal
+        power: 150
+      flavor: A sodie-pop type medicine for treating wounds.
+    - name: Grape Sodie
+      type: Drink
+      action:
+        type: RemoveCurse
+        status: Poison
+      flavor: A sodie-pop type medicine for treating poison.
+    - name: Maple Sodie
+      type: Drink
+      action:
+        type: RemoveCurse
+        status: All
+      flavor: A sodie-pop type medicine that is broadly effective.
+    - name: Cold One
+      type: Drink
+      action:
+        type: AffinityUp
+        affinities:
+          - White
+          - Red
+          - Blue
+          - Green
+          - Orange
+          - Purple
+          - Pink
+      flavor: A cold-one type drink that increases intellect.
+    - name: Cold One Red
+      type: Drink
+      action:
+        type: AddBlessing
+        status: Boost
+        power: 10
+      flavor: A cold-one type drink that increases strength.
+    - name: Cold One Green
+      type: Drink
+      action:
+        type: AddBlessing
+        status: Lucky
+        power: 5
+      flavor: A cold-one type drink that increases luck.
+    - name: Cold One Blue
+      type: Drink
+      action:
+        type: AddBlessing
+        status: Shield
+        power: 3
+      flavor: A cold-one type drink that increases defense.
+    - name: Poutine
+      type: Food
+      action:
+        type: Heal
+        power: 50
+      flavor: Poutine is a dish of French fries and cheese curds topped with
+        a hot brown beef and chicken stock gravy. It emerged in the
+        Centre-du-Québec region of Quebec in the late 1950s, though
+        its exact origins are uncertain, and there are several competing
+        claims regarding its origin.
+  pools:
+    Sword 1:
+      Short Sword: 80
+      Long Sword: 20
+    Sword 2:
+      Short Sword: 40
+      Long Sword: 60
+    Sword 3:
+      Long Sword: 50
+      Frostmourne: 17
+      Master Sword: 17
+      Buster Sword: 16
+    Elemental Sword 1:
+      Flametongue: 33
+      Icebrand: 33
+      Coral Sword: 34
+    Sword 4:
+      items:
+      Flametongue: 17
+      Icebrand: 17
+      Coral Sword: 17
+      Frostmourne: 17
+      Master Sword: 16
+      Buster Sword: 16
+    Sodie 1:
+      Sodie Pop: 60
+      Super Sodie: 35
+      Pineapple Sodie: 5
+    Sodie 2:
+      Sodie Pop: 30
+      Super Sodie: 60
+      Pineapple Sodie: 10
+    Sodie 3:
+      Sodie Pop: 10
+      Super Sodie: 60
+      Pineapple Sodie: 30
+    Restore 1:
+      Grape Sodie: 95
+      Maple Sodie: 5
+    Restore 2:
+      Grape Sodie: 50
+      Maple Sodie: 50
+    Restore 3:
+      Grape Sodie: 25
+      Maple Sodie: 75
+    Cold One 1:
+      Cold One: 25
+      Cold Red: 25
+      Cold Green: 25
+      Cold Blue: 25
+  evolutions:
+    Weapon:
+      Rusty Sword: Short Sword
+  generators:
+    - name: SnackGenerator
+      items:
+        - name: Sodie Pop
+          type: Drink
+          action:
+            type: Heal
+            power: 5
+          flavor: A sodie pop-type medicine that restores health.
+        - name: Sodie Pop
+          type: Drink
+          action:
+            type: RemoveCurse
+            status:
+              - Poison
+              - Poison
+              - Poison
+              - Poison
+              - Poison
+              - Poison
+              - Sleep
+              - Sleep
+              - Sleep
+              - Any
+          flavor: A sodie pop-type medicine that is broadly effective.
+        - name: Cold One
+          type: Drink
+          action:
+            type: AddBlessing
+            status:
+              - Boost
+              - Shield
+              - Lucky
+            power: 3
+          flavor: A cold one-type drink that increases power.
+        - name: Cold One
+          type: Drink
+          action:
+            type: AffinityUp
+            affinities:
+              - White
+              - Red
+              - Blue
+              - Green
+              - Orange
+              - Purple
+              - Pink
+          flavor: A cold one-type drink that increases intellect.
+        - name: Poutine
+          type: Food
+          action:
+            type: Heal
+            power: 3
+          flavor: Poutine is a dish of French fries and cheese curds topped with
+            a hot brown beef and chicken stock gravy. It emerged in the
+            Centre-du-Québec region of Quebec in the late 1950s, though
+            its exact origins are uncertain, and there are several competing
+            claims regarding its origin.
+        - name: Poutine
+          type: Food
+          action:
+            type: AddBlessing
+            status:
+              - Boost
+              - Shield
+              - Lucky
+            power: 2
+          flavor: Poutine is a dish of French fries and cheese curds topped with
+            a hot brown beef and chicken stock gravy. It emerged in the
+            Centre-du-Québec region of Quebec in the late 1950s, though
+            its exact origins are uncertain, and there are several competing
+            claims regarding its origin.
+emotes:
+  entries:
+    - name: Nilbog
+      passive:
+        type: OnAttack
+        effect: AttackAgain
+        chance: 13
+      flavor: "clips.twitch.tv/lightorias/clip/BetterPuzzledSoymilkThisIsSparta-DZf3rPzfFXZvE1D5"
+    - name: Bladez
+      passive:
+        type: Stat
+        stat: CriticalHit
+        chance: 6
+      flavor: "clips.twitch.tv/HungryAmericanJuiceResidentSleeper-vx--hxTxvCooTk_D"
+    - name: Dux
+      passive:
+        type: Stat
+        stat: GemProtection
+        chance: 17
+      flavor: "clips.twitch.tv/SnappyTentativeCodKlappa-E57BKC6_826h9UnI"
+    - name: Eggy
+      passive:
+        type: Stat
+        stat: GemPower
+        power: 17
+      flavor: "clips.twitch.tv/lightorias/clip/DrabPatientSalsifyWutFace-jg28xFH_ykurQQSL"
+    - name: Masher
+      passive:
+        type: OnAttack
+        effect: AddBlessing
+        status: Boost
+        power: 1
+        chance: 13
+      flavor: "clips.twitch.tv/MushyGenerousAlmondRuleFive-2fxyI8zXDZMPUiQ0"
+    - name: Totoro
+      passive:
+        type: Stat
+        stat: Freebie
+        item_type: Drink
+        chance: 11
+      flavor: "clips.twitch.tv/lightorias/clip/PolishedEnthusiasticBobaAMPEnergy-n9baHwUQFWNGfb9p"
+    - name: Totoro 2
+      passive:
+        type: Stat
+        stat: Freebie
+        item_type: Food
+        chance: 11
+      flavor: "clips.twitch.tv/lightorias/clip/SpineyLaconicMarjoramTBTacoLeft-PuKhkjGvoPOlOaLL"
+    - name: Shadowfax
+      passive:
+        type: Stat
+        stat: Evasion
+        chance: 6
+      flavor: "clips.twitch.tv/YummyFantasticArtichokeFunRun-Ww8R689tw52O0i3u"
+    - name: Bloomer
+      passive:
+        type: Stat
+        stat: Revive
+        chance: 5
+      flavor: "clips.twitch.tv/lightorias/clip/CaringSassyFerretRuleFive-V4ZuxsadubCRcaLa"
+    - name: Bitey
+      passive:
+        type: OnAttack
+        effect: AddCurse
+        status: Flinch
+        power: 1
+        chance: 13
+      flavor: "clips.twitch.tv/ObservantOriginalKoalaKappa-2vUz9XO9Ye_U_qwA"
+lucky_items:
+  - name: Goldy
+    color: Orange
+    flavor: clips.twitch.tv/MildFriendlyCrabsBleedPurple-E-n-6q9CeQC_s4hp
+  - name: The Pod
+    color: Orange
+    flavor: clips.twitch.tv/ColdCloudyCookieSuperVinlin-IpCKZ6NOr2iCfZ4s
+  - name: Oddish 2
+    color: Green
+    flavor: clips.twitch.tv/RelentlessArborealBadgerDatSheffy-i4F2yc5BvIxkXgzk
+  - name: Golbat
+    color: Green
+    flavor: clips.twitch.tv/KindHilariousTitanCoolStoryBob-z6ZxyOAD32Zj21KH
+  - name: Zigzagoon
+    color: Red
+    flavor: clips.twitch.tv/FaintResoluteScallionSaltBae-AkYN1cwOFoq6kqQk
+  - name: FR Octillery
+    color: Orange
+    flavor: clips.twitch.tv/OptimisticElatedPeanutOMGScoots-FiiTu42hSCw0VdXx
+  - name: Wailmer
+    color: Purple
+    flavor: clips.twitch.tv/UgliestExcitedHamsterPanicVis-8IogpjIK2jCid3iK
+  - name: Jynx
+    color: Pink
+    flavor: clips.twitch.tv/SilkyDullTardigradeTheRinger-_88JCTNzkGBf76pb
+  - name: Meditite 2
+    color: Pink
+    flavor: clips.twitch.tv/DiligentAmorphousCroquetteYouWHY-E8oFr4dp87V_W5b6
+  - name: Arbok
+    color: Orange
+    flavor: clips.twitch.tv/AdorableLitigiousWolverinePJSugar-Rq497dt4zeWsweno
+  - name: FR Pineco
+    color: Red
+    flavor: clips.twitch.tv/TenuousCarelessPanRalpherZ-wWt35PD9eEC8uAxB
+  - name: Chansey
+    color: Green
+    flavor: clips.twitch.tv/CrunchySuspiciousDiscImGlitch-tcfhPc5GAa3lsfkB
+  - name: Tauros
+    color: Green
+    flavor: clips.twitch.tv/DullSpikyCucumberSwiftRage-0Guf8K2h7vkrgl1r
+  - name: Cubone
+    color: Green
+    flavor: clips.twitch.tv/ColorfulTenuousAnteaterJonCarnage-vRe9sJSppdJVMtY9
+  - name: Beldum
+    color: Red
+    flavor: clips.twitch.tv/AffluentCloudyPeppermintSwiftRage-ITsNoGNd3OD1FcaG
+  - name: Clamperl
+    color: Purple
+    flavor: clips.twitch.tv/BashfulRefinedPartridgeCharlieBitMe-Rgxpi4Md7-Zxy-Gq
+  - name: Oddish
+    color: Green
+    flavor: clips.twitch.tv/ShakingCrunchyRaccoonLeeroyJenkins-GVJ1_7vn7c4k_seC
+  - name: Skitty
+    color: Red
+    flavor: clips.twitch.tv/SquareSparklingSushiUWot-HImIX9ErYkZ-hZth
+  - name: Spoink
+    color: Orange
+    flavor: clips.twitch.tv/AthleticFrozenLocustWholeWheat-e2iBpGWvUjCd28bY
+  - name: Houndour
+    color: Blue
+    flavor: clips.twitch.tv/AltruisticTentativeHorseBatChest-1hRaoFG37nq4g8mi
+  - name: Furret
+    color: Pink
+    flavor: clips.twitch.tv/SpotlessBlatantPancakePanicBasket-P20DRlRb06Uqy4Gp
+  - name: Totodile
+    color: Blue
+    flavor: clips.twitch.tv/WrongFragileJayCorgiDerp-g8kSsxnelB7BUWwp
+  - name: Meditite
+    color: Red
+    flavor: clips.twitch.tv/FrigidRudePicklesOpieOP-2lc_5Wxl9mILMMZl
+  - name: Skiploom
+    color: Pink
+    flavor: clips.twitch.tv/CoyYawningScorpionPogChamp-CFHruLSSVzWdWeOn
+  - name: Solrock 2
+    color: Red
+    flavor: clips.twitch.tv/InspiringUnusualArtichokeBloodTrail-jPR-Q2rKq-W2FQu8
+  - name: Omastar
+    color: Purple
+    flavor: clips.twitch.tv/ReliableEndearingPigeonAMPEnergyCherry-7R8Iy-gNgOrvGiBF
+  - name: Ludicolo
+    color: Blue
+    flavor: clips.twitch.tv/WonderfulPlainTigerTBTacoRight-5jdS45xLOmky-eot
+  - name: Ekans
+    color: Red
+    flavor: clips.twitch.tv/CuteEnticingWoodcockDatSheffy-CVPwMll0fTNEV_c1
+  - name: Chikorita
+    color: Orange
+    flavor: clips.twitch.tv/SucculentEnjoyableClipzKeyboardCat-WSJBaib5c_2HbA8d
+  - name: Raticate
+    color: Red
+    flavor: clips.twitch.tv/ImpossibleGorgeousDiamondBudBlast-e3eGfkvUvcp-rUlR
+  - name: Umbreon
+    color: Blue
+    flavor: clips.twitch.tv/FantasticUglySandwichSwiftRage-Z1zxNbY8Vrlyz2WP
+  - name: Sunkern
+    color: Green
+    flavor: clips.twitch.tv/ColorfulHyperPeafowlWutFace-i3hOJA7_eTm2zecd
+  - name: Grimer
+    color: Green
+    flavor: clips.twitch.tv/OddEndearingFalconOMGScoots-6cs-8tvVHkVvXuKB
+  - name: HG Typhlosion
+    color: Purple
+    flavor: clips.twitch.tv/FaintExquisiteOrangeYouDontSay-7JsP4VUFyThBSTHm
+  - name: Venomoth
+    color: Blue
+    flavor: clips.twitch.tv/DirtyBelovedGiraffeEleGiggle-9jr_3t2c15pbi0fJ
+  - name: Haunter
+    color: Blue
+    flavor: clips.twitch.tv/StrongSpunkySlothPraiseIt-3mNWeTxArTPRFl3I
+  - name: Blastoise
+    color: Purple
+    flavor: clips.twitch.tv/ToughDullRaccoonNononoCat-ooU4oJJ8lVxnzJep
+  - name: Wurmple
+    color: Pink
+    flavor: clips.twitch.tv/SmellyAttractiveZebraWutFace-kUM6q64xBnIe4tR5
+  - name: Ponyta
+    color: Blue
+    flavor: clips.twitch.tv/TawdryInnocentHorsePeoplesChamp-jFoUyRUxAfBfPnEx
+  - name: Cloyster
+    color: Blue
+    flavor: clips.twitch.tv/NeighborlyIronicLionDBstyle-KeUrP3GTJwcMpeZS
+  - name: Goldeen
+    color: Orange
+    flavor: clips.twitch.tv/OptimisticExquisiteAardvarkTooSpicy-6frlFw3toWgWOpIo
+  - name: Lotad
+    color: Pink
+    flavor: clips.twitch.tv/AuspiciousLuckyPuppyCopyThis-uStQO0-fVm02pvvq
+  - name: FR Trapinch
+    color: Blue
+    flavor: clips.twitch.tv/PiliableZealousToadVoteYea-Y7osuEFL5NCjqMHL
+  - name: Smeargle
+    color: Red
+    flavor: clips.twitch.tv/ImpossibleMistyHamSquadGoals-r2ofLn7bCXGw3PmZ?filter=clips&range=7d&sort=time
+  - name: Porygon
+    color: Blue
+    flavor: clips.twitch.tv/DignifiedAliveCasetteNomNom-vPbaFtRvQ_xlZ54v
+  - name: Gliscor
+    color: Blue
+    flavor: clips.twitch.tv/MoldySmellyBearDatBoi-Gt5wwzeFKXXHzZcG
+  - name: Fearow
+    color: Green
+    flavor: clips.twitch.tv/AltruisticSucculentPassionfruitTakeNRG-38xBH5memeiGiG4O
+  - name: Cyndaquil
+    color: Purple
+    flavor: clips.twitch.tv/GeniusMildHumanSoonerLater-pd5EWclJvsfMnbBq
+  - name: Shuckle
+    color: Blue
+    flavor:
+  - name: HG Octillery
+    color: Orange
+    flavor: clips.twitch.tv/TawdryProtectiveArmadilloStrawBeary-mRShZSvud0FpKMDv
+  - name: HG Trapinch
+    color: Blue
+    flavor: clips.twitch.tv/TawdryProtectiveArmadilloStrawBeary-mRShZSvud0FpKMDv
+  - name: HG Pineco
+    color: Orange
+    flavor:
+  - name: Froslass
+    color: Purple
+    flavor: clips.twitch.tv/GoldenAmusedOcelotDBstyle-Bb_1eKlbDJIRFu-_
+  - name: FR Typhlosion
+    color: Purple
+    flavor:
+  - name: Hippowdon
+    color: Red
+    flavor: clips.twitch.tv/SavoryAgilePlumberSuperVinlin-1o5S1hhe9t_Up5LF
+  - name: Sealeo
+    color: Pink
+    flavor: clips.twitch.tv/SpoopyObliqueYakinikuBudStar-PJVWWpMEGmIMjelZ
+  - name: Magmar
+    color: Pink
+    flavor:
+  - name: Electrode
+    color: Blue
+    flavor: clips.twitch.tv/ResourcefulAmazingLampArgieB8-0BSXzc_i9kBcpDbu
+  - name: Mothim
+    color: Blue
+    flavor: clips.twitch.tv/CaringObliqueCrabCmonBruh-uJxOpCFbBagaj2s6
+  - name: Swellow
+    color: Green
+    flavor: clips.twitch.tv/BeautifulConcernedRaccoonAMPEnergy-0_8JjLwUN7LVnBiU
+  - name: Volbeat 2
+    color: Purple
+    flavor: clips.twitch.tv/AdventurousHandsomeWatercressVoteNay-7-ZGUvB8jyMWDwHU
+  - name: Gligar
+    color: Blue
+    flavor: clips.twitch.tv/BoredAttractiveToothM4xHeh-zmuxcp2pNPl89QeX
+  - name: Beautifly
+    color: Purple
+    flavor: clips.twitch.tv/MotionlessColdbloodedMooseKappa-EOz9q2wHTSSHXEFw
+  - name: Pelipper
+    color: Green
+    flavor: clips.twitch.tv/SleepyBillowingSwordTwitchRPG-cc9eb3c0Rqek3MsT
+  - name: Swalot
+    color: Blue
+    flavor: clips.twitch.tv/CheerfulDiligentTitanSSSsss-IwW72ZRoDGC5V4Zi
+  - name: Paras
+    color: Orange
+    flavor: clips.twitch.tv/ColorfulExquisiteNikudonSquadGoals-3h_80-LF3Zb3fxdA
+  - name: Glalie
+    color: Red
+    flavor: clips.twitch.tv/GlutenFreeWittyPhoneLeeroyJenkins-hcwFhv5aOJ2gLOJJ
+  - name: Nidorino
+    color: Blue
+    flavor:
+  - name: Sceptile
+    color: Green
+    flavor: clips.twitch.tv/KindSpinelessRavenGrammarKing-4Xdl9TENZbxVfFbq
+  - name: Volbeat
+    color: Blue
+    flavor: clips.twitch.tv/PrettiestCredulousKeyboardEleGiggle-vT6Uzst-wLV5k_YL
+  - name: Solrock
+    color: Red
+    flavor: clips.twitch.tv/DullDaintySproutFloof-2alfyZFRrFQEw1mh
+  - name: Milotic
+    color: Blue
+    flavor:
+  - name: Luvdisc
+    color: Orange
+    flavor: clips.twitch.tv/NaiveBetterAirGuitarTwitchRPG-HAMbugLpLcWnI0VB
+  - name: Linoone
+    color: Red
+    flavor: clips.twitch.tv/AgileHyperDogYouWHY-ug9U68ocZFoOYXeQ
+  - name: Krabby
+    color: Orange
+    flavor:
+  - name: Mankey
+    color: Green
+    flavor: clips.twitch.tv/GracefulTenuousLadiesKreygasm-0DEWjIp0daQoQoH7
+  - name: Staryu
+    color: Blue
+    flavor:
+  - name: Tangela
+    color: Green
+    flavor:
+  - name: Grovyle
+    color: Red
+    flavor:
+  - name: Sharpedo
+    color: Pink
+    flavor:
+  - name: Smoochum
+    color: Pink
+    flavor:
+actions:
+  entries:
+    - name: Run Away
+      action:
+        type: Flee
+      text: runs away
+    # Do Nothing
+    - name: Loaf
+      action:
+        type: DoNothing
+      text: is loafing
+    # Attacks
+    # 1 Power
+    - name: Tackle
+      action:
+        type: Attack
+        power: 1
+        accuracy: 50
+      text: uses Tackle
+    - name: Scratch
+      action:
+        type: Attack
+        power: 1
+        accuracy: 75
+      text: uses Scratch
+    - name: Quick Attack
+      action:
+        type: Attack
+        power: 1
+        accuracy: 100
+      text: uses Quick Attack
+    # 2 Power
+    - name: Headbutt
+      action:
+        type: Attack
+        power: 2
+        accuracy: 50
+      text: uses Headbutt
+    - name: Slash
+      action:
+        type: Attack
+        power: 2
+        accuracy: 75
+      text: uses Slash
+    # 3 Power
+    - name: Hyper Voice
+      action:
+        type: Attack
+        power: 3
+        accuracy: 50
+      text: uses Hyper Voice
+    - name: Return
+      action:
+        type: Attack
+        power: 3
+        accuracy: 75
+      text: uses Return
+    - name: Extreme Speed
+      action:
+        type: Attack
+        power: 3
+        accuracy: 100
+      text: uses Extreme Speed
+    # 4+ Power
+    - name: Mega Punch
+      action:
+        type: Attack
+        power: 4
+        accuracy: 75
+      text: uses Mega Punch
+    - name: Mega Kick
+      action:
+        type: Attack
+        power: 6
+        accuracy: 50
+      text: uses Mega Kick
+    # Gemite Attacks
+    - name: Fire
+      action:
+        type: Attack
+        power: 2
+        accuracy: 90
+        on_attack:
+          action: AddCurse
+          status: Burnt
+          power: 5
+          chance: 90
+      text: casts Fire
+    - name: Fira
+      action:
+        type: Attack
+        power: 4
+        accuracy: 90
+        on_attack:
+          action: AddCurse
+          status: Burnt
+          power: 10
+          chance: 90
+      text: casts Firaga
+    - name: Firaga
+      action:
+        type: Attack
+        power: 8
+        accuracy: 90
+        on_attack:
+          action: AddCurse
+          status: Burnt
+          power: 20
+          chance: 90
+      text: casts Firaga
+    - name: Blizzard
+      action:
+        type: Attack
+        power: 2
+        accuracy: 90
+        on_attack:
+          action: AddCurse
+          status: Freeze
+          power: 5
+          chance: 90
+      text: casts Blizzard
+    - name: Blizzara
+      action:
+        type: Attack
+        power: 4
+        accuracy: 90
+        on_attack:
+          action: AddCurse
+          status: Freeze
+          power: 10
+          chance: 90
+      text: casts Blizzara
+    - name: Blizzaga
+      action:
+        type: Attack
+        power: 8
+        accuracy: 90
+        on_attack:
+          action: AddCurse
+          status: Freeze
+          power: 20
+          chance: 90
+      text: casts Blizzaga
+    - name: Poison
+      action:
+        type: Attack
+        power: 1
+        accuracy: 90
+        on_attack:
+          action: AddCurse
+          status: Poison
+          power: 10
+          chance: 90
+      text: casts Poison
+    - name: Poisona
+      action:
+        type: Attack
+        power: 1
+        accuracy: 90
+        on_attack:
+          action: AddCurse
+          status: Poison
+          power: 20
+          chance: 90
+      text: casts Poisona
+    - name: Poisaga
+      action:
+        type: Attack
+        power: 1
+        accuracy: 90
+        on_attack:
+          action: AddCurse
+          status: Poison
+          power: 40
+          chance: 90
+      text: casts Poisaga
+    - name: Break
+      action:
+        type: Attack
+        power: 2
+        accuracy: 90
+        on_attack:
+          action: AddCurse
+          status: Sap
+          power: 20
+          chance: 90
+      text: casts Break
+    - name: Breaka
+      action:
+        type: Attack
+        power: 4
+        accuracy: 90
+        on_attack:
+          action: AddCurse
+          status: Sap
+          power: 20
+          chance: 90
+      text: casts Breaka
+    - name: Breakaga
+      action:
+        type: Attack
+        power: 8
+        accuracy: 90
+        on_attack:
+          action: AddCurse
+          status: Sap
+          power: 40
+          chance: 90
+      text: casts Breakaga
+    - name: Thunder
+      action:
+        type: Attack
+        power: 2
+        accuracy: 90
+        on_attack:
+          action: AddCurse
+          status: Shock
+          power: 5
+          chance: 90
+      text: casts Thunder
+    - name: Thundara
+      action:
+        type: Attack
+        power: 4
+        accuracy: 90
+        on_attack:
+          action: AddCurse
+          status: Shock
+          power: 10
+          chance: 90
+      text: casts Thundara
+    - name: Thundaga
+      action:
+        type: Attack
+        power: 8
+        accuracy: 90
+        on_attack:
+          action: AddCurse
+          status: Shock
+          power: 20
+          chance: 90
+      text: casts Thundaga
+    - name: Sleep
+      action:
+        type: Attack
+        power: 2
+        accuracy: 90
+        on_attack:
+          action: AddCurse
+          status: Sleep
+          power: 10
+          chance: 90
+      text: casts Sleep
+    - name: Sleepa
+      action:
+        type: Attack
+        power: 4
+        accuracy: 90
+        on_attack:
+          action: AddCurse
+          status: Sleep
+          power: 20
+          chance: 90
+      text: casts Sleepa
+    - name: Sleepaga
+      action:
+        type: Attack
+        power: 8
+        accuracy: 90
+        on_attack:
+          action: AddCurse
+          status: Sleep
+          power: 40
+          chance: 90
+      text: casts Sleepaga
+    # Healing
+    - name: Synthesis
+      action:
+        type: Heal
+        power: 25
+      text: uses Synthesis
+    - name: Milk Drink
+      action:
+        type: Heal
+        power: 50
+      text: uses Milk Drink
+    - name: Recover
+      action:
+        type: Heal
+        power: 75
+      text: uses Recover
+    # Curse
+    - name: Yawn
+      action:
+        type: AddCurse
+        status: Sleep
+        power: 2
+        accuracy: 50
+      text: uses Yawn
+    - name: Sleep Powder
+      action:
+        type: AddCurse
+        status: Sleep
+        power: 2
+        accuracy: 75
+      text: uses Sleep Powder
+    - name: Poison Gas
+      action:
+        type: AddCurse
+        status: Poison
+        power: 2
+        accuracy: 50
+      text: uses Poison Gas
+    - name: Poison Powder
+      action:
+        type: AddCurse
+        status: Poison
+        power: 2
+        accuracy: 75
+      text: uses Poison Powder
+    - name: Tail Whip
+      action:
+        type: AddCurse
+        status: Break
+        power: 5
+        accuracy: 100
+      text: uses Tail Whip
+    - name: Screech
+      action:
+        type: AddCurse
+        status: Break
+        power: 20
+        accuracy: 85
+      text: uses Leer
+    # Blessing
+    - name: Sharpen
+      action:
+        type: AddBlessing
+        status: Boost
+        power: 5
+      text: uses Sharpen
+    - name: Swords Dance
+      action:
+        type: AddBlessing
+        status: Boost
+        power: 20
+      text: uses Swords Dance
+    - name: Protect
+      action:
+        type: AddBlessing
+        status: Shield
+        power: 100
+      text: uses Protect
+    # LigMakuni
+    - name: Light ATK
+      action:
+        type: Attack
+        power: 1
+        accuracy: 75
+      text: makes a light attack
+    - name: Heavy ATK
+      action:
+        type: Attack
+        power: 2
+        accuracy: 25
+      text: makes a heavy attack
+    - name: Tumble
+      action:
+        type: AddBlessing
+        status: Tumble
+        power: 1
+      text: tumbles
+    - name: Block
+      action:
+        type: AddBlessing
+        status: Shield
+        power: 1
+      text: raises his shield
+    # Mini-boss/Boss moves
+    - name: Focus
+      action:
+        type: ActTwice
+      text: takes two actions
+    # Signature Moves
+    - name: Sing
+      action:
+        type: AddCurse
+        status: Sleep
+        power: 8
+        accuracy: 75
+      text: uses Sing
+    - name: Guillotine
+      action:
+        type: Attack
+        power: 100000
+        accuracy: 1
+      text: uses Guillotine
+    - name: Perish Song
+      action:
+        type: AddCurse
+        status: Doom
+        power: 1
+        accuracy: 100
+      text: uses Perish Song
+    - name: Toxic
+      action:
+        type: AddCurse
+        status: Drain
+        power: 2
+        accuracy: 100
+      text: uses Toxic
+    - name: Spore
+      action:
+        type: AddCurse
+        status: Sleep
+        power: 10
+        accuracy: 100
+      text: uses Spore
+    - name: Psycho Boost
+      action:
+        type: Attack
+        power: 10
+        accuracy: 100
+      text: uses Psycho Boost
+    - name: Destiny Bond
+      action:
+        type: AddBlessing
+        status: Destiny Bond
+        power: 1
+      text: uses Destiny Bond
+enemies:
+  entries:
+    # Imakuni
+    - name: Imakuni
+      battlecry: beep
+      color: Red
+      health: 1
+      actions:
+        - name: Loaf
+          chance: 80
+        - name: Tackle
+          chance: 20
+      experience: 0
+      flavor: I have a pocket in my stomach! Besides, it’s a bit unkempt!
+    - name: ImakuniG
+      battlecry: beep
+      color: Gold
+      health: 1
+      actions:
+        - name: Loaf
+          chance: 80
+        - name: Tackle
+          chance: 20
+      experience: 0
+      flavor: I have a pocket in my stomach! Besides, it’s a bit unkempt!
+    # Ryan
+    - name: Ryan
+      battlecry: beep
+      health: 3
+      actions:
+        - name: Run Away
+          chance: 100
+      experience: 0
+      flavor: When you have expectations, you are setting yourself up for disappointment.
+    # Quag
+    - name: Quag
+      battlecry: quagg
+      color: Blue
+      health: 1
+      actions:
+        - name: Loaf
+          chance: 70
+        - name: Run Away
+          chance: 20
+        - name: Headbutt
+          chance: 10
+      experience: 25
+      flavor: A Quag chats by leaving its mouth wide open in stream and waiting for its prey to blunder in. Because it doesn't respond, it does not get lapped.
+    - name: Shiny Quag
+      battlecry: quagg
+      color: Purple
+      health: 1
+      actions:
+        - name: Loaf
+          chance: 60
+        - name: Run Away
+          chance: 30
+        - name: Headbutt
+          chance: 10
+      experience: 100
+      flavor: Its chats are always toxic. It often bangs its head on other chatters but seems not to care.
+    - name: Metal Quag
+      battlecry: quagg
+      color: Silver
+      health: 1
+      actions:
+        - name: Loaf
+          chance: 45
+        - name: Run Away
+          chance: 45
+        - name: Headbutt
+          chance: 10
+      resistances:
+        Weapon: 0.05
+        White: 0.50
+        Red: 0.50
+        Blue: 0.50
+        Green: 0.50
+        Orange: 0.50
+        Pink: 0.50
+        Purple: 0.50
+      experience: 200
+      flavor: Due to its relaxed and carefree attitude, it often bumps its head on chatters as it swims.
+    - name: Gold Quag
+      battlecry: quagg
+      color: Gold
+      health: 1
+      actions:
+        - name: Loaf
+          chance: 30
+        - name: Run Away
+          chance: 60
+        - name: Headbutt
+          chance: 10
+      resistances:
+        Weapon: 0.05
+        White: 0.25
+        Red: 0.25
+        Blue: 0.25
+        Green: 0.25
+        Orange: 0.25
+        Pink: 0.25
+        Purple: 0.25
+      experience: 500
+      flavor: This carefree chatter has an easygoing nature. While chatting, it always bumps into other chatters.
+    - name: Gem Quag
+      battlecry: quagg
+      color: White
+      health: 1
+      actions:
+        - name: Loaf
+          chance: 20
+        - name: Run Away
+          chance: 70
+        - name: Headbutt
+          chance: 10
+      resistances:
+        Weapon: 0.05
+        White: 0.05
+        Red: 0.05
+        Blue: 0.05
+        Green: 0.05
+        Orange: 0.05
+        Pink: 0.05
+        Purple: 0.05
+      experience: 500
+      flavor: This carefree chatter has an easygoing nature. While chatting, it always bumps into other chatters.
+    # Normal Enemies
+    - name: Joelge
+      battlecry: seaking
+      color: Red
+      health: 3
+      actions:
+        - name: Headbutt
+          chance: 50
+        - name: Yawn
+          chance: 50
+      resistances:
+        Red: 0.5
+        Purple: 2
+      experience: 50
+      flavor: The horn on its head is sharp like a drill. It bores a hole in a stream to lap chatters.
+    - name: Dire Joelge
+      battlecry: seaking
+      color: Blue
+      health: 5
+      actions:
+        - name: Return
+          chance: 50
+        - name: Yawn
+          chance: 50
+      resistances:
+        Blue: 0.5
+        Orange: 2
+      experience: 75
+      flavor: During chatting season, Seaking gather from all over, causing laps to appear.
+    - name: Great Joelge
+      battlecry: seaking
+      color: Green
+      health: 5
+      actions:
+        - name: Headbutt
+          chance: 50
+        - name: Screech
+          chance: 25
+        - name: Yawn
+          chance: 25
+      resistances:
+        Green: 0.5
+        Pink: 2
+      experience: 75
+      flavor: Using its horn, it bores holes in streams, making nests to prevent its chats from getting deleted.
+    - name: Ratty
+      battlecry: rattata
+      color: Purple
+      health: 2
+      actions:
+        - name: Tackle
+          chance: 50
+        - name: Tail Whip
+          chance: 25
+        - name: Quick Attack
+          chance: 25
+      resistances:
+        Red: 0.5
+        Purple: 2
+      experience: 50
+      flavor: Its chat are long and very sharp. They chat continuously, so it one guys streamers to whittle them down.
+    - name: Rattix
+      battlecry: raticate
+      color: Orange
+      health: 3
+      actions:
+        - name: Tackle
+          chance: 50
+        - name: Screech
+          chance: 25
+        - name: Quick Attack
+          chance: 25
+      resistances:
+        Purple: 0.5
+        Green: 2
+      experience: 75
+      flavor: Its first chats have three parts each. They are cheers, enabling it to avoid laps.
+    - name: Rattiz
+      battlecry: raticate
+      color: Pink
+      health: 3
+      actions:
+        - name: Tackle
+          chance: 50
+        - name: Tail Whip
+          chance: 25
+        - name: Extreme Speed
+          chance: 25
+      resistances:
+        Pink: 0.5
+        Blue: 2
+      experience: 75
+      flavor: It uses its chats to maintain its balance. It apparently slows down if they are lapped.
+    - name: Evorun
+      battlecry: scyther
+      color: Green
+      health: 3
+      actions:
+        - name: Scratch
+          chance: 50
+        - name: Slash
+          chance: 50
+      resistances:
+        Green: 0.5
+        Red: 2
+      experience: 50
+      flavor: It tears and shreds chatters with its wickedly sharp emotes. It very rarely spends bits to chat.
+    - name: Sneak
+      battlecry: roll
+      color: White
+      health: 7
+      actions:
+        - name: Return
+          chance: 50
+        - name: Screech
+          chance: 50
+      resistances:
+        Weapon: 0.5
+      experience: 75
+      flavor: He's out here sneaking.
+    - name: Sneaker
+      battlecry: roll
+      color: Blue
+      health: 12
+      actions:
+        - name: Return
+          chance: 25
+        - name: Mega Punch
+          chance: 25
+        - name: Screech
+          chance: 50
+      resistances:
+        Weapon: 0.5
+      experience: 75
+      flavor: He's out here sneaking.
+    # Stream Memes
+    - name: LigMakuni
+      battlecry: roll
+      health: 2
+      actions:
+        - name: Tumble
+          chance: 50
+        - name: Light ATK
+          chance: 40
+        - name: Block
+          chance: 10
+      experience: 50
+      flavor: We Are Amidst Strange Chatters, In A Strange Stream.
+    - name: LigMakuni2
+      battlecry: roll
+      color: White
+      health: 10
+      actions:
+        - name: Tumble
+          chance: 50
+        - name: Light ATK
+          chance: 30
+        - name: Heavy ATK
+          chance: 10
+        - name: Block
+          chance: 10
+      experience: 50
+      flavor: The Way I See It, Our Chats Appear To Be Intertwined.
+    - name: LigMakuni3
+      battlecry: roll
+      health: 25
+      actions:
+        - name: Tumble
+          chance: 50
+        - name: Light ATK
+          chance: 20
+        - name: Heavy ATK
+          chance: 20
+        - name: Block
+          chance: 10
+      experience: 50
+      flavor: Seek laps ... the rest will follow.
+    # GEMite
+    - name: Red GEMite
+      battlecry: gemite
+      color: Red
+      health: 4
+      actions:
+        - name: Fire
+          chance: 75
+        - name: Fira
+          chance: 25
+      resistances:
+        Weapon: 0.5
+        Blue: 2
+        Purple: 2
+      experience: 25
+      flavor:
+    - name: Blue GEMite
+      battlecry: gemite
+      color: Blue
+      health: 4
+      actions:
+        - name: Blizzard
+          chance: 75
+        - name: Blizzara
+          chance: 25
+      resistances:
+        Weapon: 0.5
+        Green: 2
+        Orange: 2
+      experience: 25
+      flavor:
+    - name: Green GEMite
+      battlecry: gemite
+      color: Green
+      health: 4
+      actions:
+        - name: Poison
+          chance: 75
+        - name: Poisona
+          chance: 25
+      resistances:
+        Weapon: 0.5
+        Red: 2
+        Pink: 2
+      experience: 25
+      flavor:
+    - name: Orange GEMite
+      battlecry: gemite
+      color: Orange
+      health: 4
+      actions:
+        - name: Break
+          chance: 75
+        - name: Breaka
+          chance: 25
+      resistances:
+        Weapon: 0.5
+        Green: 2
+        Purple: 2
+      experience: 25
+      flavor:
+    - name: Purple GEMite
+      battlecry: gemite
+      color: Purple
+      health: 4
+      actions:
+        - name: Thunder
+          chance: 75
+        - name: Thundara
+          chance: 25
+      resistances:
+        Weapon: 0.5
+        Blue: 2
+        Pink: 2
+      experience: 25
+      flavor:
+    - name: Pink GEMite
+      battlecry: gemite
+      color: Pink
+      health: 4
+      actions:
+        - name: Sleep
+          chance: 75
+        - name: Sleepa
+          chance: 25
+      resistances:
+        Weapon: 0.5
+        Red: 2
+        Orange: 2
+      experience: 25
+      flavor:
+    - name: GEMite Thief
+      battlecry: gemite
+      color: White
+      health: 4
+      actions:
+        - name: Fire
+          chance: 17
+        - name: Blizzard
+          chance: 17
+        - name: Poison
+          chance: 17
+        - name: Break
+          chance: 17
+        - name: Thunder
+          chance: 16
+        - name: Sleep
+          chance: 16
+      resistances:
+        Weapon: 0.5
+        Red: 0.5
+        Blue: 0.5
+        Green: 0.5
+        Orange: 0.5
+        Purple: 0.5
+        Pink: 0.5
+      experience: 25
+      flavor: pass
+    # GEMonger
+    - name: Red GEMonger
+      battlecry: gemling
+      color: Red
+      health: 8
+      actions:
+        - name: Fire
+          chance: 40
+        - name: Fira
+          chance: 40
+        - name: Firaga
+          chance: 20
+      resistances:
+        Weapon: 0.5
+        Blue: 2
+        Purple: 2
+      experience: 50
+      flavor:
+    - name: Blue GEMonger
+      battlecry: gemling
+      color: Blue
+      health: 8
+      actions:
+        - name: Blizzard
+          chance: 40
+        - name: Blizzara
+          chance: 40
+        - name: Blizzaga
+          chance: 20
+      resistances:
+        Weapon: 0.5
+        Green: 2
+        Orange: 2
+      experience: 50
+      flavor:
+    - name: Green GEMonger
+      battlecry: gemling
+      color: Green
+      health: 8
+      actions:
+        - name: Poison
+          chance: 40
+        - name: Poisona
+          chance: 40
+        - name: Poisaga
+          chance: 20
+      resistances:
+        Weapon: 0.5
+        Red: 2
+        Pink: 2
+      experience: 50
+      flavor:
+    - name: Orange GEMonger
+      battlecry: gemling
+      color: Orange
+      health: 8
+      actions:
+        - name: Break
+          chance: 40
+        - name: Breaka
+          chance: 40
+        - name: Breakaga
+          chance: 20
+      resistances:
+        Weapon: 0.5
+        Green: 2
+        Purple: 2
+      experience: 50
+      flavor:
+    - name: Purple GEMonger
+      battlecry: gemling
+      color: Purple
+      health: 8
+      actions:
+        - name: Thunder
+          chance: 40
+        - name: Thundara
+          chance: 40
+        - name: Thundaga
+          chance: 20
+      resistances:
+        Weapon: 0.5
+        Blue: 2
+        Pink: 2
+      experience: 50
+      flavor:
+    - name: Pink GEMonger
+      battlecry: gemling
+      color: Pink
+      health: 8
+      actions:
+        - name: Sleep
+          chance: 40
+        - name: Sleepa
+          chance: 40
+        - name: Sleepaga
+          chance: 20
+      resistances:
+        Weapon: 0.5
+        Red: 2
+        Orange: 2
+      experience: 50
+      flavor: f
+    # GEMaster
+    - name: Red GEMaster
+      battlecry: gemlord
+      color: Red
+      health: 25
+      actions:
+        - name: Swords Dance
+          chance: 40
+        - name: Scratch
+          chance: 40
+        - name: Focus
+          chance: 20
+      resistances:
+        Weapon: 0.5
+        Blue: 2
+        Purple: 2
+      experience: 100
+      flavor: A chatter that was thought to have been extinct. It is very intelligent and uses any emote.
+    - name: Blue GEMaster
+      battlecry: gemlord
+      color: Blue
+      health: 25
+      actions:
+        - name: Protect
+          chance: 20
+        - name: Slash
+          chance: 20
+        - name: Sleep Powder
+          chance: 40
+        - name: Focus
+          chance: 20
+      resistances:
+        Weapon: 0.5
+        Green: 2
+        Orange: 2
+      experience: 100
+      flavor: This chatter is said to have endowed streamers with the determination needed to lap any of life's difficulties.
+    - name: Green GEMaster
+      battlecry: gemlord
+      color: Green
+      health: 25
+      actions:
+        - name: Synthesis
+          chance: 40
+        - name: Poison Powder
+          chance: 40
+        - name: Focus
+          chance: 20
+      resistances:
+        Weapon: 0.5
+        Red: 2
+        Pink: 2
+      experience: 100
+      flavor: This chatter wanders across Twitch. Laps and bans flourish in the streams in which it has chatted.
+    - name: Orange GEMaster
+      battlecry: gemlord
+      color: Orange
+      health: 25
+      actions:
+        - name: Slash
+          chance: 40
+        - name: Sharpen
+          chance: 40
+        - name: Focus
+          chance: 20
+      resistances:
+        Weapon: 0.5
+        Green: 2
+        Purple: 2
+      experience: 100
+      flavor: It is said to make any lap come true. It chats for only seven streams out of a thousand subathons.
+    - name: Purple GEMaster
+      battlecry: gemlord
+      color: Purple
+      health: 25
+      actions:
+        - name: Protect
+          chance: 40
+        - name: Poison Powder
+          chance: 40
+        - name: Focus
+          chance: 20
+      resistances:
+        Weapon: 0.5
+        Blue: 2
+        Pink: 2
+      experience: 100
+      flavor: According to some sources, this chatter provided streams with the intelligence necessary to solve various problems.
+    - name: Pink GEMaster
+      battlecry: gemlord
+      color: Pink
+      health: 25
+      actions:
+        - name: Quick Attack
+          chance: 40
+        - name: Screech
+          chance: 40
+        - name: Focus
+          chance: 20
+      resistances:
+        Weapon: 0.5
+        Red: 2
+        Orange: 2
+      experience: 100
+      flavor: This chatter is said to have endowed streamers with emotions, such as sorrow and joy.
+    # Minibosses
+    - name: KEKking
+      battlecry: slaking
+      color: White
+      health: 50
+      actions:
+        - name: Loaf
+          chance: 60
+        - name: Mega Punch
+          chance: 10
+        - name: Mega Kick
+          chance: 10
+        - name: Focus
+          chance: 20
+      experience: 200
+      flavor: It is the world's most slothful chatter. However, it can exert horrifying power by releasing pent-up bits all at once.
+    # Bosses
+    - name: WiggMakuni
+      battlecry: wigglytuff
+      color: Pink
+      health: 5
+      actions:
+        - name: Tackle
+          chance: 30
+        - name: Hyper Voice
+          chance: 10
+        - name: Sing
+          chance: 60
+      resistances:
+        Purple: 0.5
+        Orange: 2
+      experience: 200
+      flavor: Its chats are extremely fine, dense, and supple. The exquisitely pleasant fur conveys an image of laps.
+    - name: KingMakuni
+      battlecry: kingler
+      color: Red
+      health: 5
+      actions:
+        - name: Scratch
+          chance: 75
+        - name: Slash
+          chance: 24
+        - name: Guillotine
+          chance: 1
+      resistances:
+        Red: 0.5
+        Purple: 2
+      experience: 200
+      flavor: Its large and hard chats has 10,000-lappower strength. However, being so funny, it is unwieldy to ban.
+    - name: MamoMakuni
+      battlecry: mamoswine
+      color: Purple
+      health: 5
+      actions:
+        - name: Headbutt
+          chance: 60
+        - name: Mega Kick
+          chance: 35
+        - name: Perish Song
+          chance: 5
+      resistances:
+        Blue: 0.5
+        Green: 2
+      experience: 200
+      flavor:
+    - name: DeoxyMakuni
+      battlecry: deoxys
+      color: Green
+      health: 20
+      actions:
+        - name: Psycho Boost
+          chance: 50
+        - name: Destiny Bond
+          chance: 50
+      experience: 200
+      flavor: DNA from a space virus mutated and became a chatter. It appears where laps are seen.
+  pools:
+    LigMakuni 1:
+      LigMakuni: 75
+      LigMakuni2: 25
+    LigMakuni 2:
+      LigMakuni: 50
+      LigMakuni2: 50
+    LigMakuni 3:
+      LigMakuni: 30
+      LigMakuni2: 60
+      LigMakuni3: 10
+    LigMakuni 4:
+      LigMakuni2: 50
+      LigMakuni3: 50
+    Forest 1:
+      Joelge: 33
+      Ratty: 33
+      Evorun: 34
+    Forest 2:
+      Joelge: 30
+      Ratty: 30
+      Evorun: 30
+      Great Joelge: 10
+    Forest 3:
+      Ratty: 80
+      Rattix: 10
+      Rattiz: 10
+    Cave 1:
+      Joelge: 35
+      Ratty: 35
+      Great Joelge: 30
+    Cave 2:
+      Joelge: 30
+      Great Joelge: 60
+      Dire Joelge: 10
+    Cave 3:
+      Great Joelge: 33
+      Rattix: 12
+      Rattiz: 12
+      Dire Joelge: 33
+    Dungeon 1:
+      Great Joelge: 50
+      Dire Joelge: 50
+      Rattix: 25
+      Rattiz: 25
+    Dungeon 2:
+      Red GEMite: 30
+      Blue GEMite: 30
+      Green GEMite: 30
+      Orange GEMonger: 3
+      Purple GEMonger: 3
+      Pink GEMonger: 4
+    Dungeon 3:
+      Orange Gemite: 30
+      Purple Gemite: 30
+      Pink Gemite: 30
+      Red GEMonger: 3
+      Blue GEMonger: 3
+      Green GEMonger: 4
+    Temple 1:
+      Red GEMite: 17
+      Blue GEMite: 17
+      Green GEMite: 17
+      Orange GEMite: 17
+      Purple GEMite: 16
+      Pink GEMite: 16
+    Temple 2:
+      Red GEMite: 20
+      Blue GEMite: 20
+      Green GEMite: 20
+      Red GEMonger: 14
+      Blue GEMonger: 13
+      Green GEMonger: 13
+    Temple 3:
+      Orange GEMite: 20
+      Purple GEMite: 20
+      Pink GEMite: 20
+      Orange GEMonger: 14
+      Purple GEMonger: 13
+      Pink GEMonger: 13
+    Temple Miniboss:
+      Red GEMaster: 17
+      Blue GEMaster: 17
+      Green GEMaster: 17
+      Orange GEMaster: 17
+      Purple GEMaster: 16
+      Pink GEMaster: 16
+    Space 1:
+      Red GEMonger: 45
+      Orange GEMonger: 45
+      Blue GEMaster: 5
+      Pink GEMaster: 5
+    Space 2:
+      Blue GEMonger: 45
+      Purple GEMonger: 45
+      Green GEMaster: 5
+      Orange GEMaster: 5
+    Space 3:
+      Green GEMonger: 45
+      Pink GEMonger: 45
+      Red GEMaster: 5
+      Purple GEMaster: 5
+    Common Quag:
+      Quag: 75
+      Shiny Quag: 25
+      Metal Quag: 4
+      Gold Quag: 1
+    Uncommon Quag:
+      Quag: 50
+      Shiny Quag: 30
+      Metal Quag: 15
+      Gold Quag: 5
+    Rare Quag:
+      Quag: 20
+      Shiny Quag: 34
+      Metal Quag: 35
+      Gold Quag: 10
+      Gem Quag: 1
+    Mythic Quag:
+      Shiny Quag: 30
+      Metal Quag: 35
+      Gold Quag: 25
+      Gem Quag: 10
+    Legendary Quag:
+      Metal Quag: 50
+      Gold Quag: 23
+      Diamond Quag: 1
+      Ruby Quag: 1
+      Sapphire Quag: 1
+      Emerald Quag: 1
+      Topaz Quag: 1
+      Amethyst Quag: 1
+      Quarz Quag: 1
+    Gem Quag:
+      Diamond Quag: 16
+      Ruby Quag: 14
+      Sapphire Quag: 14
+      Emerald Quag: 14
+      Topaz Quag: 14
+      Amethyst Quag: 14
+      Quarz Quag: 14
+  generators:
+  Random Pokemon:
+    kind: premade
+    resources: https://raw.githubusercontent.com/atpoverload/my-sprites/refs/heads/main/pkm
+    actions:
+      - name: Tackle
+        action:
+          type: Attack
+          power: 1
+          accuracy: 95
+        text: uses Tackle.
+    enemies:
+      - name: Bulbasaur
+        color: Green
+        stats: 318
+        resistances:
+          Red: 2
+          Blue: 0.5
+        flavor: There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.
+      - name: Squirtle
+        color: Blue
+        stats: 318
+        resistances:
+          Green: 2
+          Red: 0.5
+        flavor: When it retracts its long neck into its shell, it squirts out water with vigorous force.
+      - name: Charmander
+        color: Red
+        stats: 318
+        resistances:
+          Blue: 2
+          Green: 0.5
+        flavor: From the time it is born, a flame burns at the tip of its tail. Its life would end if the flame were to go out.
+      - name: Chikorita
+        color: Green
+        stats: 318
+        resistances:
+          Red: 2
+          Orange: 0.5
+        flavor: Its pleasantly aromatic leaf has the ability to check the humidity and temperature.
+      - name: Totodile
+        color: Blue
+        stats: 318
+        resistances:
+          Green: 2
+          Blue: 0.5
+        flavor: It is small but rough and tough. It won't hesitate to take a bite out of anything that moves.
+      - name: Cyndaquil
+        color: Red
+        stats: 318
+        resistances:
+          Blue: 2
+          Pink: 0.5
+        flavor: It usually stays hunched over. If it is angry or surprised, it shoots flames out of its back.
+      - name: Treecko
+        color: Green
+        stats: 318
+        resistances:
+          Orange: 2
+          Pink: 0.5
+        flavor: It quickly scales even vertical walls. It senses humidity with its tail to predict the next day's weather.
+      - name: Mudkip
+        color: Blue
+        stats: 318
+        resistances:
+          Green: 2
+          Purple: 0.5
+        flavor: Its large tail fin propels it through water with powerful acceleration. It is strong in spite of its size.
+      - name: Torchic
+        color: Red
+        stats: 318
+        resistances:
+          Blue: 2
+          Orange: 0.5
+        flavor: It has a flame sac inside its belly that perpetually burns. It feels warm if it is hugged.
+  Quag:
+    kind: pool
+    pools:
+      Common Quag:
+        Quag: 95
+        Metal Quag: 5
+        Gold Quag: 1
+      Uncommon Quag:
+        Quag: 75
+        Metal Quag: 20
+        Gold Quag: 5
+      Rare Quag:
+        Quag: 50
+        Metal Quag: 40
+        Gold Quag: 10
+      Mythic Quag:
+        Metal Quag: 25
+        Gold Quag: 26
+        Diamond Quag: 7
+        Ruby Quag: 7
+        Sapphire Quag: 7
+        Emerald Quag: 7
+        Topaz Quag: 7
+        Amethyst Quag: 7
+        Quarz Quag: 7
+      Legendary Quag:
+        Gold Quag: 9
+        Diamond Quag: 13
+        Ruby Quag: 13
+        Sapphire Quag: 13
+        Emerald Quag: 13
+        Topaz Quag: 13
+        Amethyst Quag: 13
+        Quarz Quag: 13
+      Gem Quag:
+        Diamond Quag: 16
+        Ruby Quag: 14
+        Sapphire Quag: 14
+        Emerald Quag: 14
+        Topaz Quag: 14
+        Amethyst Quag: 14
+        Quarz Quag: 14
+  GEMonGenerator:
+    names:
+      base:
+        - gem
+        - jewel
+        - stone
+        - crystal
+        - gemstone
+        - nugget
+        - diamond
+        - pearl
+        - ruby
+        - sapphire
+        - emerald
+        - onyx
+        - topaz
+        - amethyst
+    actions: pass
+    enemies: pass
+npcs:
+  - character: Rival
+  - character: Bug Catcher
+  - character: Liam
+  - character: Brock
+  - character: Erika
+  - character: Imakuni
+arcade:
+  entries:
+    stage0:
+      player:
+        x: 35
+        y: 443
+      treasure:
+        x: 35
+        y: 125
+      ledges:
+        - x: 575
+          y: 425
+          width: 65
+          height: 10
+        - x: 400
+          y: 425
+          width: 65
+          height: 10
+        - x: 225
+          y: 425
+          width: 65
+          height: 10
+        - x: 50
+          y: 425
+          width: 65
+          height: 10
+      blocks: []
+      monsters:
+        - x: 75
+          y: 390
+          gravity: 250
+          jump_strength: 1000
+          walk_speed: 218
+          hop_wait: 0.50
+      hazards: []
+    stage1:
+      player:
+        x: 35
+        y: 443
+      treasure:
+        x: 35
+        y: 125
+      ledges:
+        - x: 0
+          y: 478
+          width: 485
+          height: 35
+        - x: 550
+          y: 425
+          width: 65
+          height: 10
+        - x: 375
+          y: 400
+          width: 65
+          height: 10
+        - x: 200
+          y: 375
+          width: 65
+          height: 10
+        - x: 0
+          y: 340
+          width: 100
+          height: 10
+        - x: 200
+          y: 310
+          width: 65
+          height: 10
+        - x: 375
+          y: 270
+          width: 65
+          height: 10
+        - x: 550
+          y: 230
+          width: 65
+          height: 10
+        - x: 635
+          y: 190
+          width: 50
+          height: 10
+        - x: 525
+          y: 150
+          width: 35
+          height: 10
+        - x: 375
+          y: 150
+          width: 35
+          height: 10
+        - x: 225
+          y: 150
+          width: 35
+          height: 10
+        - x: 0
+          y: 150
+          width: 100
+          height: 10
+      blocks:
+        - x: 475
+          y: 500
+          width: 25
+          height: 35
+        - x: 675
+          y: 500
+          width: 25
+          height: 50
+      monsters:
+        - x: 525
+          y: 500
+          gravity: 500
+          jump_strength: 250
+          walk_speed: 200
+          hop_wait: 0.35
+      hazards: []
+player:
+  name: Light
+  affinities:
+    Health: 10
+    Strength: 5
+    Magic: 5
+    White: 1
+    Red: 1
+    Blue: 1
+    Green: 1
+    Orange: 1
+    Purple: 1
+    Pink: 1
+  items:
+    - type: name
+      name: Rusty Sword
+    - type: name
+      name: Sodie Pop
+  emotes: []
+  event:
+    - type: EventSection
+      location: Start
+events:
+  entries:
+    Quaggening:
+      - type: Music
+        music: Quaggening
+      - type: Pool
+        pool: Quaggening 1
+      - type: Reward
+        rewards:
+          - type: kind
+            kind: Gem
+      - type: Pool
+        pool: Quaggening 1
+      - type: Pool
+        pool: Quaggening 1
+      - type: Altar
+    Miniboss Reward:
+      - type: Altar
+      - type: Reward
+        rewards:
+          - type: kind
+            kind: Emote
+          - type: kind
+            kind: Emote
+          - type: kind
+            kind: Emote
+      - type: Reward
+        rewards:
+          - type: Pool
+            pool: Heal Reward
+    Boss Reward:
+      - type: Reward
+        rewards:
+          - type: kind
+            kind: Gem
+          - type: kind
+            kind: Gem
+      - type: Altar
+      - type: Reward
+        rewards:
+          - type: kind
+            kind: Emote
+          - type: kind
+            kind: Emote
+          - type: kind
+            kind: Emote
+      - type: Reward
+        rewards:
+          - type: kind
+            kind: Emote
+          - type: kind
+            kind: Emote
+          - type: kind
+            kind: Emote
+      - type: Reward
+        rewards:
+          - type: Pool
+            pool: Heal Reward
+      - type: Reward
+        rewards:
+          - type: Pool
+            pool: Heal Reward
+    Start:
+      - type: Reward
+        rewards:
+          - type: kind
+            kind: Gem
+          - type: kind
+            kind: Gem
+      - type: Reward
+        rewards:
+          - type: kind
+            kind: Emote
+          - type: kind
+            kind: Emote
+      - type: Reward
+        rewards:
+          - type: kind
+            kind: Emote
+          - type: kind
+            kind: Emote
+      - type: Wait
+      - type: Music
+        music: Imakuni
+      - type: Dialogue
+        character: Imakuni
+        dialogue:
+          - Hey! You stole my treasures!
+          - I'll make you pay for this!
+      - type: Battle
+        enemy:
+          type: Name
+          name: Imakuni
+        level: 1
+      - type: Dialogue
+        character: Imakuni
+        dialogue:
+          - Grrr...
+          - Fine then! I'll make sure you NEVER find the Gold Gem.
+      - type: Wait
+      - type: Save
+      - type: EventSection
+        location: Forest
+      - type: Save
+      - type: Music
+        music: Lofi Zelda
+      - type: Rest
+        power: 50
+      - type: Wait
+      - type: EventSection
+        location: Cave
+      - type: Save
+      - type: Music
+        music: Lofi Zelda
+      - type: Rest
+        power: 50
+      - type: Wait
+      - type: EventSection
+        location: Dungeon
+      - type: Save
+      - type: Music
+        music: Lofi Zelda
+      - type: Rest
+        power: 50
+      - type: Wait
+      - type: EventSection
+        location: Temple
+      - type: Save
+      - type: Music
+        music: Lofi Zelda
+      - type: Rest
+        power: 50
+      - type: Wait
+      - type: EventSection
+        location: Space
+      - type: Victory
+    Forest:
+      - type: Background
+        background: Forest
+      - type: Music
+        music: Viridian Forest
+      - type: Message
+        message: Entering the Forest
+      - type: Pool
+        pool: Forest Section
+      - type: Wait
+      - type: Pool
+        pool: Forest Section
+      - type: Wait
+      - type: Pool
+        pool: Arcade 1
+      - type: Wait
+      - type: Pool
+        pool: Forest Section
+      - type: Wait
+      - type: Pool
+        pool: Forest Section
+      - type: Wait
+      - type: Music
+        music: Imakuni
+      - type: Dialogue
+        character: Imakuni
+        dialogue:
+          - You again?!
+          - You won't get me this time, I have the ultimate weapon!
+      - type: Music
+        music: Boss Battle
+      - type: Battle
+        enemy:
+          type: Name
+          name: WiggMakuni
+        level: dynamic
+      - type: EventSection
+        location: Boss Reward
+      - type: Dialogue
+        character: Imakuni
+        dialogue:
+          - Unbelievable! You shouldn't have been able to win!
+          - ... ... ...
+          - I'm outta here!
+    Cave:
+      - type: Background
+        background: Cave
+      - type: Music
+        music: Dark Cave
+      - type: Message
+        message: Entering the Cave
+      - type: Pool
+        pool: Cave Section
+      - type: Wait
+      - type: Pool
+        pool: Cave Section
+      - type: Wait
+      - type: Pool
+        pool: Arcade 1
+      - type: Wait
+      - type: Pool
+        pool: Cave Section
+      - type: Wait
+      - type: Pool
+        pool: Cave Section
+      - type: Wait
+      - type: Music
+        music: Imakuni
+      - type: Dialogue
+        character: Imakuni
+        dialogue:
+          - Ah ha! Now I've got you!
+          - I hope you enjoy crab...
+      - type: Music
+        music: Boss Battle
+      - type: Battle
+        enemy:
+          type: Name
+          name: KingMakuni
+        level: dynamic
+      - type: EventSection
+        location: Boss Reward
+      - type: Dialogue
+        character: Imakuni
+        dialogue:
+          - Ahhh!!! This is ridiculous!
+          - I'm going to need a whole team to take you down!
+    Dungeon:
+      - type: Background
+        background: Dungeon
+      - type: Music
+        music: In the Cellar
+      - type: Message
+        message: Entering the Dungeon
+      - type: Pool
+        pool: Dungeon Section
+      - type: Wait
+      - type: Pool
+        pool: Dungeon Section
+      - type: Wait
+      - type: Pool
+        pool: Arcade 2
+      - type: Wait
+      - type: Pool
+        pool: Dungeon Section
+      - type: Wait
+      - type: Pool
+        pool: Dungeon Section
+      - type: Wait
+      - type: Music
+        music: Imakuni
+      - type: Dialogue
+        character: Imakuni
+        dialogue:
+          - Oh, hello there!
+          - I hope you've gotten stronger since the last time we fought...
+      - type: Music
+        music: Boss Battle
+      - type: Battle
+        enemy:
+          type: Name
+          name: MamoMakuni
+        level: dynamic
+      - type: EventSection
+        location: Boss Reward
+      - type: Dialogue
+        character: Imakuni
+        dialogue:
+          - ... ... ...
+    Temple:
+      - type: Background
+        background: Temple
+      - type: Music
+        music: War Of The Gems
+      - type: Message
+        message: Entering the Temple
+      - type: Dialogue
+        character: Gem Warden
+        dialogue:
+          - Thank goodness you are here!
+          - Imakuni broke in and stole the Gold Gem, and now the temple is overrun with monsters!
+          - Please! You must stop him and recover the Gold Gem, quickly!
+      - type: Pool
+        pool: Temple Section
+      - type: Wait
+      - type: Pool
+        pool: Temple Section
+      - type: Wait
+      - type: Pool
+        pool: Arcade 2
+      - type: Wait
+      - type: Battle
+        enemy:
+          type: Pool
+          pool: Temple Miniboss
+        level: dynamic
+      - type: EventSection
+        location: Miniboss Reward
+      - type: Wait
+      - type: Pool
+        pool: Temple Section
+      - type: Wait
+      - type: Pool
+        pool: Temple Section
+      - type: Wait
+      - type: Music
+        music: Imakuni
+      - type: Dialogue
+        character: Imakuni
+        dialogue:
+          - Followed me here, eh?
+          - Let's see if you can handle the whole team!
+      - type: Music
+        music: Boss Battle
+      - type: Battle
+        enemy:
+          type: Name
+          name: WiggMakuni
+        level: dynamic
+      - type: Battle
+        enemy:
+          type: Name
+          name: KingMakuni
+        level: dynamic
+      - type: Battle
+        enemy:
+          type: Name
+          name: MamoMakuni
+        level: dynamic
+      - type: EventSection
+        location: Boss Reward
+      - type: Dialogue
+        character: Imakuni
+        dialogue:
+          - ... ... ...
+    Space:
+      - type: Background
+        background: Space
+      - type: Music
+        music: Arcade
+      - type: Message
+        message: Entering Space
+      - type: Pool
+        pool: Space Section
+      - type: Wait
+      - type: Pool
+        pool: Space Section
+      - type: Wait
+      - type: Pool
+        pool: Arcade 3
+      - type: Wait
+      - type: Pool
+        pool: Space Section
+      - type: Wait
+      - type: Battle
+        enemy:
+          type: Name
+          name: KEKking
+        level: dynamic
+      - type: EventSection
+        location: Miniboss Reward
+      - type: Wait
+      - type: Pool
+        pool: Space Section
+      - type: Wait
+      - type: Music
+        music: Imakuni
+      - type: Dialogue
+        character: Imakuni
+        dialogue:
+          - Alright! This is it!
+          - You're finally going down!
+      - type: Music
+        music: Boss Battle
+      - type: Battle
+        enemy:
+          type: Name
+          name: WiggMakuni
+        level: dynamic
+      - type: Battle
+        enemy:
+          type: Name
+          name: KingMakuni
+        level: dynamic
+      - type: Battle
+        enemy:
+          type: Name
+          name: MamoMakuni
+        level: dynamic
+      - type: Battle
+        enemy:
+          type: Name
+          name: DeoxyMakuni
+        level: dynamic
+      - type: Dialogue
+        character: Imakuni
+        dialogue:
+          - FINE!!!
+          - I'll just have to do it myself!
+      - type: Battle
+        enemy:
+          type: Name
+          name: ImakuniG
+        level: 1
+  pools:
+    Quaggening 1:
+      - type: Events
+        events:
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Reward
+            rewards:
+              - type: kind
+                kind: Emote
+              - type: kind
+                kind: Emote
+        chance: 40
+      - type: Events
+        events:
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Uncommon Quag
+            level: dynamic
+          - type: Reward
+            rewards:
+              - type: kind
+                kind: Emote
+              - type: kind
+                kind: Emote
+        chance: 15
+      - type: Events
+        events:
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Rare Quag
+            level: dynamic
+          - type: Reward
+            rewards:
+              - type: kind
+                kind: Emote
+              - type: kind
+                kind: Emote
+        chance: 5
+      - type: Events
+        events:
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Uncommon Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Rare Quag
+            level: dynamic
+          - type: Reward
+            rewards:
+              - type: kind
+                kind: Emote
+              - type: kind
+                kind: Emote
+        chance: 2
+      - type: Events
+        events:
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Uncommon Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Rare Quag
+            level: dynamic
+          - type: Reward
+            rewards:
+              - type: kind
+                kind: Emote
+              - type: kind
+                kind: Emote
+        chance: 1
+      - type: Events
+        events:
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Reward
+            rewards:
+              - type: kind
+                kind: Emote
+              - type: kind
+                kind: Emote
+        chance: 20
+      - type: Events
+        events:
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Uncommon Quag
+            level: dynamic
+          - type: Reward
+            rewards:
+              - type: kind
+                kind: Emote
+              - type: kind
+                kind: Emote
+        chance: 10
+      - type: Events
+        events:
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Uncommon Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Uncommon Quag
+            level: dynamic
+          - type: Reward
+            rewards:
+              - type: kind
+                kind: Emote
+              - type: kind
+                kind: Emote
+        chance: 5
+      - type: Events
+        events:
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Uncommon Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Rare Quag
+            level: dynamic
+          - type: Reward
+            rewards:
+              - type: kind
+                kind: Emote
+              - type: kind
+                kind: Emote
+        chance: 2
+    LigMakuni Battle 1:
+      - type: Events
+        events:
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Trap
+            event:
+              type: Battle
+              enemy:
+                type: Name
+                name: LigMakuni
+              level: dynamic
+            check: Health
+            challenge: dynamic
+        chance: 50
+      - type: Events
+        events:
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Name
+              name: LigMakuni
+            level: dynamic
+        chance: 50
+    LigMakuni Battle 2:
+      - type: Events
+        events:
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Trap
+            event:
+              type: Battle
+              enemy:
+                type: Pool
+                pool: LigMakuni 1
+              level: dynamic
+            check: Health
+            challenge: dynamic
+        chance: 50
+      - type: Events
+        events:
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: LigMakuni 1
+            level: dynamic
+        chance: 50
+    LigMakuni Battle 3:
+      - type: Events
+        events:
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Trap
+            event:
+              type: Battle
+              enemy:
+                type: Pool
+                pool: LigMakuni 2
+              level: dynamic
+            check: Health
+            challenge: dynamic
+        chance: 50
+      - type: Events
+        events:
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: LigMakuni 2
+            level: dynamic
+        chance: 50
+    LigMakuni Battle 4:
+      - type: Events
+        events:
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Trap
+            event:
+              type: Battle
+              enemy:
+                type: Pool
+                pool: LigMakuni 3
+              level: dynamic
+            check: Health
+            challenge: dynamic
+        chance: 50
+      - type: Events
+        events:
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: LigMakuni 3
+            level: dynamic
+        chance: 50
+    LigMakuni Battle 5:
+      - type: Events
+        events:
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Trap
+            event:
+              type: Battle
+              enemy:
+                type: Pool
+                pool: LigMakuni 4
+              level: dynamic
+            check: Health
+            challenge: dynamic
+        chance: 50
+      - type: Events
+        events:
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: LigMakuni 4
+            level: dynamic
+        chance: 50
+    LigMakuni Battle 6:
+      - type: Events
+        events:
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Trap
+            event:
+              type: Battle
+              enemy:
+                type: Name
+                name: LigMakuni3
+              level: dynamic
+            check: Health
+            challenge: dynamic
+        chance: 50
+      - type: Events
+        events:
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Pool
+              pool: Common Quag
+            level: dynamic
+          - type: Battle
+            enemy:
+              type: Name
+              name: LigMakuni3
+            level: dynamic
+        chance: 50
+    Trap 1:
+      - type: Trap
+        event:
+          type: Damage
+          power: dynamic
+        check: Strength
+        challenge: dynamic
+        chance: 75
+      - type: Trap
+        event:
+          type: Curse
+          curse: Sleep
+          power: dynamic
+        check: Strength
+        challenge: dynamic
+        chance: 12
+      - type: Trap
+        event:
+          type: Curse
+          curse: Poison
+          power: dynamic
+        check: Strength
+        challenge: dynamic
+        chance: 12
+      - type: Trap
+        event:
+          type: Curse
+          curse: Doom
+          power: 1
+        check: Health
+        challenge: dynamic
+        chance: 1
+    Trap 2:
+      - type: Trap
+        event:
+          type: Damage
+          power: dynamic
+        check: Strength
+        challenge: dynamic
+        chance: 32
+      - type: Trap
+        event:
+          type: Curse
+          curse: Sleep
+          power: dynamic
+        check: Strength
+        challenge: dynamic
+        chance: 32
+      - type: Trap
+        event:
+          type: Curse
+          curse: Poison
+          power: dynamic
+        check: Strength
+        challenge: dynamic
+        chance: 32
+      - type: Trap
+        event:
+          type: Curse
+          curse: Doom
+          power: 1
+        check: Health
+        challenge: dynamic
+        chance: 4
+    Trap 3:
+      - type: Trap
+        event:
+          type: Damage
+          power: dynamic
+        check: Strength
+        challenge: dynamic
+        chance: 25
+      - type: Trap
+        event:
+          type: Curse
+          curse: Sleep
+          power: dynamic
+        check: Strength
+        challenge: dynamic
+        chance: 25
+      - type: Trap
+        event:
+          type: Curse
+          curse: Poison
+          power: dynamic
+        check: Strength
+        challenge: dynamic
+        chance: 25
+      - type: Trap
+        event:
+          type: Curse
+          curse: Doom
+          power: 1
+        check: Health
+        challenge: dynamic
+        chance: 25
+    Arcade 1:
+      - type: Puzzle
+        stage: stage1
+        credits: 3
+        event:
+          type: Reward
+          rewards:
+            - type: kind
+              kind: Gem
+        chance: 60
+      - type: Puzzle
+        stage: stage2
+        credits: 3
+        event:
+          type: Reward
+          rewards:
+            - type: kind
+              kind: Gem
+        chance: 30
+      - type: Puzzle
+        stage: stage3
+        credits: 3
+        event:
+          type: Reward
+          rewards:
+            - type: kind
+              kind: Gem
+        chance: 10
+    Arcade 2:
+      - type: Puzzle
+        stage: stage1
+        credits: 3
+        event:
+          type: Reward
+          rewards:
+            - type: kind
+              kind: Gem
+        chance: 40
+      - type: Puzzle
+        stage: stage2
+        credits: 3
+        event:
+          type: Reward
+          rewards:
+            - type: kind
+              kind: Gem
+        chance: 30
+      - type: Puzzle
+        stage: stage3
+        credits: 3
+        event:
+          type: Reward
+          rewards:
+            - type: kind
+              kind: Gem
+        chance: 15
+      - type: Puzzle
+        stage: stage4
+        credits: 3
+        event:
+          type: Reward
+          rewards:
+            - type: kind
+              kind: Gem
+        chance: 5
+    Arcade 3:
+      - type: Puzzle
+        stage: stage1
+        credits: 3
+        event:
+          type: Reward
+          rewards:
+            - type: kind
+              kind: Gem
+        chance: 40
+      - type: Puzzle
+        stage: stage2
+        credits: 3
+        event:
+          type: Reward
+          rewards:
+            - type: kind
+              kind: Gem
+        chance: 30
+      - type: Puzzle
+        stage: stage3
+        credits: 3
+        event:
+          type: Reward
+          rewards:
+            - type: kind
+              kind: Gem
+        chance: 15
+      - type: Puzzle
+        stage: stage4
+        credits: 3
+        event:
+          type: Reward
+          rewards:
+            - type: kind
+              kind: Gem
+        chance: 10
+      - type: Puzzle
+        stage: stage5
+        credits: 3
+        event:
+          type: Reward
+          rewards:
+            - type: kind
+              kind: Gem
+        chance: 5
+    Heal Reward:
+      - type: Reward
+        rewards:
+          - type: Pool
+            pool: Sodie 1
+        chance: 22
+      - type: Reward
+        rewards:
+          - type: Pool
+            pool: Sodie 2
+        chance: 17
+      - type: Reward
+        rewards:
+          - type: Pool
+            pool: Sodie 3
+        chance: 16
+      - type: Reward
+        rewards:
+          - type: Pool
+            pool: Restore 1
+        chance: 15
+      - type: Reward
+        rewards:
+          - type: Pool
+            pool: Restore 2
+        chance: 14
+      - type: Reward
+        rewards:
+          - type: Pool
+            pool: Cold One 1
+        chance: 15
+    Battle Reward:
+      - type: Reward
+        rewards:
+          - type: kind
+            kind: Emote
+          - type: kind
+            kind: Emote
+        chance: 75
+      - type: Reward
+        rewards:
+          - type: Pool
+            pool: Heal Reward
+        chance: 20
+      - type: Events
+        events:
+          - type: Reward
+            rewards:
+              - type: kind
+                kind: Emote
+              - type: kind
+                kind: Emote
+          - type: Reward
+            rewards:
+              - type: Pool
+                pool: Heal Reward
+        chance: 5
+    Forest Fight:
+      - type: Battle
+        enemy:
+          type: Pool
+          pool: Forest 1
+        level: dynamic
+        chance: 60
+      - type: Battle
+        enemy:
+          type: Pool
+          pool: Forest 2
+        level: dynamic
+        chance: 30
+      - type: Battle
+        enemy:
+          type: Pool
+          pool: Forest 3
+        level: dynamic
+        chance: 10
+    Forest Battle:
+      - type: Events
+        events:
+          - type: Pool
+            pool: Forest Fight
+          - type: Pool
+            pool: Forest Fight
+        chance: 50
+      - type: Events
+        events:
+          - type: Pool
+            pool: Forest Fight
+          - type: Pool
+            pool: Forest Fight
+          - type: Pool
+            pool: Forest Fight
+        chance: 50
+    Forest Section:
+      - type: Events
+        events:
+          - type: Pool
+            pool: Forest Battle
+          - type: Pool
+            pool: Battle Reward
+        chance: 45
+      - type: Events
+        events:
+          - type: Pool
+            pool: Trap 1
+          - type: Pool
+            pool: Forest Battle
+          - type: Pool
+            pool: Battle Reward
+        chance: 30
+      - type: Events
+        events:
+          - type: Pool
+            pool: LigMakuni Battle 1
+          - type: Pool
+            pool: Battle Reward
+        chance: 15
+      - type: Events
+        events:
+          - type: Pool
+            pool: Trap 1
+          - type: Pool
+            pool: LigMakuni Battle 1
+          - type: Pool
+            pool: Battle Reward
+        chance: 10
+    Cave Fight:
+      - type: Battle
+        enemy:
+          type: Pool
+          pool: Cave 1
+        level: dynamic
+        chance: 60
+      - type: Battle
+        enemy:
+          type: Pool
+          pool: Cave 2
+        level: dynamic
+        chance: 30
+      - type: Battle
+        enemy:
+          type: Pool
+          pool: Cave 3
+        level: dynamic
+        chance: 10
+    Cave Battle:
+      - type: Events
+        events:
+          - type: Pool
+            pool: Cave Fight
+          - type: Pool
+            pool: Cave Fight
+        chance: 50
+      - type: Events
+        events:
+          - type: Pool
+            pool: Cave Fight
+          - type: Pool
+            pool: Cave Fight
+          - type: Pool
+            pool: Cave Fight
+        chance: 50
+    Cave Section:
+      - type: Events
+        events:
+          - type: Pool
+            pool: Cave Battle
+          - type: Pool
+            pool: Battle Reward
+        chance: 45
+      - type: Events
+        events:
+          - type: Pool
+            pool: Trap 1
+          - type: Pool
+            pool: Cave Battle
+          - type: Pool
+            pool: Battle Reward
+        chance: 30
+      - type: Events
+        events:
+          - type: Pool
+            pool: LigMakuni Battle 2
+          - type: Pool
+            pool: Battle Reward
+        chance: 15
+      - type: Events
+        events:
+          - type: Pool
+            pool: Trap 1
+          - type: Pool
+            pool: LigMakuni Battle 2
+          - type: Pool
+            pool: Battle Reward
+        chance: 10
+    Dungeon Fight:
+      - type: Battle
+        enemy:
+          type: Pool
+          pool: Dungeon 1
+        level: dynamic
+        chance: 60
+      - type: Battle
+        enemy:
+          type: Pool
+          pool: Dungeon 2
+        level: dynamic
+        chance: 30
+      - type: Battle
+        enemy:
+          type: Pool
+          pool: Dungeon 3
+        level: dynamic
+        chance: 10
+    Dungeon Battle:
+      - type: Events
+        events:
+          - type: Pool
+            pool: Dungeon Fight
+          - type: Pool
+            pool: Dungeon Fight
+        chance: 50
+      - type: Events
+        events:
+          - type: Pool
+            pool: Dungeon Fight
+          - type: Pool
+            pool: Dungeon Fight
+          - type: Pool
+            pool: Dungeon Fight
+        chance: 50
+    Dungeon Section:
+      - type: Events
+        events:
+          - type: Pool
+            pool: Dungeon Battle
+          - type: Pool
+            pool: Battle Reward
+        chance: 45
+      - type: Events
+        events:
+          - type: Pool
+            pool: Trap 2
+          - type: Pool
+            pool: Dungeon Battle
+          - type: Pool
+            pool: Battle Reward
+        chance: 30
+      - type: Events
+        events:
+          - type: Pool
+            pool: LigMakuni Battle 3
+          - type: Pool
+            pool: Battle Reward
+        chance: 15
+      - type: Events
+        events:
+          - type: Pool
+            pool: Trap 2
+          - type: Pool
+            pool: LigMakuni Battle 3
+          - type: Pool
+            pool: Battle Reward
+        chance: 10
+    Temple Fight:
+      - type: Battle
+        enemy:
+          type: Pool
+          pool: Temple 1
+        level: dynamic
+        chance: 60
+      - type: Battle
+        enemy:
+          type: Pool
+          pool: Temple 2
+        level: dynamic
+        chance: 30
+      - type: Battle
+        enemy:
+          type: Pool
+          pool: Temple 3
+        level: dynamic
+        chance: 10
+    Temple Battle:
+      - type: Events
+        events:
+          - type: Pool
+            pool: Temple Fight
+          - type: Pool
+            pool: Temple Fight
+        chance: 50
+      - type: Events
+        events:
+          - type: Pool
+            pool: Temple Fight
+          - type: Pool
+            pool: Temple Fight
+          - type: Pool
+            pool: Temple Fight
+        chance: 50
+    Temple Section:
+      - type: Events
+        events:
+          - type: Pool
+            pool: Temple Battle
+          - type: Pool
+            pool: Battle Reward
+        chance: 45
+      - type: Events
+        events:
+          - type: Pool
+            pool: Trap 2
+          - type: Pool
+            pool: Temple Battle
+          - type: Pool
+            pool: Battle Reward
+        chance: 30
+      - type: Events
+        events:
+          - type: Pool
+            pool: LigMakuni Battle 4
+          - type: Pool
+            pool: Battle Reward
+        chance: 15
+      - type: Events
+        events:
+          - type: Pool
+            pool: Trap 2
+          - type: Pool
+            pool: LigMakuni Battle 4
+          - type: Pool
+            pool: Battle Reward
+        chance: 10
+    Space Fight:
+      - type: Battle
+        enemy:
+          type: Pool
+          pool: Space 1
+        level: dynamic
+        chance: 60
+      - type: Battle
+        enemy:
+          type: Pool
+          pool: Space 2
+        level: dynamic
+        chance: 30
+      - type: Battle
+        enemy:
+          type: Pool
+          pool: Space 3
+        level: dynamic
+        chance: 10
+    Space Battle:
+      - type: Events
+        events:
+          - type: Pool
+            pool: Space Fight
+          - type: Pool
+            pool: Space Fight
+        chance: 50
+      - type: Events
+        events:
+          - type: Pool
+            pool: Space Fight
+          - type: Pool
+            pool: Space Fight
+          - type: Pool
+            pool: Space Fight
+        chance: 50
+    Space Section:
+      - type: Events
+        events:
+          - type: Pool
+            pool: Space Battle
+          - type: Pool
+            pool: Battle Reward
+        chance: 45
+      - type: Events
+        events:
+          - type: Pool
+            pool: Trap 1
+          - type: Pool
+            pool: Space Battle
+          - type: Pool
+            pool: Battle Reward
+        chance: 30
+      - type: Events
+        events:
+          - type: Pool
+            pool: LigMakuni Battle 5
+          - type: Pool
+            pool: Battle Reward
+        chance: 15
+      - type: Events
+        events:
+          - type: Pool
+            pool: Trap 1
+          - type: Pool
+            pool: LigMakuni Battle 5
+          - type: Pool
+            pool: Battle Reward
+        chance: 10
+  generators:
+    Quaggening:
+      enemies:
+        - Random Quag
+      events:
+        Battle:
+          levels: range(1, 100)
+        Reward:
+          - rewards:
+              - Emote
+              - Emote
+            chance: 90
+          - rewards:
+              - Emote
+              - Emote
+              - Emote
+            chance: 10
+      sections:
+        - section:
+            - Battle
+            - Battle
+            - Battle
+            - Battle
+            - Battle
+            - Reward
+          chance: 30
+        - section:
+            - Battle
+            - Battle
+            - Battle
+            - Battle
+            - Battle
+            - Battle
+            - Battle
+            - Reward
+          chance: 30
+        - section:
+            - Battle
+            - Battle
+            - Battle
+            - Battle
+            - Battle
+            - Battle
+            - Battle
+            - Battle
+            - Battle
+            - Battle
+            - Reward
+          chance: 40
+scenarios:
+  Gem Quest Demo:
+    - Intro
+    - Intro Forest
+    - Cave
+    - Dungeon
+    - Temple
+    - Space
+  Gem Quest:
+    - Intro
+    - Forest
+    - Cave
+    - Dungeon
+    - Temple
+    - Space
+  Gemanizer:
+    - Random Section
+    - Random Section
+    - Random Section
+    - Random Section
+    - Random Section
+  Gemanizer Infinite:
+    - Random Section
+resources:
+  dir: res://resources

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://i0fvdclpaljn"]
+
+[ext_resource type="Script" uid="uid://o4qxi4r7c1gb" path="res://gemanizer/emotes.gd" id="1_egxg5"]
+
+[node name="Emotes" type="VBoxContainer" unique_id=1893869389]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -900.0
+offset_right = -1200.0
+offset_bottom = -900.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = -10
+script = ExtResource("1_egxg5")

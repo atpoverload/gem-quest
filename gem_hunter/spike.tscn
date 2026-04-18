@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://23e2sf34fou3"]
+
+[ext_resource type="Script" uid="uid://btvapnbufku00" path="res://gem_hunter/spike.gd" id="1_1mcd8"]
+[ext_resource type="Texture2D" uid="uid://qu2sggu7eh5j" path="res://gem_hunter/resources/sprites/spike-pit.png" id="2_pqq57"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_y8nbw"]
+a = Vector2(-65, -18)
+b = Vector2(69, -18)
+
+[node name="Spike" type="Area2D" unique_id=899675422]
+input_pickable = false
+script = ExtResource("1_1mcd8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1850555362]
+position = Vector2(0, 5.4000244)
+shape = SubResource("SegmentShape2D_y8nbw")
+one_way_collision_margin = 8.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1623969300]
+texture_repeat = 2
+position = Vector2(-1, 3.1500263)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_pqq57")
+region_rect = Rect2(0, 0, 64, 64)
+
+[connection signal="body_entered" from="." to="." method="spike"]

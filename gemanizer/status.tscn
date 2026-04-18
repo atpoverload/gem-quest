@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://m70pt5a8hjgx"]
+
+[ext_resource type="Script" uid="uid://hyuk4rrjvt0o" path="res://gemanizer/status.gd" id="1_3k8l3"]
+
+[node name="Status" type="HBoxContainer" unique_id=2000754436]
+layout_direction = 3
+theme_override_constants/separation = -10
+script = ExtResource("1_3k8l3")

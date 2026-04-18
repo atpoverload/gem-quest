@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://d3hk1uk0ip324"]
+
+[ext_resource type="Texture2D" uid="uid://qerrtw4y6pos" path="res://gem_hunter/resources/sprites/floor.png" id="1_7pd8a"]
+[ext_resource type="Script" uid="uid://cawi8jetfrfqu" path="res://gem_hunter/ledge.gd" id="1_n0mps"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8emtg"]
+friction = 0.0
+
+[node name="Ledge" type="StaticBody2D" unique_id=1001054865]
+physics_material_override = SubResource("PhysicsMaterial_8emtg")
+script = ExtResource("1_n0mps")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=282090616]
+texture_repeat = 2
+texture = ExtResource("1_7pd8a")
+region_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1619534942]
+one_way_collision = true

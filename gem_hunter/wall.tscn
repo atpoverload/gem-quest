@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://sukja0wwd6a"]
+
+[ext_resource type="Texture2D" uid="uid://qerrtw4y6pos" path="res://gem_hunter/resources/sprites/floor.png" id="1_sf2ai"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8emtg"]
+friction = 0.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2y5ka"]
+distance = 5.0
+
+[node name="BottomFloor" type="StaticBody2D" unique_id=1367249074]
+physics_material_override = SubResource("PhysicsMaterial_8emtg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1876101367]
+texture_repeat = 2
+position = Vector2(350, 0)
+texture = ExtResource("1_sf2ai")
+region_enabled = true
+region_rect = Rect2(0, 0, 700, 25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1592529711]
+shape = SubResource("WorldBoundaryShape2D_2y5ka")

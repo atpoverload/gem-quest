@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://ca68dduqblcm4"]
+
+[ext_resource type="Script" uid="uid://fmqbu3khw3s7" path="res://gemanizer/value_bar.gd" id="1_e1wip"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e71vb"]
+bg_color = Color(0.78431374, 0.78431374, 0.78431374, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4nk8n"]
+bg_color = Color(0.39215687, 0.39215687, 0.39215687, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vke2r"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="ValueBar" type="VBoxContainer"]
+offset_right = 228.0
+offset_bottom = 68.0
+script = ExtResource("1_e1wip")
+
+[node name="Value" type="Label" parent="."]
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Bar" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Top" type="Panel" parent="Bar"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
+
+[node name="Middle" type="HBoxContainer" parent="Bar"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Left" type="Panel" parent="Bar/Middle"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
+
+[node name="Bar" type="ProgressBar" parent="Bar/Middle"]
+custom_minimum_size = Vector2(208, 15)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_4nk8n")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vke2r")
+value = 75.0
+show_percentage = false
+
+[node name="Right" type="Panel" parent="Bar/Middle"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")
+
+[node name="Bottom" type="Panel" parent="Bar"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_e71vb")

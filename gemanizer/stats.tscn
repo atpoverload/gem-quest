@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dlqj43nqg4dxa"]
+
+[ext_resource type="Script" uid="uid://1i4v2gghgd44" path="res://gemanizer/stats.gd" id="1_n8io3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jo4fm"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+
+[node name="Stats" type="HBoxContainer"]
+theme_override_constants/separation = 10
+alignment = 1
+script = ExtResource("1_n8io3")
+
+[node name="Strength" type="Label" parent="."]
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 24
+text = "000 ATK"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Divider" type="Panel" parent="."]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jo4fm")
+
+[node name="Magic" type="Label" parent="."]
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 24
+text = "000 MAG"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="Strength" to="." method="_show_stat" binds= ["strength"]]
+[connection signal="mouse_exited" from="Strength" to="." method="_hide_stat"]
+[connection signal="mouse_entered" from="Magic" to="." method="_show_stat" binds= ["magic"]]
+[connection signal="mouse_exited" from="Magic" to="." method="_hide_stat"]

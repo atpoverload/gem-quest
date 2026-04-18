@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://bdwagxk0ksncv"]
+
+[ext_resource type="Script" uid="uid://dqy3tgknpgigc" path="res://gemanizer/reward.gd" id="1_y45sq"]
+[ext_resource type="Texture2D" uid="uid://iicdw1f3x7" path="res://resources/event/sprites/Reward.png" id="2_03lvr"]
+[ext_resource type="Script" uid="uid://cqrifr7jskqj1" path="res://core/battle_sprite.gd" id="3_xur78"]
+[ext_resource type="Texture2D" uid="uid://cjnfh4v1iat05" path="res://resources/event/sprites/Reward Open.png" id="4_f1fx0"]
+[ext_resource type="AudioStream" uid="uid://cgcl343ddcvtj" path="res://resources/ui/sounds/button.mp3" id="5_51wvf"]
+[ext_resource type="AudioStream" uid="uid://c1udane6w51xd" path="res://resources/player/sounds/show-reward.wav" id="5_f1fx0"]
+[ext_resource type="AudioStream" uid="uid://bpyc3xeioex0h" path="res://resources/player/sounds/get-item.mp3" id="7_wumd0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f1fx0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d147f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aya2r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u1aym"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_otk8j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nji4q"]
+
+[node name="Reward" type="Control" unique_id=447078479]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_y45sq")
+
+[node name="ClosedChest" type="Sprite2D" parent="." unique_id=862010320]
+visible = false
+position = Vector2(130, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_03lvr")
+script = ExtResource("3_xur78")
+
+[node name="OpenChest" type="Sprite2D" parent="." unique_id=1000392304]
+position = Vector2(130, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_f1fx0")
+script = ExtResource("3_xur78")
+
+[node name="Rewards" type="HBoxContainer" parent="." unique_id=1152584133]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 68.0
+offset_top = -174.0
+offset_right = 196.0
+offset_bottom = -46.0
+grow_horizontal = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="Skip" type="Button" parent="." unique_id=730620345]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 56.0
+offset_right = 224.0
+offset_bottom = 122.0
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxEmpty_f1fx0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_d147f")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_aya2r")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_u1aym")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_otk8j")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nji4q")
+text = "Skip"
+
+[node name="Sounds" type="Node" parent="." unique_id=870910717]
+
+[node name="ShowRewards" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1017007010]
+stream = ExtResource("5_f1fx0")
+
+[node name="GetItem" type="AudioStreamPlayer2D" parent="Sounds" unique_id=981563661]
+stream = ExtResource("7_wumd0")
+
+[node name="Confirm" type="AudioStreamPlayer2D" parent="Sounds" unique_id=45565421]
+position = Vector2(41, 56)
+stream = ExtResource("5_51wvf")
+
+[connection signal="mouse_entered" from="Skip" to="." method="_show_item" binds= [{
+"description": {
+"effect": "Trashes these items in exchange for a lucky item.",
+"flavor": "",
+"metadata": "",
+"name": "Skip",
+"type": "Action"
+}
+}]]
+[connection signal="mouse_exited" from="Skip" to="." method="_hide_description"]
+[connection signal="pressed" from="Skip" to="." method="_skip_reward"]
+[connection signal="pressed" from="Skip" to="Sounds/Confirm" method="play"]

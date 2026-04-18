@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://tqgubkwnlx5f"]
+
+[ext_resource type="Script" uid="uid://vrua1c1wnomd" path="res://gemanizer/item_button.gd" id="1_kmqis"]
+
+[node name="RewardButton" type="TextureButton"]
+script = ExtResource("1_kmqis")

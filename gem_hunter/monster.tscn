@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://wxceij8lpds3"]
+
+[ext_resource type="Script" uid="uid://bf1uqkox2kowd" path="res://gem_hunter/monster.gd" id="1_4dfa0"]
+[ext_resource type="Texture2D" uid="uid://fyr3otwm0qwu" path="res://resources/enemies/sprites/Quag.png" id="2_4dfa0"]
+[ext_resource type="Script" uid="uid://cqrifr7jskqj1" path="res://core/battle_sprite.gd" id="3_wem6m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4dfa0"]
+size = Vector2(36, 28)
+
+[node name="Monster" type="CharacterBody2D" unique_id=12513880]
+script = ExtResource("1_4dfa0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1621831030]
+texture_repeat = 2
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_4dfa0")
+region_rect = Rect2(0, 0, 64, 64)
+script = ExtResource("3_wem6m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1540640512]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_4dfa0")

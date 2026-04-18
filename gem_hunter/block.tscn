@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://buyu48uhsn3wj"]
+
+[ext_resource type="Script" uid="uid://cbklmcn3wc2lv" path="res://gem_hunter/block.gd" id="1_uikdr"]
+[ext_resource type="Texture2D" uid="uid://qerrtw4y6pos" path="res://gem_hunter/resources/sprites/floor.png" id="2_ltab3"]
+
+[node name="Block" type="CharacterBody2D" unique_id=308389978]
+script = ExtResource("1_uikdr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1635474025]
+texture_repeat = 2
+texture = ExtResource("2_ltab3")
+region_enabled = true
+region_rect = Rect2(0, 0, 20, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1770021494]

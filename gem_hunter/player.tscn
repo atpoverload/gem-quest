@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://d2wtf6kqrqxs7"]
+
+[ext_resource type="Script" uid="uid://k58iimer6fbb" path="res://gem_hunter/player.gd" id="1_6fhwx"]
+[ext_resource type="Texture2D" uid="uid://d03qom3cbjesh" path="res://gem_hunter/resources/sprites/player.png" id="2_xyms5"]
+[ext_resource type="Script" uid="uid://cqrifr7jskqj1" path="res://core/battle_sprite.gd" id="3_ohut3"]
+[ext_resource type="AudioStream" uid="uid://brdsa8q2s2384" path="res://resources/player/sounds/hit.mp3" id="4_ybjo3"]
+[ext_resource type="AudioStream" uid="uid://b16frbk54pr7c" path="res://resources/player/sounds/jump.wav" id="5_sbwjo"]
+[ext_resource type="AudioStream" uid="uid://j7iqyoouw0dj" path="res://resources/player/sounds/treasure.wav" id="6_ae7n0"]
+[ext_resource type="AudioStream" uid="uid://vten1ruaim6k" path="res://resources/items/sounds/purple.mp3" id="7_et02u"]
+[ext_resource type="AudioStream" uid="uid://jj2ds5f0sn8t" path="res://resources/ui/sounds/confirm.mp3" id="8_b21ar"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2y5ka"]
+size = Vector2(36, 36)
+
+[node name="Player" type="CharacterBody2D" unique_id=301346617]
+script = ExtResource("1_6fhwx")
+health = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=554311487]
+texture = ExtResource("2_xyms5")
+script = ExtResource("3_ohut3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=560289743]
+position = Vector2(4, 16)
+shape = SubResource("RectangleShape2D_2y5ka")
+
+[node name="Sounds" type="Node2D" parent="." unique_id=128163100]
+
+[node name="Damage" type="AudioStreamPlayer2D" parent="Sounds" unique_id=186363856]
+stream = ExtResource("4_ybjo3")
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1283068534]
+stream = ExtResource("5_sbwjo")
+
+[node name="Treasure" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1815574226]
+stream = ExtResource("6_ae7n0")
+
+[node name="Reset" type="AudioStreamPlayer2D" parent="Sounds" unique_id=254910017]
+stream = ExtResource("7_et02u")
+
+[node name="Start" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1178286159]
+stream = ExtResource("8_b21ar")

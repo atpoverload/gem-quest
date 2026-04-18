@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://bfje62ca1hy3s"]
+
+[ext_resource type="Texture2D" uid="uid://c1cldo3y1rn87" path="res://resources/events/sprites/Arcade.png" id="1_cuavx"]
+[ext_resource type="Script" uid="uid://dylo1syyw40fn" path="res://gem_hunter/arcade.gd" id="1_lpaxf"]
+[ext_resource type="Script" uid="uid://cqrifr7jskqj1" path="res://core/battle_sprite.gd" id="2_lpaxf"]
+[ext_resource type="Texture2D" uid="uid://ciqp26gngjlf6" path="res://gem_hunter/resources/sprites/credit.png" id="4_g6mle"]
+[ext_resource type="AudioStream" uid="uid://jj2ds5f0sn8t" path="res://resources/ui/sounds/confirm.mp3" id="4_lpaxf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ikg3y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kb7ri"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8xsq0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1r5mh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_blkrb"]
+bg_color = Color(1, 1, 1, 0.6862745)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 0.5882353)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abqjc"]
+bg_color = Color(0, 0, 0, 0.78431374)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 0.78431374)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="Arcade" type="Control" unique_id=1891670607]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -32.0
+offset_top = 132.0
+offset_right = -32.0
+offset_bottom = 132.0
+script = ExtResource("1_lpaxf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1885503712]
+position = Vector2(628, 309)
+texture = ExtResource("1_cuavx")
+script = ExtResource("2_lpaxf")
+
+[node name="Start" type="Button" parent="." unique_id=11795765]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 150.0
+offset_right = 780.0
+offset_bottom = 534.0
+theme_override_colors/font_pressed_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ikg3y")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kb7ri")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8xsq0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1r5mh")
+text = "Start"
+flat = true
+
+[node name="Confirm" type="AudioStreamPlayer2D" parent="Start" unique_id=1115696612]
+stream = ExtResource("4_lpaxf")
+
+[node name="Border" type="MarginContainer" parent="." unique_id=22387028]
+visible = false
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 600.0
+theme_override_constants/margin_left = 210
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 210
+
+[node name="Border" type="Panel" parent="Border" unique_id=1316461943]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_blkrb")
+
+[node name="Background" type="MarginContainer" parent="Border" unique_id=1668834952]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Background" type="Panel" parent="Border/Background" unique_id=995566686]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_abqjc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1534055684]
+visible = false
+custom_minimum_size = Vector2(0, 64)
+layout_direction = 3
+layout_mode = 0
+offset_left = -954.0
+offset_top = 45.0
+offset_right = -819.0
+offset_bottom = 109.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=2086769396]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("4_g6mle")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=746141430]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 56
+text = "0x"
+
+[connection signal="pressed" from="Start" to="." method="start"]
+[connection signal="pressed" from="Start" to="Start" method="hide"]
+[connection signal="pressed" from="Start" to="Start" method="release_focus"]
+[connection signal="pressed" from="Start" to="Start/Confirm" method="play"]
