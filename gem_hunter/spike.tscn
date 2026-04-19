@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://qu2sggu7eh5j" path="res://gem_hunter/resources/sprites/spike-pit.png" id="2_pqq57"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_y8nbw"]
-a = Vector2(-65, -18)
-b = Vector2(69, -18)
+a = Vector2(0, -20)
+b = Vector2(64, -20)
 
 [node name="Spike" type="Area2D" unique_id=899675422]
 input_pickable = false
@@ -18,8 +18,8 @@ one_way_collision_margin = 8.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1623969300]
 texture_repeat = 2
-position = Vector2(-1, 3.1500263)
-scale = Vector2(0.2, 0.2)
+position = Vector2(32, -32)
+scale = Vector2(0.125, 0.125)
 texture = ExtResource("2_pqq57")
 region_rect = Rect2(0, 0, 64, 64)
 

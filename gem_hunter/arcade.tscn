@@ -98,7 +98,6 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_abqjc")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1534055684]
-visible = false
 custom_minimum_size = Vector2(0, 64)
 layout_direction = 3
 layout_mode = 0
@@ -123,6 +122,5 @@ theme_override_font_sizes/font_size = 56
 text = "0x"
 
 [connection signal="pressed" from="Start" to="." method="start"]
-[connection signal="pressed" from="Start" to="Start" method="hide"]
 [connection signal="pressed" from="Start" to="Start" method="release_focus"]
-[connection signal="pressed" from="Start" to="Start/Confirm" method="play"]
+[connection signal="pressed" from="Start" to="Start" method="hide"]

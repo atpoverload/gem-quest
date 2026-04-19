@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cthibq48er2go"]
+
+[ext_resource type="Script" uid="uid://cptfwyehg282q" path="res://gem_hunter/stage_tester.gd" id="1_437l7"]
+[ext_resource type="PackedScene" uid="uid://bfje62ca1hy3s" path="res://gem_hunter/arcade.tscn" id="2_6ctv0"]
+[ext_resource type="AudioStream" uid="uid://bl5mb77c3woe6" path="res://resources/ui/music/Fairy Fountain Lofi.ogg" id="3_6ctv0"]
+[ext_resource type="AudioStream" uid="uid://dm3nc83fndi3g" path="res://resources/ui/sounds/show-description.mp3" id="3_jro0f"]
+
+[sub_resource type="Theme" id="Theme_6ctv0"]
+default_font_size = 32
+
+[node name="StageTester" type="Node2D" unique_id=1037622890]
+script = ExtResource("1_437l7")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1683788656]
+stream = ExtResource("3_6ctv0")
+volume_db = -12.0
+autoplay = true
+
+[node name="Label" type="Label" parent="." unique_id=1841724552]
+offset_left = 875.0
+offset_top = 195.0
+offset_right = 1170.0
+offset_bottom = 243.0
+theme_override_font_sizes/font_size = 50
+text = "Stage Select"
+
+[node name="OptionButton" type="OptionButton" parent="." unique_id=77142270]
+offset_left = 865.0
+offset_top = 245.0
+offset_right = 1176.0
+offset_bottom = 276.0
+theme = SubResource("Theme_6ctv0")
+theme_override_font_sizes/font_size = 40
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="OptionButton" unique_id=1575015935]
+stream = ExtResource("3_jro0f")
+volume_db = 5.0
+
+[node name="Arcade" parent="." unique_id=1891670607 instance=ExtResource("2_6ctv0")]
+
+[connection signal="button_down" from="OptionButton" to="OptionButton/AudioStreamPlayer2D" method="play"]
+[connection signal="item_selected" from="OptionButton" to="." method="set_stage"]
+[connection signal="item_selected" from="OptionButton" to="OptionButton/AudioStreamPlayer2D" method="play"]
+[connection signal="lose" from="Arcade" to="." method="lose"]
+[connection signal="win" from="Arcade" to="." method="_reset"]

@@ -5,20 +5,21 @@ const JUMP_SPEED = -1000.0
 const GRAVITY = 150.0
 var wait = 0.5
 var elapsed = wait
-
 var health: int = 3
 
 var hit = false
+var stop = false
 
 signal win
 
 var direction = 0
+var last_velocity = null
 
 func _ready():
 	Input.warp_mouse(global_position)
 
 func _input(_event):
-	if not hit:
+	if not stop and not hit:
 		if abs(velocity.y) <= 0 and Input.is_action_pressed("jump"):
 			jump(JUMP_SPEED)
 		elif Input.is_action_pressed("left"):
@@ -29,6 +30,9 @@ func _input(_event):
 			direction = 0
 
 func _physics_process(delta):
+	if stop:
+		return
+
 	if direction != 0:
 		velocity.x = direction * WALK_SPEED
 		if not hit:
@@ -50,6 +54,7 @@ func _physics_process(delta):
 	velocity.y += delta * GRAVITY * (abs(velocity.y) / 10 + 1)
 	if abs(velocity.y) > 5:
 		velocity.x *= 1.25
+	last_velocity = velocity
 
 	move()
 
@@ -62,14 +67,18 @@ func move():
 		var collision = get_last_slide_collision()
 		var collider = collision.get_collider()
 		if 'Monster' in collider.name:
-			jump(JUMP_SPEED)
 			if position.y > collider.position.y - 25:
+				jump(-JUMP_SPEED)
 				hit = true
 				direction = -direction / 2.0
 				elapsed = 0
+				wait = 0.50
+			else:
+				jump(JUMP_SPEED)
 		elif 'Block' in collider.name or 'Floor' in collider.name:
 			hit = false
 		elif 'Treasure' in collider.name and not $Sounds/Treasure.playing:
+			stop = true
 			$Sounds/Treasure.play()
 			await get_tree().create_timer($Sounds/Treasure.stream.get_length()).timeout
 			win.emit()

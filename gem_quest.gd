@@ -277,6 +277,8 @@ func Puzzle(event):
 	$Arcade.reset()
 	$Arcade.stage = $ResourceManager.stages[event['stage']]
 	$Arcade.event = event['event']
+	$Arcade.credits = 2
+	$Arcade/HBoxContainer/Label.text = '%dx' % $Arcade.credits
 	$Arcade/Start.hide()
 	$Arcade.show()
 	await $Arcade/Sprite2D.arrive()
@@ -289,6 +291,9 @@ func solve_puzzle(event):
 
 func fail_puzzle():
 	logger.add_message('Failed to beat the level!')
+	$SoundManager/GameOver.play()
+	await get_tree().create_timer($SoundManager/GameOver.stream.get_length()).timeout
+	$Arcade.reset()
 	$Arcade.hide()
 	next_event()
 
@@ -565,3 +570,23 @@ func get_level(level):
 			level = $Player.level()
 			return floori((75 * level + randi() % ceili(50 * level)) / 100)
 		_: return level
+
+func lose_puzzle():
+	$Player/Sprite.damaged(1)
+	await $Player/Sprite.shake(3, 0.04, 12)
+	if $Arcade.credits > 0:
+		$Arcade.credits -= 1
+		var stage = $Arcade.stage
+		var event = $Arcade.event
+		$Arcade.stage = null
+		$Arcade.event = null
+
+		$Arcade.reset()
+		$Arcade.stage = stage
+		$Arcade.event = event
+		$Arcade.start()
+		$Arcade/HBoxContainer/Label.text = '%dx' % $Arcade.credits
+	else:
+		$Arcade.stage = null
+		$Arcade.event = null
+		fail_puzzle()

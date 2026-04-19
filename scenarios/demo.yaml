@@ -2222,10 +2222,10 @@ arcade:
     stage0:
       player:
         x: 35
-        y: 443
+        y: 450
       treasure:
-        x: 35
-        y: 125
+        x: 650
+        y: 465
       ledges:
         - x: 575
           y: 425
@@ -2243,7 +2243,35 @@ arcade:
           y: 425
           width: 65
           height: 10
-      blocks: []
+        - x: 575
+          y: 225
+          width: 65
+          height: 10
+        - x: 400
+          y: 225
+          width: 65
+          height: 10
+        - x: 225
+          y: 225
+          width: 65
+          height: 10
+        - x: 50
+          y: 225
+          width: 65
+          height: 10
+      blocks:
+        - x: 0
+          y: 525
+          width: 130
+          height: 25
+        - x: 245
+          y: 525
+          width: 75
+          height: 25
+        - x: 560
+          y: 525
+          width: 260
+          height: 25
       monsters:
         - x: 75
           y: 390
@@ -2251,7 +2279,19 @@ arcade:
           jump_strength: 1000
           walk_speed: 218
           hop_wait: 0.50
-      hazards: []
+        - x: 625
+          y: 190
+          gravity: 250
+          jump_strength: 1000
+          walk_speed: -218
+          hop_wait: 0.50
+      hazards:
+        - x: 140
+          y: 515
+        - x: 290
+          y: 515
+        - x: 354
+          y: 515
     stage1:
       player:
         x: 35
@@ -2328,7 +2368,318 @@ arcade:
           jump_strength: 250
           walk_speed: 200
           hop_wait: 0.35
-      hazards: []
+      hazards:
+        - x: 500
+          y: 515
+        - x: 564
+          y: 515
+        - x: 628
+          y: 515
+    stage2:
+      player:
+        x: 35
+        y: 190
+      treasure:
+        x: 650
+        y: 465
+      ledges:
+        - x: 575
+          y: 225
+          width: 125
+          height: 10
+        - x: 400
+          y: 225
+          width: 30
+          height: 10
+        - x: 225
+          y: 225
+          width: 30
+          height: 10
+        - x: 50
+          y: 225
+          width: 30
+          height: 10
+      blocks: []
+      monsters:
+        - x: 75
+          y: 390
+          gravity: 250
+          jump_strength: 1000
+          walk_speed: 218
+          hop_wait: 0.50
+        - x: 625
+          y: 390
+          gravity: 250
+          jump_strength: 1000
+          walk_speed: -218
+          hop_wait: 0.50
+      hazards:
+        - x: 12
+          y: 515
+        - x: 76
+          y: 515
+        - x: 140
+          y: 515
+        - x: 204
+          y: 515
+        - x: 268
+          y: 515
+        - x: 332
+          y: 515
+        - x: 396
+          y: 515
+        - x: 460
+          y: 515
+        - x: 524
+          y: 515
+        - x: 588
+          y: 515
+        - x: 624
+          y: 515
+    stage3:
+      player:
+        x: 35
+        y: 440
+      treasure:
+        x: 650
+        y: 85
+      ledges:
+        - x: 0
+          y: 475
+          width: 75
+          height: 10
+        - x: 175
+          y: 450
+          width: 50
+          height: 10
+        - x: 350
+          y: 425
+          width: 50
+          height: 10
+        - x: 525
+          y: 400
+          width: 50
+          height: 10
+        - x: 650
+          y: 375
+          width: 50
+          height: 10
+        - x: 500
+          y: 340
+          width: 40
+          height: 10
+        - x: 350
+          y: 305
+          width: 40
+          height: 10
+        - x: 200
+          y: 335
+          width: 40
+          height: 10
+        - x: 50
+          y: 250
+          width: 40
+          height: 10
+        - x: 300
+          y: 225
+          width: 40
+          height: 10
+        - x: 400
+          y: 180
+          width: 40
+          height: 10
+        - x: 500
+          y: 225
+          width: 40
+          height: 10
+        - x: 600
+          y: 120
+          width: 100
+          height: 10
+      blocks: []
+      monsters:
+        - x: 220
+          y: 330
+          gravity: 500
+          jump_strength: 500
+          walk_speed: 0
+          hop_wait: 0.35
+        - x: 520
+          y: 220
+          gravity: 500
+          jump_strength: 500
+          walk_speed: 0
+          hop_wait: 0.35
+      hazards:
+        - x: 12
+          y: 515
+        - x: 76
+          y: 515
+        - x: 140
+          y: 515
+        - x: 204
+          y: 515
+        - x: 268
+          y: 515
+        - x: 332
+          y: 515
+        - x: 396
+          y: 515
+        - x: 460
+          y: 515
+        - x: 524
+          y: 515
+        - x: 588
+          y: 515
+        - x: 624
+          y: 515
+    stage4:
+      player:
+        x: 35
+        y: 50
+      treasure:
+        x: 50
+        y: 445
+      ledges:
+        - x: 645
+          y: 475
+          width: 30
+          height: 10
+        - x: 25
+          y: 475
+          width: 50
+          height: 10
+        - x: 0
+          y: 350
+          width: 620
+          height: 10
+        - x: 30
+          y: 95
+          width: 30
+          height: 10
+        - x: 200
+          y: 125
+          width: 30
+          height: 10
+        - x: 370
+          y: 125
+          width: 30
+          height: 10
+        - x: 540
+          y: 125
+          width: 30
+          height: 10
+        - x: 30
+          y: 95
+          width: 30
+          height: 10
+        - x: 625
+          y: 225
+          width: 60
+          height: 10
+      blocks:
+        - x: 620
+          y: 348
+          width: 5
+          height: 5
+      monsters:
+        - x: 220
+          y: 90
+          gravity: 200
+          jump_strength: 200
+          walk_speed: 0
+          hop_wait: 0.50
+        - x: 390
+          y: 90
+          gravity: 125
+          jump_strength: 125
+          walk_speed: 0
+          hop_wait: 0.25
+        - x: 560
+          y: 90
+          gravity: 125
+          jump_strength: 250
+          walk_speed: 0
+          hop_wait: 1.00
+        - x: 220
+          y: 220
+          gravity: 125
+          jump_strength: 125
+          walk_speed: 50
+          hop_wait: 0.25
+        - x: 370
+          y: 220
+          gravity: 125
+          jump_strength: 250
+          walk_speed: -75
+          hop_wait: 1.00
+        - x: 520
+          y: 220
+          gravity: 200
+          jump_strength: 200
+          walk_speed: 65
+          hop_wait: 0.50
+        - x: 30
+          y: 550
+          gravity: 200
+          jump_strength: 100
+          walk_speed: 150
+          hop_wait: 0.25
+        - x: 250
+          y: 550
+          gravity: 2500
+          jump_strength: 800
+          walk_speed: 175
+          hop_wait: 1.50
+        - x: 370
+          y: 550
+          gravity: 200
+          jump_strength: 250
+          walk_speed: -130
+          hop_wait: 0.45
+      hazards:
+        - x: 12
+          y: 515
+        - x: 76
+          y: 515
+        - x: 140
+          y: 515
+        - x: 204
+          y: 515
+        - x: 268
+          y: 515
+        - x: 332
+          y: 515
+        - x: 396
+          y: 515
+        - x: 460
+          y: 515
+        - x: 524
+          y: 515
+        - x: 588
+          y: 515
+        - x: 624
+          y: 515
+        - x: 12
+          y: 350
+        - x: 76
+          y: 350
+        - x: 140
+          y: 350
+        - x: 204
+          y: 350
+        - x: 268
+          y: 350
+        - x: 332
+          y: 350
+        - x: 396
+          y: 350
+        - x: 460
+          y: 350
+        - x: 524
+          y: 350
+        - x: 558
+          y: 350
 player:
   name: Light
   affinities:

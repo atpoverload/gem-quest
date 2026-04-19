@@ -22,8 +22,7 @@ func _physics_process(delta):
 		if 'Block' in collider.name or \
 		   'Monster' in collider.name or \
 		   'Treasure' in collider.name or \
-		   'Wall' in collider.name or \
-		   'Player' in collider.name:
+		   'Wall' in collider.name:
 			flip()
 
 func flip():
