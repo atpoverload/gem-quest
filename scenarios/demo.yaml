@@ -329,21 +329,21 @@ items:
           - Purple
           - Pink
       flavor: A cold-one type drink that increases intellect.
-    - name: Cold One Red
+    - name: Cold Red
       type: Drink
       action:
         type: AddBlessing
         status: Boost
         power: 10
       flavor: A cold-one type drink that increases strength.
-    - name: Cold One Green
+    - name: Cold Green
       type: Drink
       action:
         type: AddBlessing
         status: Lucky
         power: 5
       flavor: A cold-one type drink that increases luck.
-    - name: Cold One Blue
+    - name: Cold Blue
       type: Drink
       action:
         type: AddBlessing

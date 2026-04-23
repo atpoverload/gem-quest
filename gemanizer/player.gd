@@ -190,12 +190,12 @@ func gain_level():
 		affinities['White'] + 1,
 		affinities['Blue'] + 1,
 		affinities['Purple'])
-	var hp = stat_growth(
+	var hp = 2 * stat_growth(
 		'health',
 		affinities['Health'],
 		affinities['White'] + 1,
 		affinities['Green'] + 1,
-		affinities['Pink'])
+		affinities['Pink']) + 1
 
 	var lvl_ = level()
 	stats.strength += strength / lvl_
