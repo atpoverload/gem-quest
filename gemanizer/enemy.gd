@@ -169,11 +169,12 @@ func Attack(action_name, action):
 		else:
 			log_state('Attack', 'attacking for %d damage' % damage)
 		deal_damage.emit(damage, color)
-		_on_attack_effect(
-			action,
-			action['on_attack']['status'],
-			action['on_attack']['chance']
-		)
+		if 'on_attack' in action:
+			_on_attack_effect(
+				action,
+				action['on_attack']['status'],
+				action['on_attack']['chance']
+			)
 	else:
 		await miss()
 	await get_tree().create_timer(0.3).timeout

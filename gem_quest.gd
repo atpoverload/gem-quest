@@ -470,9 +470,9 @@ func trash_item(item):
 		# TODO: no clue what to do here
 		# TODO: the sword gets stronger and changes color, but i'd like it to "transform"
 		imbue_weapon(weapon, item)
-		weapon['action']['power'] += 1
-		weapon['color'] = item['color']
-		weapon['description'] = $ResourceManager/ItemManager.get_description(weapon)
+		#weapon['action']['power'] += 1
+		#weapon['color'] = item['color']
+		#weapon['description'] = $ResourceManager/ItemManager.get_description(weapon)
 		$Altar/BreakGem.play()
 		logger.add_message('Sacrificed the %s.' % item['name'])
 		await get_tree().create_timer(0.40).timeout
@@ -568,7 +568,7 @@ func get_level(level):
 	match level:
 		'dynamic':
 			level = $Player.level()
-			return floori((75 * level + randi() % ceili(50 * level)) / 100)
+			return floori((75 * level + randi() % ceili(25 * level)) / 100)
 		_: return level
 
 func lose_puzzle():

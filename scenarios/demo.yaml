@@ -387,15 +387,15 @@ items:
     Sodie 1:
       Sodie Pop: 60
       Super Sodie: 35
-      Pineapple Sodie: 5
+      Hyper Sodie: 5
     Sodie 2:
       Sodie Pop: 30
       Super Sodie: 60
-      Pineapple Sodie: 10
+      Hyper Sodie: 10
     Sodie 3:
       Sodie Pop: 10
       Super Sodie: 60
-      Pineapple Sodie: 30
+      Hyper Sodie: 30
     Restore 1:
       Grape Sodie: 95
       Maple Sodie: 5
@@ -2728,10 +2728,8 @@ events:
             kind: Emote
           - type: kind
             kind: Emote
-      - type: Reward
-        rewards:
-          - type: Pool
-            pool: Heal Reward
+      - type: Pool
+        pool: Heal Reward
     Boss Reward:
       - type: Reward
         rewards:
@@ -2756,14 +2754,10 @@ events:
             kind: Emote
           - type: kind
             kind: Emote
-      - type: Reward
-        rewards:
-          - type: Pool
-            pool: Heal Reward
-      - type: Reward
-        rewards:
-          - type: Pool
-            pool: Heal Reward
+      - type: Pool
+        pool: Heal Reward
+      - type: Pool
+        pool: Heal Reward
     Start:
       - type: Reward
         rewards:
@@ -2848,18 +2842,43 @@ events:
       - type: Pool
         pool: Forest Section
       - type: Wait
+      - type: Save
+      - type: Music
+        music: Viridian Forest
+      - type: Background
+        background: Forest
       - type: Pool
         pool: Forest Section
       - type: Wait
+      - type: Save
+      - type: Music
+        music: Viridian Forest
+      - type: Background
+        background: Forest
       - type: Pool
         pool: Arcade 1
       - type: Wait
+      - type: Save
+      - type: Music
+        music: Viridian Forest
+      - type: Background
+        background: Forest
       - type: Pool
         pool: Forest Section
       - type: Wait
+      - type: Save
+      - type: Music
+        music: Viridian Forest
+      - type: Background
+        background: Forest
       - type: Pool
         pool: Forest Section
       - type: Wait
+      - type: Save
+      - type: Music
+        music: Viridian Forest
+      - type: Background
+        background: Forest
       - type: Music
         music: Imakuni
       - type: Dialogue
@@ -2892,18 +2911,43 @@ events:
       - type: Pool
         pool: Cave Section
       - type: Wait
+      - type: Save
+      - type: Background
+        background: Cave
+      - type: Music
+        music: Dark Cave
       - type: Pool
         pool: Cave Section
       - type: Wait
+      - type: Save
+      - type: Background
+        background: Cave
+      - type: Music
+        music: Dark Cave
       - type: Pool
         pool: Arcade 1
       - type: Wait
+      - type: Save
+      - type: Background
+        background: Cave
+      - type: Music
+        music: Dark Cave
       - type: Pool
         pool: Cave Section
       - type: Wait
+      - type: Save
+      - type: Background
+        background: Cave
+      - type: Music
+        music: Dark Cave
       - type: Pool
         pool: Cave Section
       - type: Wait
+      - type: Save
+      - type: Background
+        background: Cave
+      - type: Music
+        music: Dark Cave
       - type: Music
         music: Imakuni
       - type: Dialogue
@@ -2935,18 +2979,43 @@ events:
       - type: Pool
         pool: Dungeon Section
       - type: Wait
+      - type: Save
+      - type: Background
+        background: Dungeon
+      - type: Music
+        music: In the Cellar
       - type: Pool
         pool: Dungeon Section
       - type: Wait
+      - type: Save
+      - type: Background
+        background: Dungeon
+      - type: Music
+        music: In the Cellar
       - type: Pool
         pool: Arcade 2
       - type: Wait
+      - type: Save
+      - type: Background
+        background: Dungeon
+      - type: Music
+        music: In the Cellar
       - type: Pool
         pool: Dungeon Section
       - type: Wait
+      - type: Save
+      - type: Background
+        background: Dungeon
+      - type: Music
+        music: In the Cellar
       - type: Pool
         pool: Dungeon Section
       - type: Wait
+      - type: Save
+      - type: Background
+        background: Dungeon
+      - type: Music
+        music: In the Cellar
       - type: Music
         music: Imakuni
       - type: Dialogue
@@ -2974,21 +3043,30 @@ events:
         music: War Of The Gems
       - type: Message
         message: Entering the Temple
-      - type: Dialogue
-        character: Gem Warden
-        dialogue:
-          - Thank goodness you are here!
-          - Imakuni broke in and stole the Gold Gem, and now the temple is overrun with monsters!
-          - Please! You must stop him and recover the Gold Gem, quickly!
       - type: Pool
         pool: Temple Section
       - type: Wait
+      - type: Save
+      - type: Background
+        background: Temple
+      - type: Music
+        music: War Of The Gems
       - type: Pool
         pool: Temple Section
       - type: Wait
+      - type: Save
+      - type: Background
+        background: Temple
+      - type: Music
+        music: War Of The Gems
       - type: Pool
         pool: Arcade 2
       - type: Wait
+      - type: Save
+      - type: Background
+        background: Temple
+      - type: Music
+        music: War Of The Gems
       - type: Battle
         enemy:
           type: Pool
@@ -2997,12 +3075,27 @@ events:
       - type: EventSection
         location: Miniboss Reward
       - type: Wait
+      - type: Save
+      - type: Background
+        background: Temple
+      - type: Music
+        music: War Of The Gems
       - type: Pool
         pool: Temple Section
       - type: Wait
+      - type: Save
+      - type: Background
+        background: Temple
+      - type: Music
+        music: War Of The Gems
       - type: Pool
         pool: Temple Section
       - type: Wait
+      - type: Save
+      - type: Background
+        background: Temple
+      - type: Music
+        music: War Of The Gems
       - type: Music
         music: Imakuni
       - type: Dialogue
@@ -3043,15 +3136,35 @@ events:
       - type: Pool
         pool: Space Section
       - type: Wait
+      - type: Save
+      - type: Background
+        background: Space
+      - type: Music
+        music: Arcade
       - type: Pool
         pool: Space Section
       - type: Wait
+      - type: Save
+      - type: Background
+        background: Space
+      - type: Music
+        music: Arcade
       - type: Pool
         pool: Arcade 3
       - type: Wait
+      - type: Save
+      - type: Background
+        background: Space
+      - type: Music
+        music: Arcade
       - type: Pool
         pool: Space Section
       - type: Wait
+      - type: Save
+      - type: Background
+        background: Space
+      - type: Music
+        music: Arcade
       - type: Battle
         enemy:
           type: Name
@@ -3060,9 +3173,19 @@ events:
       - type: EventSection
         location: Miniboss Reward
       - type: Wait
+      - type: Save
+      - type: Background
+        background: Space
+      - type: Music
+        music: Arcade
       - type: Pool
         pool: Space Section
       - type: Wait
+      - type: Save
+      - type: Background
+        background: Space
+      - type: Music
+        music: Arcade
       - type: Music
         music: Imakuni
       - type: Dialogue
@@ -3751,34 +3874,34 @@ events:
     Heal Reward:
       - type: Reward
         rewards:
-          - type: Pool
+          - type: pool
             pool: Sodie 1
         chance: 22
       - type: Reward
         rewards:
-          - type: Pool
+          - type: pool
             pool: Sodie 2
         chance: 17
       - type: Reward
         rewards:
-          - type: Pool
+          - type: pool
             pool: Sodie 3
         chance: 16
       - type: Reward
         rewards:
-          - type: Pool
+          - type: pool
             pool: Restore 1
         chance: 15
       - type: Reward
         rewards:
-          - type: Pool
+          - type: pool
             pool: Restore 2
         chance: 14
       - type: Reward
         rewards:
-          - type: Pool
+          - type: pool
             pool: Cold One 1
-        chance: 15
+        chance: 16
     Battle Reward:
       - type: Reward
         rewards:
@@ -3787,10 +3910,8 @@ events:
           - type: kind
             kind: Emote
         chance: 75
-      - type: Reward
-        rewards:
-          - type: Pool
-            pool: Heal Reward
+      - type: Pool
+        pool: Heal Reward
         chance: 20
       - type: Events
         events:
