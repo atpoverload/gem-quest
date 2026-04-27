@@ -51,8 +51,8 @@ func set_enemy(enemy, level_):
 	$Level.text = 'LVL %2d' % level
 
 	# TODO: vary this?
-	var base_health = level * enemy['health']
-	base_health = base_health + randi() % base_health
+	var base_health = enemy['health']
+	base_health = base_health + level * (randi() % base_health)
 	log_state('set_enemy', 'setting health to %d' % base_health)
 	health.max_value = base_health
 	if 'resistances' in enemy:
@@ -135,6 +135,7 @@ func level_damage(power):
 
 func pre_logic():
 	blessings.adjust('Shield', -blessings.effects['Shield'])
+	blessings.adjust('Destiny Bond', -blessings.effects['Destiny Bond'])
 
 func logic():
 	await take_action()
@@ -256,8 +257,12 @@ func ActTwice(action_name, action):
 	var action_sound = $EnemySounds/BattleCry
 	action_sound.play()
 	await $Sprite.hop(5, 0.1, 10)
+	await get_tree().create_timer(0.12).timeout
+	await get_tree().create_timer(action_sound.stream.get_length()).timeout
 	await take_action()
+	await get_tree().create_timer(0.3).timeout
 	await take_action()
+	await get_tree().create_timer(0.3).timeout
 
 func _on_attack_effect(action, effect, on_attack_chance) -> void:
 	log_state('_on_attack_effect', 'checking %d%% chance for %s' % [on_attack_chance, effect])

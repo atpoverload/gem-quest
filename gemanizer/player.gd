@@ -16,6 +16,7 @@ var freebie_chance = {
 var on_attack = new_on_attack()
 var base_affinities = new_base_affinities()
 var affinities = new_base_affinities()
+var attack_again = 0
 
 var in_combat = false
 
@@ -28,7 +29,6 @@ signal eat_food
 
 func new_on_attack():
 	return {
-		'AttackAgain': 0,
 		'AddBlessing': {
 			'Boost': 0,
 			'Lucky': 0,
@@ -122,16 +122,13 @@ func to_dict():
 		for i in range($Emotes.emotes[emote]):
 			emotes_.append(emote)
 	var aff = affinities.duplicate()
-	#aff['Health'] += health.max_value
-	#aff['Strength'] += stats.strength
-	#aff['Magic'] += stats.magic
 	var hp = aff['Health'] + health.max_value
 	var strn = aff['Strength'] + stats.strength
 	var mag = aff['Magic'] + stats.magic
 	var total = hp + strn + mag
-	aff['Health']  = ceili((hp / total) * 20)
-	aff['Strength']  = ceili((strn / total) * 20)
-	aff['Magic']  = ceili((mag / total) * 20)
+	aff['Health']  = ceili((hp / total) * level())
+	aff['Strength']  = ceili((strn / total) * level())
+	aff['Magic']  = ceili((mag / total) * level())
 	return {
 		'name': character_name,
 		'affinities': aff,
@@ -139,7 +136,19 @@ func to_dict():
 	}
 
 func level():
-	var level_ = ceili(pow(stats.strength + stats.magic + health.max_value, 1.0 / 3.0))
+	# TODO: reasses this equation
+	var level_ = ceili(pow(
+		#stats.strength
+		#+ stats.magic
+		#+ health.max_value
+		(affinities['White']
+		+ affinities['Red']
+		+ affinities['Blue']
+		+ affinities['Green']
+		+ affinities['Orange']
+		+ affinities['Purple']
+		+ affinities['Pink']) / 25
+		, 1.73))
 	return level_
 
 # experience
@@ -197,7 +206,9 @@ func gain_level():
 		affinities['Green'] + 1,
 		affinities['Pink']) + 1
 
-	var lvl_ = level()
+	var lvl_ = 1
+	if health.max_value > base_affinities['Health']:
+		lvl_ = level()	
 	stats.strength += strength / lvl_
 	stats.magic += magic / lvl_
 	health.max_value += hp / lvl_
@@ -260,10 +271,11 @@ func add_emote(item) -> void:
 		'OnAttack':
 			log_state('add_emote', "adjusting %s on attack" % passive['effect'])
 			match passive['effect']:
-				'AttackAgain': on_attack['AttackAgain'] = add_trigger_chance(
-					on_attack['AttackAgain'],
-					passive['chance']
-				)
+				'AttackAgain': # on_attack['AttackAgain'] =
+					attack_again = add_trigger_chance(
+						attack_again,
+						passive['chance']
+					)
 				'AddBlessing': on_attack['AddBlessing'][passive['status']] = add_trigger_chance(
 					on_attack['AddBlessing'][passive['status']],
 					passive['chance']
@@ -369,6 +381,14 @@ func attack(weapon):
 	var action = weapon['action']
 	if await accuracy_check(action.get('accuracy', 100)):
 		var damage = strength_damage(action['power'])
+		var do_attack_again = false
+		if trigger_check(attack_again):
+			log_message.emit('%s attacks twice' % character_name)
+			do_attack_again = true
+			damage *= 1.5
+			$BattleSounds/Attack.play()
+			await act()
+			await get_tree().create_timer($BattleSounds/Attack.stream.get_length()).timeout
 		damage = await critical_hit(damage)
 		var color = weapon.get('color', 'Weapon')
 		if color: log_state('attack', 'attacking with %s for %d %s damage' % [weapon_name, damage, color])
@@ -390,6 +410,20 @@ func attack(weapon):
 				if weapon_on_attack['action'] == effect:
 					bonus = weapon_on_attack['chance']
 				await _on_attack_effect(weapon, effect, on_attack[effect] + bonus)
+		
+		if do_attack_again:
+			for effect in on_attack:
+				if on_attack[effect] is Dictionary:
+					for e in on_attack[effect]:
+						var bonus = 0
+						if weapon_on_attack['action'] == effect and weapon_on_attack['status'] == e:
+							bonus = weapon_on_attack['chance']
+						await _on_attack_effect(weapon, e, on_attack[effect][e] + bonus)
+				else:
+					var bonus = 0
+					if weapon_on_attack['action'] == effect:
+						bonus = weapon_on_attack['chance']
+					await _on_attack_effect(weapon, effect, on_attack[effect] + bonus)
 	else:
 		await miss()
 
@@ -439,6 +473,13 @@ func invoke(gem):
 		'Weapon':
 			if await accuracy_check(action.get('accuracy', 100)):
 				var damage = magic_damage(action['power'])
+				var do_attack_again = false
+				if trigger_check(attack_again):
+					log_message.emit('%s attacks twice' % character_name)
+					do_attack_again = true
+					damage *= 1.5
+					await act()
+					await get_tree().create_timer(0.3).timeout
 				damage = await critical_hit(damage)
 				log_state('invoke', 'attacking with %s for %d %s damage' % [gem_name, damage, color])
 				deal_damage.emit(damage, color)
@@ -450,6 +491,17 @@ func invoke(gem):
 					else:
 						if on_attack[effect] > 0:
 							_on_attack_effect(gem, effect, 100)
+				
+				if do_attack_again:
+					if attack_again > 0:
+						for effect in on_attack:
+							if on_attack[effect] is Dictionary:
+								for e in on_attack[effect]:
+									if on_attack[effect][e] > 0:
+										_on_attack_effect(gem, e, 100)
+							else:
+								if on_attack[effect] > 0:
+									_on_attack_effect(gem, effect, 100)
 			else:
 				await miss()
 		'AddCurse':
@@ -559,21 +611,21 @@ func _on_attack_effect(weapon, effect, on_attack_chance) -> void:
 	log_state('_on_attack_effect', 'checking %d%% chance for %s' % [on_attack_chance, effect])
 	if trigger_check(on_attack_chance):
 		match effect:
-			'AttackAgain':
-				log_message.emit('%s attacks again' % character_name)
-				await act()
-				if await accuracy_check(weapon.get('accuracy', 100)):
-					await get_tree().create_timer(0.3).timeout
-					var damage = int(ceil(strength_damage(weapon['action']['power']) / 2))
-					damage = await critical_hit(damage)
-					var color = weapon.get('color', null)
-					if color:
-						log_state('on_attack_effect', 'attacking with %s for %d %s damage' % [weapon['name'], damage, color])
-					else:
-						log_state('on_attack_effect', 'attacking with %s for %d damage' % [weapon['name'], damage])
-					deal_damage.emit(damage, color)
-				else:
-					await miss()
+			#'AttackAgain':
+				#log_message.emit('%s attacks again' % character_name)
+				#await act()
+				#if await accuracy_check(weapon.get('accuracy', 100)):
+					#await get_tree().create_timer(0.3).timeout
+					#var damage = int(ceil(strength_damage(weapon['action']['power']) / 2))
+					#damage = await critical_hit(damage)
+					#var color = weapon.get('color', null)
+					#if color:
+						#log_state('on_attack_effect', 'attacking with %s for %d %s damage' % [weapon['name'], damage, color])
+					#else:
+						#log_state('on_attack_effect', 'attacking with %s for %d damage' % [weapon['name'], damage])
+					#deal_damage.emit(damage, color)
+				#else:
+					#await miss()
 			'Boost':
 				# TODO: not sure about how to scale this
 				var power = sqrt(level())

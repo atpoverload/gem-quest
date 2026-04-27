@@ -30,6 +30,7 @@
 [ext_resource type="AudioStream" uid="uid://cpop3e3rhm366" path="res://resources/curses/sounds/sleep.mp3" id="23_t5cah"]
 [ext_resource type="AudioStream" uid="uid://doql35ug5h2lx" path="res://resources/enemies/sounds/sing.mp3" id="24_3tqxt"]
 [ext_resource type="AudioStream" uid="uid://b4w1wstopbyuv" path="res://resources/enemies/sounds/perish-song.mp3" id="25_jwf5h"]
+[ext_resource type="AudioStream" uid="uid://5dqyvcfeoo1v" path="res://resources/blessings/sounds/destiny-bond.mp3" id="28_325rb"]
 [ext_resource type="AudioStream" uid="uid://bqywrlnsssp4y" path="res://resources/blessings/sounds/boost.mp3" id="30_jha66"]
 [ext_resource type="AudioStream" uid="uid://cronnvvnsyy0o" path="res://resources/blessings/sounds/shield.mp3" id="31_aeeun"]
 [ext_resource type="AudioStream" uid="uid://dekk3dbdlcudu" path="res://resources/blessings/sounds/tumble.mp3" id="33_wocx5"]
@@ -216,6 +217,9 @@ stream = ExtResource("33_wocx5")
 
 [node name="Block" type="AudioStreamPlayer2D" parent="EnemySounds/Blessings" unique_id=134690318]
 stream = ExtResource("31_aeeun")
+
+[node name="Destiny Bond" type="AudioStreamPlayer2D" parent="EnemySounds/Blessings" unique_id=234443329]
+stream = ExtResource("28_325rb")
 
 [node name="Attacks" type="Node" parent="EnemySounds" unique_id=348061751]
 

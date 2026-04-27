@@ -15,6 +15,7 @@ func set_background(background):
 	backgrounds[background].show()
 
 func set_music(song):
-	for s in music:
-		music[s].stop()
-	music[song].play()
+	if not music[song].is_playing():
+		for s in music:
+			music[s].stop()
+		music[song].play()

@@ -42,6 +42,7 @@
 [ext_resource type="AudioStream" uid="uid://ceiyvsdc43xc8" path="res://resources/curses/sounds/shock.mp3" id="38_xyvjl"]
 [ext_resource type="AudioStream" uid="uid://cl4uiu48tmfc2" path="res://resources/curses/sounds/break.mp3" id="39_2drak"]
 [ext_resource type="AudioStream" uid="uid://djq0dpmnq40d2" path="res://resources/blessings/sounds/lucky.mp3" id="41_6itbo"]
+[ext_resource type="AudioStream" uid="uid://5dqyvcfeoo1v" path="res://resources/blessings/sounds/destiny-bond.mp3" id="43_xyvjl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jpskg"]
 bg_color = Color(1, 1, 1, 0.6862745)
@@ -268,6 +269,9 @@ stream = ExtResource("36_wsbly")
 
 [node name="Lucky" type="AudioStreamPlayer2D" parent="BattleSounds/Blessings" unique_id=1746668012]
 stream = ExtResource("41_6itbo")
+
+[node name="Destiny Bond" type="AudioStreamPlayer2D" parent="BattleSounds/Blessings" unique_id=1867642679]
+stream = ExtResource("43_xyvjl")
 
 [connection signal="die" from="." to="BattleSounds/GameOver" method="play"]
 [connection signal="hide_emote" from="Emotes" to="." method="_hide_description"]

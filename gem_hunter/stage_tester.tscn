@@ -4,9 +4,36 @@
 [ext_resource type="PackedScene" uid="uid://bfje62ca1hy3s" path="res://gem_hunter/arcade.tscn" id="2_6ctv0"]
 [ext_resource type="AudioStream" uid="uid://bl5mb77c3woe6" path="res://resources/ui/music/Fairy Fountain Lofi.ogg" id="3_6ctv0"]
 [ext_resource type="AudioStream" uid="uid://dm3nc83fndi3g" path="res://resources/ui/sounds/show-description.mp3" id="3_jro0f"]
+[ext_resource type="Script" uid="uid://d25luokb73tio" path="res://gemanizer/scroll_log.gd" id="5_x33nq"]
 
 [sub_resource type="Theme" id="Theme_6ctv0"]
 default_font_size = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2r3b"]
+bg_color = Color(1, 1, 1, 0.6862745)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 0.5882353)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f1p8o"]
+bg_color = Color(0, 0, 0, 0.78431374)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 0.78431374)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bu3mg"]
 
 [node name="StageTester" type="Node2D" unique_id=1037622890]
 script = ExtResource("1_437l7")
@@ -36,10 +63,66 @@ theme_override_font_sizes/font_size = 40
 stream = ExtResource("3_jro0f")
 volume_db = 5.0
 
+[node name="Button" type="Button" parent="." unique_id=1978177229]
+offset_left = 868.0
+offset_top = 311.0
+offset_right = 1173.0
+offset_bottom = 354.0
+theme_override_font_sizes/font_size = 28
+text = "Load From Clipboard"
+
 [node name="Arcade" parent="." unique_id=1891670607 instance=ExtResource("2_6ctv0")]
+
+[node name="Logger" type="MarginContainer" parent="." unique_id=890247551]
+custom_minimum_size = Vector2(1200, 0)
+offset_top = -2.0
+offset_right = 1200.0
+offset_bottom = 148.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="Border" type="Panel" parent="Logger" unique_id=1700507568]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_i2r3b")
+
+[node name="Background" type="MarginContainer" parent="Logger" unique_id=947359441]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Background" type="Panel" parent="Logger/Background" unique_id=1833920210]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_f1p8o")
+
+[node name="Message" type="MarginContainer" parent="Logger/Background" unique_id=1906599163]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel" type="Panel" parent="Logger/Background/Message" unique_id=1969503578]
+clip_contents = true
+custom_minimum_size = Vector2(1137, 90)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bu3mg")
+
+[node name="ScrollLogger" type="ScrollContainer" parent="Logger/Background/Message" unique_id=1489379253]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("5_x33nq")
+
+[node name="Messages" type="VBoxContainer" parent="Logger/Background/Message/ScrollLogger" unique_id=716888667]
+custom_minimum_size = Vector2(1136, 0)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 2
 
 [connection signal="button_down" from="OptionButton" to="OptionButton/AudioStreamPlayer2D" method="play"]
 [connection signal="item_selected" from="OptionButton" to="." method="set_stage"]
 [connection signal="item_selected" from="OptionButton" to="OptionButton/AudioStreamPlayer2D" method="play"]
+[connection signal="pressed" from="Button" to="." method="start_from_clipboard"]
 [connection signal="lose" from="Arcade" to="." method="lose"]
 [connection signal="win" from="Arcade" to="." method="_reset"]

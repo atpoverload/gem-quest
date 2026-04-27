@@ -51,7 +51,7 @@ func clear() -> void:
 
 # things that react to actions
 func is_dead() -> bool:
-	log_state('is_dead', 'are they dead yet? %s' % health.value)
+	log_state('is_dead', 'are they dead yet? %s / %s' % [health.value, health.max_value])
 	if health.value <= 0:
 		log_state('is_dead', 'time to die :(')
 		return true
@@ -223,7 +223,7 @@ func poison() -> bool:
 	var value = curses.effects['Poison']
 	# deals damage per stack
 	# TODO: green element resist?
-	value = min(1, value * (value + 1) / 5)
+	value = max(0, value * (value + 1) / 8)
 	if value > 0:
 		log_state('poison', 'value: %d' % value)
 		log_message.emit('%s is poisoned.' % character_name)
@@ -398,7 +398,7 @@ func shock() -> bool:
 	return false
 
 func shock_accuracy(accuracy) -> int:
-	return ceili(accuracy * 0.25)
+	return ceili(accuracy * 0.75)
 
 func take_turn():
 	if is_dead(): return

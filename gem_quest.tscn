@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://bgrqrf5278g10" path="res://gemanizer/description.tscn" id="19_auynk"]
 [ext_resource type="AudioStream" uid="uid://bppegk0q101sw" path="res://resources/player/sounds/game-over.mp3" id="20_7u0i8"]
 [ext_resource type="Script" uid="uid://d25luokb73tio" path="res://gemanizer/scroll_log.gd" id="20_56yqq"]
+[ext_resource type="AudioStream" uid="uid://w7h04sit1dom" path="res://resources/events/sounds/victory.mp3" id="21_tx1qe"]
 [ext_resource type="AudioStream" uid="uid://bu50n31fb8rql" path="res://resources/events/sounds/spike.wav" id="22_ped2r"]
 [ext_resource type="Texture2D" uid="uid://86a2ef0kk7dr" path="res://resources/ui/sprites/Travel.png" id="23_jwqgr"]
 [ext_resource type="Texture2D" uid="uid://cmlwcmdh386y8" path="res://resources/ui/background/forest.png" id="24_gdbxq"]
@@ -54,6 +55,7 @@
 [ext_resource type="AudioStream" uid="uid://dmq5nrrmtjabw" path="res://resources/player/sounds/gem-break.wav" id="41_jxqgm"]
 [ext_resource type="Texture2D" uid="uid://dt4m2lxptyb06" path="res://resources/events/sprites/Rest.png" id="44_iih7d"]
 [ext_resource type="AudioStream" uid="uid://caf3wj52hqr5i" path="res://resources/events/sounds/rest.mp3" id="45_n1fin"]
+[ext_resource type="Texture2D" uid="uid://bv08c7uin3s01" path="res://resources/events/sprites/Gold Gem.png" id="48_8rcj3"]
 [ext_resource type="PackedScene" uid="uid://bfje62ca1hy3s" path="res://gem_hunter/arcade.tscn" id="49_n1fin"]
 [ext_resource type="AudioStream" uid="uid://cgcl343ddcvtj" path="res://resources/ui/sounds/button.mp3" id="53_ewepf"]
 [ext_resource type="Texture2D" uid="uid://cm02md0e0hqi5" path="res://resources/ui/sprites/Next.png" id="55_iih7d"]
@@ -191,6 +193,9 @@ stream = ExtResource("18_iih7d")
 
 [node name="GameOver" type="AudioStreamPlayer2D" parent="SoundManager" unique_id=1944618324]
 stream = ExtResource("20_7u0i8")
+
+[node name="Victory" type="AudioStreamPlayer2D" parent="SoundManager" unique_id=1048628935]
+stream = ExtResource("21_tx1qe")
 
 [node name="Background" type="Control" parent="." unique_id=536149447]
 layout_mode = 3
@@ -440,6 +445,15 @@ offset_top = 435.0
 offset_right = 611.0
 offset_bottom = 475.0
 
+[node name="GoldGem" type="TextureButton" parent="." unique_id=2032911593]
+visible = false
+offset_left = 357.0
+offset_top = 257.0
+offset_right = 869.0
+offset_bottom = 769.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("48_8rcj3")
+
 [node name="Reward" parent="." unique_id=1356578307 instance=ExtResource("16_n7so8")]
 visible = false
 offset_left = 368.0
@@ -649,6 +663,7 @@ stream = ExtResource("53_ewepf")
 [connection signal="button_down" from="Altar/Skip" to="." method="skip_reward"]
 [connection signal="mouse_entered" from="Altar/Skip" to="Description" method="show_description" binds= ["Skip", "", "Skips this altar in exchange for a lucky item.", "", ""]]
 [connection signal="mouse_exited" from="Altar/Skip" to="Description" method="hide"]
+[connection signal="pressed" from="GoldGem" to="." method="next_event"]
 [connection signal="choose_reward" from="Reward" to="Reward" method="hide"]
 [connection signal="choose_reward" from="Reward" to="Player" method="add_item"]
 [connection signal="choose_reward" from="Reward" to="Player" method="add_emote"]
@@ -684,17 +699,17 @@ stream = ExtResource("53_ewepf")
 [connection signal="mouse_entered" from="Next" to="Description" method="show_description" binds= ["Next Room", "Action", "Move deeper into the game.", "", "Literacy is a bridge from misery to hope."]]
 [connection signal="mouse_exited" from="Next" to="Description" method="hide"]
 [connection signal="pressed" from="Next" to="." method="next_event"]
-[connection signal="pressed" from="Next" to="Next" method="hide"]
 [connection signal="pressed" from="Next" to="Next" method="release_focus"]
+[connection signal="pressed" from="Next" to="Next" method="hide"]
 [connection signal="pressed" from="Next" to="Next/Confirm" method="play"]
 [connection signal="pressed" from="Start" to="." method="new_game"]
-[connection signal="pressed" from="Start" to="Start" method="hide"]
 [connection signal="pressed" from="Start" to="Start" method="release_focus"]
+[connection signal="pressed" from="Start" to="Start" method="hide"]
 [connection signal="pressed" from="Start" to="Start/Confirm" method="play"]
 [connection signal="pressed" from="Start" to="Reset" method="hide"]
 [connection signal="mouse_entered" from="Reset" to="Description" method="show_description" binds= ["Reset", "Action", "Deletes existing saved data.", "", ""]]
 [connection signal="mouse_exited" from="Reset" to="Description" method="hide"]
 [connection signal="pressed" from="Reset" to="." method="delete_save"]
-[connection signal="pressed" from="Reset" to="Reset" method="hide"]
 [connection signal="pressed" from="Reset" to="Reset" method="release_focus"]
+[connection signal="pressed" from="Reset" to="Reset" method="hide"]
 [connection signal="pressed" from="Reset" to="Reset/Confirm" method="play"]

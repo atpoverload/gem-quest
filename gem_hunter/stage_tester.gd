@@ -4,6 +4,7 @@ var current_stage
 var stages = {}
 
 func _ready():
+	$Arcade/HBoxContainer.hide()
 	var scenario_file = "res://scenarios/demo.yaml"
 	var scenario = YAML.load_file(scenario_file).get_data()
 	load_arcade_stages(scenario)
@@ -11,22 +12,36 @@ func _ready():
 
 func load_arcade_stages(scenario):
 	for stage in scenario['arcade']['entries']:
-		if not current_stage:
-			current_stage = stage
 		stages[stage] = scenario['arcade']['entries'][stage]
+		if not current_stage:
+			current_stage = stages[stage]
 		var label = Label.new()
 		label.text = stage
 		$OptionButton.add_item(stage)
 
 func _reset(event: Variant) -> void:
-	$Arcade.stage = stages[current_stage]
+	$Arcade/HBoxContainer.hide()
+	$Arcade.stage = current_stage
 	$Arcade.event = 'no event here'
 
 func set_stage(stage):
 	stage = $OptionButton.get_item_text(stage)
-	current_stage = stage
+	current_stage = stages[stage]
 	_reset(null)
 
 func lose() -> void:
 	$Arcade.reset()
 	_reset(null)
+
+func start_from_clipboard() -> void:
+	# Get the current contents of the clipboard
+	var current_clipboard = DisplayServer.clipboard_get()
+	$Logger/Background/Message/ScrollLogger.add_message('Loading from clipboard')
+	var stage = YAML.try_parse(current_clipboard)
+	if stage is Dictionary:
+		$Logger/Background/Message/ScrollLogger.add_message('Loaded level from clipboard')
+		current_stage = stage
+		$Arcade.stage = current_stage
+		$Arcade.event = 'no event here'
+	else:
+		$Logger/Background/Message/ScrollLogger.add_message('Unable to load from clipboard')

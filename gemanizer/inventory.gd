@@ -175,8 +175,8 @@ func clear():
 func remove_item(item) -> void:
 	log_state('remove_item', 'checking for %s' % item['name'])
 	var item_name = item['description']['name']
-	if 'genned_name' in item:
-		item_name = item['genned_name']
+	#if 'genned_name' in item:
+		#item_name = item['genned_name']
 	match item['type']:
 		'Weapon':
 			if not $Weapon.is_empty() and item_name == $Weapon._item['name']:
@@ -217,7 +217,7 @@ func remove_item(item) -> void:
 		item.show()
 	else:
 		log_state('remove_item', 'removing %s' % item['name'])
-		item.remove_item()
+		await item.remove_item()
 
 func act() -> void:
 	for entity in [$Weapon, $Gems/Gem1, $Hands, $Hands2]:

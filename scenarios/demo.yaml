@@ -60,7 +60,8 @@ curses:
   Poison:
     name: Poison
     effect: Deals damage every turn.
-    flavor: 12 damage from brock. 15 from forest. 8 from forest to Pewter. 10 from rock tunnel. 10 from route 22. 22 from mt moon without grass.
+    flavor: 12 damage from brock. 15 from forest. 8 from forest to Pewter. 10 from
+      rock tunnel. 10 from route 22. 22 from mt moon without grass.
   Sleep:
     name: Sleep
     effect: Can't act until you wake up.
@@ -109,7 +110,11 @@ blessings:
   Tumble:
     name: Tumble
     effect: Evade more easily
-    flavor:
+    flavor: I LIVE!!!
+  Destiny Bond:
+    name: Destiny Bond
+    effect: Takes revenge on death
+    flavor: If the user is lapped, the foe is also lapped.
 items:
   entries:
     - name: Rusty Sword
@@ -205,9 +210,9 @@ items:
           status: Boost
           power: 1
           chance: 50
-      flavor: This legendary sword is imbued with awe-inspiring magical power
-        and can only be wielded by the righteous. That means if you've
-        been very naughty, you probably won't be able to use it.
+      flavor: This legendary sword is imbued with awe-inspiring magical power and can
+        only be wielded by the righteous. That means if you've been very
+        naughty, you probably won't be able to use it.
     - name: Buster Sword
       type: Weapon
       action:
@@ -355,11 +360,10 @@ items:
       action:
         type: Heal
         power: 50
-      flavor: Poutine is a dish of French fries and cheese curds topped with
-        a hot brown beef and chicken stock gravy. It emerged in the
-        Centre-du-Québec region of Quebec in the late 1950s, though
-        its exact origins are uncertain, and there are several competing
-        claims regarding its origin.
+      flavor: Poutine is a dish of French fries and cheese curds topped with a hot
+        brown beef and chicken stock gravy. It emerged in the Centre-du-Québec
+        region of Quebec in the late 1950s, though its exact origins are
+        uncertain, and there are several competing claims regarding its origin.
   pools:
     Sword 1:
       Short Sword: 80
@@ -466,11 +470,11 @@ items:
           action:
             type: Heal
             power: 3
-          flavor: Poutine is a dish of French fries and cheese curds topped with
-            a hot brown beef and chicken stock gravy. It emerged in the
-            Centre-du-Québec region of Quebec in the late 1950s, though
-            its exact origins are uncertain, and there are several competing
-            claims regarding its origin.
+          flavor: Poutine is a dish of French fries and cheese curds topped with a hot
+            brown beef and chicken stock gravy. It emerged in the
+            Centre-du-Québec region of Quebec in the late 1950s, though its
+            exact origins are uncertain, and there are several competing claims
+            regarding its origin.
         - name: Poutine
           type: Food
           action:
@@ -480,11 +484,11 @@ items:
               - Shield
               - Lucky
             power: 2
-          flavor: Poutine is a dish of French fries and cheese curds topped with
-            a hot brown beef and chicken stock gravy. It emerged in the
-            Centre-du-Québec region of Quebec in the late 1950s, though
-            its exact origins are uncertain, and there are several competing
-            claims regarding its origin.
+          flavor: Poutine is a dish of French fries and cheese curds topped with a hot
+            brown beef and chicken stock gravy. It emerged in the
+            Centre-du-Québec region of Quebec in the late 1950s, though its
+            exact origins are uncertain, and there are several competing claims
+            regarding its origin.
 emotes:
   entries:
     - name: Nilbog
@@ -492,7 +496,8 @@ emotes:
         type: OnAttack
         effect: AttackAgain
         chance: 13
-      flavor: "clips.twitch.tv/lightorias/clip/BetterPuzzledSoymilkThisIsSparta-DZf3rPzfFXZvE1D5"
+      flavor: "clips.twitch.tv/lightorias/clip/BetterPuzzledSoymilkThisIsSparta-DZf3r\
+        PzfFXZvE1D5"
     - name: Bladez
       passive:
         type: Stat
@@ -510,7 +515,8 @@ emotes:
         type: Stat
         stat: GemPower
         power: 17
-      flavor: "clips.twitch.tv/lightorias/clip/DrabPatientSalsifyWutFace-jg28xFH_ykurQQSL"
+      flavor: "clips.twitch.tv/lightorias/clip/DrabPatientSalsifyWutFace-jg28xFH_ykur\
+        QQSL"
     - name: Masher
       passive:
         type: OnAttack
@@ -525,14 +531,16 @@ emotes:
         stat: Freebie
         item_type: Drink
         chance: 11
-      flavor: "clips.twitch.tv/lightorias/clip/PolishedEnthusiasticBobaAMPEnergy-n9baHwUQFWNGfb9p"
+      flavor: "clips.twitch.tv/lightorias/clip/PolishedEnthusiasticBobaAMPEnergy-n9ba\
+        HwUQFWNGfb9p"
     - name: Totoro 2
       passive:
         type: Stat
         stat: Freebie
         item_type: Food
         chance: 11
-      flavor: "clips.twitch.tv/lightorias/clip/SpineyLaconicMarjoramTBTacoLeft-PuKhkjGvoPOlOaLL"
+      flavor: "clips.twitch.tv/lightorias/clip/SpineyLaconicMarjoramTBTacoLeft-PuKhkj\
+        GvoPOlOaLL"
     - name: Shadowfax
       passive:
         type: Stat
@@ -544,7 +552,8 @@ emotes:
         type: Stat
         stat: Revive
         chance: 5
-      flavor: "clips.twitch.tv/lightorias/clip/CaringSassyFerretRuleFive-V4ZuxsadubCRcaLa"
+      flavor: "clips.twitch.tv/lightorias/clip/CaringSassyFerretRuleFive-V4ZuxsadubCR\
+        caLa"
     - name: Bitey
       passive:
         type: OnAttack
@@ -980,7 +989,7 @@ actions:
         accuracy: 90
         on_attack:
           action: AddCurse
-          status: Sap
+          status: Break
           power: 20
           chance: 90
       text: casts Break
@@ -991,7 +1000,7 @@ actions:
         accuracy: 90
         on_attack:
           action: AddCurse
-          status: Sap
+          status: Break
           power: 20
           chance: 90
       text: casts Breaka
@@ -1002,7 +1011,7 @@ actions:
         accuracy: 90
         on_attack:
           action: AddCurse
-          status: Sap
+          status: Break
           power: 40
           chance: 90
       text: casts Breakaga
@@ -1246,21 +1255,10 @@ enemies:
       color: Gold
       health: 1
       actions:
-        - name: Loaf
-          chance: 80
         - name: Tackle
-          chance: 20
-      experience: 0
-      flavor: I have a pocket in my stomach! Besides, it’s a bit unkempt!
-    # Ryan
-    - name: Ryan
-      battlecry: beep
-      health: 3
-      actions:
-        - name: Run Away
           chance: 100
       experience: 0
-      flavor: When you have expectations, you are setting yourself up for disappointment.
+      flavor: I have a pocket in my stomach! Besides, it’s a bit unkempt!
     # Quag
     - name: Quag
       battlecry: quagg
@@ -1274,7 +1272,9 @@ enemies:
         - name: Headbutt
           chance: 10
       experience: 25
-      flavor: A Quag chats by leaving its mouth wide open in stream and waiting for its prey to blunder in. Because it doesn't respond, it does not get lapped.
+      flavor: A Quag chats by leaving its mouth wide open in stream and waiting for
+        its prey to blunder in. Because it doesn't respond, it does not get
+        lapped.
     - name: Shiny Quag
       battlecry: quagg
       color: Purple
@@ -1287,7 +1287,8 @@ enemies:
         - name: Headbutt
           chance: 10
       experience: 100
-      flavor: Its chats are always toxic. It often bangs its head on other chatters but seems not to care.
+      flavor: Its chats are always toxic. It often bangs its head on other chatters
+        but seems not to care.
     - name: Metal Quag
       battlecry: quagg
       color: Silver
@@ -1309,7 +1310,8 @@ enemies:
         Pink: 0.50
         Purple: 0.50
       experience: 200
-      flavor: Due to its relaxed and carefree attitude, it often bumps its head on chatters as it swims.
+      flavor: Due to its relaxed and carefree attitude, it often bumps its head on
+        chatters as it swims.
     - name: Gold Quag
       battlecry: quagg
       color: Gold
@@ -1331,7 +1333,8 @@ enemies:
         Pink: 0.25
         Purple: 0.25
       experience: 500
-      flavor: This carefree chatter has an easygoing nature. While chatting, it always bumps into other chatters.
+      flavor: This carefree chatter has an easygoing nature. While chatting, it always
+        bumps into other chatters.
     - name: Gem Quag
       battlecry: quagg
       color: White
@@ -1353,12 +1356,13 @@ enemies:
         Pink: 0.05
         Purple: 0.05
       experience: 500
-      flavor: This carefree chatter has an easygoing nature. While chatting, it always bumps into other chatters.
+      flavor: This carefree chatter has an easygoing nature. While chatting, it always
+        bumps into other chatters.
     # Normal Enemies
     - name: Joelge
       battlecry: seaking
       color: Red
-      health: 3
+      health: 2
       actions:
         - name: Headbutt
           chance: 50
@@ -1368,11 +1372,12 @@ enemies:
         Red: 0.5
         Purple: 2
       experience: 50
-      flavor: The horn on its head is sharp like a drill. It bores a hole in a stream to lap chatters.
+      flavor: The horn on its head is sharp like a drill. It bores a hole in a stream
+        to lap chatters.
     - name: Dire Joelge
       battlecry: seaking
       color: Blue
-      health: 5
+      health: 3
       actions:
         - name: Return
           chance: 50
@@ -1382,11 +1387,12 @@ enemies:
         Blue: 0.5
         Orange: 2
       experience: 75
-      flavor: During chatting season, Seaking gather from all over, causing laps to appear.
+      flavor: During chatting season, Seaking gather from all over, causing laps to
+        appear.
     - name: Great Joelge
       battlecry: seaking
       color: Green
-      health: 5
+      health: 4
       actions:
         - name: Headbutt
           chance: 50
@@ -1398,7 +1404,8 @@ enemies:
         Green: 0.5
         Pink: 2
       experience: 75
-      flavor: Using its horn, it bores holes in streams, making nests to prevent its chats from getting deleted.
+      flavor: Using its horn, it bores holes in streams, making nests to prevent its
+        chats from getting deleted.
     - name: Ratty
       battlecry: rattata
       color: Purple
@@ -1414,7 +1421,8 @@ enemies:
         Red: 0.5
         Purple: 2
       experience: 50
-      flavor: Its chat are long and very sharp. They chat continuously, so it one guys streamers to whittle them down.
+      flavor: Its chat are long and very sharp. They chat continuously, so it one guys
+        streamers to whittle them down.
     - name: Rattix
       battlecry: raticate
       color: Orange
@@ -1430,7 +1438,8 @@ enemies:
         Purple: 0.5
         Green: 2
       experience: 75
-      flavor: Its first chats have three parts each. They are cheers, enabling it to avoid laps.
+      flavor: Its first chats have three parts each. They are cheers, enabling it to
+        avoid laps.
     - name: Rattiz
       battlecry: raticate
       color: Pink
@@ -1446,7 +1455,8 @@ enemies:
         Pink: 0.5
         Blue: 2
       experience: 75
-      flavor: It uses its chats to maintain its balance. It apparently slows down if they are lapped.
+      flavor: It uses its chats to maintain its balance. It apparently slows down if
+        they are lapped.
     - name: Evorun
       battlecry: scyther
       color: Green
@@ -1460,11 +1470,12 @@ enemies:
         Green: 0.5
         Red: 2
       experience: 50
-      flavor: It tears and shreds chatters with its wickedly sharp emotes. It very rarely spends bits to chat.
+      flavor: It tears and shreds chatters with its wickedly sharp emotes. It very
+        rarely spends bits to chat.
     - name: Sneak
       battlecry: roll
       color: White
-      health: 7
+      health: 4
       actions:
         - name: Return
           chance: 50
@@ -1477,7 +1488,7 @@ enemies:
     - name: Sneaker
       battlecry: roll
       color: Blue
-      health: 12
+      health: 6
       actions:
         - name: Return
           chance: 25
@@ -1505,7 +1516,7 @@ enemies:
     - name: LigMakuni2
       battlecry: roll
       color: White
-      health: 10
+      health: 5
       actions:
         - name: Tumble
           chance: 50
@@ -1519,7 +1530,7 @@ enemies:
       flavor: The Way I See It, Our Chats Appear To Be Intertwined.
     - name: LigMakuni3
       battlecry: roll
-      health: 25
+      health: 10
       actions:
         - name: Tumble
           chance: 50
@@ -1535,7 +1546,7 @@ enemies:
     - name: Red GEMite
       battlecry: gemite
       color: Red
-      health: 4
+      health: 3
       actions:
         - name: Fire
           chance: 75
@@ -1550,7 +1561,7 @@ enemies:
     - name: Blue GEMite
       battlecry: gemite
       color: Blue
-      health: 4
+      health: 3
       actions:
         - name: Blizzard
           chance: 75
@@ -1565,7 +1576,7 @@ enemies:
     - name: Green GEMite
       battlecry: gemite
       color: Green
-      health: 4
+      health: 3
       actions:
         - name: Poison
           chance: 75
@@ -1580,7 +1591,7 @@ enemies:
     - name: Orange GEMite
       battlecry: gemite
       color: Orange
-      health: 4
+      health: 3
       actions:
         - name: Break
           chance: 75
@@ -1595,7 +1606,7 @@ enemies:
     - name: Purple GEMite
       battlecry: gemite
       color: Purple
-      health: 4
+      health: 3
       actions:
         - name: Thunder
           chance: 75
@@ -1610,7 +1621,7 @@ enemies:
     - name: Pink GEMite
       battlecry: gemite
       color: Pink
-      health: 4
+      health: 3
       actions:
         - name: Sleep
           chance: 75
@@ -1653,7 +1664,7 @@ enemies:
     - name: Red GEMonger
       battlecry: gemling
       color: Red
-      health: 8
+      health: 6
       actions:
         - name: Fire
           chance: 40
@@ -1670,7 +1681,7 @@ enemies:
     - name: Blue GEMonger
       battlecry: gemling
       color: Blue
-      health: 8
+      health: 6
       actions:
         - name: Blizzard
           chance: 40
@@ -1687,7 +1698,7 @@ enemies:
     - name: Green GEMonger
       battlecry: gemling
       color: Green
-      health: 8
+      health: 6
       actions:
         - name: Poison
           chance: 40
@@ -1704,7 +1715,7 @@ enemies:
     - name: Orange GEMonger
       battlecry: gemling
       color: Orange
-      health: 8
+      health: 6
       actions:
         - name: Break
           chance: 40
@@ -1721,7 +1732,7 @@ enemies:
     - name: Purple GEMonger
       battlecry: gemling
       color: Purple
-      health: 8
+      health: 6
       actions:
         - name: Thunder
           chance: 40
@@ -1738,7 +1749,7 @@ enemies:
     - name: Pink GEMonger
       battlecry: gemling
       color: Pink
-      health: 8
+      health: 6
       actions:
         - name: Sleep
           chance: 40
@@ -1756,7 +1767,7 @@ enemies:
     - name: Red GEMaster
       battlecry: gemlord
       color: Red
-      health: 25
+      health: 10
       actions:
         - name: Swords Dance
           chance: 40
@@ -1769,11 +1780,12 @@ enemies:
         Blue: 2
         Purple: 2
       experience: 100
-      flavor: A chatter that was thought to have been extinct. It is very intelligent and uses any emote.
+      flavor: A chatter that was thought to have been extinct. It is very intelligent
+        and uses any emote.
     - name: Blue GEMaster
       battlecry: gemlord
       color: Blue
-      health: 25
+      health: 10
       actions:
         - name: Protect
           chance: 20
@@ -1788,11 +1800,12 @@ enemies:
         Green: 2
         Orange: 2
       experience: 100
-      flavor: This chatter is said to have endowed streamers with the determination needed to lap any of life's difficulties.
+      flavor: This chatter is said to have endowed streamers with the determination
+        needed to lap any of life's difficulties.
     - name: Green GEMaster
       battlecry: gemlord
       color: Green
-      health: 25
+      health: 10
       actions:
         - name: Synthesis
           chance: 40
@@ -1805,11 +1818,12 @@ enemies:
         Red: 2
         Pink: 2
       experience: 100
-      flavor: This chatter wanders across Twitch. Laps and bans flourish in the streams in which it has chatted.
+      flavor: This chatter wanders across Twitch. Laps and bans flourish in the
+        streams in which it has chatted.
     - name: Orange GEMaster
       battlecry: gemlord
       color: Orange
-      health: 25
+      health: 10
       actions:
         - name: Slash
           chance: 40
@@ -1822,11 +1836,12 @@ enemies:
         Green: 2
         Purple: 2
       experience: 100
-      flavor: It is said to make any lap come true. It chats for only seven streams out of a thousand subathons.
+      flavor: It is said to make any lap come true. It chats for only seven streams
+        out of a thousand subathons.
     - name: Purple GEMaster
       battlecry: gemlord
       color: Purple
-      health: 25
+      health: 10
       actions:
         - name: Protect
           chance: 40
@@ -1839,11 +1854,12 @@ enemies:
         Blue: 2
         Pink: 2
       experience: 100
-      flavor: According to some sources, this chatter provided streams with the intelligence necessary to solve various problems.
+      flavor: According to some sources, this chatter provided streams with the
+        intelligence necessary to solve various problems.
     - name: Pink GEMaster
       battlecry: gemlord
       color: Pink
-      health: 25
+      health: 10
       actions:
         - name: Quick Attack
           chance: 40
@@ -1856,7 +1872,8 @@ enemies:
         Red: 2
         Orange: 2
       experience: 100
-      flavor: This chatter is said to have endowed streamers with emotions, such as sorrow and joy.
+      flavor: This chatter is said to have endowed streamers with emotions, such as
+        sorrow and joy.
     # Minibosses
     - name: KEKking
       battlecry: slaking
@@ -1872,7 +1889,8 @@ enemies:
         - name: Focus
           chance: 20
       experience: 200
-      flavor: It is the world's most slothful chatter. However, it can exert horrifying power by releasing pent-up bits all at once.
+      flavor: It is the world's most slothful chatter. However, it can exert
+        horrifying power by releasing pent-up bits all at once.
     # Bosses
     - name: WiggMakuni
       battlecry: wigglytuff
@@ -1889,11 +1907,12 @@ enemies:
         Purple: 0.5
         Orange: 2
       experience: 200
-      flavor: Its chats are extremely fine, dense, and supple. The exquisitely pleasant fur conveys an image of laps.
+      flavor: Its chats are extremely fine, dense, and supple. The exquisitely
+        pleasant fur conveys an image of laps.
     - name: KingMakuni
       battlecry: kingler
       color: Red
-      health: 5
+      health: 7
       actions:
         - name: Scratch
           chance: 75
@@ -1905,11 +1924,12 @@ enemies:
         Red: 0.5
         Purple: 2
       experience: 200
-      flavor: Its large and hard chats has 10,000-lappower strength. However, being so funny, it is unwieldy to ban.
+      flavor: Its large and hard chats has 10,000-lappower strength. However, being so
+        funny, it is unwieldy to ban.
     - name: MamoMakuni
       battlecry: mamoswine
       color: Purple
-      health: 5
+      health: 12
       actions:
         - name: Headbutt
           chance: 60
@@ -1932,7 +1952,8 @@ enemies:
         - name: Destiny Bond
           chance: 50
       experience: 200
-      flavor: DNA from a space virus mutated and became a chatter. It appears where laps are seen.
+      flavor: DNA from a space virus mutated and became a chatter. It appears where
+        laps are seen.
   pools:
     LigMakuni 1:
       LigMakuni: 75
@@ -1941,9 +1962,9 @@ enemies:
       LigMakuni: 50
       LigMakuni2: 50
     LigMakuni 3:
-      LigMakuni: 30
+      LigMakuni: 5
       LigMakuni2: 60
-      LigMakuni3: 10
+      LigMakuni3: 35
     LigMakuni 4:
       LigMakuni2: 50
       LigMakuni3: 50
@@ -1955,29 +1976,20 @@ enemies:
       Joelge: 30
       Ratty: 30
       Evorun: 30
-      Great Joelge: 10
     Forest 3:
-      Ratty: 80
-      Rattix: 10
-      Rattiz: 10
+      Ratty: 100
     Cave 1:
-      Joelge: 35
-      Ratty: 35
-      Great Joelge: 30
+      Joelge: 50
+      Ratty: 50
     Cave 2:
-      Joelge: 30
-      Great Joelge: 60
-      Dire Joelge: 10
+      Great Joelge: 65
+      Dire Joelge: 35
     Cave 3:
-      Great Joelge: 33
-      Rattix: 12
-      Rattiz: 12
-      Dire Joelge: 33
+      Rattix: 50
+      Rattiz: 50
     Dungeon 1:
-      Great Joelge: 50
-      Dire Joelge: 50
-      Rattix: 25
-      Rattiz: 25
+      Sneak: 80
+      Sneaker: 20
     Dungeon 2:
       Red GEMite: 30
       Blue GEMite: 30
@@ -1986,9 +1998,9 @@ enemies:
       Purple GEMonger: 3
       Pink GEMonger: 4
     Dungeon 3:
-      Orange Gemite: 30
-      Purple Gemite: 30
-      Pink Gemite: 30
+      Orange GEMite: 30
+      Purple GEMite: 30
+      Pink GEMite: 30
       Red GEMonger: 3
       Blue GEMonger: 3
       Green GEMonger: 4
@@ -2075,141 +2087,150 @@ enemies:
       Amethyst Quag: 14
       Quarz Quag: 14
   generators:
-  Random Pokemon:
-    kind: premade
-    resources: https://raw.githubusercontent.com/atpoverload/my-sprites/refs/heads/main/pkm
-    actions:
-      - name: Tackle
-        action:
-          type: Attack
-          power: 1
-          accuracy: 95
-        text: uses Tackle.
-    enemies:
-      - name: Bulbasaur
-        color: Green
-        stats: 318
-        resistances:
-          Red: 2
-          Blue: 0.5
-        flavor: There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.
-      - name: Squirtle
-        color: Blue
-        stats: 318
-        resistances:
-          Green: 2
-          Red: 0.5
-        flavor: When it retracts its long neck into its shell, it squirts out water with vigorous force.
-      - name: Charmander
-        color: Red
-        stats: 318
-        resistances:
-          Blue: 2
-          Green: 0.5
-        flavor: From the time it is born, a flame burns at the tip of its tail. Its life would end if the flame were to go out.
-      - name: Chikorita
-        color: Green
-        stats: 318
-        resistances:
-          Red: 2
-          Orange: 0.5
-        flavor: Its pleasantly aromatic leaf has the ability to check the humidity and temperature.
-      - name: Totodile
-        color: Blue
-        stats: 318
-        resistances:
-          Green: 2
-          Blue: 0.5
-        flavor: It is small but rough and tough. It won't hesitate to take a bite out of anything that moves.
-      - name: Cyndaquil
-        color: Red
-        stats: 318
-        resistances:
-          Blue: 2
-          Pink: 0.5
-        flavor: It usually stays hunched over. If it is angry or surprised, it shoots flames out of its back.
-      - name: Treecko
-        color: Green
-        stats: 318
-        resistances:
-          Orange: 2
-          Pink: 0.5
-        flavor: It quickly scales even vertical walls. It senses humidity with its tail to predict the next day's weather.
-      - name: Mudkip
-        color: Blue
-        stats: 318
-        resistances:
-          Green: 2
-          Purple: 0.5
-        flavor: Its large tail fin propels it through water with powerful acceleration. It is strong in spite of its size.
-      - name: Torchic
-        color: Red
-        stats: 318
-        resistances:
-          Blue: 2
-          Orange: 0.5
-        flavor: It has a flame sac inside its belly that perpetually burns. It feels warm if it is hugged.
-  Quag:
-    kind: pool
-    pools:
-      Common Quag:
-        Quag: 95
-        Metal Quag: 5
-        Gold Quag: 1
-      Uncommon Quag:
-        Quag: 75
-        Metal Quag: 20
-        Gold Quag: 5
-      Rare Quag:
-        Quag: 50
-        Metal Quag: 40
-        Gold Quag: 10
-      Mythic Quag:
-        Metal Quag: 25
-        Gold Quag: 26
-        Diamond Quag: 7
-        Ruby Quag: 7
-        Sapphire Quag: 7
-        Emerald Quag: 7
-        Topaz Quag: 7
-        Amethyst Quag: 7
-        Quarz Quag: 7
-      Legendary Quag:
-        Gold Quag: 9
-        Diamond Quag: 13
-        Ruby Quag: 13
-        Sapphire Quag: 13
-        Emerald Quag: 13
-        Topaz Quag: 13
-        Amethyst Quag: 13
-        Quarz Quag: 13
-      Gem Quag:
-        Diamond Quag: 16
-        Ruby Quag: 14
-        Sapphire Quag: 14
-        Emerald Quag: 14
-        Topaz Quag: 14
-        Amethyst Quag: 14
-        Quarz Quag: 14
-  GEMonGenerator:
-    names:
-      base:
-        - gem
-        - jewel
-        - stone
-        - crystal
-        - gemstone
-        - nugget
-        - diamond
-        - pearl
-        - ruby
-        - sapphire
-        - emerald
-        - onyx
-        - topaz
-        - amethyst
-    actions: pass
-    enemies: pass
+    Random Pokemon:
+      kind: premade
+      resources: https://raw.githubusercontent.com/atpoverload/my-sprites/refs/heads/main/pkm
+      actions:
+        - name: Tackle
+          action:
+            type: Attack
+            power: 1
+            accuracy: 95
+          text: uses Tackle.
+      enemies:
+        - name: Bulbasaur
+          color: Green
+          stats: 318
+          resistances:
+            Red: 2
+            Blue: 0.5
+          flavor: There is a plant seed on its back right from the day this Pokémon is
+            born. The seed slowly grows larger.
+        - name: Squirtle
+          color: Blue
+          stats: 318
+          resistances:
+            Green: 2
+            Red: 0.5
+          flavor: When it retracts its long neck into its shell, it squirts out water with
+            vigorous force.
+        - name: Charmander
+          color: Red
+          stats: 318
+          resistances:
+            Blue: 2
+            Green: 0.5
+          flavor: From the time it is born, a flame burns at the tip of its tail. Its life
+            would end if the flame were to go out.
+        - name: Chikorita
+          color: Green
+          stats: 318
+          resistances:
+            Red: 2
+            Orange: 0.5
+          flavor: Its pleasantly aromatic leaf has the ability to check the humidity and
+            temperature.
+        - name: Totodile
+          color: Blue
+          stats: 318
+          resistances:
+            Green: 2
+            Blue: 0.5
+          flavor: It is small but rough and tough. It won't hesitate to take a bite out of
+            anything that moves.
+        - name: Cyndaquil
+          color: Red
+          stats: 318
+          resistances:
+            Blue: 2
+            Pink: 0.5
+          flavor: It usually stays hunched over. If it is angry or surprised, it shoots
+            flames out of its back.
+        - name: Treecko
+          color: Green
+          stats: 318
+          resistances:
+            Orange: 2
+            Pink: 0.5
+          flavor: It quickly scales even vertical walls. It senses humidity with its tail
+            to predict the next day's weather.
+        - name: Mudkip
+          color: Blue
+          stats: 318
+          resistances:
+            Green: 2
+            Purple: 0.5
+          flavor: Its large tail fin propels it through water with powerful acceleration.
+            It is strong in spite of its size.
+        - name: Torchic
+          color: Red
+          stats: 318
+          resistances:
+            Blue: 2
+            Orange: 0.5
+          flavor: It has a flame sac inside its belly that perpetually burns. It feels
+            warm if it is hugged.
+    Quag:
+      kind: pool
+      pools:
+        Common Quag:
+          Quag: 95
+          Metal Quag: 5
+          Gold Quag: 1
+        Uncommon Quag:
+          Quag: 75
+          Metal Quag: 20
+          Gold Quag: 5
+        Rare Quag:
+          Quag: 50
+          Metal Quag: 40
+          Gold Quag: 10
+        Mythic Quag:
+          Metal Quag: 25
+          Gold Quag: 26
+          Diamond Quag: 7
+          Ruby Quag: 7
+          Sapphire Quag: 7
+          Emerald Quag: 7
+          Topaz Quag: 7
+          Amethyst Quag: 7
+          Quarz Quag: 7
+        Legendary Quag:
+          Gold Quag: 9
+          Diamond Quag: 13
+          Ruby Quag: 13
+          Sapphire Quag: 13
+          Emerald Quag: 13
+          Topaz Quag: 13
+          Amethyst Quag: 13
+          Quarz Quag: 13
+        Gem Quag:
+          Diamond Quag: 16
+          Ruby Quag: 14
+          Sapphire Quag: 14
+          Emerald Quag: 14
+          Topaz Quag: 14
+          Amethyst Quag: 14
+          Quarz Quag: 14
+    GEMonGenerator:
+      names:
+        base:
+          - gem
+          - jewel
+          - stone
+          - crystal
+          - gemstone
+          - nugget
+          - diamond
+          - pearl
+          - ruby
+          - sapphire
+          - emerald
+          - onyx
+          - topaz
+          - amethyst
+      actions: pass
+      enemies: pass
 npcs:
   - character: Rival
   - character: Bug Catcher
@@ -2395,9 +2416,9 @@ arcade:
           y: 225
           width: 30
           height: 10
-        - x: 50
+        - x: 0
           y: 225
-          width: 30
+          width: 80
           height: 10
       blocks: []
       monsters:
@@ -2831,6 +2852,9 @@ events:
       - type: Wait
       - type: EventSection
         location: Space
+      - type: Save
+      - type: Music
+        music: Lofi Zelda
       - type: Victory
     Forest:
       - type: Background
@@ -3921,10 +3945,8 @@ events:
                 kind: Emote
               - type: kind
                 kind: Emote
-          - type: Reward
-            rewards:
-              - type: Pool
-                pool: Heal Reward
+          - type: Pool
+            pool: Heal Reward
         chance: 5
     Forest Fight:
       - type: Battle

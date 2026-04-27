@@ -30,6 +30,8 @@ func _ready() -> void:
 
 func delete_save():
 	DirAccess.remove_absolute("user://savegame.save")
+	for child in $LuckyItems/GridContainer.get_children():
+		$LuckyItems/GridContainer.remove_child(child)
 
 func clear():
 	logger.add_message('Gem Quest')
@@ -193,6 +195,8 @@ func choose_reward(reward):
 func skip_reward():
 	$Reward/Skip.hide()
 	$Altar/Skip.hide()
+	$Inventory.disable(null)
+	next_item = null
 	# TODO: add something here
 	LuckyItem(null)
 	next_event()
@@ -235,8 +239,8 @@ func Trap(event):
 	bonus = sqrt(bonus)
 	var chance = randi() % 100
 	var challenge = get_level(event['challenge'])
-	var choice = ceili(pow(challenge, 2))
-	log_state('Trap', 'chance to trigger %d + %d < %d = %s' % [chance, bonus, challenge, chance < challenge])
+	var choice = ceili(pow(2 * challenge, 1.43))
+	log_state('Trap', 'chance to trigger %d + %d < %d = %s' % [chance, bonus, choice, chance < choice])
 	if chance + bonus < choice:
 		match event['event']['type']:
 			'Battle':
@@ -252,7 +256,7 @@ func Trap(event):
 				await $Trap/Damage.attack(2)
 				await get_tree().create_timer(0.25).timeout
 				$Player.sounds.hit.play()
-				await $Player.damaged(challenge, null)
+				await $Player.damaged(10 * challenge, null)
 			'Curse':
 				$Trap/Curse.modulate = Color.WHITE
 				logger.add_message('%s triggered the trap!' % $Player.character_name)
@@ -404,7 +408,7 @@ func Rest(event):
 	logger.add_message('A moment to rest!')
 	$Rest.show()
 	for curse in $Player.curses.effects:
-		$Player.curses.adjust(curse, -$Player.curses.effects[curse])
+		$Player.curses.adjust(curse, -$Player.curses.effects[curse] * $Player.health.max_value / 100)
 	$Player.update()
 	await $Player.health.adjust(event['power'])
 	await $Player.update()
@@ -439,16 +443,31 @@ func Pool(event):
 
 func Victory(event):
 	logger.add_message('You win!')
-	await get_tree().create_timer(1.0).timeout
+	$GoldGem.show()
+	$SoundManager/Victory.play()
+	await get_tree().create_timer($SoundManager/Victory.stream.get_length()).timeout
+	$GoldGem.hide()
 	clear()
+	$Start.show()
+	if FileAccess.file_exists("user://savegame.save"):
+		$Reset.show()
+	else:
+		$Reset.hide()
 
 func win_battle():
-	$Player.in_combat = false
-	$Enemy.hide()
-	LuckyItem(null)
-	await $Player.gain_experience($Enemy.experience)
-	await get_tree().create_timer(0.25).timeout
-	next_event()
+	if 'Destiny Bond' in $Enemy.blessings.effects and $Enemy.blessings.effects['Destiny Bond'] > 0:
+		logger.add_message('YOU ARE A FOOL!')
+		$"Enemy/EnemySounds/Blessings/Destiny Bond".play()
+		await get_tree().create_timer($"Enemy/EnemySounds/Blessings/Destiny Bond".stream.get_length()).timeout
+		$Player/BattleSounds/GameOver.play()
+		game_over()
+	else:
+		$Player.in_combat = false
+		$Enemy.hide()
+		LuckyItem(null)
+		await $Player.gain_experience($Enemy.experience)
+		await get_tree().create_timer(0.25).timeout
+		next_event()
 
 func end_battle():
 	$Player.in_combat = false
@@ -479,7 +498,7 @@ func trash_item(item):
 		next_event()
 	elif next_item:
 		# TODO: add something here
-		$Inventory.remove_item(item)
+		await $Inventory.remove_item(item)
 		$Inventory.add_item(next_item)
 		next_item = null
 		LuckyItem(null)
@@ -506,6 +525,8 @@ func game_over() -> void:
 	$Start.show()
 	if FileAccess.file_exists("user://savegame.save"):
 		$Reset.show()
+	else:
+		$Reset.hide()
 
 func next_event2(_obj) -> void:
 	next_event()
@@ -530,29 +551,33 @@ func Save(event):
 			'literal': $Inventory/Gems/Gem2._item
 		})
 	if $Inventory/Drinks/Drink1._item:
-		player_dict['items'].append({
-			'type': 'literal',
-			'literal': $Inventory/Drinks/Drink1._item
-		})
+		for i in range(int($Inventory/Drinks/Drink1.get_child(0).text)):
+			player_dict['items'].append({
+				'type': 'name',
+				'name': $Inventory/Drinks/Drink1._item['name']
+			})
 	if $Inventory/Drinks/Drink2._item:
-		player_dict['items'].append({
-			'type': 'literal',
-			'literal': $Inventory/Drinks/Drink2._item
-		})
+		for i in range(int($Inventory/Drinks/Drink2.get_child(0).text)):
+			player_dict['items'].append({
+				'type': 'name',
+				'name': $Inventory/Drinks/Drink2._item['name']
+			})
 	if $Inventory/Drinks/Drink3._item:
-		player_dict['items'].append({
-			'type': 'literal',
-			'literal': $Inventory/Drinks/Drink3._item
-		})
+		for i in range(int($Inventory/Drinks/Drink3.get_child(0).text)):
+			player_dict['items'].append({
+				'type': 'name',
+				'name': $Inventory/Drinks/Drink3._item['name']
+			})
 	if $Inventory/Drinks/Drink4._item:
-		player_dict['items'].append({
-			'type': 'literal',
-			'literal': $Inventory/Drinks/Drink4._item
-		})
+		for i in range(int($Inventory/Drinks/Drink4.get_child(0).text)):
+			player_dict['items'].append({
+				'type': 'name',
+				'name': $Inventory/Drinks/Drink4._item['name']
+			})
 	if $Inventory/Food._item:
 		player_dict['items'].append({
-			'type': 'literal',
-			'literal': $Inventory/Food._item
+			'type': 'name',
+			'name': $Inventory/Food._item
 		})
 	player_dict['event'] = section
 
