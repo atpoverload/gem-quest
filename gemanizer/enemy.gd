@@ -52,7 +52,7 @@ func set_enemy(enemy, level_):
 
 	# TODO: vary this?
 	var base_health = enemy['health']
-	base_health = base_health + level * (randi() % base_health)
+	base_health = base_health + randi() % (base_health * level)
 	log_state('set_enemy', 'setting health to %d' % base_health)
 	health.max_value = base_health
 	if 'resistances' in enemy:
@@ -173,6 +173,7 @@ func Attack(action_name, action):
 		if 'on_attack' in action:
 			_on_attack_effect(
 				action,
+				action['on_attack']['power'],
 				action['on_attack']['status'],
 				action['on_attack']['chance']
 			)
@@ -264,10 +265,10 @@ func ActTwice(action_name, action):
 	await take_action()
 	await get_tree().create_timer(0.3).timeout
 
-func _on_attack_effect(action, effect, on_attack_chance) -> void:
+func _on_attack_effect(action, power, effect, on_attack_chance) -> void:
 	log_state('_on_attack_effect', 'checking %d%% chance for %s' % [on_attack_chance, effect])
 	if trigger_check(on_attack_chance):
-		var power = action.get('power', sqrt(level))
+		#var power = action.get('power', sqrt(level))
 		var color = action.get('color', null)
 		log_state('on_attack_effect', 'applying %d stacks of %s %s' % [power, color, effect])
 		apply_curse.emit(effect, power, color)

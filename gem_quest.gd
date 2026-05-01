@@ -27,11 +27,17 @@ func _ready() -> void:
 	$Start.show()
 	if FileAccess.file_exists("user://savegame.save"):
 		$Reset.show()
+	var save_data = get_save_data()
+	if save_data and 'beat_game' in save_data and save_data['beat_game']:
+		$GemHunter.show()
+	else:
+		$GemHunter.hide()
 
 func delete_save():
 	DirAccess.remove_absolute("user://savegame.save")
 	for child in $LuckyItems/GridContainer.get_children():
 		$LuckyItems/GridContainer.remove_child(child)
+	$GemHunter.hide()
 
 func clear():
 	logger.add_message('Gem Quest')
@@ -54,10 +60,16 @@ func clear():
 	$Rest.hide()
 	$Dialogue.hide()
 	section = []
+	var save_data = get_save_data()
+	if save_data and 'beat_game' in save_data and save_data['beat_game']:
+		$GemHunter.show()
+	else:
+		$GemHunter.hide()
 
 func new_game():
 	# logger.add_message('%s enters the %s.' % [scenario['player']['name'], scenario['name']])
 	await setup_player()
+	$GemHunter.hide()
 
 	if not section:
 		section = $ResourceManager/EventManager.sections['Start'].duplicate()
@@ -73,7 +85,8 @@ func setup_player():
 
 	await $Player.set_player(player_data)
 	logger.add_message('Gained some experience.')
-	await $Player.gain_experience(100)
+	await $Player.gain_experience(100 * $Player.level())
+	$Player.health.adjust(9999)
 
 	$Inventory.disable(null)
 
@@ -84,7 +97,7 @@ func setup_player():
 		elif item['type'] == 'literal':
 			item['literal']['texture'] = load(item['literal']['texture'].split(')')[0].split('(')[-1])
 			$Inventory.add_item(item['literal'])
-		await get_tree().create_timer(0.45).timeout
+		await get_tree().create_timer(0.18).timeout
 	for emote in player_data['emotes']:
 		$Player.add_emote($ResourceManager/EmoteManager.emotes[emote])
 		await get_tree().create_timer(0.18).timeout
@@ -146,7 +159,7 @@ func Music(event):
 func Battle(event):
 	var enemy = get_enemy(event['enemy'])
 	var level_ = get_level(event['level'])
-	await $Enemy.set_enemy(enemy, level_)
+	await $Enemy.set_enemy(enemy, int(level_))
 	logger.add_message('%s arrives!' % enemy['name'])
 	await $Enemy.arrive()
 	$Player.in_combat = true
@@ -256,7 +269,7 @@ func Trap(event):
 				await $Trap/Damage.attack(2)
 				await get_tree().create_timer(0.25).timeout
 				$Player.sounds.hit.play()
-				await $Player.damaged(10 * challenge, null)
+				await $Player.damaged(2 * challenge, null)
 			'Curse':
 				$Trap/Curse.modulate = Color.WHITE
 				logger.add_message('%s triggered the trap!' % $Player.character_name)
@@ -291,6 +304,10 @@ func Puzzle(event):
 func solve_puzzle(event):
 	logger.add_message('Beat the level!')
 	$Arcade.hide()
+	$Arcade.stage = null
+	$Arcade.event = null
+	$Arcade.credits = 0
+	$Arcade/HBoxContainer/Label.text = '%dx' % $Arcade.credits
 	Callable.create(self, event['type']).call(event)
 
 func fail_puzzle():
@@ -408,9 +425,9 @@ func Rest(event):
 	logger.add_message('A moment to rest!')
 	$Rest.show()
 	for curse in $Player.curses.effects:
-		$Player.curses.adjust(curse, -$Player.curses.effects[curse] * $Player.health.max_value / 100)
+		$Player.curses.adjust(curse, -$Player.curses.effects[curse])
 	$Player.update()
-	await $Player.health.adjust(event['power'])
+	await $Player.health.adjust(event['power'] * $Player.health.max_value / 100)
 	await $Player.update()
 	next_event()
 
@@ -446,7 +463,9 @@ func Victory(event):
 	$GoldGem.show()
 	$SoundManager/Victory.play()
 	await get_tree().create_timer($SoundManager/Victory.stream.get_length()).timeout
+	await get_tree().create_timer(0.4).timeout
 	$GoldGem.hide()
+	save_game(true)
 	clear()
 	$Start.show()
 	if FileAccess.file_exists("user://savegame.save"):
@@ -458,6 +477,7 @@ func win_battle():
 	if 'Destiny Bond' in $Enemy.blessings.effects and $Enemy.blessings.effects['Destiny Bond'] > 0:
 		logger.add_message('YOU ARE A FOOL!')
 		$"Enemy/EnemySounds/Blessings/Destiny Bond".play()
+		$Player.health.adjust($Player.health.value - 1)
 		await get_tree().create_timer($"Enemy/EnemySounds/Blessings/Destiny Bond".stream.get_length()).timeout
 		$Player/BattleSounds/GameOver.play()
 		game_over()
@@ -533,6 +553,12 @@ func next_event2(_obj) -> void:
 
 func Save(event):
 	logger.add_message('Saving the game...')
+	save_game(false)
+	$SoundManager/Save.play()
+	await get_tree().create_timer(0.75).timeout
+	next_event()
+
+func save_game(beat_game):
 	var player_dict = $Player.to_dict()
 	player_dict['items'] = []
 	if $Inventory/Weapon._item:
@@ -549,6 +575,11 @@ func Save(event):
 		player_dict['items'].append({
 			'type': 'literal',
 			'literal': $Inventory/Gems/Gem2._item
+		})
+	if $Inventory/Gems/Gem3._item:
+		player_dict['items'].append({
+			'type': 'literal',
+			'literal': $Inventory/Gems/Gem3._item
 		})
 	if $Inventory/Drinks/Drink1._item:
 		for i in range(int($Inventory/Drinks/Drink1.get_child(0).text)):
@@ -574,26 +605,61 @@ func Save(event):
 				'type': 'name',
 				'name': $Inventory/Drinks/Drink4._item['name']
 			})
+	if $Inventory/Drinks/Drink5._item:
+		for i in range(int($Inventory/Drinks/Drink5.get_child(0).text)):
+			player_dict['items'].append({
+				'type': 'name',
+				'name': $Inventory/Drinks/Drink5._item['name']
+			})
+	if $Inventory/Drinks/Drink6._item:
+		for i in range(int($Inventory/Drinks/Drink6.get_child(0).text)):
+			player_dict['items'].append({
+				'type': 'name',
+				'name': $Inventory/Drinks/Drink6._item['name']
+			})
+	if $Inventory/Drinks/Drink7._item:
+		for i in range(int($Inventory/Drinks/Drink7.get_child(0).text)):
+			player_dict['items'].append({
+				'type': 'name',
+				'name': $Inventory/Drinks/Drink7._item['name']
+			})
+	if $Inventory/Drinks/Drink8._item:
+		for i in range(int($Inventory/Drinks/Drink8.get_child(0).text)):
+			player_dict['items'].append({
+				'type': 'name',
+				'name': $Inventory/Drinks/Drink8._item['name']
+			})
+	if $Inventory/Drinks/Drink9._item:
+		for i in range(int($Inventory/Drinks/Drink9.get_child(0).text)):
+			player_dict['items'].append({
+				'type': 'name',
+				'name': $Inventory/Drinks/Drink9._item['name']
+			})
+	if $Inventory/Drinks/Drink10._item:
+		for i in range(int($Inventory/Drinks/Drink10.get_child(0).text)):
+			player_dict['items'].append({
+				'type': 'name',
+				'name': $Inventory/Drinks/Drink10._item['name']
+			})
 	if $Inventory/Food._item:
 		player_dict['items'].append({
 			'type': 'name',
 			'name': $Inventory/Food._item
 		})
-	player_dict['event'] = section
+	if beat_game:
+		player_dict['beat_game'] = beat_game
+	else:
+		player_dict['event'] = section
 
 	var save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
 	var json_string = JSON.stringify(player_dict)
 	save_file.store_line(json_string)
 
-	$SoundManager/Save.play()
-	await get_tree().create_timer(0.75).timeout
-	next_event()
-
 func get_level(level):
 	match level:
 		'dynamic':
-			level = $Player.level()
-			return floori((75 * level + randi() % ceili(25 * level)) / 100)
+			level = max($Player.level(), 1)
+			return max(1, floori((75 * level + randi() % ceili(25 * level)) / 100))
 		_: return level
 
 func lose_puzzle():

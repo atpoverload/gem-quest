@@ -60,6 +60,9 @@
 [ext_resource type="AudioStream" uid="uid://cgcl343ddcvtj" path="res://resources/ui/sounds/button.mp3" id="53_ewepf"]
 [ext_resource type="Texture2D" uid="uid://cm02md0e0hqi5" path="res://resources/ui/sprites/Next.png" id="55_iih7d"]
 [ext_resource type="AudioStream" uid="uid://cvvuxn5qdxmn4" path="res://resources/ui/sounds/next.mp3" id="55_n1fin"]
+[ext_resource type="Texture2D" uid="uid://c1cldo3y1rn87" path="res://resources/events/sprites/Arcade.png" id="61_es4by"]
+[ext_resource type="Script" uid="uid://b5bdo08eujd73" path="res://gem_hunter.gd" id="62_rkrbs"]
+[ext_resource type="Texture2D" uid="uid://c132bujhdnal2" path="res://resources/ui/sprites/Back.png" id="63_rkrbs"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ikg3y"]
 
@@ -196,6 +199,7 @@ stream = ExtResource("20_7u0i8")
 
 [node name="Victory" type="AudioStreamPlayer2D" parent="SoundManager" unique_id=1048628935]
 stream = ExtResource("21_tx1qe")
+volume_db = -4.0
 
 [node name="Background" type="Control" parent="." unique_id=536149447]
 layout_mode = 3
@@ -648,6 +652,36 @@ flat = true
 [node name="Confirm" type="AudioStreamPlayer2D" parent="Reset" unique_id=1780629862]
 stream = ExtResource("53_ewepf")
 
+[node name="GemHunter" type="Control" parent="." unique_id=1392062527]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("62_rkrbs")
+
+[node name="GemHunter" type="TextureButton" parent="GemHunter" unique_id=612972342]
+layout_mode = 0
+offset_left = 923.0
+offset_top = 390.0
+offset_right = 1435.0
+offset_bottom = 902.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("61_es4by")
+
+[node name="Confirm" type="AudioStreamPlayer2D" parent="GemHunter/GemHunter" unique_id=857581837]
+stream = ExtResource("53_ewepf")
+
+[node name="Close" type="TextureButton" parent="GemHunter" unique_id=837763253]
+visible = false
+layout_mode = 0
+offset_left = 826.0
+offset_top = 418.0
+offset_right = 1338.0
+offset_bottom = 930.0
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("63_rkrbs")
+
 [connection signal="fetched_monster" from="ResourceManager/EnemyManager/RandomMonsterGenerator/PokemonResourceFetcher" to="ResourceManager/EnemyManager/RandomMonsterGenerator" method="add_monster"]
 [connection signal="apply_curse" from="Enemy" to="Player" method="cursed"]
 [connection signal="deal_damage" from="Enemy" to="Player" method="damaged"]
@@ -699,17 +733,21 @@ stream = ExtResource("53_ewepf")
 [connection signal="mouse_entered" from="Next" to="Description" method="show_description" binds= ["Next Room", "Action", "Move deeper into the game.", "", "Literacy is a bridge from misery to hope."]]
 [connection signal="mouse_exited" from="Next" to="Description" method="hide"]
 [connection signal="pressed" from="Next" to="." method="next_event"]
-[connection signal="pressed" from="Next" to="Next" method="release_focus"]
 [connection signal="pressed" from="Next" to="Next" method="hide"]
+[connection signal="pressed" from="Next" to="Next" method="release_focus"]
 [connection signal="pressed" from="Next" to="Next/Confirm" method="play"]
 [connection signal="pressed" from="Start" to="." method="new_game"]
-[connection signal="pressed" from="Start" to="Start" method="release_focus"]
 [connection signal="pressed" from="Start" to="Start" method="hide"]
+[connection signal="pressed" from="Start" to="Start" method="release_focus"]
 [connection signal="pressed" from="Start" to="Start/Confirm" method="play"]
 [connection signal="pressed" from="Start" to="Reset" method="hide"]
 [connection signal="mouse_entered" from="Reset" to="Description" method="show_description" binds= ["Reset", "Action", "Deletes existing saved data.", "", ""]]
 [connection signal="mouse_exited" from="Reset" to="Description" method="hide"]
 [connection signal="pressed" from="Reset" to="." method="delete_save"]
-[connection signal="pressed" from="Reset" to="Reset" method="release_focus"]
 [connection signal="pressed" from="Reset" to="Reset" method="hide"]
+[connection signal="pressed" from="Reset" to="Reset" method="release_focus"]
 [connection signal="pressed" from="Reset" to="Reset/Confirm" method="play"]
+[connection signal="pressed" from="GemHunter/GemHunter" to="GemHunter" method="_on_start_pressed"]
+[connection signal="pressed" from="GemHunter/GemHunter" to="GemHunter/GemHunter/Confirm" method="play"]
+[connection signal="pressed" from="GemHunter/Close" to="GemHunter" method="_on_close_pressed"]
+[connection signal="pressed" from="GemHunter/Close" to="GemHunter/GemHunter/Confirm" method="play"]

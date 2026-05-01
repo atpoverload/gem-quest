@@ -8,26 +8,44 @@ signal show_item;
 signal hide_item;
 signal next_event;
 
+var drinks
+var gems
+
 func log_state(method, message):
 	print("(%s)[inventory.gd][%s] %s" % [Time.get_datetime_string_from_system(), method, message])
 
 func _ready():
-	$Drinks/Drink1.hide()
-	$Drinks/Drink2.hide()
-	$Drinks/Drink3.hide()
-	$Drinks/Drink4.hide()
-	$Gems/Gem1.hide()
-	$Gems/Gem2.hide()
 	$Food.hide()
 	$Weapon.hide()
+	gems = [
+		$Gems/Gem1,
+		$Gems/Gem2,
+		$Gems/Gem3,
+	]
+	for gem in gems:
+		gem.hide()
+	drinks = [
+		$Drinks/Drink1, 
+		$Drinks/Drink2, 
+		$Drinks/Drink3, 
+		$Drinks/Drink4,
+		$Drinks/Drink5, 
+		$Drinks/Drink6, 
+		$Drinks/Drink7, 
+		$Drinks/Drink8,
+		$Drinks/Drink9,
+		$Drinks/Drink10,
+	]
+	for drink in drinks:
+		drink.hide()
 
 func _use_item(item):
 	use_item.emit(item)
 
 func _show_item(item):
 	var item_name = item['description']['name']
-	if 'genned_name' in item:
-		item_name = item['genned_name']
+	#if 'genned_name' in item:
+		#item_name = item['genned_name']
 	show_item.emit(
 		item_name,
 		item['description']['type'],
@@ -56,24 +74,24 @@ func add_weapon(item):
 	next_event.emit()
 
 func add_gem(item):
-	for gem in [$Gems/Gem1, $Gems/Gem2]:
+	for gem in gems:
 		if gem.is_empty():
 			$InventorySounds/GetItem.play()
 			log_message.emit('Got a %s' % item['name'])
 			gem.set_item(item)
 			next_event.emit()
 			return
-	for gem in [$Gems/Gem1, $Gems/Gem2]:
+	for gem in gems:
 		gem.enable()
 	drop_item.emit(item)
 
 func enable_gem():
-	for gem in [$Gems/Gem1, $Gems/Gem2]:
+	for gem in gems:
 		gem.enable()
 
 func add_drink(item):
 	# TODO: this is very hacky
-	for drink in [$Drinks/Drink1, $Drinks/Drink2, $Drinks/Drink3, $Drinks/Drink4]:
+	for drink in drinks:
 		if drink.is_empty():
 			$InventorySounds/GetItem.play()
 			log_message.emit('Got a %s' % item['name'])
@@ -88,7 +106,7 @@ func add_drink(item):
 			drink.get_child(0).show()
 			next_event.emit()
 			return
-	for drink in [$Drinks/Drink1, $Drinks/Drink2, $Drinks/Drink3, $Drinks/Drink4]:
+	for drink in drinks:
 		drink.enable()
 	drop_item.emit(item)
 
@@ -108,7 +126,7 @@ func add_freebie_item(item):
 		_: pass
 
 func add_freebie_drink(item):
-	for drink in [$Drinks/Drink1, $Drinks/Drink2, $Drinks/Drink3, $Drinks/Drink4]:
+	for drink in drinks:
 		if drink.is_empty():
 			$InventorySounds/GetItem.play()
 			#log_message.emit('Got a %s' % item['name'])
@@ -123,7 +141,7 @@ func add_freebie_drink(item):
 			drink.get_child(0).show()
 			#next_event.emit()
 			return
-	for drink in [$Drinks/Drink1, $Drinks/Drink2, $Drinks/Drink3, $Drinks/Drink4]:
+	for drink in drinks:
 		drink.enable()
 	#drop_item.emit(item)
 
@@ -133,42 +151,34 @@ func add_freebie_food(item):
 	$Food.set_item(item)
 
 func enable(_obj) -> void:
-	$Drinks/Drink1.enable()
-	$Drinks/Drink2.enable()
-	$Drinks/Drink3.enable()
-	$Drinks/Drink4.enable()
-	$Gems/Gem1.enable()
-	$Gems/Gem2.enable()
+	for drink in drinks:
+		drink.enable()
+	for gem in gems:
+		gem.enable()
 	$Food.enable()
 	$Weapon.enable()
 
 func enable2() -> void:
-	$Drinks/Drink1.enable()
-	$Drinks/Drink2.enable()
-	$Drinks/Drink3.enable()
-	$Drinks/Drink4.enable()
-	$Gems/Gem1.enable()
-	$Gems/Gem2.enable()
+	for drink in drinks:
+		drink.enable()
+	for gem in gems:
+		gem.enable()
 	$Food.enable()
 	$Weapon.enable()
 
 func disable(_obj) -> void:
-	$Drinks/Drink1.disable()
-	$Drinks/Drink2.disable()
-	$Drinks/Drink3.disable()
-	$Drinks/Drink4.disable()
-	$Gems/Gem1.disable()
-	$Gems/Gem2.disable()
+	for drink in drinks:
+		drink.disable()
+	for gem in gems:
+		gem.disable()
 	$Food.disable()
 	$Weapon.disable()
 
 func clear():
-	$Drinks/Drink1.remove_item()
-	$Drinks/Drink2.remove_item()
-	$Drinks/Drink3.remove_item()
-	$Drinks/Drink4.remove_item()
-	$Gems/Gem1.remove_item()
-	$Gems/Gem2.remove_item()
+	for drink in drinks:
+		drink.remove_item()
+	for gem in gems:
+		gem.remove_item()
 	$Food.remove_item()
 	$Weapon.remove_item()
 
@@ -188,8 +198,20 @@ func remove_item(item) -> void:
 				else:
 					$Gems/Gem1.set_item($Gems/Gem2._item)
 					item = $Gems/Gem2
+					if $Gems/Gem3.is_empty():
+						item = $Gems/Gem2
+					else:
+						$Gems/Gem2.set_item($Gems/Gem3._item)
+						item = $Gems/Gem3
 			elif not $Gems/Gem2.is_empty() and item_name == $Gems/Gem2._item['name']:
 				item = $Gems/Gem2
+				if $Gems/Gem3.is_empty():
+					item = $Gems/Gem2
+				else:
+					$Gems/Gem2.set_item($Gems/Gem3._item)
+					item = $Gems/Gem3
+			elif not $Gems/Gem3.is_empty() and item_name == $Gems/Gem3._item['name']:
+				item = $Gems/Gem3
 		'Drink':
 			if not $Drinks/Drink1.is_empty() and item_name == $Drinks/Drink1._item['name']:
 				item = $Drinks/Drink1
@@ -199,6 +221,18 @@ func remove_item(item) -> void:
 				item = $Drinks/Drink3
 			elif not $Drinks/Drink4.is_empty() and item_name == $Drinks/Drink4._item['name']:
 				item = $Drinks/Drink4
+			elif not $Drinks/Drink5.is_empty() and item_name == $Drinks/Drink5._item['name']:
+				item = $Drinks/Drink5
+			elif not $Drinks/Drink6.is_empty() and item_name == $Drinks/Drink6._item['name']:
+				item = $Drinks/Drink6
+			elif not $Drinks/Drink7.is_empty() and item_name == $Drinks/Drink7._item['name']:
+				item = $Drinks/Drink7
+			elif not $Drinks/Drink8.is_empty() and item_name == $Drinks/Drink8._item['name']:
+				item = $Drinks/Drink8
+			elif not $Drinks/Drink9.is_empty() and item_name == $Drinks/Drink9._item['name']:
+				item = $Drinks/Drink9
+			elif not $Drinks/Drink10.is_empty() and item_name == $Drinks/Drink10._item['name']:
+				item = $Drinks/Drink10
 		'Food':
 			if not $Food.is_empty() and item_name == $Food._item['name']:
 				item = $Food

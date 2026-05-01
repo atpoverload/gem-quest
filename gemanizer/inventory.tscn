@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://f0j3alt7tiq2" path="res://resources/items/sprites/Red Gem.png" id="5_ycwk7"]
 [ext_resource type="Texture2D" uid="uid://fo0gepbx3had" path="res://resources/items/sprites/Poutine.png" id="6_ramwb"]
 [ext_resource type="Texture2D" uid="uid://cbid15e52g1wo" path="res://resources/items/sprites/Rusty Sword.png" id="6_wumd0"]
+[ext_resource type="Texture2D" uid="uid://c1inqdr46k0gy" path="res://resources/items/sprites/Green Gem.png" id="7_0plax"]
 [ext_resource type="AudioStream" uid="uid://ctdear4fywrng" path="res://resources/player/sounds/get-item.wav" id="7_wumd0"]
 [ext_resource type="Texture2D" uid="uid://bt76pa2p3rnay" path="res://resources/player/sprites/Light Hands 2.png" id="8_t71i4"]
 [ext_resource type="Texture2D" uid="uid://chi4j070uuaa4" path="res://resources/player/sprites/Light Hands.png" id="8_v11io"]
@@ -61,6 +62,17 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("3_ycwk7")
 
+[node name="Gem3" type="TextureButton" parent="Gems" unique_id=1684107662]
+layout_mode = 0
+offset_left = 331.0
+offset_top = 261.0
+offset_right = 395.0
+offset_bottom = 325.0
+texture_normal = ExtResource("7_0plax")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_ycwk7")
+
 [node name="Food" type="TextureButton" parent="." unique_id=1809899030]
 layout_mode = 0
 offset_left = 94.0
@@ -100,12 +112,13 @@ script = ExtResource("9_t71i4")
 
 [node name="Drinks" type="GridContainer" parent="." unique_id=1278914668]
 layout_mode = 0
-offset_left = 205.0
+offset_left = 115.0
 offset_top = 429.0
-offset_right = 529.0
-offset_bottom = 585.0
+offset_right = 515.0
+offset_bottom = 601.0
 theme_override_constants/h_separation = -20
-columns = 4
+theme_override_constants/v_separation = -32
+columns = 5
 
 [node name="Drink1" type="TextureButton" parent="Drinks" unique_id=1211173037]
 custom_minimum_size = Vector2(96, 96)
@@ -199,6 +212,144 @@ text = "0"
 horizontal_alignment = 2
 vertical_alignment = 2
 
+[node name="Drink5" type="TextureButton" parent="Drinks" unique_id=2091544017]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture_normal = ExtResource("2_ycwk7")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_ycwk7")
+
+[node name="Label" type="Label" parent="Drinks/Drink5" unique_id=1764657018]
+layout_direction = 2
+layout_mode = 0
+offset_left = 50.0
+offset_top = 48.0
+offset_right = 76.0
+offset_bottom = 97.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 52
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Drink6" type="TextureButton" parent="Drinks" unique_id=1119618985]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture_normal = ExtResource("2_ycwk7")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_ycwk7")
+
+[node name="Label" type="Label" parent="Drinks/Drink6" unique_id=1493922893]
+layout_direction = 2
+layout_mode = 0
+offset_left = 53.0
+offset_top = 48.0
+offset_right = 79.0
+offset_bottom = 97.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 52
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Drink7" type="TextureButton" parent="Drinks" unique_id=251941621]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture_normal = ExtResource("2_ycwk7")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_ycwk7")
+
+[node name="Label" type="Label" parent="Drinks/Drink7" unique_id=2143728651]
+layout_direction = 2
+layout_mode = 0
+offset_left = 53.0
+offset_top = 48.0
+offset_right = 79.0
+offset_bottom = 97.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 52
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Drink8" type="TextureButton" parent="Drinks" unique_id=320201198]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture_normal = ExtResource("2_ycwk7")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_ycwk7")
+
+[node name="Label" type="Label" parent="Drinks/Drink8" unique_id=1737123548]
+layout_direction = 2
+layout_mode = 0
+offset_left = 56.0
+offset_top = 48.0
+offset_right = 82.0
+offset_bottom = 97.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 52
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Drink9" type="TextureButton" parent="Drinks" unique_id=1026301438]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture_normal = ExtResource("2_ycwk7")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_ycwk7")
+
+[node name="Label" type="Label" parent="Drinks/Drink9" unique_id=2008206060]
+layout_direction = 2
+layout_mode = 0
+offset_left = 56.0
+offset_top = 48.0
+offset_right = 82.0
+offset_bottom = 97.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 52
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Drink10" type="TextureButton" parent="Drinks" unique_id=91300162]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture_normal = ExtResource("2_ycwk7")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_ycwk7")
+
+[node name="Label" type="Label" parent="Drinks/Drink10" unique_id=2146855856]
+layout_direction = 2
+layout_mode = 0
+offset_left = 56.0
+offset_top = 48.0
+offset_right = 82.0
+offset_bottom = 97.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 52
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [connection signal="mouse_entered" from="Gems/Gem1" to="Gems/Gem1" method="_show_item"]
 [connection signal="mouse_exited" from="Gems/Gem1" to="." method="_hide_item"]
 [connection signal="pressed" from="Gems/Gem1" to="Gems/Gem1" method="_use_item"]
@@ -209,6 +360,11 @@ vertical_alignment = 2
 [connection signal="pressed" from="Gems/Gem2" to="Gems/Gem2" method="_use_item"]
 [connection signal="show_item" from="Gems/Gem2" to="." method="_show_item"]
 [connection signal="use_item" from="Gems/Gem2" to="." method="_use_item"]
+[connection signal="mouse_entered" from="Gems/Gem3" to="Gems/Gem3" method="_show_item"]
+[connection signal="mouse_exited" from="Gems/Gem3" to="." method="_hide_item"]
+[connection signal="pressed" from="Gems/Gem3" to="Gems/Gem3" method="_use_item"]
+[connection signal="show_item" from="Gems/Gem3" to="." method="_show_item"]
+[connection signal="use_item" from="Gems/Gem3" to="." method="_use_item"]
 [connection signal="mouse_entered" from="Food" to="Food" method="_show_item"]
 [connection signal="mouse_exited" from="Food" to="." method="_hide_item"]
 [connection signal="show_item" from="Food" to="." method="_show_item"]
@@ -238,3 +394,30 @@ vertical_alignment = 2
 [connection signal="pressed" from="Drinks/Drink4" to="Drinks/Drink4" method="_use_item"]
 [connection signal="show_item" from="Drinks/Drink4" to="." method="_show_item"]
 [connection signal="use_item" from="Drinks/Drink4" to="." method="_use_item"]
+[connection signal="mouse_entered" from="Drinks/Drink5" to="Drinks/Drink5" method="_show_item"]
+[connection signal="mouse_exited" from="Drinks/Drink5" to="." method="_hide_item"]
+[connection signal="pressed" from="Drinks/Drink5" to="Drinks/Drink5" method="_use_item"]
+[connection signal="show_item" from="Drinks/Drink5" to="." method="_show_item"]
+[connection signal="use_item" from="Drinks/Drink5" to="." method="_use_item"]
+[connection signal="mouse_entered" from="Drinks/Drink6" to="Drinks/Drink6" method="_show_item"]
+[connection signal="mouse_exited" from="Drinks/Drink6" to="." method="_hide_item"]
+[connection signal="pressed" from="Drinks/Drink6" to="Drinks/Drink6" method="_use_item"]
+[connection signal="show_item" from="Drinks/Drink6" to="." method="_show_item"]
+[connection signal="use_item" from="Drinks/Drink6" to="." method="_use_item"]
+[connection signal="mouse_entered" from="Drinks/Drink7" to="Drinks/Drink7" method="_show_item"]
+[connection signal="mouse_exited" from="Drinks/Drink7" to="." method="_hide_item"]
+[connection signal="pressed" from="Drinks/Drink7" to="Drinks/Drink7" method="_use_item"]
+[connection signal="show_item" from="Drinks/Drink7" to="." method="_show_item"]
+[connection signal="use_item" from="Drinks/Drink7" to="." method="_use_item"]
+[connection signal="mouse_entered" from="Drinks/Drink8" to="Drinks/Drink8" method="_show_item"]
+[connection signal="mouse_exited" from="Drinks/Drink8" to="." method="_hide_item"]
+[connection signal="pressed" from="Drinks/Drink8" to="Drinks/Drink8" method="_use_item"]
+[connection signal="show_item" from="Drinks/Drink8" to="." method="_show_item"]
+[connection signal="use_item" from="Drinks/Drink8" to="." method="_use_item"]
+[connection signal="mouse_entered" from="Drinks/Drink9" to="Drinks/Drink9" method="_show_item"]
+[connection signal="mouse_exited" from="Drinks/Drink9" to="." method="_hide_item"]
+[connection signal="pressed" from="Drinks/Drink9" to="Drinks/Drink9" method="_use_item"]
+[connection signal="show_item" from="Drinks/Drink9" to="." method="_show_item"]
+[connection signal="use_item" from="Drinks/Drink9" to="." method="_use_item"]
+[connection signal="mouse_entered" from="Drinks/Drink10" to="Drinks/Drink10" method="_show_item"]
+[connection signal="pressed" from="Drinks/Drink10" to="Drinks/Drink10" method="_use_item"]

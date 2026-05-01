@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://bfrdv1hgj3k7w" path="res://resources/curses/sounds/burnt.mp3" id="18_jha66"]
 [ext_resource type="AudioStream" uid="uid://cdn08hefrd6yj" path="res://resources/enemies/sounds/psycho-boost.mp3" id="19_5qpng"]
 [ext_resource type="AudioStream" uid="uid://djd6eqg5t1eqw" path="res://resources/curses/sounds/freeze.mp3" id="19_aeeun"]
+[ext_resource type="AudioStream" uid="uid://bcq3sw6mm5pop" path="res://resources/curses/sounds/doom.mp3" id="19_ukhnq"]
 [ext_resource type="AudioStream" uid="uid://svoi54rrtpub" path="res://resources/curses/sounds/banish.mp3" id="20_fnhql"]
 [ext_resource type="AudioStream" uid="uid://ceiyvsdc43xc8" path="res://resources/curses/sounds/shock.mp3" id="20_wocx5"]
 [ext_resource type="AudioStream" uid="uid://cl4uiu48tmfc2" path="res://resources/curses/sounds/break.mp3" id="21_aeeun"]
@@ -185,6 +186,9 @@ stream = ExtResource("23_t5cah")
 
 [node name="Flinch" type="AudioStreamPlayer2D" parent="EnemySounds/Curses" unique_id=2116365158]
 stream = ExtResource("22_jwf5h")
+
+[node name="Doom" type="AudioStreamPlayer2D" parent="EnemySounds/Curses" unique_id=244135651]
+stream = ExtResource("19_ukhnq")
 
 [node name="Banish" type="AudioStreamPlayer2D" parent="EnemySounds/Curses" unique_id=2046638995]
 stream = ExtResource("20_fnhql")

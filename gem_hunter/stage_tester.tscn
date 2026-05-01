@@ -41,7 +41,6 @@ script = ExtResource("1_437l7")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1683788656]
 stream = ExtResource("3_6ctv0")
 volume_db = -12.0
-autoplay = true
 
 [node name="Label" type="Label" parent="." unique_id=1841724552]
 offset_left = 875.0
@@ -65,11 +64,19 @@ volume_db = 5.0
 
 [node name="Button" type="Button" parent="." unique_id=1978177229]
 offset_left = 868.0
+offset_top = 367.0
+offset_right = 1173.0
+offset_bottom = 410.0
+theme_override_font_sizes/font_size = 28
+text = "Load From Clipboard"
+
+[node name="Button2" type="Button" parent="." unique_id=2031830258]
+offset_left = 868.0
 offset_top = 311.0
 offset_right = 1173.0
 offset_bottom = 354.0
 theme_override_font_sizes/font_size = 28
-text = "Load From Clipboard"
+text = "Save to Clipboard"
 
 [node name="Arcade" parent="." unique_id=1891670607 instance=ExtResource("2_6ctv0")]
 
@@ -124,5 +131,6 @@ alignment = 2
 [connection signal="item_selected" from="OptionButton" to="." method="set_stage"]
 [connection signal="item_selected" from="OptionButton" to="OptionButton/AudioStreamPlayer2D" method="play"]
 [connection signal="pressed" from="Button" to="." method="start_from_clipboard"]
+[connection signal="pressed" from="Button2" to="." method="save_stage"]
 [connection signal="lose" from="Arcade" to="." method="lose"]
 [connection signal="win" from="Arcade" to="." method="_reset"]

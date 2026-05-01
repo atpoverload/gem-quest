@@ -126,9 +126,9 @@ func to_dict():
 	var strn = aff['Strength'] + stats.strength
 	var mag = aff['Magic'] + stats.magic
 	var total = hp + strn + mag
-	aff['Health']  = ceili((hp / total) * level())
-	aff['Strength']  = ceili((strn / total) * level())
-	aff['Magic']  = ceili((mag / total) * level())
+	aff['Health']  = ceili((hp / total) * 10)
+	aff['Strength']  = ceili((strn / total) * 10)
+	aff['Magic']  = ceili((mag / total) * 10)
 	return {
 		'name': character_name,
 		'affinities': aff,
@@ -137,7 +137,7 @@ func to_dict():
 
 func level():
 	# TODO: reasses this equation
-	var level_ = ceili(pow(
+	var level_ = max(ceili(pow(
 		#stats.strength
 		#+ stats.magic
 		#+ health.max_value
@@ -147,8 +147,8 @@ func level():
 		+ affinities['Green']
 		+ affinities['Orange']
 		+ affinities['Purple']
-		+ affinities['Pink']) / 25
-		, 1.73))
+		+ affinities['Pink']) / 7
+		, 1.13)), 1)
 	return level_
 
 # experience
@@ -208,10 +208,11 @@ func gain_level():
 
 	var lvl_ = 1
 	if health.max_value > base_affinities['Health']:
-		lvl_ = level()	
-	stats.strength += strength / lvl_
-	stats.magic += magic / lvl_
-	health.max_value += hp / lvl_
+		var stat_lvl = stats.strength + stats.magic + health.max_value
+		lvl_ = level()
+	stats.strength += max(1, strength / lvl_)
+	stats.magic += max(1, magic / lvl_)
+	health.max_value += max(1, hp / lvl_)
 	affinities['Strength'] = base_affinities['Strength']
 	affinities['Magic'] = base_affinities['Magic']
 	affinities['Health'] = base_affinities['Health']
@@ -221,7 +222,7 @@ func gain_level():
 func stat_growth(value_name, a, b, c, d):
 	# magic equation i made up to get stat gains from 4 stats:
 	# ((0..a) + (0..c) + (0..d)) * (1 + log10((0..b) + 1))
-	var lower = randi() % a
+	var lower = a # randi() % a
 	var roll = randi() % c
 	var upper = randi() % d
 	var factor_roll = randi() % b + 1
@@ -335,7 +336,7 @@ func act():
 # calcs
 func strength_damage(power):
 	# base damage modifiers
-	var base_damage = 2 * ceil(sqrt(stats.strength * power))
+	var base_damage = 2 * ceil(sqrt(stats.strength) * power)
 
 	# damage roll
 	var damage = boost_damage(damage_roll(base_damage))
@@ -370,7 +371,7 @@ func attack(weapon):
 	var weapon_name = weapon['name']
 	log_state('attack', 'attacking with %s' % weapon_name)
 	gain_affinity('Strength')
-	gain_affinity('Health')
+	#gain_affinity('Health')
 	if 'color' in weapon: gain_affinity(weapon['color'])
 	else: gain_affinity('White')
 	log_message.emit('%s attacks.' % character_name)
@@ -382,13 +383,14 @@ func attack(weapon):
 	if await accuracy_check(action.get('accuracy', 100)):
 		var damage = strength_damage(action['power'])
 		var do_attack_again = false
+		blessed(-max(1, ceili(blessings.effects['Boost'] / 2)), null, 'Boost')
 		if trigger_check(attack_again):
 			log_message.emit('%s attacks twice' % character_name)
 			do_attack_again = true
 			damage *= 1.5
 			$BattleSounds/Attack.play()
 			await act()
-			await get_tree().create_timer($BattleSounds/Attack.stream.get_length()).timeout
+			await get_tree().create_timer($BattleSounds/Attack.stream.get_length() - 0.25).timeout
 		damage = await critical_hit(damage)
 		var color = weapon.get('color', 'Weapon')
 		if color: log_state('attack', 'attacking with %s for %d %s damage' % [weapon_name, damage, color])
@@ -438,7 +440,7 @@ func invoke(gem):
 	var gem_name = gem['name']
 	log_state('invoke', 'using the %s' % gem_name)
 	gain_affinity('Magic')
-	gain_affinity('Health')
+	#gain_affinity('Health')
 	gain_affinity(color)
 	log_message.emit('%s uses the %s.' % [character_name, gem_name])
 	$BattleSounds/Gem.play()
@@ -479,34 +481,30 @@ func invoke(gem):
 					do_attack_again = true
 					damage *= 1.5
 					await act()
-					await get_tree().create_timer(0.3).timeout
+					await get_tree().create_timer(0.5).timeout
 				damage = await critical_hit(damage)
 				log_state('invoke', 'attacking with %s for %d %s damage' % [gem_name, damage, color])
 				deal_damage.emit(damage, color)
 				for effect in on_attack:
 					if on_attack[effect] is Dictionary:
 						for e in on_attack[effect]:
-							if on_attack[effect][e] > 0:
-								_on_attack_effect(gem, e, 100)
+							await _on_attack_effect(gem, e, on_attack[effect][e])
 					else:
-						if on_attack[effect] > 0:
-							_on_attack_effect(gem, effect, 100)
-				
+						await _on_attack_effect(gem, effect, on_attack[effect])
+
 				if do_attack_again:
 					if attack_again > 0:
 						for effect in on_attack:
 							if on_attack[effect] is Dictionary:
 								for e in on_attack[effect]:
-									if on_attack[effect][e] > 0:
-										_on_attack_effect(gem, e, 100)
+									await _on_attack_effect(gem, e, on_attack[effect][e])
 							else:
-								if on_attack[effect] > 0:
-									_on_attack_effect(gem, effect, 100)
+								await _on_attack_effect(gem, effect, on_attack[effect])
 			else:
 				await miss()
 		'AddCurse':
 			if not await freeze():
-				var power = ceili(sqrt(magic_damage(action['power'])))
+				var power = 2 * ceili(sqrt(magic_damage(action['power'])))
 				var status = action['status']
 				log_state('gem', 'applying %d stacks of %s %s' % [power, color, status])
 				apply_curse.emit(status, power, color)
@@ -521,7 +519,7 @@ func invoke(gem):
 			match action['effect']:
 				'AffinityUp':
 					for affinity in affinities:
-						if affinity not in ['Strength', 'Magic', 'Health']:
+						if affinity not in ['Strength', 'Magic', 'Health', 'White'] and randi() % 100 < 50:
 							gain_affinity(affinity)
 				_: pass
 			$BattleSounds/Crickets.play()
@@ -535,7 +533,7 @@ func invoke(gem):
 func quaff(drink):
 	var drink_name = drink['name']
 	log_state('quaff', 'drinking %s' % drink_name)
-	gain_affinity('Health')
+	#gain_affinity('Health')
 	gain_affinity('Health')
 	if 'color' in drink: gain_affinity(drink['color'])
 	else: gain_affinity('White')
@@ -557,7 +555,7 @@ func quaff(drink):
 func eat(food):
 	var food_name = food['name']
 	log_state('eat', 'eating %s' % food_name)
-	gain_affinity('Health')
+	#gain_affinity('Health')
 	gain_affinity('Health')
 	if 'color' in food: gain_affinity(food['color'])
 	else: gain_affinity('White')
@@ -590,6 +588,14 @@ func _snack(action):
 				'All':
 					for curse in curses.effects:
 						await curses.adjust(curse, -curses.effects[curse])
+				'Any':
+					var curse_pool = []
+					for curse in curses.effects:
+						if curses.effects[curse] > 0:
+							curse_pool.append(curse)
+					var curse = curse_pool.pick_random()
+					if curse:
+						await curses.adjust(curse, -curses.effects[curse])
 				_: await curses.adjust(status, -curses.effects[status])
 		'AddBlessing':
 			var power = action['power']
@@ -611,21 +617,6 @@ func _on_attack_effect(weapon, effect, on_attack_chance) -> void:
 	log_state('_on_attack_effect', 'checking %d%% chance for %s' % [on_attack_chance, effect])
 	if trigger_check(on_attack_chance):
 		match effect:
-			#'AttackAgain':
-				#log_message.emit('%s attacks again' % character_name)
-				#await act()
-				#if await accuracy_check(weapon.get('accuracy', 100)):
-					#await get_tree().create_timer(0.3).timeout
-					#var damage = int(ceil(strength_damage(weapon['action']['power']) / 2))
-					#damage = await critical_hit(damage)
-					#var color = weapon.get('color', null)
-					#if color:
-						#log_state('on_attack_effect', 'attacking with %s for %d %s damage' % [weapon['name'], damage, color])
-					#else:
-						#log_state('on_attack_effect', 'attacking with %s for %d damage' % [weapon['name'], damage])
-					#deal_damage.emit(damage, color)
-				#else:
-					#await miss()
 			'Boost':
 				# TODO: not sure about how to scale this
 				var power = sqrt(level())
@@ -657,7 +648,7 @@ func _break_gem(gem):
 		await get_tree().create_timer($BattleSounds/BreakGem.stream.get_length()).timeout
 		break_gem_chance = 0
 	else:
-		break_gem_chance += 5
+		break_gem_chance += 2
 
 func use_item(item) -> void:
 	if not in_combat:

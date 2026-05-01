@@ -8,7 +8,11 @@ var _item = {};
 
 func enable():
 	disabled = false
-	modulate = Color.WHITE
+	if _item and _item['type'] == 'Weapon' and 'color' in _item:
+		match['color']:
+			_: modulate = Color.RED
+	else:
+		modulate = Color.WHITE
 
 func disable():
 	disabled = true

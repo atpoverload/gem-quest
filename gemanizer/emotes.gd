@@ -17,7 +17,7 @@ func add_emote(emote):
 				emote_group.adjust(emote['name'], 1)
 				emotes[emote['name']] += 1
 				return
-			elif emote_group.get_child_count() < 3:
+			elif emote_group.get_child_count() < 4:
 				emote_group.add_effects({emote['name']: emote})
 				emote_group.adjust(emote['name'], 1)
 				emotes[emote['name']] = 1

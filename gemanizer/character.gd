@@ -156,10 +156,11 @@ func blessed(power: int, color: Variant, blessing: String) -> void:
 	log_state('blessed', 'power: %s, color: %s, blessing: %s' % [power, color, blessing])
 	log_state('blessed', 'applying %d stacks of %s' % [power, blessing])
 	blessings.adjust(blessing, power)
-	log_message.emit('%s gains %s.' % [character_name, blessing])
-	sounds.blessings[blessing].play()
-	await sprite.attack(2)
-	await get_tree().create_timer(sounds.blessings[blessing].stream.get_length()).timeout
+	if power > 0:
+		log_message.emit('%s gains %s.' % [character_name, blessing])
+		sounds.blessings[blessing].play()
+		await sprite.attack(2)
+		await get_tree().create_timer(sounds.blessings[blessing].stream.get_length()).timeout
 
 # things that are used with actions
 func accuracy_check(chance_to_hit: int) -> bool:
@@ -172,8 +173,14 @@ func accuracy_check(chance_to_hit: int) -> bool:
 	var chance = randi() % 100
 	if await shock():
 		chance_to_hit = shock_accuracy(chance_to_hit)
-	log_state('accuracy_check', 'chance to hit %d < %d = %s' % [chance, chance_to_hit, chance < chance_to_hit])
-	return chance < chance_to_hit
+		log_state('accuracy_check', 'chance to hit with shock %d < %d = %s' % [chance, chance_to_hit, chance < chance_to_hit])
+		if chance < chance_to_hit:
+			log_message.emit('%s shook it off.' % character_name)
+			await sprite.attack(1)
+		return chance < chance_to_hit
+	else:
+		log_state('accuracy_check', 'chance to hit %d < %d = %s' % [chance, chance_to_hit, chance < chance_to_hit])
+		return chance < chance_to_hit
 
 func damage_roll(base_damage):
 	# damage modifiers
@@ -289,6 +296,7 @@ func flinch() -> bool:
 	if value > 0:
 		log_state('flinch', 'value: %d' % value)
 		log_message.emit('%s flinched.' % character_name)
+		sprite.shake(5, 0.08, 12)
 		await sprite.damaged(1)
 		await get_tree().create_timer(0.25).timeout
 		curses.adjust('Flinch', -value)
@@ -309,9 +317,9 @@ func doom() -> bool:
 		await damaged(health.value, null)
 		return true
 	else:
-		curses.effects['Doom'] += 1
+		cursed('Doom', 1, null)
 		log_message.emit('%s is doomed...' % character_name)
-		await sprite.shake(3, 0.25, 1)
+		await sprite.shake(3, 0.12, 12)
 		await get_tree().create_timer(0.25).timeout
 
 		return false

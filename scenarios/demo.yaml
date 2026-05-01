@@ -232,7 +232,7 @@ items:
       color: Red
       action:
         type: Attack
-        power: 2
+        power: 1
         accuracy: 85
         on_attack:
           action: AddCurse
@@ -254,8 +254,8 @@ items:
       color: Blue
       action:
         type: Attack
-        power: 2
-        accuracy: 95
+        power: 1
+        accuracy: 85
         on_attack:
           action: AddCurse
           status: Freeze
@@ -275,7 +275,7 @@ items:
       color: Purple
       action:
         type: Attack
-        power: 2
+        power: 1
         accuracy: 85
         on_attack:
           action: AddCurse
@@ -289,7 +289,7 @@ items:
       action:
         type: Weapon
         power: 1
-        accuracy: 100
+        accuracy: 85
       flavor: Attacks with an angelic sword.
     - name: Sodie Pop
       type: Drink
@@ -301,20 +301,38 @@ items:
       type: Drink
       action:
         type: Heal
-        power: 100
+        power: 90
       flavor: A sodie-pop type medicine for treating wounds.
     - name: Hyper Sodie
       type: Drink
       action:
         type: Heal
-        power: 150
+        power: 120
+      flavor: A sodie-pop type medicine for treating wounds.
+    - name: Mega Sodie
+      type: Drink
+      action:
+        type: Heal
+        power: 180
+      flavor: A sodie-pop type medicine for treating wounds.
+    - name: Giga Sodie
+      type: Drink
+      action:
+        type: Heal
+        power: 300
+      flavor: A sodie-pop type medicine for treating wounds.
+    - name: Gem Sodie
+      type: Drink
+      action:
+        type: Heal
+        power: 999
       flavor: A sodie-pop type medicine for treating wounds.
     - name: Grape Sodie
       type: Drink
       action:
         type: RemoveCurse
-        status: Poison
-      flavor: A sodie-pop type medicine for treating poison.
+        status: Any
+      flavor: A sodie-pop type medicine that is somewhat effective.
     - name: Maple Sodie
       type: Drink
       action:
@@ -327,34 +345,36 @@ items:
         type: AffinityUp
         affinities:
           - White
-          - Red
-          - Blue
           - Green
-          - Orange
           - Purple
-          - Pink
-      flavor: A cold-one type drink that increases intellect.
+      flavor: A cold-one type drink that increases fortitude.
     - name: Cold Red
       type: Drink
       action:
-        type: AddBlessing
-        status: Boost
-        power: 10
+        type: AffinityUp
+        affinities:
+          - White
+          - Red
+          - Orange
       flavor: A cold-one type drink that increases strength.
     - name: Cold Green
       type: Drink
       action:
-        type: AddBlessing
-        status: Lucky
-        power: 5
+        type: AffinityUp
+        affinities:
+          - White
+          - Green
+          - Pink
       flavor: A cold-one type drink that increases luck.
     - name: Cold Blue
       type: Drink
       action:
-        type: AddBlessing
-        status: Shield
-        power: 3
-      flavor: A cold-one type drink that increases defense.
+        type: AffinityUp
+        affinities:
+          - White
+          - Blue
+          - Purple
+      flavor: A cold-one type drink that increases intellect.
     - name: Poutine
       type: Food
       action:
@@ -389,17 +409,17 @@ items:
       Master Sword: 16
       Buster Sword: 16
     Sodie 1:
-      Sodie Pop: 60
-      Super Sodie: 35
-      Hyper Sodie: 5
+      Sodie Pop: 25
+      Super Sodie: 50
+      Hyper Sodie: 25
     Sodie 2:
-      Sodie Pop: 30
-      Super Sodie: 60
-      Hyper Sodie: 10
+      Hyper Sodie: 25
+      Mega Sodie: 50
+      Giga Sodie: 25
     Sodie 3:
-      Sodie Pop: 10
-      Super Sodie: 60
-      Hyper Sodie: 30
+      Mega Sodie: 25
+      Giga Sodie: 50
+      Gem Sodie: 25
     Restore 1:
       Grape Sodie: 95
       Maple Sodie: 5
@@ -537,7 +557,7 @@ emotes:
       passive:
         type: Stat
         stat: Freebie
-        item_type: Food
+        item_type: Drink
         chance: 11
       flavor: "clips.twitch.tv/lightorias/clip/SpineyLaconicMarjoramTBTacoLeft-PuKhkj\
         GvoPOlOaLL"
@@ -887,62 +907,62 @@ actions:
       action:
         type: Attack
         power: 2
-        accuracy: 90
-        on_attack:
-          action: AddCurse
-          status: Burnt
-          power: 5
-          chance: 90
-      text: casts Fire
-    - name: Fira
-      action:
-        type: Attack
-        power: 4
-        accuracy: 90
+        accuracy: 75
         on_attack:
           action: AddCurse
           status: Burnt
           power: 10
-          chance: 90
+          chance: 50
+      text: casts Fire
+    - name: Fira
+      action:
+        type: Attack
+        power: 2
+        accuracy: 75
+        on_attack:
+          action: AddCurse
+          status: Burnt
+          power: 10
+          chance: 75
       text: casts Firaga
     - name: Firaga
       action:
         type: Attack
-        power: 8
-        accuracy: 90
+        power: 2
+        accuracy: 75
         on_attack:
           action: AddCurse
           status: Burnt
-          power: 20
+          power: 10
           chance: 90
       text: casts Firaga
     - name: Blizzard
       action:
         type: Attack
         power: 2
-        accuracy: 90
+        accuracy: 75
         on_attack:
           action: AddCurse
           status: Freeze
-          power: 5
-          chance: 90
+          power: 20
+          chance: 50
       text: casts Blizzard
     - name: Blizzara
       action:
         type: Attack
-        power: 4
-        accuracy: 90
+        power: 2
+        accuracy: 75
         on_attack:
           action: AddCurse
           status: Freeze
-          power: 10
-          chance: 90
+          power: 20
+          chance: 75
       text: casts Blizzara
     - name: Blizzaga
       action:
         type: Attack
-        power: 8
-        accuracy: 90
+        power: 2
+        accuracy: 75
         on_attack:
           action: AddCurse
           status: Freeze
@@ -952,151 +972,151 @@ actions:
     - name: Poison
       action:
         type: Attack
-        power: 1
-        accuracy: 90
+        power: 2
+        accuracy: 75
         on_attack:
           action: AddCurse
           status: Poison
-          power: 10
-          chance: 90
+          power: 5
+          chance: 50
       text: casts Poison
     - name: Poisona
       action:
         type: Attack
-        power: 1
-        accuracy: 90
+        power: 2
+        accuracy: 75
         on_attack:
           action: AddCurse
           status: Poison
-          power: 20
-          chance: 90
+          power: 5
+          chance: 75
       text: casts Poisona
     - name: Poisaga
       action:
         type: Attack
-        power: 1
-        accuracy: 90
+        power: 2
+        accuracy: 75
         on_attack:
           action: AddCurse
           status: Poison
-          power: 40
+          power: 5
           chance: 90
       text: casts Poisaga
     - name: Break
       action:
         type: Attack
         power: 2
-        accuracy: 90
+        accuracy: 75
         on_attack:
           action: AddCurse
           status: Break
-          power: 20
-          chance: 90
+          power: 10
+          chance: 50
       text: casts Break
     - name: Breaka
       action:
         type: Attack
-        power: 4
-        accuracy: 90
+        power: 2
+        accuracy: 75
         on_attack:
           action: AddCurse
           status: Break
-          power: 20
-          chance: 90
+          power: 10
+          chance: 75
       text: casts Breaka
     - name: Breakaga
       action:
         type: Attack
-        power: 8
-        accuracy: 90
+        power: 2
+        accuracy: 75
         on_attack:
           action: AddCurse
           status: Break
-          power: 40
+          power: 10
           chance: 90
       text: casts Breakaga
     - name: Thunder
       action:
         type: Attack
         power: 2
-        accuracy: 90
-        on_attack:
-          action: AddCurse
-          status: Shock
-          power: 5
-          chance: 90
-      text: casts Thunder
-    - name: Thundara
-      action:
-        type: Attack
-        power: 4
-        accuracy: 90
+        accuracy: 75
         on_attack:
           action: AddCurse
           status: Shock
           power: 10
-          chance: 90
+          chance: 50
+      text: casts Thunder
+    - name: Thundara
+      action:
+        type: Attack
+        power: 2
+        accuracy: 75
+        on_attack:
+          action: AddCurse
+          status: Shock
+          power: 10
+          chance: 75
       text: casts Thundara
     - name: Thundaga
       action:
         type: Attack
-        power: 8
-        accuracy: 90
+        power: 2
+        accuracy: 75
         on_attack:
           action: AddCurse
           status: Shock
-          power: 20
+          power: 10
           chance: 90
       text: casts Thundaga
     - name: Sleep
       action:
         type: Attack
         power: 2
-        accuracy: 90
+        accuracy: 75
         on_attack:
           action: AddCurse
           status: Sleep
           power: 10
-          chance: 90
+          chance: 50
       text: casts Sleep
     - name: Sleepa
       action:
         type: Attack
-        power: 4
-        accuracy: 90
+        power: 2
+        accuracy: 75
         on_attack:
           action: AddCurse
           status: Sleep
-          power: 20
-          chance: 90
+          power: 10
+          chance: 75
       text: casts Sleepa
     - name: Sleepaga
       action:
         type: Attack
-        power: 8
-        accuracy: 90
+        power: 2
+        accuracy: 75
         on_attack:
           action: AddCurse
           status: Sleep
-          power: 40
-          chance: 90
+          power: 10
+          chance: 0
       text: casts Sleepaga
     # Healing
-    - name: Synthesis
+    - name: Cure
       action:
         type: Heal
         power: 25
-      text: uses Synthesis
-    - name: Milk Drink
+      text: casts Cure
+    - name: Cura
       action:
         type: Heal
         power: 50
-      text: uses Milk Drink
-    - name: Recover
+      text: casts Cura
+    - name: Curaga
       action:
         type: Heal
         power: 75
-      text: uses Recover
+      text: casts Curaga
     # Curse
     - name: Yawn
       action:
@@ -1105,27 +1125,6 @@ actions:
         power: 2
         accuracy: 50
       text: uses Yawn
-    - name: Sleep Powder
-      action:
-        type: AddCurse
-        status: Sleep
-        power: 2
-        accuracy: 75
-      text: uses Sleep Powder
-    - name: Poison Gas
-      action:
-        type: AddCurse
-        status: Poison
-        power: 2
-        accuracy: 50
-      text: uses Poison Gas
-    - name: Poison Powder
-      action:
-        type: AddCurse
-        status: Poison
-        power: 2
-        accuracy: 75
-      text: uses Poison Powder
     - name: Tail Whip
       action:
         type: AddCurse
@@ -1141,24 +1140,18 @@ actions:
         accuracy: 85
       text: uses Leer
     # Blessing
-    - name: Sharpen
-      action:
-        type: AddBlessing
-        status: Boost
-        power: 5
-      text: uses Sharpen
-    - name: Swords Dance
+    - name: Sharp
       action:
         type: AddBlessing
         status: Boost
         power: 20
-      text: uses Swords Dance
-    - name: Protect
+      text: casts Sharp
+    - name: Shell
       action:
         type: AddBlessing
         status: Shield
         power: 100
-      text: uses Protect
+      text: casts Shell
     # LigMakuni
     - name: Light ATK
       action:
@@ -1200,8 +1193,8 @@ actions:
     - name: Guillotine
       action:
         type: Attack
-        power: 100000
-        accuracy: 1
+        power: 999
+        accuracy: 33
       text: uses Guillotine
     - name: Perish Song
       action:
@@ -1210,25 +1203,17 @@ actions:
         power: 1
         accuracy: 100
       text: uses Perish Song
-    - name: Toxic
+    - name: Hydro Pump
       action:
-        type: AddCurse
-        status: Drain
-        power: 2
-        accuracy: 100
-      text: uses Toxic
-    - name: Spore
-      action:
-        type: AddCurse
-        status: Sleep
-        power: 10
-        accuracy: 100
-      text: uses Spore
+        type: Attack
+        power: 5
+        accuracy: 80
+      text: uses Hydro Pump
     - name: Psycho Boost
       action:
         type: Attack
-        power: 10
-        accuracy: 100
+        power: 6
+        accuracy: 90
       text: uses Psycho Boost
     - name: Destiny Bond
       action:
@@ -1419,7 +1404,7 @@ enemies:
           chance: 25
       resistances:
         Red: 0.5
-        Purple: 2
+        Orange: 2
       experience: 50
       flavor: Its chat are long and very sharp. They chat continuously, so it one guys
         streamers to whittle them down.
@@ -1769,9 +1754,9 @@ enemies:
       color: Red
       health: 10
       actions:
-        - name: Swords Dance
+        - name: Sharp
           chance: 40
-        - name: Scratch
+        - name: Firaga
           chance: 40
         - name: Focus
           chance: 20
@@ -1787,11 +1772,9 @@ enemies:
       color: Blue
       health: 10
       actions:
-        - name: Protect
-          chance: 20
-        - name: Slash
-          chance: 20
-        - name: Sleep Powder
+        - name: Shell
+          chance: 40
+        - name: Blizzaga
           chance: 40
         - name: Focus
           chance: 20
@@ -1807,9 +1790,9 @@ enemies:
       color: Green
       health: 10
       actions:
-        - name: Synthesis
+        - name: Cura
           chance: 40
-        - name: Poison Powder
+        - name: Poisaga
           chance: 40
         - name: Focus
           chance: 20
@@ -1825,9 +1808,9 @@ enemies:
       color: Orange
       health: 10
       actions:
-        - name: Slash
+        - name: Sharp
           chance: 40
-        - name: Sharpen
+        - name: Breakaga
           chance: 40
         - name: Focus
           chance: 20
@@ -1837,15 +1820,15 @@ enemies:
         Purple: 2
       experience: 100
       flavor: It is said to make any lap come true. It chats for only seven streams
-        out of a thousand subathons.
+        during a subathon.
     - name: Purple GEMaster
       battlecry: gemlord
       color: Purple
       health: 10
       actions:
-        - name: Protect
+        - name: Shell
           chance: 40
-        - name: Poison Powder
+        - name: Thundaga
           chance: 40
         - name: Focus
           chance: 20
@@ -1861,9 +1844,9 @@ enemies:
       color: Pink
       health: 10
       actions:
-        - name: Quick Attack
+        - name: Cura
           chance: 40
-        - name: Screech
+        - name: Sleepaga
           chance: 40
         - name: Focus
           chance: 20
@@ -1878,7 +1861,7 @@ enemies:
     - name: KEKking
       battlecry: slaking
       color: White
-      health: 50
+      health: 30
       actions:
         - name: Loaf
           chance: 60
@@ -1905,7 +1888,7 @@ enemies:
           chance: 60
       resistances:
         Purple: 0.5
-        Orange: 2
+        Pink: 2
       experience: 200
       flavor: Its chats are extremely fine, dense, and supple. The exquisitely
         pleasant fur conveys an image of laps.
@@ -1915,14 +1898,14 @@ enemies:
       health: 7
       actions:
         - name: Scratch
-          chance: 75
+          chance: 60
         - name: Slash
-          chance: 24
+          chance: 30
         - name: Guillotine
-          chance: 1
+          chance: 10
       resistances:
         Red: 0.5
-        Purple: 2
+        Orange: 2
       experience: 200
       flavor: Its large and hard chats has 10,000-lappower strength. However, being so
         funny, it is unwieldy to ban.
@@ -1932,20 +1915,34 @@ enemies:
       health: 12
       actions:
         - name: Headbutt
-          chance: 60
+          chance: 50
         - name: Mega Kick
-          chance: 35
+          chance: 30
         - name: Perish Song
-          chance: 5
+          chance: 20
       resistances:
         Blue: 0.5
         Green: 2
       experience: 200
-      flavor:
+      flavor: A frozen MamoMakuni was dug from logs dating back 10,000 years. This
+        chatter has been around a long, long, long time.
+    - name: RotomMakuni
+      battlecry: rotom
+      color: Blue
+      health: 12
+      actions:
+        - name: Hydro Pump
+          chance: 100
+      resistances:
+        Blue: 0.5
+        Green: 2
+      experience: 200
+      flavor: Its chatter-like body can enter streams and take control in order to
+        make mischief.
     - name: DeoxyMakuni
       battlecry: deoxys
       color: Green
-      health: 20
+      health: 16
       actions:
         - name: Psycho Boost
           chance: 50
@@ -1973,9 +1970,8 @@ enemies:
       Ratty: 33
       Evorun: 34
     Forest 2:
-      Joelge: 30
-      Ratty: 30
-      Evorun: 30
+      Joelge: 50
+      Evorun: 50
     Forest 3:
       Ratty: 100
     Cave 1:
@@ -1991,19 +1987,15 @@ enemies:
       Sneak: 80
       Sneaker: 20
     Dungeon 2:
+      Dire Joelge: 10
       Red GEMite: 30
       Blue GEMite: 30
       Green GEMite: 30
-      Orange GEMonger: 3
-      Purple GEMonger: 3
-      Pink GEMonger: 4
     Dungeon 3:
+      Dire Joelge: 10
       Orange GEMite: 30
       Purple GEMite: 30
       Pink GEMite: 30
-      Red GEMonger: 3
-      Blue GEMonger: 3
-      Green GEMonger: 4
     Temple 1:
       Red GEMite: 17
       Blue GEMite: 17
@@ -2704,7 +2696,7 @@ arcade:
 player:
   name: Light
   affinities:
-    Health: 10
+    Health: 5
     Strength: 5
     Magic: 5
     White: 1
@@ -2786,6 +2778,7 @@ events:
             kind: Gem
           - type: kind
             kind: Gem
+      - type: Altar
       - type: Reward
         rewards:
           - type: kind
@@ -2853,8 +2846,6 @@ events:
       - type: EventSection
         location: Space
       - type: Save
-      - type: Music
-        music: Lofi Zelda
       - type: Victory
     Forest:
       - type: Background
@@ -3144,6 +3135,11 @@ events:
           type: Name
           name: MamoMakuni
         level: dynamic
+      - type: Battle
+        enemy:
+          type: Name
+          name: RotomMakuni
+        level: dynamic
       - type: EventSection
         location: Boss Reward
       - type: Dialogue
@@ -3233,6 +3229,11 @@ events:
         enemy:
           type: Name
           name: MamoMakuni
+        level: dynamic
+      - type: Battle
+        enemy:
+          type: Name
+          name: RotomMakuni
         level: dynamic
       - type: Battle
         enemy:

@@ -43,5 +43,13 @@ func start_from_clipboard() -> void:
 		current_stage = stage
 		$Arcade.stage = current_stage
 		$Arcade.event = 'no event here'
+		$OptionButton.selected = -1
 	else:
 		$Logger/Background/Message/ScrollLogger.add_message('Unable to load from clipboard')
+
+
+func save_stage() -> void:
+	# Get the current contents of the clipboard
+	var stage_yaml = YAML.stringify(current_stage).get_data()
+	print(stage_yaml)
+	DisplayServer.clipboard_set(stage_yaml)

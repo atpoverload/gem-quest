@@ -79,4 +79,4 @@ func from_pool(pool):
 		chance += pool[item]
 		if choice < chance:
 			return items[item]
-	return items[items.keys().pick_random()]
+	return pool[pool.keys().pick_random()]
